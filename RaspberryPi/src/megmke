@@ -1,0 +1,16 @@
+# meg makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = megm.c meg1.c meg2.c
+PROGRAM = meg
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = megm.o meg1.o meg2.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+megm.o:megm.c meg.h
+meg1.o:meg1.c meg.h
+meg2.o:meg2.c meg.h

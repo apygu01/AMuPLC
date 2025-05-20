@@ -1,0 +1,26 @@
+ ///Middle staff/////ttt_018.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-m0000001  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000002  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000003  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000004  -1______0______1______2______*______4______5______6______7velo P_Exp
+==0000005============================================================$$$$$$$$$$
+final.....................................................................final
+$$$$Middle staff$$$$$ttt_018.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$

@@ -1,0 +1,13 @@
+ mnew fn
+          fn : File name
+      Option : -h(help)
+               -m(message)
+ usage: e.g.
+
+      mnew www -m
+ > mnew www -m
+ mnew wwwrds.dat
+ mnew wwwcpj.dat
+ mnew wwwcpi.dat
+ mnew www.dat
+

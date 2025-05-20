@@ -1,0 +1,11 @@
+cp /usr/home/pc98da2/ram/mex*.h .
+cp /usr/home/pc98da2/ram/mex*.c .
+qkc -ue mex.h 
+qkc -ue mexm.c 
+qkc -ue mexw.c 
+qkc -ue mex1.c 
+qkc -ue mex2.c 
+qkc -ue mex3.c 
+qkc -ue mex4.c 
+qkc -ue mex5.c 
+qkc -ue mex6.c 

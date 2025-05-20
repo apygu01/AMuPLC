@@ -1,0 +1,153 @@
+ ///Middle staff/////mz1_00a.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete large brackets lines}                 <<                            >>
+ {Delete parenthesis lines}                    <<                            >>
+ {Delete square lines}                         <<                            >>
+ {Change dumper signs}                         <<   First column space is    >>
+ {Modify dumper signs}                         <<   comment line.            >>
+ {Delete symbol lines}                         <<                            >>
+ {Delete plus lines}                           <<                            >>
+ {Delete comment lines}                        <<                            >>
+ {Delete chord lines}                          <<                            >>
+ {Delete expand lines}                         <<                            >>
+ {Delete dumper signs}                         <<                            >>
+ {Renumber bar lines}                          <<                            >>
+ {Generate phrase files}                       <<                            >>
+ {Exchange parenthesis to large brackets}      <<                            >>
+ {Exchange large brackets to parenthesis}      <<                            >>
+ {Reset beautify values}                       <<                            >>
+ {Reset gate_rate values}                      <<                            >>
+ {Reset pitch_vend values}                     <<                            >>
+ {Reset moduration values}                     <<                            >>
+ {Reset controle_number values}                <<                            >>
+ {Reset controle_data values}                  <<                            >>
+ {Reset program_change values}                 <<                            >>
+ {Reset transpose values}                      <<                            >>
+ {Reset velocity_base values}                  <<                            >>
+ {Reset Dynamic expand symbols}                <<                            >>
+ {Decode dynamic expand note lines} unit = n   <<   unit : note _/ = 1000    >>
+ {Generate beautify symbols}                   <<                            >>
+ {Clear notes}                                 <<                            >>
+ {Observe other notes}                         <<                            >>
+ {Clear observed notes}                        <<                            >>
+ {Clear P_Exp symbols}                         <<                            >>
+ {Reset Exp symbols}                           <<                            >>
+>{Observe chord notes}                         <<                            >>
+>{Observe available note scale}                <<                            >>
+ {Reset chord & available notes}               <<                            >>
+ {Include expanded note lines}                 <<<-|                         >>
+ {Show expanded note lines}                    <<<-|                         >>
+ {Hide expanded note lines}                    <<<-|   Switch Command        >>
+ {Save expanded note lines}                    <<<-|  (Select One)           >>
+ {Reload expand files}                         <<<-|                         >>
+ {Save & Store expand files}                   <<<-|                         >>
+ {Save & Regist expand files}                  <<<-|                         >>
+ {Store expand files}                          <-  fn_exp.mph -> fn.mph      >>
+ {Regist expand files}                         <-  fn_exp.mph -> meb.mph     >>
+ {Exchange global chord select to progression lines}                         >>
+ {Exchange global chord progression to select lines}                         >>
+ {Change chord progression lines}              <<                            >>
+ {Part_Transposition xx}                       <<                            >>
+ {Decode Dynamic expand note lines}            <<                            >>
+#define Chord_base_position 4
+#define Chord_velocity_chars "....."
+#define Available_note_scale_base_position 5
+#define Available_note_scale_velocity_chars "......"
+Title/////////////////////////////////////////////////////////////////////Title
+{m.m. _/ = 90}
+{$R:anim}
+{$&4/4 D_minor}
+{$2:Advance_Chord_Progression}
+ #include TACT/megdrum1.dat <- DrumSet File
+ #include TACT/megchd.dat <- Chord
+ #set gate_rate o/ = %93
+ $2:Default_Chord_Progression
+ $2:Advance_Chord_Progression
+ $5:Default_Voicing
+ $5:Close 3Way_Close 4Way_Close 5Way_Close
+ $5:Drop2 Drop3 Drop2&4
+ $5:Open 4Way_Spread 5Way_Spread
+ $5:Low_Base_add_Top
+ $5:Low_Base
+$A:Default_Scale
+ $A:Default_2oct.Scale
+ $A:Original_Scale
+ $A:Natural_Minor_Scale
+ $A:Natural_Minor_2oct.Scale
+ $A:Harmonic_Minor_Scale
+ $A:Harmonic_Minor_2oct.Scale
+ $A:Melodic_Minor_Scale
+ $A:Melodic_Minor_2oct.Scale
+ *+dxp 4 n = "02 1 3 0" r = "4 4 4 4" v = "5 5 5 5"
+ $M:Pure_Mersenne
+ $M:Pure_Mersenne_1-8ch
+ $M:Pure_Mersenne_9-16ch
+ $M:Pure_Q50
+ $M:Pure_Q50_1-8ch
+ $M:Pure_Q50_9-16ch
+ $M:Pythagorean
+ $M:Werckmeister
+ $M:Pure_Temperament
+
+-m0000001  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!Im Dm minor chord ,Root+m3+P5 T-> IVm,(IV),VI,&III}
+%80 O                                           . . .  ........      12.8 ._...
+-m0000002  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!IVm/II Gm minor on E chord ,Root+m3+P5 SD-> V7,Im,II%,VIIdim,&VII}
+%93 o/                                           . 6 6 .             12.8 ._...
+%93 o/                                           . . . .             12.8 ._...
+-m0000003  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!IIm7 Em7 minor 7th chord ,Root+m3+P5+m7 SD->}
+%82 o/[4                                         7 . + .             12.8 ._...
+%82 [                                            . 7 $ .             12.8 ._...
+%82 [                                            . . 7 .             12.8 ._...
+%82 [                                            . . + 8             12.8 ._...
+{!Vm7 Am7 minor 7th chord ,Root+m3+P5+m7 D->}
+%82 o/[4                                            8 . . ..x...o..  12.8 ._...
+%82 [                                             7 . . . ..x...o..  12.8 ._...
+%82 [                                            7  . . . ..x...o..  12.8 ._...
+%82 [                                           6   . . . ..x...o..  12.8 ._...
+-m0000004  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!Im/V Dm minor on A chord ,Root+m3+P5 T-> IVm,(IV),VI,&III}
+%93 o/                                       .  6 6 .                12.8 ._...
+%82 o/[4                                   6 .  . . .                12.8 ._...
+%82 [                                        6  . . .                12.8 ._...
+%82 [                                        .  6 . .                12.8 ._...
+%82 [                                        5  . . .                12.8 ._...
+-m0000005  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!Im7 Dm7 minor 7th chord ,Root+m3+P5+m7 T-> IV7}
+%93 o/                                          . . . ......x..      12.8 ._...
+{!&VI7 B@7 Dominant 7th chord ,Root+M3+P5+m7 SD-> test}
+%93 _/                                            # . + . ..+++.+..  12.8 ._...
+{!I D ,Major chord ,Root+M3+P5 -> xyz}
+%93 _/                                          8 8 .                12.8 ._...
+-m0000006  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!IIm7 Em7 minor 7th chord ,Root+m3+P5+m7 SD->}
+%93 o/                                           . . + .             12.8 ._...
+{!Vm7 Am7 minor 7th chord ,Root+m3+P5+m7 D->}
+%82 o/[4                                            . .7. ..x...o..  12.8 ._...
+%82 [                                               . . 7 ..x...o..  12.8 ._...
+%82 [                                               . . : ..x...o..  12.8 ._...
+%82 [                                               . . .7..x...o..  12.8 ._...
+-m0000007  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!Im Dm minor chord ,Root+m3+P5 T-> IVm,(IV),VI,&III}
+%80 _/                                          . . .  ........      12.8 ._...
+{!Vm7 Am7 minor 7th chord ,Root+m3+P5+m7 D->}
+%93 _/                                              . .8. .8x...o..  12.8 ._...
+%93 o/                                              . . . ..x...o..  12.8 ._...
+-m0000008  -1______0______1______2______*______4______5______6______7velo P_Exp
+{!Im Dm minor chord ,Root+m3+P5 T-> IVm,(IV),VI,&III}
+%93 o/                                          . 6 6  ........      12.8 ._...
+%93 o/                                          . . .  ........      12.8 ._...
+==0000009============================================================$$$$$$$$$$
+final.....................................................................final
+$$$$Middle staff$$$$$mz1_00a.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

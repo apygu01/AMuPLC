@@ -1,0 +1,455 @@
+
+// ---------------------------
+// LPC1788 Play Sample code
+// Mexplay-sample.lpc
+
+/*
+
+  AMuPLC : Appyo Music Programming Language Compiler
+  Copyright (c) 2025 appyo.ht All rights reserved.
+
+  This program is distributed in the hope that it will be useful and/or
+  interesting, but WITHOUT ANY WARRANTY; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+  This is released under the MIT license.
+  https://opensource.org/licenses/mit-license.php
+
+*/
+
+
+void midiout_chk()
+{
+    union MCODE u;
+    union CHTOL {
+        unsigned char wc[4];
+        long wl;
+    } d;
+    unsigned char iword[6];
+    unsigned char c,c1,cf,ckp;
+    int  barn;
+    int  sequ;
+    int  nxtgetf;
+    int  swbrkf;
+    int  Svmpte;
+
+    // LED_ON();  // check
+    sequ = 0;
+    barn = 0;
+    swbrkf = 0;
+    //t_cnt = 0;
+    Gstop = 0;
+    nxtgetf = 0;
+    // ls->smpte = 1;
+    ls->mtcnt = 0;
+    ls->mtchh = 0;
+    ls->mtcmm = 0;
+    ls->mtcss = 0;
+    ls->mtcff = 0;
+    ls->smptyp = 3;    // SMPTE  type
+    ls->smptef = 30;   // SMPTE 30 flame
+    //ls->mexres = 80;   // 1/80 flame
+    // ls->modx = (ls->smptef * ls->mexres) / (30 * 4);
+    // ls->modx = ls->mexres / 8;   // flame / 8 ?
+    dt = 0;
+    //mtclr();
+    ls->subclk = 5; /* first lag */
+    //ls->mtclk = 0;  // MTC int clock
+    while(1) {
+        if(Gstop == 2) {        //Pose
+          Gstop = 0;
+          Svmpte = ls->smpte;
+          ls->smpte = 0;
+          while(1) {
+            if(Gstop) {
+              ls->smpte = Svmpte;
+              Gstop = 0;
+              break;
+            }
+          }
+        }
+        if(nxtgetf) c = c1;
+        else c = qretrive();
+        nxtgetf = 0;
+        if(Gstop == 8) {
+            UPutch1(ESC);
+            lpbye = 1;
+            ls->smpte = 0;
+            break;   // Stop
+        }
+        /*
+        if(c == 0xef) {
+            Gstop = 9;
+            break;
+        }
+         */
+        if(swbrkf) {  // Play end
+            Gstop = 99;
+            break;
+        }
+        //if(t_cnt > 6000) SeqLED_sleep();
+        switch(c) {
+            case  0xf1 : iword[0] = c;
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             t_cnt = 0; // 2017.11.25 test OK
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                             d.wc[0] = iword[3];
+                             d.wc[1] = iword[2];
+                             d.wc[2] = iword[1] & 0x7f;
+                             d.wc[3] = 0;
+                             dt = d.wl;
+                             if(dt > 60000) dt = 2400; // 1 sec test
+                             if(dt < 0) dt = 1000; //test
+                             while(t_cnt < dt) {
+                               if(t_cnt == 24000) UPutch1(XON);
+                               //if(t_cnt > (dt - 1000)) UPutch1(XOFF);
+                             }
+                             //t_cnt = 0;
+                             //ls->subclk = 0;
+                         }
+                         break;
+            case  0xf0 : // Send MTC full message
+                         //ls->mtchh = 1;
+                         c1 = qretrive();
+                         cf = c1 & 0x7f;
+                         if(cf) {
+                             //smpteout(c);
+                             //smpteout(c1);
+                             fltime();
+                             ls->smpte = 1;
+                             //ls->mtchh = 2;
+                         }
+                         else {
+                             nxtgetf = 1;
+                             // ls->mtchh = 3;
+                         }
+                         break;
+            case  0xf8 : iword[0] = c;           // f8 code bypass
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                         }
+                         break;
+            case  0xfa : iword[0] = c;           // fa code bypass
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                         }
+                         break;
+            case  0xfb : iword[0] = c;           // fb code check 
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                             iword[0] &= 0x00;
+                             iword[1] &= 0x7f;
+                             compchk_mex(&u,iword);
+                             sequ = u.wi[0];
+                             barn = u.wi[1];
+                             sprintf(num,"%02d-%05d\r",sequ,barn);
+                             LEDput0_str(num);   // uart0 out
+                             //LEDput2_str(num);   // uart2 out
+                         }
+                         break;
+            case  0xfd : iword[0] = c;           // fd code check
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                             ckport = iword[1] & 0x7f;
+                             ckp = ckport | 0xf0;
+                             UPutch_midi(ckp);     // Send Port Data
+                             //UPutch2(ckp);  // Send Port Data to EXP
+                             // cktrak = iword[2];
+                             // ckmemb = iword[3];
+                         }
+                         break;
+            case  0xe6 : iword[0] = c;           // e6 code check 
+                         c1 = qretrive();
+                         iword[1] = c1;
+                         cf = iword[1] & 0x80;
+                         if(!cf) {
+                             UPutch_midi(iword[0]);
+                             nxtgetf = 1;
+                         }
+                         else {
+                             iword[2] = qretrive();
+                             iword[3] = qretrive();
+                             iword[1] &= 0x7f;
+                             if(iword[1] == 6) {
+                                 ls->smpte = 1;
+                                 // lv->mtcport = iword[3];
+                             }
+                             //if(iword[1] == 8) ls->smpte = 0;
+                         }
+                         break;
+                         // eof (ff 2f 00) code check             
+            case  0xff : iword[0] = c;
+                         iword[1] = qretrive();
+                         iword[2] = qretrive();
+                         if(iword[1] == 0x2f && iword[2] == 0x00) {
+                             swbrkf = 1;
+                             ls->smpte = 0;
+                         }
+                         else {
+                             UPutch_midi(iword[0]);
+                             UPutch_midi(iword[1]);
+                             c1 = iword[2]; // add 2016.11.23
+                             nxtgetf = 1;
+                         }
+                         break;
+            default    : UPutch_midi(c);
+                         break;
+        }
+    }
+}
+
+int Anote_off()
+{
+    int  i,j,k;
+    char c1,c2;
+
+    for(i = 0; i < 16; i++) {
+        for(j = 0; j < 127; j++) {
+            c1 = 0x80 | (char)i;
+            UPutch3(c1);
+            UPutch4(c1);
+            c2 = 0x7f & (char)j;
+            UPutch3(c2);
+            UPutch4(c2);
+            UPutch3(0x00);
+            UPutch4(0x00);
+        }
+    }
+    /*
+    for(k = 2; k <= 6 ; k++) {
+        UPutch2(k | 0xf0);  // EXP Port 2 - Port 6 Midi Clear
+        for(i = 0; i < 16; i++) {
+            for(j = 0; j < 127; j++) {
+                c1 = 0x80 | (char)i;
+                UPutch2(c1);   // EXP
+                c2 = 0x7f & (char)j;
+                UPutch2(c2);   // EXP
+                UPutch2(0x00); // EXP
+            }
+        }
+    }
+    */
+    for(k = 2; k <= 6 ; k++) {
+        UPutch2(k | 0xf0);  // EXP Port 2 - Port 6 Midi Clear
+        for(i = 0; i < 16; i++) {
+            c1 = 0xB0 | (char)i;  // Cannel Mode Message All Note OFF
+            UPutch2(c1);
+            c2 = 123 & 0xff;
+            UPutch2(c2);
+            UPutch2(0x00);
+        }
+    }
+    return(0);
+}
+
+int smpteout(c)
+unsigned char c;
+{
+    UPutch3(c);
+    return(0);
+}
+
+int putmtc_rpi(c)
+unsigned char c;
+{
+    UPutch3(c);
+    return(0);
+}
+
+int fltime()
+{
+    unsigned char c;
+    //int  c;
+
+    // Channel
+    c = qretrive();
+    smpteout(c);
+    
+    // 01 MIDI Time code
+    c = qretrive();
+    smpteout(c);
+    
+    // Full Time Code Message
+    c = qretrive();
+    smpteout(c);
+    
+    // hf Hours and Type
+    c = qretrive();
+    ls->mtchh = (c & 0x1f);
+    smpteout(c);
+    
+    // Mimutes
+    c = qretrive();
+    ls->mtcmm = (c & 0x7f);
+    smpteout(c);
+    
+    // Seconds
+    c = qretrive();
+    ls->mtcss = (c & 0x7f);
+    //ls->mtcss = c & 0x0000007f;
+    //ls->mtcss = 30; // test
+    smpteout(c);
+    
+    // Fremes
+    c = qretrive();
+    ls->mtcff = (c & 0x7f);
+    smpteout(c);
+    
+    // EOX
+    c = qretrive();
+    smpteout(c);
+    //while(1) if(t_cnt > 2400 * 2) break;
+    return(0);
+}
+
+int mtclr()
+{
+    putmtc_rpi(0xf0);
+    putmtc_rpi(0x7f);
+    putmtc_rpi(0x7f);
+    putmtc_rpi(0x01);
+    putmtc_rpi(0x01);
+    putmtc_rpi(0x60); // 30 freames non drop
+    putmtc_rpi(0x00);
+    putmtc_rpi(0x00);
+    putmtc_rpi(0x00);
+    putmtc_rpi(0xf7);
+    return(0);
+}
+
+void mtcout_rpi()
+{
+    int  qf;
+    unsigned char  mb;
+    int  yy;
+
+    qf = ls->mtcnt % 8;
+    putmtc_rpi(0xf1);
+    switch(qf) {
+        case  0 : /* f1 0x */
+                  putmtc_rpi(ls->mtcff & 0x0f);
+                  break;
+        case  1 : /* f1 1x */
+                  mb = ls->mtcff >> 4;
+                  mb = mb & 0x01;
+                  mb = mb | 0x10;
+                  putmtc_rpi(mb);
+                  break;
+        case  2 : /* f1 2x */
+                  mb = ls->mtcss & 0x0f;
+                  mb = mb | 0x20;
+                  putmtc_rpi(mb);
+                  break;
+        case  3 : /* f1 3x */
+                  mb = ls->mtcss >> 4;
+                  mb = mb & 0x03;
+                  mb = mb | 0x30;
+                  putmtc_rpi(mb);
+                  break;
+        case  4 : /* f1 4x */
+                  mb = ls->mtcmm & 0x0f;
+                  mb = mb | 0x40;
+                  putmtc_rpi(mb);
+                  break;
+        case  5 : /* f1 5x */
+                  mb = ls->mtcmm >> 4;
+                  mb = mb & 0x03;
+                  mb = mb | 0x50;
+                  putmtc_rpi(mb);
+                  break;
+        case  6 : /* f1 6x */
+                  mb = ls->mtchh & 0x0f;
+                  mb = mb | 0x60;
+                  putmtc_rpi(mb);
+                  break;
+        case  7 : /* f1 7x   x yy zzzzz */
+                  yy = ls->smptyp << 1;
+                  yy = yy & 0x06;
+                  mb = ls->mtchh >> 4;
+                  mb = mb & 0x01;
+                  mb = mb | yy;
+                  mb = mb | 0x70;
+                  putmtc_rpi(mb & 0x77);
+                  /*
+                  ls->mtcff = ls->mtcff + 1;
+                  if(ls->mtcff >= ls->smptef) {
+                      ls->mtcff = 0;
+                      ls->mtcss++;
+                  }
+                  */
+                  ls->mtcff = ls->mtcff + 2;
+                  if(ls->mtcff >= ls->smptef) {
+                      ls->mtcff = 0;
+                      ls->mtcss++;
+                  }
+                  if(ls->mtcss >= 60) {
+                      ls->mtcss = 0;
+                      ls->mtcmm++;
+                  }
+                  if(ls->mtcmm >= 60) {
+                      ls->mtcmm = 0;
+                      ls->mtchh++;
+                  }
+                  break;
+        default : break;
+    }
+    ls->mtcnt++;
+}
+
+int UPutch_midi(c)
+unsigned char c;
+{
+    //return(99); // test
+    switch(ckport) {
+        case  0 : UPutch3(c);    // Port 0
+                   break;
+        case  1 : UPutch4(c);    // Port 1
+                   break;
+        default : UPutch2(c);   // EXP Tx2
+                   //t_cnt = t_cnt + 2400;  // test + 1 Sec MTC Ajust NG
+                   break;
+    }
+
+    return(0);
+}
+

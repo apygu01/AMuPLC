@@ -1,0 +1,26 @@
+ ///Soprano staff////www_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$www_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$

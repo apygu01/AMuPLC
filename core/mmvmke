@@ -1,0 +1,15 @@
+# Mmv makefile
+CC = cc -Wno-implicit-function-declaration
+#CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = mmv.c
+PROGRAM = mmv
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mmv.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mmv.o:mkf.c mmv.h

@@ -1,0 +1,17 @@
+ /////////////////////////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////////////////////////////////////////////////////////////////Title
+
+ ---Instruments---
+ @Inst. Comment
+

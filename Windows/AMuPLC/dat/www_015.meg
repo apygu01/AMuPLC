@@ -1,0 +1,24 @@
+ /////////////////////////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////////////////////////////////////////////////////////////////Title
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+==00$$$$$ ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

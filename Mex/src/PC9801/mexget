@@ -1,0 +1,5 @@
+cd /usr/home/pc98da2/work
+cp -r mex* /usr/home/hitoshi/tki
+cd
+cd tki
+mexd2u 

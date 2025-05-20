@@ -1,0 +1,59 @@
+ /////////////////////////////////////////////////////////////////////////////!
+ =====Move & Change File,Bar,Port,Chan(1-16)=======                           !
+ Instruments        File     Bar   Port  Chan  Memb  Device     PC# @inst cm. !
+@(MusicBox)         015_...  S_.   1_..   6_..    7  GM          11           !
+@(Piano)            018_...  M_.   1_..   9_..   10  GM           1           !
+ ==================================Read instruments from meb.dat(fn.dat) file !
+                  Sequence                       Channel       Port Member    !
+        0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF                !
+C     . ....................................                                  !
+C  00 . C...................................  .........S......    0      1    !
+C  10 . ....................................  S...............    1      2    !
+C  11 . ....................................  .S..............    1      3    !
+C  12 . ....................................  ..S.............    1      4    !
+C  13 . ....................................  ...S............    1      5    !
+C  14 . ....................................  ....S...........    1      6    !
+C  15 . S...................................  .....S..........    1      7    !
+C  16 . ....................................  ......S.........    1      8    !
+C  17 . ....................................  .......S........    1      9    !
+C  18 . M...................................  ........S.......    1     10    !
+C  19 . ....................................  .........S......    1     11    !
+C  1a . ....................................  ..........S.....    1     12    !
+C  1b . ....................................  ...........S....    1     13    !
+C  1c . ....................................  ............S...    1     14    !
+C  1d . ....................................  .............S..    1     15    !
+C  1e . ....................................  ..............S.    1     16    !
+C  1f . ....................................  ...............S    1     17    !
+        0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF                !
+             file name                                                        !
+      C(c) : Conductor score                  S : Select channel              !
+      G(g) : Gclef staff                                                      !
+      S(s) : Soprano staff                                                    !
+      A(a) : Alto staff                                                       !
+      B(b) : Bass staff                                                       !
+      M(m) : Middle staff (piano)                                             !
+      L(l) : Low staff                                                        !
+      H(h) : High staff                                                       !
+      R(r) : Rhythm staff                                                     !
+      Upper Case(Active), Lower Case(sleep)                                   !
+                                                                              !
+      & : Add file (From members top file)                                    !
+      * : Copy & Move source file                                             !
+      + : Copy destination file                                               !
+      @ : Move destination file                                               !
+      / : Remove file                                                         !
+      ? : Check file                                                          !
+      } : Large char to Small char                                            !
+      { : Small char to Large char                                            !
+      > : Right Shift                                                         !
+      < : Left Shift                                                          !
+                                                                              !
+ {Renumber bar lines all}                                                     !
+>{Renumber bar lines continuously all}                                        !
+ {Exchange parenthesis to large brackets all}                                 !
+ {Exchange large brackets to parenthesis all}                                 !
+ {Generate beautify symbols all}                                              !
+>{Exchange beautify symbols all}                                              !
+>{Reset tempo values all}                                                     !
+>{Reset smpte values all}
+ /////////////////////////////////////////////////////////////////////////////!

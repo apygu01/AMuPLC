@@ -1,0 +1,301 @@
+                       symtype     symv1     symv2     symv3     symv4
+                       integer      real      real      real      char
+    1 - 9    dynamic            velocity   m.velo.   reserve   reserve
+                                mv->dymc mv->mdymc   reserve   reserve
+(ppp)                        1       1.0      10.0     xxxxx      xxxx
+(pp)                         2       3.0      30.0     xxxxx      xxxx
+(p)                          3       6.0      60.0     xxxxx      xxxx
+(mp)                         4       9.0      90.0     xxxxx      xxxx
+(mf)                         5      13.0     130.0     xxxxx      xxxx
+(f)                          6      14.0     140.0     xxxxx      xxxx
+(ff)                         7      15.0     150.0     xxxxx      xxxx
+(fff)                        8      16.0     160.0     xxxxx      xxxx
+
+  10 - 99    Reserve
+
+ 100 - 199   Tempo
+                       symtype     symv1     symv2     symv3     symv4
+             (megmeb) mb->tsym            mb->dymc
+             (megmiv)          mr->temp1 mr->temp2 mr->temp3
+                                 reserve     tempo      band
+(grave)                    100       xxx        40         6      xxxx
+(largo)                    101       xxx        46         7      xxxx
+(lento)                    102       xxx        52         8      xxxx
+(adagio)                   103       xxx        58         9      xxxx
+(larghetto)                104       xxx        60        10      xxxx
+(andante)                  105       xxx        66        11      xxxx
+(andantino)                106       xxx        76        12      xxxx
+(moderato)                 107       xxx        84        15      xxxx
+(allegretto)               108       xxx       108        16      xxxx
+(allegro con spirito)      110       xxx       110        10      xxxx
+(allegro moderato)         109       xxx       116        10      xxxx
+(allegro ma non troppo)    110       xxx       120        10      xxxx
+(allegro)                  111       xxx       132        18      xxxx
+(allegro assai)            112       xxx       140        15      xxxx
+(arregro vivace)           113       xxx       150        15      xxxx
+(vivace)                   114       xxx       160        20      xxxx
+(presto)                   115       xxx       184        20      xxxx
+(prestissimo)              116       xxx       200        20      xxxx
+(commodo)                  117       xxx     xxxxx     xxxxx      xxxx
+(piu allegro)              118       xxx     xxxxx     xxxxx      xxxx
+(meno allegro)             119       xxx     xxxxx     xxxxx      xxxx
+(piu mosso)                120       xxx     xxxxx     xxxxx      xxxx
+(rit.)                     121       xxx     xxxxx     xxxxx      xxxx
+(accel.)                   122       xxx     xxxxx     xxxxx      xxxx
+(in tempo)                 123       xxx     xxxxx     xxxxx      xxxx
+(.                         124       xxx     xxxxx     xxxxx      xxxx
+
+  200 - 999    expression
+                       symtype     symv1     symv2     symv3     symv5
+                               mr->expr1 mr->expr2 mr->expr3
+(affettuoso)               200         1     xxxxx     xxxxx      xxxx
+(amorosamente)             201         2     xxxxx     xxxxx      xxxx
+(con amore)                202         3     xxxxx     xxxxx      xxxx
+(amoroso)                  203         4     xxxxx     xxxxx      xxxx
+(allegramente)             204         5     xxxxx     xxxxx      xxxx
+(con allegrezza)           205         6     xxxxx     xxxxx      xxxx
+(con anima)                206         7     xxxxx     xxxxx      xxxx
+(animato)                  207         8     xxxxx     xxxxx      xxxx
+(con brio)                 208         9     xxxxx     xxxxx      xxxx
+(con moto)                 209        10     xxxxx     xxxxx      xxxx
+(spiritoso)                210        11     xxxxx     xxxxx      xxxx
+(con spirito)              211        12     xxxxx     xxxxx      xxxx
+(rapidamente)              212        13     xxxxx     xxxxx      xxxx
+(veloce)                   213        14     xxxxx     xxxxx      xxxx
+(vivo)                     214        15     xxxxx     xxxxx      xxxx
+(appassionato)             215        16     xxxxx     xxxxx      xxxx
+(passionato)               216        17     xxxxx     xxxxx      xxxx
+
+  1000 - 9999  woodwind instruments
+
+       transpose ->  1  3     6  8 10    13
+                   0| 2| 4| 5| 7| 9|11|12
+  trnst            [0]             [1]
+    c    [0]         0               0 
+         [1]         7 (#######)    12 (&&&&&)
+    d    [2]         2 (##)          2 (##)
+         [3]        10 (&&&)        10 (&&&)
+    e    [4]         4 (####)        4 (####)
+    f    [5]         8 (&)           8 (&)
+         [6]         6 (######)     13 (&&&&&&)
+    g    [7]         1 (#)           1 (#)
+         [8]        11 (&&&&)       11 (&&&&)
+    a    [9]         3 (###)         3 (###)
+    b   [10]         9 (&&)          9 (&&)
+    h   [11]         5 (#####)      14 (&&&&&&&)
+
+                       symtype     symv1     symv2     symv3     symv4
+             Instrument number  Low note High note Transpose  National
+                      mr->inst  mr->gate  mr->chan  mr->trns
+(Piccolo)                 1000         0        xx        12      xxxx EFI 
+(Pic.)                    1000         0        xx        12      xxxx EFI 
+!Ottavino)                1000         0        xx        12      xxxx Ita.
+!Ott.)                    1000         0        xx        12      xxxx Ita.
+
+(Flute)                   1010         0        xx         0      xxxx Eng.
+(Fl.)                     1010         0        xx         0      xxxx Eng.
+!Flauto)                  1010         0        xx         0      xxxx Ita.
+!Flauto grande)           1010         0        xx         0      xxxx Ger.
+(Flote)                   1010         0        xx         0      xxxx Ger.
+
+(Alto flute)              1011         0        xx         0      xxxx Eng.
+!Altflote)                1011         0        xx         0      xxxx Ger.
+!Flute en sol)            1011         0        xx         0      xxxx Fra.
+!Flauto contralto)        1011         0        xx         0      xxxx Ita.
+
+(Ob.)                     1020         0        xx         0      xxxx Ieg 
+(Oboe)                    1020         0        xx         0      xxxx Ieg 
+!Hautbois)                1020         0        xx         0      xxxx Fra.
+!Htb.)                    1020         0        xx         0      xxxx Fra.
+!Hoboe)                   1020         0        xx         0
+
+!Hautbois d'amour)        1021         0        xx        -4      xxxx Fra.
+(Oboe d'amore)            1021         0        xx        -4      xxxx IGE 
+!Liebesoboe)              1021         0        xx        -4      xxxx Ger.
+
+(English Horn)            1022         0        xx                xxxx Eng.
+(Cor Anglais)             1022         0        xx                xxxx Fra.
+!Corno Inglese)           1022         0        xx                xxxx Ita.
+!Cor Inglese)             1022         0        xx                xxxx Ita.
+!Englisches Horn)         1022         0        xx                xxxx Ger.
+!Englisch Horn)           1022         0        xx                xxxx Ger.
+
+!Fagotto)                 1023         0        xx         0      xxxx Ita.
+(Fg.)                     1023         0        xx         0      xxxx Ita.
+(Fagott)                  1023         0        xx         0      xxxx Ger.
+(Fag.)                    1023         0        xx         0      xxxx Ger.
+(Bassoon)                 1023         0        xx         0      xxxx Eng.
+!Bon.)                    1023         0        xx         0      xxxx Eng.
+!Basson)                  1023         0        xx         0      xxxx Fra.
+
+(heckelphone)             1024         0        xx                xxxx Eng.
+(Heckelphon)              1024         0        xx                xxxx Ger.
+
+(CL. in A&)               1030         0        xx         8      xxxx IE  
+(Clarinet in A&)          1030         0        xx         8      xxxx Eng.
+!Clarinette in A&)        1030         0        xx         8      xxxx Fra.
+!Klarinette in A&)        1030         0        xx         8      xxxx Ger.
+
+(CL. in E&)               1031         0        xx         3      xxxx IE  
+(Clarinet in E&)          1031         0        xx         3      xxxx Eng.
+!Clarinette in E&)        1031         0        xx         3      xxxx Fra.
+!Klarinette in E&)        1031         0        xx         3      xxxx Ger.
+
+(Cl. in D)                1032         0        xx         2      xxxx IE  
+(Clarinet in D)           1032         0        xx         2      xxxx Eng.
+!Clarinette in D)         1032         0        xx         2      xxxx Fra.
+!Klarinette in D)         1032         0        xx         2      xxxx Ger.
+
+(CL. in C)                1033         0        xx         0      xxxx IE  
+(Clarinet in C)           1033         0        xx         0      xxxx Eng.
+!Clarinette in C)         1033         0        xx         0      xxxx Fra.
+!Klarinette in C)         1033         0        xx         0      xxxx Ger.
+
+(CL. in B&)  /* sop */    1034         0        xx        -2      xxxx IE  
+(Clarinet in B&)          1034         0        xx        -2      xxxx Eng.
+!Clarinette in B&)        1034         0        xx        -2      xxxx Fra.
+!Klarinette in B&)        1034         0        xx        -2      xxxx Ger.
+
+(CL. in A)   /* sop */    1035         0        xx        -3      xxxx IE  
+(Clarinet in A)           1035         0        xx        -3      xxxx Eng.
+!Clarinette in A)         1035         0        xx        -3      xxxx Fra.
+!Klarinette in A)         1035         0        xx        -3      xxxx Ger.
+
+(CL. in E& Alt)           1036         0        xx        -9      xxxx IE  
+(Clarinet in E& Alt)      1036         0        xx        -9      xxxx Eng.
+!Clarinette in E& Alt)    1036         0        xx        -9      xxxx Fra.
+!Klarinette in E& Alt)    1036         0        xx        -9      xxxx Ger.
+
+(Clarinette basse)        1037         0        xx       -14      xxxx fra.
+(Clarinetto basso)        1037         0        xx       -14      xxxx Ita.
+(Clarone)                 1037         0        xx       -14      xxxx Ita.
+(Bassklarinette)          1037         0        xx       -14      xxxx Ger.
+(Bass clarinet)           1037         0        xx       -14      xxxx Eng.
+
+(Cor de bassette)         1038         0        xx                xxxx Fra.
+(Corno di bassetto)       1038         0        xx                xxxx Ita.
+(Bassetthorn)             1038         0        xx                xxxx Ger.
+(bassett horn)            1038         0        xx                xxxx Eng.
+
+(Saxophone)               1040         0        xx                xxxx FE  
+(Saxofono)                1040         0        xx                xxxx Ita.
+(Sassofono)               1040         0        xx                xxxx Ita.
+(Saxophon)                1040         0        xx                xxxx Ger.
+
+ brass instruments
+(Cor)                     2000        31        81         0         1 Fra.
+(Corno)                   2000        31        81         0         1 Ita.
+(Horn)                    2000        31        81         0         1 GE  
+(Hr. in B&)               2001        31        81        -2        -2 Ger.
+(Hr. in A)                2002        31        81        -3        -3 Ger.
+(Hr. in A&)               2003        31        81        -4        -3 Ger.
+(Hr. in G)                2004        31        81        -5        -4 Ger.
+(Hr. in F)                2005        31        81        -7        -5 Ger.
+(Hr. in E)                2006        31        81        -8        -6 Ger.
+(Hr. in E&)               2007        31        81        -9        -6 Ger.
+(Hr. in D)                2008        31        81       -10        -7 Ger.
+(Hr. in C)                2009        31        81       -12        -8 Ger.
+(Hr. in B bass)           2010        31        81       -13        -9 Ger.
+(Hr. in B& bass)          2011        31        81       -14        -9 Ger.
+(Hr. in A bass)           2012        31        81       -15       -10 Ger.
+
+(Trompette)               2010        49        79         0         1 Fra.
+(Tromba)                  2010        49        79         0         1 Ita 
+(Trompete)                2010        49        79         0         1 Ger.
+(Trombe)                  2010        49        79         0         1     
+(Trumpet)                 2010        49        79         0         1 Eng.
+(Trumpet in F)            2010        49        79         7         5 Eng.
+(Trombe in F)             2010        49        79         7         5 Eng.
+
+(Piston)                  2020         0        xx                xxxx Fra.
+(Cornet a piston)         2020         0        xx                xxxx Fra.
+(Cornetta)                2020         0        xx                xxxx Ita.
+(Kornett)                 2020         0        xx                xxxx Ger.
+(Cornet)                  2020         0        xx                xxxx Eng.
+
+(Trombone)                2030         0        xx                xxxx FIE 
+(Posaune)                 2030         0        xx                xxxx Ger.
+
+(Tuba)                    2040         0        xx                xxxx All 
+(Tuba in B&)              2041         0        xx                xxxx All 
+(Tuba in F)               2042         0        xx                xxxx All 
+(Tuba in E&)              2043         0        xx                xxxx All 
+(Bass Tuba inE&)          2043         0        xx                xxxx All 
+(Tuba in C)               2044         0        xx                xxxx All 
+(Contrabass Tuba in C)    2044         0        xx                xxxx All 
+(Contrabass Tuba in B&)   2045         0        xx                xxxx All 
+
+ percussion instruments
+                          3000         0        xx         0
+
+(Timpani)                 4000         0        xx         0
+(Timp.)                   4001         0        xx         0
+!Kettledrums)             4002         0        xx         0 
+!K.d.)                    4003         0        xx         0
+!Pauken)                  4004         0        xx         0
+!Pauk.)                   4005         0        xx         0
+!Timbales)                4006         0        xx         0
+!Timb.)                   4007         0        xx         0
+
+(Glockenspiel)            4010         0        xx         0 
+(Glock.)                  4011         0        xx         0
+!Jeu de Timbres)          4012         0        xx         0 
+!J.de Timb.)              4013         0        xx         0
+!Campanelli)              4014         0        xx         0
+!Cmli.)                   4015         0        xx         0
+
+(Xylophone)               4020         0        xx         0      xxxx Eng.
+(Xylo.)                   4021         0        xx         0      xxxx Eng.
+!Xylophn)                 4022         0        xx         0      xxxx Ger.
+!Claquebois)              4023         0        xx         0      xxxx Fra.
+!Xilofono)                4024         0        xx         0      xxxx Ita.
+!Xf.)                     4025         0        xx         0      xxxx Ita.
+
+(Vibraphone)              4030         0        xx         0      xxxx EF  
+(Vib.)                    4031         0        xx         0      xxxx USA 
+!Vibrafono)               4032         0        xx         0      xxxx USA 
+(Vibraphon)               4033         0        xx         0      xxxx Ger.
+
+(Marimba)                 4040         0        xx         0      xxxx all 
+(Mar.)                    4041         0        xx         0      xxxx all 
+
+(Chimes)                  4050         0        xx         0      xxxx Eng.
+(Chim.)                   4051         0        xx         0      xxxx Eng.
+!Rohorenglocken)          4052         0        xx         0      xxxx Ger.
+!Cloches Tubulaires)      4053         0        xx         0      xxxx Fra.
+!Campane Tubolari)        4054         0        xx         0      xxxx Ita.
+
+(Celesta)                 4060         0        xx         0      xxxx Ita.
+(Cel.)                    4061         0        xx         0      xxxx Ita.
+
+  keyboard instruments
+(Piano)                   5000         0        xx         0      xxxx EF  
+(Pianoforte)              5000         0        xx         0      xxxx Ita.
+(Klavier)                 5000         0        xx         0      xxxx Ger.
+
+  stringed instruments
+(Vn.)                     6000         0        xx         0      xxxx Ita.
+!Violon)                  6001         0        xx         0      xxxx Eng.
+!Violino)                 6002         0        xx         0      xxxx Ita.
+(Violine)                 6003         0        xx         0      xxxx Ger.
+(Violin)                  6004         0        xx         0      xxxx Eng.
+!Vl.)                     6005         0        xx         0      xxxx Eng.
+
+(Viola)                   6010         0        xx         0      xxxx IE  
+(Va.)                     6011         0        xx         0      xxxx IE  
+!Bratsche)                6012         0        xx         0      xxxx Ger.
+!Alto)                    6013         0        xx         0      xxxx Ger.
+
+(Violoncello)             6020         0        xx         0      xxxx GI  
+!Violoncelle)             6021         0        xx         0      xxxx Fra.
+(Cello)                   6022         0        xx         0      xxxx Eng.
+(Vc.)                     6023         0        xx         0      xxxx Eng.
+
+(Double bass)             6030         0        xx         0      xxxx Eng.
+(Contrabasso)             6031         0        xx         0      xxxx Ita.
+(Cb.)                     6032         0        xx         0      xxxx Ita.
+!Contrebasse)             6033         0        xx         0      xxxx Fra.
+(Kontrabass)              6034         0        xx         0      xxxx Ger.
+!Kb.)                     6035         0        xx         0      xxxx Ger.
+final$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+

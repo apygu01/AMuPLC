@@ -1,0 +1,33 @@
+mmv Source_file Target_file [Options]
+    Options : -a(Move all files)
+              -m(Message)
+              -h(help)
+ usage: e.g. 
+
+ > mmv www ttt -a -m
+ mmv(1) Source = www Target = ttt
+ mmv(1) www.meg -> ttt.meg
+ mmv(1) www.meb -> ttt.meb
+ mmv(1) www.mex -> ttt.mex
+ mmv(1) www.mid -> ttt.mid
+ mmv(2) www_000.meg -> ttt_000.meg
+ mmv(2) www_000.meb -> ttt_000.meb
+ mmv(2) www_000.mec -> ttt_000.mec
+ mmv(2) www_015.meg -> ttt_015.meg
+ mmv(2) www_015.meb -> ttt_015.meb
+ mmv(2) www_015.mec -> ttt_015.mec
+ mmv(2) www_019.meg -> ttt_019.meg
+ mmv(2) www_019.meb -> ttt_019.meb
+ mmv(2) www_019.mec -> ttt_019.mec
+ mmv(2) www_01e.meg -> ttt_01e.meg
+ mmv(2) www_01e.meb -> ttt_01e.meb
+ mmv(2) www_01e.mec -> ttt_01e.mec
+
+ > mmv ttt www -m
+ mmv(1) Source = ttt Target = www
+ mmv(1) ttt.meg -> www.meg
+ mmv(2) ttt_000.meg -> www_000.meg
+ mmv(2) ttt_015.meg -> www_015.meg
+ mmv(2) ttt_019.meg -> www_019.meg
+ mmv(2) ttt_01e.meg -> www_01e.meg
+

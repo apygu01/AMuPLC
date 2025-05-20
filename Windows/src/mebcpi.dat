@@ -1,0 +1,5345 @@
+                                                                  Ver 0.33
+ Minor Chord Progression Rule file
+ Space is Comment Line
+ Level
+ $R:  Chord Rule Name
+ $0:  Top Level key = Major/Minor
+ $1:  Level 1  $1: = $Key
+ $2:  Level 2  Chord Progression
+ $3:  Level 3  Root+Position Name
+ $4:  Level 4  Chord Name
+ $5:  Level 5  Voicing
+ $6:  Level 6  Chord Select Value
+ $7:  Level 7  Chord Select Param
+ $8:  Level 8  Exstra Chord
+ $9:  Level 9  Special Chord Progression
+ $A:  Available Note Scale
+ $M:  Temperment
+ $N:  Chord Name voicing
+ 
+ T [Im,Im6,ImM7,Im][-][VIm7(&5),&III(&III6,&IIIM7),&VI(&VIM7)][IV7]  Tonic
+ S [IVm,IVm6,IVm7][IIm7,IV,IV7][IIm7(&5)=II%,&VII7,&VI(&VI6,&VIM7)]   SD
+ SM [-]
+ D [V7][Vm(7)][VIIdim][&II7]                                       Dominant
+ SED [I7,II7(DD),&III7,&VI7,VI7,(VII7)]                  Secondary Dominant
+ DD [II7]                                                   Double Dominant
+ 2-5 IIm7 -> V7  Two Five
+
+ Minor Chord Progression
+ Im
+ Im7
+ ImM7
+ Im6
+ &II/IV
+ IIm(&5)
+ IIm
+ IIm7(&5) -> V7[E7]
+ II%=IIm7(&5) -> V7[E7]
+ IIm7
+ &III
+ &III(#5)
+ &IIIM7(#5)
+ &IIIM7(#5)
+ IVm -> V7,Im,II%,VIIdim,&VII7,II%
+ IV[D] -> Im
+ IVm7
+ IV7
+ IVm6
+ Vm
+ V
+ Vm7
+ V7 -> Im,&IV,II%,IVm
+ &VI -> II%
+ VIm(&5)
+ &VIM7 -> II%=IIm7(&5)
+ VIm7(&5)
+ &VII
+ VIIm(&5)
+ &VII7 -> &III
+ VIIdim
+ VIIm7(&5)
+
+ !skey abc     : Put skey abc
+ !skey = Value : Put Value
+ $skey         : Set skey to $ Level
+ $skey = Value : Set skey & Value to $ Level
+
+$R:Default Minor_Chord_Progression mebcpi.dat
+
+!K1 [T->D->T]         Cadence
+!K2 [T->S->D->T]      Cadence
+!K3 [T->S->T]         Cadence
+!Minore Chord [Original][][Substitute][Special]
+
+ Chord Pattern
+ -> Dominant motion
+!P Chord Pattern P1:T-SD-D  P2:T-SD-D  P3:T-DD-SD-D  P4:T-SD-D
+!P1  T-SD-D  [Im,VI%]-&VI-IVm-V7  [Im,VI%]-&VI-IIm7(&5)_V7
+!P2  T-SD-D  [Im,VI%]-I7->IVm-V7  [Im,VI%]-VI7->IIm7(&5)_V7
+!P3  T-DD-SD-D  [Im,VI%]-II7-IVm-V7  [Im,VI%]-II7-IIm7(&5)_V7
+!P4  T-SD-D  Im-&VII->&IV-V7 Bass_Line_Cliche
+!Mod Im-ImM7-Im7(VIm7)-IV7(II7)-IVm7(IIm7)-V7(Major)-I(Major)
+
+$0:Minor moll Reserve
+!T   [Im,Im6,ImM7,Im][-][VIm7(&5),&III(&III6,&IIIM7),&VI(&VIM7)][IV7] Tonic
+!S   [IVm,IVm6,IVm7][IIm7,IV,IV7][IIm7(&5)=II%,&VII7,&VI(&VI6,&VIM7)] Sub D
+!SD  [IVm,IVm6,IVm7][IIm7,IV,IV7][IIm7(&5)=II%,&VII7,&VI(&VI6,&VIM7)] Sub D
+!SM  [-] Sub Dominant Minor
+!SDM [-] Sub Dominant Minor
+!D   [V7][Vm(7)][VIIdim][&II7] Dominant
+!SED [I7,II7(DD),&III7,&VI7,VI7,(VII7)] Secondary Dominant
+!DD  [II7] Double Dominant
+!2-5 IIm7 -> V7  Two Five
+
+$2:Default Default_Chord_Progression
+$2:Im = "Im $Im $4:m $3:m T-> IVm,(IV),VI,&III"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7 T-> IV7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7 T->"
+$2:Im6 = "Im6 $Im6 $4:m6 $3:m6 T->" 
+$2:&II = "&II $&II $4:M $3:M  (&II/IV Ne6 SD) -> D"
+$2:&II7 = "&II7 $&II7 $4:7 $3:7 sub(V7) D-> I"
+$2:&IIM7 = "&IIM7 $&IIM7 $4:M7 $3:M7 SD->"
+$2:IIm = "IIm $IIm $4:m $3:m SD->" 
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) SD-> V7[E7]"
+$2:IIm7(11) = "IIm7(11) $IIm7(11) $4:m7(11) $3:m7(11) SD->"
+$2:IIm7(#11) = "IIm7(#11) $IIm7(#11) $4:m7(#11) $3:m7(#11) -> V7(&5)"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 SD->"
+$2:&III = "&III $&III $4:M $3:M T->"  
+$2:&III6 = "&III6 $&III6 $4:6 $3:6 T->"
+$2:&IIIM7 = "&IIIM7 $&IIIM7 $4:M7 $3:M7 T->"
+$2:III = "III $III $4:M $3:M"
+$2:IVm = "IVm $IVm $4:m $3:m SD-> V7,Im,II%,VIIdim,&VII7,II%"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 SD->"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 SD-> &VII7"
+$2:IV = "IV $IV $4:M $3:M T(SD)->"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 T(SD)->"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 SD->" 
+$2:Vm = "Vm $Vm $4:m $3:m"
+$2:V = "V $V $4:M $3:M"
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7 D->"
+$2:V7 = "V7 $V7 $4:7 $3:7 D-> Im,&IV,II%,IVm"
+$2:V7(&5) = "V7(&5) $V7(&5) $4:7(&5) $3:7(&5) D-> V7"
+$2:V7(&9) = "V7(&9) $V7(&9) $4:7(&9) $3:7(&9) D-> Im7"
+$2:&VI = "&VI $&VI $4:M $3:M SD-> II%"
+$2:&VI6 = "&VI6 $&VI6 $4:6 $3:6 SD->"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 SD-> test"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 SD-> II%=IIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5)"
+$2:&VII = "&VII $&VII $4:M $3:M"
+$2:VIIdim = "VIIdim $VIIdim $4:dim $3:dim D->"
+$2:VIIm7(&5) = VIIm7(&5) $VIIm7(&5) $4:m7(&5) $3:m7(&5)"
+$2:I7 = "I7 $I7 $4:7 $3:7 -> IVm,IVm7,IV7"
+$2:II7 = "II7 $II7 $4:7 $3:7 -> V7"
+$2:&III7 = "&III7 $&III7 $4:7 $3:7 -> &VI,&VI7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> "
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 -> IIm7(&5)"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 SD-> &III,&III7"
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7 D-> I7"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5) T-> II7"
+$2:&VIIm7 = "&VIIm7 $&VIIm7 $4:m7 $3:m7 -> &III7"
+$2:&IIIm7 = "&IIIm7 $&IIIm7 $4:m7 $3:m7 -> &VI7"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> VI7"
+$2:&V7 = "&V7 $&V7 $4:7 $3:7 sub(I7) -> IVm,IVm7,IV7" 
+$2:#IV7 = "#IV7 $#IV7 $4:7 $3:7 sub(I7) -> IVm,IVm7,IV7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 sub(II7) -> V7"
+$2:#V7 = "#V7 $#V7 $4:7 $3:7 sub(II7) -> V7"
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 sub(III7) -> &VI,&VI7"
+$2:VII7 = "VII7 $VII7 $4:7 $3:7 sub(IV7) -> &VII7"
+$2:#I7 = "#I7 $#I7 $4:7 $3:7 sub(V7) -> I"
+$2:&III7 = "&III7 $&III7 $4:7 $3:7 sub(VI7) -> IIm7(&5)"
+$2:&IIIdim = "&IIIdim $&IIIdim $4:dim $3:dim -> IIm7"
+$2:#Idim = "#Idim $#I $4:dim $3:dim -> IIm7(&5)"
+$2:IIIdim = "IIIdim $III $4:dim $3:dim -> IVm7"
+$2:#IVdim = "#IVdim $#IV $4:dim $3:dim -> V7"
+$2:VIdim = "VIdim $VI $4:dim $3:dim -> &VII"
+$2:VIdim = "VIdim $VI $4:dim $3:dim -> Im6"
+$2:END
+
+$2:Advance Advance_Chord_Progression
+$2:END
+
+$2:Natural_Minor
+$2:Im = "Im $Im $4:m $3:m -> IVm,(IV),&VI,&III"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7"
+$2:Im6 = "Im6 $Im6 $4:m6 $3:m6"
+$2:IIm(&5) = "IIm(&5) $IIm(&5) $4:m(&5) $3:m(&5)"
+$2:IIm = "IIm $IIm $4:m $3:m"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7[E7]"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7"
+$2:&III = "&III $&III $4:M $3:M"
+$2:&IIIM7 = "&IIIM7 $&IIIM7 $4:M7 $3:M7"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7,Im,II%,&VII7,II%"
+$2:IV[D] = "IV $IV $4:M $3:M  -> Im"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6"
+$2:Vm = "Vm $Vm $4:m $3:m"
+$2:V = "V $V $4:M $3:M"
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,&IV,II%,IVm"
+$2:&VI = "&VI $&VI $4:M $3:M -> II%"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 -> II%=IIm7(&5)"
+$2:&VII = "&VII $&VII $4:M $3:M"
+$2:&VII7 = "&VII7 $&VII7 $4:M $3:M -> &III,&IIIM7"
+$2:END 
+
+$2:Harmonic_Minor
+$2:Im = "Im $Im $4:m $3:m -> IVm,(IV),VI,&III"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7"
+$2:Im6 = "Im6 $Im6 $4:m6 $3:m6"
+$2:IIm(&5) = "IIm(&5) $IIm(&5) $4:m(&5) $3:m(&5)"
+$2:IIm = "IIm $IIm $4:m $3:m"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7[E7]"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7"  
+$2:&III(#5) = "&III $&III $4:M $3:M"
+$2:&IIIM7(#5) = "&IIIM7(#5) $&IIIM7(#5) $4:M7(#5) $3:M7(#5)"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7,Im,II%,VIIdim,II%"
+$2:IV[D] = "IV $IV $4:M $3:M  -> Im"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6"
+$2:Vm = "Vm $Vm $4:m $3:m"
+$2:V = "V $V $4:M $3:M" 
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,II%,IVm"
+$2:&VI = "&VI $&VI $4:M $3:M -> II%"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 -> II%=IIm7(&5)"
+$2:VIIdim = "VIIdim $VIIdim $4:dim $3:dim"
+$2:END
+
+$2:Melodic_Minor
+$2:Im = "Im $Im $4:m $3:m -> IVm,(IV),VI,&III"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7"
+$2:Im6 = "Im6 $Im6 $4:m6 $3:m6"
+$2:IIm(&5) = "IIm(&5) $IIm(&5) $4:m(&5) $3:m(&5)"
+$2:IIm = "IIm $IIm $4:m $3:m"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7[E7]"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7"  
+$2:&III(#5) = "&III $&III $4:M $3:M"
+$2:&IIIM7(#5) = "&IIIM7(#5) $&IIIM7(#5) $4:M7(#5) $3:M7(#5)"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7,Im,II%,VIIm7(&5),II%"
+$2:IV[D] = "IV $IV $4:M $3:M  -> Im"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6"
+$2:Vm = "Vm $Vm $4:m $3:m"
+$2:V = "V $V $4:M $3:M" 
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,II%,IVm"
+$2:VIm(&5) = "VIm(&5) $VIm(&5) $4:m(&5) $3:m(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5)"
+$2:VIIm(&5) = "VIIm(&5) $VIIm(&5) $4:m(75) $3:m(&5)"
+$2:VIIm7(&5)= VIIm7(&5) $VIIm7(&5) $4:m7(&5) $3:m7(&5)"
+$2:END
+
+$2:Dominant_Motion      
+$2:I7 = "I7 $I7 $4:7 $3:7 -> IVm,IVm7"
+$2:&V7 = "&V7 $&V7 $4:7 $3:7 -> IVm"
+$2:II7 = "II7 $II7 $4:7 $3:7 -> V7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> V7"
+$2:&III7 = "&III7 $&III7 $4:7 $3:7 -> &VI"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> &VII7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,Im7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> "
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 -> IIm7(&5)"
+$2:&III7 = "&III7 $&III7 $4:7 $3:7 -> II7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7  -> &III"
+$2:END
+
+$2:T-D
+!T-D [Im,Im6,ImM7,&III,&III6,&IIIM7,VIm7(&5),&VI,&VIM7] Tonic -> Dominant
+$2:Im = "Im $Im $4:m $3:m -> V7"
+$2:Im6 = "Im6 $Im6 $4:m6 $3:m6 -> V7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7 -> V7"
+$2:&III = "&III $&III $4:M $3:M -> [V7]"
+$2:&III6 = "&III6 $&III6 $4:6 $3:6 -> [V7]"
+$2:&IIIM7 = "&IIIM7 $&IIIM7 $4:M7 $3:M7 -> [V7]"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5) -> [V7]"
+$2:VI% = "VI% $VI% $4:% $3:% -> [V7]"
+$2:&VI = "&VI $&VI $4:% $3:% -> [V7]"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 -> [V7]"
+$2:END
+
+$2:D-T
+!D-T [V7] Dominant -> Tonic
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,m6,mM7,[&III,6,M7,&IV,m7(&5),M7]"
+$2:END
+
+$2:T-S T-SD
+!T-S [Im,Im6,Im7,ImM7,&III,&III6,&IIIM7,VIm7(&5)] Tonic -> Subdominant
+$2:Im = "Im $Im $4:m -> IVm,m6,m7,IIm7(&5),&VI,6,M7,&VII7"
+$2:Im6 = "Im6 $Im6 $4:m6 -> IVm,m6,m7,IIm7(&5),&VI,6,M7,&VII7"
+$2:Im7 = "Im7 $Im7 $4:m7 -> IVm,m6,m7,IIm7(&5),&VI,6,M7,&VII7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 -> IVm,m6,m7,IIm7(&5),&VI,6,M7,&VII7"
+$2:&III = "&III $&III $4:M -> IIm7(&5),[IVm,m6,m7,&VI,6,M7,&VII7]"
+$2:&III6 = "&III6 $&III6 $4:6 -> IIm7(&5),[IVm,m6,m7,&VI,6,M7,&VII7]"
+$2:&IIIM7 = "&IIIM7 $&IIIM7 $4:M7 -> IIm7(&5),[IVm,m6,m7,&VI,6,M7,&VII7]"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) ->IVm,m6,m7,IIm7(&5),&VI,6,M7"
+$2:VI% = "VI% $VI% $4:% -> IVm,m6,m7,IIm7(&5),&VI,6,M7"
+$2:END
+
+$2:S-T SD-T
+!S-T [IVm,IVm6,IVm7,IIm7(&5),&VI,&VI6,&VIM7,&VII7] Subdominant -> Tonic
+$2:IVm = "IVm $IVm $4:m -> Im,Im6,Im7,ImM7,[&III,6,M7]"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 -> Im,Im6,Im7,ImM7,[&III,6,M7]"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 -> Im,Im6,Im7,ImM7,[&III,6,M7]"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) ->Im,m6,m7,mM7[&III,6,M7,VIm7(&5)]"
+$2:II% = "II% $II% $4:% ->Im,m6,m7,mM7[&III,6,M7,VIm7(&5)]"
+$2:&VI = "&VI $&VI $4:M -> Im,Im6,Im&,ImM7,[&III,6,M7]"
+$2:&VI6 = "&VI6 $&VI6 $4:6 -> Im,Im6,Im&,ImM7,[&III,6,M7]"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 -> Im,Im6,Im&,ImM7,[&III,6,M7]"
+$2:&VII7 = "&VII7 $&VII7 $4:7 -> Im,Im6,Im7,ImM7,&III,VIm7(&5),[&III6,M7]"
+$2:END
+
+$2:D-S D-SD
+!D-S [V7] Dominant -> Subdominant
+$2:V7 = "V7 $V7 $4:7 -> [IVm,m6,m7,IIm7(&5),&VI,6,M7][&VII7]"
+$2:END
+
+$2:S-D SD-D
+!S-D [IVm,IVm6,IVm7,IV7,IIm7(&5),&VI,&VI6,&VIM7,&VII7] Subdominant -> Dominant
+$2:IVm = "IVm $IVm $4:m $3:m -> V7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 -> V7"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 -> V7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> V7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7 Two Five"
+$2:II% = "II% $II% $4:% $3:% -> V7 Two Five"
+$2:&VI = "&VI $&VI $4:M $3:M -> V7"
+$2:&VI6 = "&VI6 $&VI6 $4:6 $3:6 -> V7"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 -> V7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> V7"
+$2:END
+
+$2:T-T
+!T-T [Im,Im6,Im7,&III,VIm7(&5),&VI,&VIM7] Tonic -> Tonic
+$2:Im = "Im $Im $4:m -> &III,6,M7,VIm7(&5),[&VI,M7]"
+$2:Im6 = "Im6 $Im6 $4:m6 -> &III,6,M7,VIm7(&5),[&VI,M7]"
+$2:Im7 = "Im7 $Im7 $4:m7 -> &III,6,M7,VIm7(&5),[&VI,M7]"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 -> &III,6,M7,VIm7(&5),[&VI,M7]"
+$2:&III = "&III $&III $4:M -> VIm7(&5),[Im,Im6,Im7,ImM7]"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> &VI,M7,[&III,6,M7]"
+$2:VI% = "VI% $VI% $4:% -> &VI,M7,[&III,6,M7]"
+$2:&VI = "&VI $&VI $4:M -> [Im,Im6,Im7,ImM7]"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 -> [Im,Im6,Im7,ImM7]"
+$2:END
+
+$2:S-S SD-SD
+!S-S [IVm,IVm6,IVm7,IIm7(&5),&VI,&VIM7,&VII7] Subdominant -> Subdominant
+$2:IVm = "IVm $IVm $4:m -> IIm7(&5),&VII7,&VI,6,M7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 -> IIm7(&5),&VII7,&VI,6,M7"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 -> IIm7(&5),&VII7,&VI,6,M7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> &VII7,[IVm,m6,m7,&VI,6,M7]"
+$2:II% = "II% $II% $4:% -> &VII7,[IVm,m6,m7,&VI,6,M7]"
+$2:&VI = "&VI $&VI $4:M -> IIm7(&5),IVm,m6,m7,&VII7"
+$2:&VI6 = "&VI6 $&VI6 $4:6 -> IIm7(&5),IVm,m6,m7,&VII7"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 -> IIm7(&5),IVm,m6,m7,&VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 -> [&VI,6,M7][IIm7(&5),IVm,m6,m7]"
+$2:END
+
+!Up2   [Im--IIm7(&5)__&III___IVm--V7__&VI,VIm7(&5)--&VII7--Im] 
+!Down2 [Im--&VII7--VIm7(&5)--&VI--V7__IVm__&III--IIm7(&5)--Im]
+!Up3   [Im--&III__V7..&VII7..IIm7(&5)__IVm--&VI--Im..VIm7(&5)]
+!Down3 [Im--VIm7(&5),&VI--IVm--IIm7(&5)--&VII7--V7__&III__Im]
+!Up4   [Im--IVm--&VII7--&III--&VI,VIm7(&5)--IIm7(&5)--V7--Im]
+!Down5 [Im--IVm--&VII7--&III--&VI,VIm7(&5)--IIm7(&5)--V7--Im]
+!Down4 [Im--V7__IIm7(&5)__VIm7(&5)__&III__&VII7__IVm--Im]
+!Up5   [Im--V7__IIm7(&5)__VIm7(&5)__&III__&VII7__IVm--Im]
+
+$2:Up2 Base_Up2
+!2+ [Im--IIm7(&5)__&III___IVm--V7__&VI,VIm7(&5)--&VII7--Im] 
+$2:Im = "Im $Im $4:m $3:m -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> &III"
+$2:&III = "&III $&III $4:M $3:M -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> &VI,VIm7(&5)"
+$2:&VI = "&VI $&VI $4:M $3:M -> &VII7"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> Im"
+$2:END
+
+$2:Down2 Base_Down2
+!2- [Im--&VII7--VIm7(&5)--&VI--V7__IVm__&III--IIm7(&5)--Im]
+$2:Im = "Im $Im $4:m $3:m -> &VII7"
+$2:&VII7 = "&VII7 $&VII& $4:7 $3:7 -> VIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> &VI"
+$2:&VI = "&VI $&VI $4:M $3M -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> &III"
+$2:&III = "&III $&III $4:M $3:M -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> Im"
+$2:END
+
+$2:Up3 Base_Up3
+!3+ [Im--&III__V7..&VII7..IIm7(&5)__IVm--&VI--Im..VIm7(&5)]
+$2:Im = "Im $Im $4:m $3:m -> &III"
+$2:&III = "&III $&III $4:M $3:M -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> &VI"
+$2:&VI = "&VI $&VI $4:M $3M -> Im"
+$2:END
+
+$2:Down3 Base_Down3
+!3- [Im--VIm7(&5),&VI--IVm--IIm7(&5)--&VII7--V7__&III__Im]
+$2:Im = "Im $Im $4:m $3:m -> VIm7(&5),&VI"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> IVm"
+$2:&VI = "&VI $&VI $4:M $3M -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> &III"
+$2:&III = "&III $&III $4:M $3:M -> Im"
+$2:END
+
+$2:Up4 Base_Up4
+!4+ [Im--IVm--&VII7--&III--&VI,VIm7(&5)--IIm7(&5)--V7--Im]
+$2:Im = "Im $Im $4:m $3:m -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> &III"
+$2:&III = "&III $&III $4:M $3:M -> &VI,VIm7(&5)"
+$2:&VI = "&VI $&VI $4:M $3M -> IIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im"
+$2:END
+
+$2:Down4 Base_Down4
+!4- [Im--V7__IIm7(&5)__VIm7(&5)__&III__&VII7__IVm--Im]
+$2:Im = "Im $Im $4:m $3:m -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> VIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> &III"
+$2:&III = "&III $&III $4:M $3:M -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> Im"
+$2:END
+
+$2:Up5 Base_Up5
+!5+ [Im--V7__IIm7(&5)__VIm7(&5)__&III__&VII7__IVm--Im]
+$2:Im = "Im $Im $4:m $3:m -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> VIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> &III"
+$2:&III = "&III $&III $4:M $3:M -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> Im"
+$2:END
+
+$2:Down5 Base_Down5
+!5- [Im--IVm--&VII7--&III--&VI,VIm7(&5)--IIm7(&5)--V7--Im]
+$2:Im = "Im $Im $4:m $3:m -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> &VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> &III"
+$2:&III = "&III $&III $4:M $3:M -> &VI,VIm7(&5)"
+$2:&VI = "&VI $&VI $4:M $3M -> IIm7(&5)"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) -> IIm7(&5)"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im"
+$2:END
+
+$2:Dominant_Motion
+!Dominant_Motion [I7,II7,&III7,IV7,V7,VI7,&VII7] -> Dominant
+$2:I7 = "I7 $I7 $4:7 $3:7 -> IVm,(IVm7),IV7"
+$2:II7 = "II7(DD) $II7 $4:7 -> V7,IV,IIm7,II% Double Dominant"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> &VII7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> Im,($Im7),I7"
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 -> IIm7(&5)"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> &III,7"
+$2:END
+
+ Chord Pattern 1
+$2:P1
+$2:Im = "Im $Im $4:m -> &VI,&III,VI%*2,IVm,&VI"
+$2:Im6 = "Im6 $Im6 $4:m6 -> &VI,&III,VI%*2,IVm,&VI"
+$2:Im7 = "Im7 $Im7 $4:m7 -> &VI,&III,VI%*2,IVm,&VI"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 -> &VI,&III,VI%*2,IVm,&VI"
+$2:VIm7(&5) = "VIm7(&5) $IVm7(&5) $4:m7(&5) -> &VI,&III,VI%,IVm,&VI"
+$2:VI% = "VI% $IV% $4:% -> &VI,&III,VI%,IVm,&VI"
+$2:&VI = "&VI $&VI $4:M $3:M -> IVm"
+$2:&III = "&III $&III $4:M -> IVm,&VI,IIm7(&5)"
+$2:VIm7(&5)*2 = "VIm7(&5)*2 $VIm7(&5) $4:m7(&5) -> IVm,&VI,IIm7(&5)"
+$2:VI%*2 = "VI%*2 $VI% $4:% -> IVm,&VI,IIm7(&5)"
+$2:IVm = "IVm $IVm $4:m $3:m -> IIm7(&5),SD-T = V7,&II7""
+$2:&VI = "&VI $&VI $4:M $3:M -> IVm,IIm7(&5),SD-T = V7,&II7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7,&II7"
+$2:II% = "II% $II% $4:% $3:% -> V7,&II7"
+$2:V7 = "V7 $V7 $4:7 $3:7"
+$2:&II7 = "&II7 $&II7 $4:7 $3:7"
+$2:END
+
+ Chord Pattern 2
+$2:P2
+$2:Im = "Im $Im $4:m -> I7,IIIdim,&V7,VI7,&III7,IV7"
+$2:Im6 = "Im6 $Im6 $4:m6 -> I7,IIIdim,&V7,VI7,&III7,IV7"
+$2:Im7 = "Im7 $Im7 $4:m7 -> I7,IIIdim,&V7,VI7,&III7,IV7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 -> I7,IIIdim,&V7,VI7,&III7,IV7"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5) -> &III7,IV7"
+$2:VI% = "VI% $VI% $4:% $3:% -> &III7,IV7"
+$2:I7 = "I7 $I7 $4:7 $3:7 -> IVm,&VI"
+$2:IIIdim = "IIIdim $IIIdim $4:dim $3:dim -> IVm"
+$2:&V7 = "&V7 $&V7 $4:7 $3:7 -> IVm"
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 -> &VI,IIm7(&5)"
+$2:&III7 = "&III7 $&III7 $4:7 $3:7 -> IIm7(&5)"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> IIm7(&5)"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7,&II7"
+$2:&VI = "&VI $&VI $4:M $3:M -> V7,&II7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7,&II7"
+$2:II% = "II% $II% $4:% $3:% -> V7,&II7"
+$2:V7 = "V7 $V7 $4:7 $3:7"
+$2:&II7 = "&II7 $&II7 $4:7 $3:7"
+$2:END
+
+ Chord Pattern 3
+$2:P3
+$2:Im = "Im $Im $4:m -> II7,&Vdim,&IIIdim,&VI7"
+$2:Im6 = "Im6 $Im6 $4:m6 -> II7,&Vdim,&IIIdim,&VI7"
+$2:Im7 = "Im7 $Im7 $4:m7 -> II7,&Vdim,&IIIdim,&VI7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 -> II7,&Vdim,&IIIdim,&VI7"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5) -> II7,&IIIdim,&VI7"
+$2:VI% = "VI% $VI% $4:% $3:% -> II7,&IIIdim,&VI7"
+$2:II7 = "II7 $II7 $4:7 $3:7 -> IVm"
+$2:&Vdim = "&Vdim $&Vdim $4:dim $3:dim -> IVm"
+$2:&IIIdim = "&IIIdim $&IIIdim $4:dim $3:dim -> IIm7(&5)"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> IVm,IIm7(&5)"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7,&II7"
+$2:&VI = "&VI $&VI $4:M $3:M -> V7,&II7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7,&II7"
+$2:II% = "II% $II% $4:% $3:% -> V7,&II7"
+$2:V7 = "V7 $V7 $4:7 $3:7"
+$2:&II7 = "&II7 $&II7 $4:7 $3:7"
+$2:END
+
+ Chord Pattern 4
+$2:P4
+$2:Im = "Im $Im $4:m $3m -> &VII,&VII7,Im7/&VII"
+$2:Im6 = "Im6 $Im6 $4:m6 $3m6 -> &VII,&VII7,Im7/&VII"
+$2:Im7 = "Im7 $Im7 $4:m7 $3m7 -> &VII,&VII7,Im7/&VII"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3mM7 -> &VII,&VII7,Im7/&VII"
+$2:&VII = "&VII $&VII $4:M $3:M -> &VI,&VI7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> &VI,&VI7"
+$2:Im7/&VII = "Im7/&VII $Im7/&VII $4:7 $3:7 -> &VI,&VI7"
+$2:&VI = "&VI $&VI $4:M $3:M -> V7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7"
+$2:END
+
+ Bass Line Cliche
+$2:Bass_line_cliche
+$2:Im = "Im $Im $4:m $3:m -> ImM7/VII,V7/VII"
+$2:ImM7/VII = "Im7M7/VII $Im7M7/VII $4:m7M7 -> &VII,&VII7,Im7/&VII"
+$2:V7/VII = "V7/VII $V7/VII $4:7 $3:7 -> &VII,&VII7,Im7/&VII"
+$2:&VII = "&VII $&VII $4:M $3:M -> VIm7(&5),Im6/VI,IV7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> VIm7(&5),Im6/VI,IV7"
+$2:Im7/&VII = "Im7/&VII $Im7/&VII $4:m7 $3:m7 -> VIm7(&5),Im6/VI,IV7"
+$2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $4:m7(&5) $3:m7(&5) -> &VI,&VI7"
+$2:VI% = "VI% $VI% $4:% $3:% -> &VI,&VI7"
+$2:Im6/VI = "Im6/VI $Im6/VI $4:m6 $3:m6 -> &VI,&VI7" 
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> &VI,&VI7"
+$2:&VI = "&VI $&VI $4:M $3:M -> V7"
+$2:&VI7 = "&VI7 $&VI7 $4:7 $3:7 -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7"
+$2:END
+
+ modulation ,a change of key ex. Am -> C
+$2:Modulate_to_Relative_Key Mod Modulation
+$2:Im = "Im $Im $4:m $3:m -> ImM7"
+$2:ImM7 = "ImM7 $ImM7 $4:mM7 $3:mM7 -> Im7 (VIm7 Pivot Chord)"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7 -> IV7 (II7 Pivot Chord)"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 -> IVm7 (IIm7 Pivot Chord)"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 -> V7 (Major key)"
+$2:V7 = "V7 $V7 V7(Major key) -> I(Major key)"
+$2:I = "I I $4:M $3:M"
+$2:END
+
+$2:Mod_IIm7
+$2:Im7 = "Im7 $Im7 $m:II_Major $m:II_minor SD -> "
+$2:IIm7 = "IIm7 $IIm7 $m:II_Major $m:II_minor SD -> "
+$2:IVm7 = "IVm7 $IVm7 $m:II_Major $m:II_minor SD -> "
+$2:Vm7 = "Vm7 $Vm7 $m:II_Major $m:II_minor SD -> "
+$2:END
+
+$2:Mod_Im
+$2:IVm = "IVm $IVm $m:I_minor T -> "
+$2:END
+
+$2:Mod_T Mod_Tonic
+$2:IV = "IV $IV $m:I_Major T -> "
+$2:&VI = "&VI $&VI $m:I_Major T -> "
+$2:&VI6 = "&VI6 $&VI6 $m:I6_Major T -> "
+$2:&IIM7 = "&IIM7 $&IIM7 $m:&IIIM7_minor $m:&VIM7_minor $m:IM7_Major T -> "
+$2:IVm = "IVm $IVm $m:Im_minor $m:IIIm_Major VIm_Major T -> "
+$2:IVm6 = "IVm6 $IVm6 $m:Im6_minor $m:&IIIm6_minor T -> "
+$2:IVm7 = "IVm7 $IVm7 $m:Im7_minor $m:IIIm7_Major $m:VIm7_Major T -> "
+$2:IIm7 = "IIm7 $IIm7 $m:Im7_minor $m:IIIm7_Major $m:VIm7_Major T -> "
+$2:V7 = "V7 $V7 $m:IV_minor $m:I_Major T -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:VIm7(&5)_minor $m:III_Maj $m:#IV_Maj T -> "
+$2:END
+
+$2:Mod_SD Mod_SubDominant
+$2:Im = "Im $Im $m:IV_minor $m:II_Major $m:VIm_Major  SD -> "
+$2:Im6 = "Im6 $Im6 $m:IV_minor SD -> "
+$2:Im7 = "Im7 $Im7 $m:IV_minor $m:II_Major SD -> "
+$2:&IIM7 = "&IIM7 $&IIM7 $m:IV_Major SD -> "
+#2:VIm7(&5) = "VIm7(&5) $VIm7(&5) $m:II_minor $m:II_Major SD -> "
+$2:Im7 = "Im7 $Im7 $m:II_minor $m:II_Major SD -> "
+$2:IV = "IV $IV $m:IV_Major SD -> "
+$2:IV7 = "IV7 $IV7 $m:IV_Major $m:VII_Major SD -> "
+$2:IIm7 = "IIm7 $IIm7 $m:II_Major SD -> "
+$2:&VI = "&VI $&VI $m:IV_Major SD -> "
+$2:&VI6 = "&VI6 $&VI6 $m:IV_Major SD -> "
+$2:&VI7 = "&VI7 $&VI7 $m:IV_Major $m:VII_Major SD -> "
+$2:&VIM7 = "&VIM7 $&VIM7 $m:IV_Major SD -> "
+$2:&VII7 = "&VII7 $&VII7 $m:IV_Major SD -> "
+$2:&VII7 = "&VII7 $&VII7 $m:VII7_Major SD -> "
+$2:END
+
+$2:Mod_D
+$2:IV7 = "IV7 $IV7 $m:V_minor $m:&II_minor $m:V_Major $m:&II_Major D -> "
+$2:Im = "Im $Im $m:Vm_minor D -> "
+$2:Im7 = "Im7 $Im7 $m:Vm7_minor D -> "
+$2:IVm = "IVm $IVm $m:Vm_minor D -> "
+$2:IVm7 = "IVm7 $IVm7 $m:Vm7_minor D -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:VIIm7(&5)_Major D -> "
+$2:II7 = "II7 $II7 $m:V7_Major D -> "
+$2:END
+
+$2:Mod_SDM
+$2:Im = "Im $Im $m:IVm_Major SDM -> "
+$2:Im6 = "Im6 $Im6 $m:IVm6_Major SDM -> "
+$2:ImM7 = "ImM7 $ImM7 $m:_IVmM7_Major SDM -> "
+$2:Im7 = "Im7 $Im7 $m:IVm7_Major SDM -> "
+$2:IVm = "IVm $IVm $m:IVm_Major SDM -> "
+$2:IVm6 = "IVm6 $IVm6 $m:IVm6_Major SDM -> "
+$2:IVm7 = "IVm7 $IVm7 $m:IVm7_Major SDM -> "
+$2:IIm7 = "IIm7 $IIm7 $m:IVm7_Major SDM -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:IIm7(&5)_Major SDM ->"
+$2:&III6 = "&III6 $&III6 $m:&VI6_Major SDM -> "
+$2:&VI = "&VI $&VI $m:&VI_Major SDM -> "
+$2:&VI6 = "&VI6 $&VI6 $m:&VI6_Major SDM -> "
+$2:&VIM7 = "&VIM7 $&VIM7 $m:&VIM7_Major SDM -> "
+$2:&IIM7 = "&IIM7 $&IIM7 $m:&IIM7_Major SDM -> "
+$2:IV7 = "IV7 $IV7 $m:&VI7_Major $m:&VII7_Major SDM -> "
+$2:&VI7 = "&VI7 $&VI7 $m:&VI7_Major $m:&VII7_Major SDM -> "
+$2:END
+
+$3:Default_Root
+$3:M = ,Root+M3+P5
+$3:m = ,Root+m3+P5
+$3:dim = ,Root+m3+dim5
+$3:aug = ,Root+M3+aug5
+$3:(#5) = ,Root+M3+aug5
+$3:M7 = ,Root+M3+P5+M7
+$3:7 = ,Root+M3+P5+m7
+$3:m7 = ,Root+m3+P5+m7
+$3:% = ,Root+m3+dim5+m7
+$3:m7(&5) = ,Root+m3+dim5+m7
+$3:dim7 = ,Root+m3+dim5+dim7
+$3:mM7 = ,Root+m3+P5+M7
+$3:6 = ,Root+M3+P5+M6
+$3:m6 = ,Root+m3+P5+M6
+$3:69 = ,Root+M3+P5+M6+M9
+$3:6(9) = ,Root+M3+P5+M6+M9
+$3:m69 = ,Root+m3+P5+M6+M9
+$3:m6(9) = ,Root+m3+P5+M6+M9
+$3:sus4 = ,Root+P4+P5
+$3:7sus4 = ,Root+P4+P5+m7
+$3:M9 = ,Root+M3+P5+M7+M9
+$3:m9 = ,Root+m3+P5+m7+M9
+$3:9 = ,Root+M3+P5+m7+M9
+$3:%9 = ,Root+m3+dim5+m7+M9
+$3:7#9 = ,Root+M3+P5+m7+aug9
+$3:7(#9) = ,Root+M3+P5+m7+aug9
+$3:7+9 = ,Root+M3+P5+m7+aug9
+$3:7&9 = ,Root+M3+P5+m7+m9
+$3:7(&9) = ,Root+M3+P5+m7+m9
+$3:7-9 = ,Root+M3+P5+m7+m9
+$3:7&5 = ,Root+M3+dim5+m7
+$3:7(&5) = ,Root+M3+dim5+m7
+$3:7-5 = ,Root+M3+dim5+m7
+$3:7#5 = ,Root+M3+aug5+m7
+$3:7(#5) = ,Root+M3+aug5+m7
+$3:7+5 = ,Root+M3+aug5+m7
+$3:add9 = ,Root+M3+P5+M9
+$3:M7+11 = ,Root+M3+P5+M7+aug11
+$3:M6+11 = ,Root+M3+P5+M6+aug11
+$3:M9+11 = ,Root+M3+P5+M9+aug11
+$3:m711 = ,Root+m3+P5+m7+P11 
+$3:m7(11) = ,Root+m3+P5+m7+P11 
+$3:m7(#11) = ,Root+m3+P5+m7+aug11 
+$3:m911 = ,Root+m3+P5+m9+P11 
+$3:m9(11) = ,Root+m3+P5+m9+P11 
+$3:%11 = ,Root+m3+dim5+m7+P11
+$3:7+11 = ,Root+M3+P5+m7+aug11
+$3:79+11 = ,Root+M3+P5+m7+M9+aug11
+$3:7(9,#11) = ,Root+M3+P5+m7+M9+aug11
+$3:9+11 = ,Root+M3+P5+M9+aug11
+$3:713 = ,Root+M3+P5+m7+M13
+$3:7(13) = ,Root+M3+P5+m7+M13
+$3:7913 = ,Root+M3+P5+m7+M9+M13
+$3:7(913) = ,Root+M3+P5+m7+M9+M13
+$3:7(9,13) = ,Root+M3+P5+m7+M9+M13
+$3:913 = ,Root+M3+P5+M9+M13
+$3:9(13) = ,Root+M3+P5+M9+M13
+$3:7-13 = ,Root+M3+P5+m7+m13
+$3:79-13 = ,Root+M3+P5+m7+m9+m13
+$3:END
+
+$4:Default_Name
+$4:M = "Major chord"
+$4:m = "minor chord"
+$4:dim = "Diminished chord"
+$4:aug = "Augmented chord"
+$4:(#5) = "Augmented chord"
+$4:M7 = "Major 7th chord"
+$4:7 = "Dominant 7th chord"
+$4:m7 = "minor 7th chord"
+$4:m7(&5) = "Half Diminished chord"
+$4:% = "Half Diminished chord"
+$4:dim7 = "Diminished 7th chord"
+$4:mM7 = "minor Major 7th chord"
+$4:6 = "Major 6th chord"
+$4:m6 = "minor 6th chord"
+$4:69 = "Major 6th 9th chord"
+$4:6(9) = "Major 6th 9th chord"
+$4:m69 = "minor 6th 9th chord"
+$4:m6(9) = "minor 6th 9th chord"
+$4:sus4 = "Suspended fourth chord"
+$4:7sus4 = "Dominant 7th with suspended 4th"
+$4:M9 = "Major 9th chord"
+$4:m9 = "minor 9th chord"
+$4:9 = "Dominant 9th chord"
+$4:%9 = "Half Diminished with 9th"
+$4:7#9 = "Dominant 7th with #9th"
+$4:7+9 = "Dominant 7th with #9th"
+$4:7&9 = "Dominant 7th with &9th"
+$4:7(&9) = "Dominant 7th with &9th"
+$4:7-9 = "Dominant 7th with &9th"
+$4:7#5 = "Dominant 7th with augmented 5th"
+$4:7+5 = "Dominant 7th with augmented 5th"
+$4:7&5 = "Dominant 7th with flatted 5th"
+$4:7(&5) = "Dominant 7th with flatted 5th"
+$4:7-5 = "Dominant 7th with flatted 5th"
+$4:add9 = "Added 9th chord"
+$4:M7+11 = "Major 7th with #11th" 
+$4:M6+11 = "Major 6th with #11th" 
+$4:M9+11 = "Major 9th with #11th" 
+$4:M9(#11) = "Major 9th with #11th" 
+$4:m711 = "minor 7th with 11th"
+$4:m7(11) = "minor 7th with 11th"
+$4:m7(#11) = "minor 7th with #11th"
+$4:m911 = "minor 9th with 11th"
+$4:m9(11) = "minor 9th with 11th"
+$4:%11 = "Half Diminished with 11th"
+$4:7+11 = "Dominant 7th with #11th" 
+$4:79+11 = "Dominant 7th 9th with #11th" 
+$4:9+11 = "Dominant 9th with #11th" 
+$4:713 = "Dominant 7th with 13th"
+$4:7(13) = "Dominant 7th with 13th"
+$4:913 = "Dominant 9th with 13th"
+$4:7913 = "Dominant 7th 9th with 13th"
+$4:7(913) = "Dominant 7th 9th with 13th"
+$4:7(9,13) = "Dominant 7th 9th with 13th"
+$4:7-13 = "Dominant 7th with &13th" 
+$4:79-13 = "Dominant 7th 9th with &13th" 
+$4:END
+
+$5:Default_Note
+ #define chord_base_position 0
+
+                   C:Root
+                   |
+                   v
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . ."
+$5:m =            ". & ."
+$5:dim =          ". & &"
+$5:aug =          ". . #"
+$5:(#5) =         ". . #"
+$5:M7 =           ". . . ."
+$5:7 =            ". . . &"
+$5:m7 =           ". & . &"
+$5:m7(&5) =       ". & & &"
+$5:m7&5 =         ". & & &"
+$5:m7-5 =         ". & & &"
+$5:% =            ". & &"
+$5:dim7 =         ". & &."
+$5:mM7 =          ". & . ."
+$5:6 =            ". . .."
+$5:m6 =           ". & .."
+$5:69 =           ". . ..  ."
+$5:m69 =          ". & ..  ."
+$5:6(9) =         ". . ..  ."
+$5:m6(9) =        ". & ..  ."
+$5:sus4 =         ". # ."
+$5:7sus4 =        ". # . &"
+$5:M9 =           ". . . . ."
+$5:m9 =           ". & . & ."
+$5:9 =            ". . . & ."
+$5:%9 =           ". & & & ."
+$5:m7(9) =        ". & . & ."
+$5:7(#9) =        ". . . & #"
+$5:7#9 =          ". . . & #"
+$5:7+9 =          ". . . & #"
+$5:7(&9) =        ". . . & &"
+$5:7&9 =          ". . . & &"
+$5:7-9 =          ". . . & &"
+$5:7(#5) =        ". . # &"
+$5:7#5 =          ". . # &"
+$5:7+5 =          ". . # &"
+$5:7(&5) =        ". . & &"
+$5:7&5 =          ". . & &"
+$5:7-5 =          ". . & &"
+$5:add9 =         ". . .   ."
+$5:M7+11 =        ". . . .   #"
+$5:M7(#11) =      ". . . .   #"
+$5:M6+11 =        ". . ..    #"
+$5:M6(#11) =      ". . ..    #"
+$5:M9+11 =        ". . . . . #"
+$5:M9(#11) =      ". . . . . #"
+$5:m711 =         ". & . &   ."
+$5:m7(11) =       ". & . &   ."
+$5:m7(#11) =      ". & . &   #"
+$5:m911 =         ". & . & . ."
+$5:m9(11) =       ". & . & . ."
+$5:%11 =          ". & & &   ."
+$5:7+11 =         ". . . &   #"
+$5:7(#11) =       ". . . &   #"
+$5:9+11 =         ". . . & . #"
+$5:79+11 =        ". . . & . #"
+$5:79(#11) =      ". . . & . #"
+$5:713 =          ". . . &     ."
+$5:7(13) =        ". . . &     ."
+$5:913 =          ". . .   .   ."
+$5:9(13) =        ". . .   .   ."
+$5:7913 =         ". . . & .   ."
+$5:7(913) =       ". . . & .   ."
+$5:7(9,13) =      ". . . & .   ."
+$5:7-13 =         ". . . &     &"
+$5:7(&13) =       ". . . &     &"
+$5:79-13 =        ". . . & .   &"
+$5:79(&13) =      ". . . & .   &"
+$5:%-13 =         ". & & &     &"
+$5:%(&13) =       ". & & &     &"
+$5:END 
+
+ Oct. Up
+$5:Default_Note_Oct
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            "       . . ."
+$5:m =            "       . & ."
+$5:dim =          "       . & &"
+$5:aug =          "       . . #"
+$5:(#5) =         "       . . #"
+$5:M7 =           "       . . . ."
+$5:7 =            "       . . . &"
+$5:m7 =           "       . & . &"
+$5:m7(&5) =       "       . & & &"
+$5:m7&5 =         "       . & & &"
+$5:m7-5 =         "       . & & &"
+$5:% =            "       . & &"
+$5:dim7 =         "       . & &."
+$5:mM7 =          "       . & . ."
+$5:6 =            "       . . .."
+$5:m6 =           "       . & .."
+$5:69 =           "       . . ..  ."
+$5:6(9) =         "       . . ..  ."
+$5:m69 =          "       . & ..  ."
+$5:m6(9) =        "       . & ..  ."
+$5:sus4 =         "       . # ."
+$5:7sus4 =        "       . # . &"
+$5:M9 =           "       . . . . ."
+$5:m9 =           "       . & . & ."
+$5:9 =            "       . . . & ."
+$5:%9 =           "       . & & & ."
+$5:7(#9) =        "       . . . & #"
+$5:7#9 =          "       . . . & #"
+$5:7+9 =          "       . . . & #"
+$5:7(&9) =        "       . . . & &"
+$5:7&9 =          "       . . . & &"
+$5:7-9 =          "       . . . & &"
+$5:7(#5) =        "       . . # &"
+$5:7#5 =          "       . . # &"
+$5:7+5 =          "       . . # &"
+$5:7(&5) =        "       . . & &"
+$5:7&5 =          "       . . & &"
+$5:7-5 =          "       . . & &"
+$5:add9 =         "       . . .   ."
+$5:M7+11 =        "       . . . .   #" 
+$5:M7(#11) =      "       . . . .   #" 
+$5:M6+11 =        "       . . ..    #" 
+$5:M6(#11) =      "       . . ..    #" 
+$5:M9+11 =        "       . . . . . #" 
+$5:M9(#11) =      "       . . . . . #"
+$5:m711 =         "       . & . &   ."
+$5:m7(11) =       "       . & . &   ."
+$5:m7(#11) =      "       . & . &   #"
+$5:m911 =         "       . & . & . ."
+$5:m9(11) =       "       . & . & . ."
+$5:%11 =          "       . & & &   ."
+$5:7+11 =         "       . . . &   #"
+$5:7(#11) =       "       . . . &   #"
+$5:9+11 =         "       . . . & . #"
+$5:79+11 =        "       . . . & . #"
+$5:79(#11) =      "       . . . & . #"
+$5:713 =          "       . . . &     ."
+$5:7(13) =        "       . . . &     ."
+$5:913 =          "       . . .   .   ."
+$5:9(13) =        "       . . .   .   ."
+$5:7913 =         "       . . . & .   ."
+$5:7(913) =       "       . . . & .   ."
+$5:7(9,13) =      "       . . . & .   ."
+$5:7-13 =         "       . . . &     &"
+$5:7(&13) =       "       . . . &     &"
+$5:79-13 =        "       . . . & .   &"
+$5:79(&13) =      "       . . . & .   &"
+$5:%-13 =         "       . & & &     &"
+$5:%(&13) =       "       . & & &     &"
+$5:END 
+
+$5:Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . ."
+$5:m =            ". & ."
+$5:dim =          ". & &"
+$5:aug =          ". . #"
+$5:(#5) =         ". . #"
+$5:M7 =           ". . . ."
+$5:7 =            ". . . &"
+$5:m7 =           ". & . &"
+$5:m7(&5) =       ". & & &"
+$5:m7&5 =         ". & & &"
+$5:m7-5 =         ". & & &"
+$5:% =            ". & &"
+$5:dim7 =         ". & &."
+$5:mM7 =          ". & . ."
+$5:6 =            ". . .."
+$5:m6 =           ". & .."
+$5:69 =           "  . ..  ."
+$5:6(9) =         "  . ..  ."
+$5:m69 =          "  & ..  ."
+$5:m6(9) =        "  & ..  ."
+$5:sus4 =         ". # ."
+$5:7sus4 =        ". # . &"
+$5:M9 =           "  . . . ."
+$5:m9 =           "  & . & ."
+$5:9 =            "  . . & ."
+$5:79 =           "  . . & ."
+$5:7(9) =         "  . . & ."
+$5:%9 =           "  & & & ."
+$5:7(#9) =        "  . . & #"
+$5:7#9 =          "  . . & #"
+$5:7+9 =          "  . . & #"
+$5:7(&9) =        "  . . & &"
+$5:7&9 =          "  . . & &"
+$5:7-9 =          "  . . & &"
+$5:7(#5) =        "  . # &."
+$5:7#5 =          "  . # &."
+$5:7+5 =          "  . # &."
+$5:7(&5) =        "  . & &."
+$5:7&5 =          "  . & &."
+$5:7-5 =          "  . & &."
+$5:add9 =         "  . .  .."
+$5:M7+11 =        "    . ..  #"
+$5:M7(#11) =      "    . ..  #"
+$5:M6+11 =        "    .. .  #"
+$5:M6(#11) =      "    .. .  #"
+$5:M9+11 =        "    . . . #"
+$5:M9(#11) =      "    . . . #"
+$5:m711 =         "    . &.  ."
+$5:m7(11) =       "    . &.  ."
+$5:m7(#11) =      "    . &.  #"
+$5:m911 =         "    . & . ."
+$5:m9(11) =       "    . & . ."
+$5:%11 =          "    & &.  ."
+$5:7+11 =         "    . &.  #"
+$5:7(#11) =       "    . &.  #"
+$5:9+11 =         "    . &.. #"
+$5:79+11 =        "    . &.. #"
+$5:79(#11) =      "    . &.. #"
+$5:713 =          "  .  .&. "
+$5:7(13) =        "  .  .&. "
+$5:913 =          "  .  . .."
+$5:9(13) =        "  .  . .."
+$5:7913 =         "  .  .&.."
+$5:7(913) =       "  .  .&.."
+$5:7(9,13) =      "  .  .&.."
+$5:7-13 =         "  .  &&. "
+$5:7(&13) =       "  .  &&. "
+$5:79-13 =        "  .  &&.."
+$5:79(&13) =      "  .  &&.."
+$5:%-13 =         "  &  &&. "
+$5:%(&13) =       "  &  &&. "
+$5:END
+
+$5:3Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . ."
+$5:m =            ". & ."
+$5:dim =          ". & &"
+$5:aug =          ". . #"
+$5:(#5) =         ". . #"
+$5:M7 =           "  . . ."
+$5:7 =            "  . . &"
+$5:m7 =           "  & . &"
+$5:m7(&5) =       "  & & &"
+$5:m7&5 =         "  & & &"
+$5:m7-5 =         "  & & &"
+$5:% =            "  & &"
+$5:dim7 =         "  & &."
+$5:mM7 =          "  & . ." 
+$5:6 =            "  . .."
+$5:m6 =           "  & .."
+$5:69 =           " ..  ." 
+$5:6(9) =         " ..  ." 
+$5:m69 =          " .&  ." 
+$5:m6(9) =        " .&  ." 
+$5:sus4 =         ". # ." 
+$5:7sus4 =        "  # . &" 
+$5:M9 =           "      . .." 
+$5:m9 =           "      & .&" 
+$5:9 =            "      & .." 
+$5:79 =           "      & .." 
+$5:%9 =           "      & .&" 
+$5:7(#9) =        "      & #." 
+$5:7#9 =          "      & #." 
+$5:7+9 =          "      & #." 
+$5:7(&9) =        "      & &." 
+$5:7&9 =          "      & &." 
+$5:7-9 =          "      & &." 
+$5:7(#5) =        "  . # & "
+$5:7#5 =          "  . # & "
+$5:7+5 =          "  . # & "
+$5:7(&5) =        "  . & & "
+$5:7&5 =          "  . & & "
+$5:7-5 =          "  . & & "
+$5:add9 =         " .. .   "
+$5:M7+11 =        "   #. ."
+$5:M7(#11) =      "   #. ."
+$5:M6+11 =        "   #.. "
+$5:M6(#11) =      "   #.. "
+$5:M9+11 =        "      . . #"
+$5:M9(#11) =      "      . . #"
+$5:m711 =         "      &  &."
+$5:m7(11) =       "      &  &."
+$5:m7(#11) =      "      &  &#"
+$5:m911 =         "      & . ."
+$5:m9(11) =       "      & . ."
+$5:%11 =          "    & &   ."
+$5:7+11 =         "   #. &"
+$5:7(#11) =       "   #. &"
+$5:9+11 =         "      & . #"
+$5:79+11 =        "      & . #"
+$5:79(#11) =      "      & . #"
+$5:713 =          "  .  .&" 
+$5:7(13) =        "  .  .&"
+$5:913 =          "     .  .."
+$5:9(13) =        "     .  .." 
+$5:7913 =         "     .& ." 
+$5:7(913) =       "     .& ." 
+$5:7(9,13) =      "     .& ." 
+$5:7-13 =         "  .  &&" 
+$5:7(&13) =       "  .  &&" 
+$5:79-13 =        "     && ." 
+$5:79(&13) =      "     && ." 
+$5:%-13 =         "  &  &&  " 
+$5:%(&13) =       "  &  &&  " 
+$5:END
+
+$5:4Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . .  ."
+$5:m =            ". & .  ."
+$5:dim =          ". & &  ."
+$5:aug =          ". . #  ."
+$5:(#5) =         ". . #  ."
+$5:M7 =           ". . . ."
+$5:7 =            ". . . &"
+$5:m7 =           ". & . &"
+$5:m7(&5) =       ". & & &"
+$5:m7&5 =         ". & & &"
+$5:m7-5 =         ". & & &"
+$5:% =            ". & &  ."
+$5:dim7 =         ". & &."
+$5:mM7 =          ". & . ."
+$5:6 =            ". . .."
+$5:m6 =           ". & .."
+$5:69 =           "  . ..  ."
+$5:6(9) =         "  . ..  ."
+$5:m69 =          "  & ..  ."
+$5:m6(9) =        "  & ..  ."
+$5:sus4 =         ". # .  ."
+$5:7sus4 =        ". # . &"
+$5:M9 =           "  . . . ."
+$5:m9 =           "  & . & ."
+$5:9 =            "  . . & ."
+$5:%9 =           "  & & & ."
+$5:7(#9) =        "  . . & #"
+$5:7#9 =          "  . . & #"
+$5:7+9 =          "  . . & #"
+$5:7(&9) =        "  . . & &"
+$5:7&9 =          "  . . & &"
+$5:7-9 =          "  . . & &"
+$5:7(#5) =        ". . # &"
+$5:7#5 =          ". . # &"
+$5:7+5 =          ". . # &"
+$5:7(&5) =        ". . & &"
+$5:7&5 =          ". . & &"
+$5:7-5 =          ". . & &"
+$5:add9 =         ". . .   ."
+$5:M7+11 =        "  .#. . "
+$5:M7(#11) =      "  .#. . "
+$5:M6+11 =        "  .#..  "
+$5:M6(#11) =      "  .#..  "
+$5:M9+11 =        " ..#  . "
+$5:M9(#11) =      " ..#  . "
+$5:m711 =         "  &.. & "
+$5:m7(11) =       "  &.. & "
+$5:m7(#11) =      "  &#. & "
+$5:m911 =         " .&.  & "
+$5:m9(11) =       " .&.  & "
+$5:%11 =          "  &.& & "
+$5:7+11 =         "  .#. & "
+$5:7(#11) =       "  .#. & "
+$5:9+11 =         " ..#  & "
+$5:79+11 =        " ..#  & "
+$5:79(#11) =      " ..#  & "
+$5:713 =          "  . ..& "
+$5:7(13) =        "  . ..& "
+$5:913 =          " .. .."
+$5:9(13) =        " .. .."
+$5:7913 =         " .. ..&"
+$5:7(913) =       " .. ..&"
+$5:7(9,13) =      " .. ..&"
+$5:7-13 =         "  . .&&  "
+$5:7(&13) =       "  . .&&  "
+$5:79-13 =        "     && .."
+$5:79(&13) =      "     && .."
+$5:%-13 =         "  & &&&  "
+$5:%(&13) =       "  & &&&  "
+$5:END
+
+$5:5Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . .  . ."
+$5:m =            ". & .  . &"
+$5:dim =          ". & &  . &"
+$5:aug =          ". . #  . ."
+$5:(#5) =         ". . #  . ."
+$5:M7 =           ". . . .."
+$5:7 =            ". . . &."
+$5:m7 =           ". & . &."
+$5:m7(&5) =       ". & & &."
+$5:m7&5 =         ". & & &."
+$5:m7-5 =         ". & & &."
+$5:% =            ". & &  . &"
+$5:dim7 =         ". & &. ."
+$5:mM7 =          ". & . .."
+$5:6 =            ". . .. ."
+$5:m6 =           ". & .. ."
+$5:69 =           ". . .. .."
+$5:6(9) =         ". . .. .."
+$5:m69 =          ". & .. .."
+$5:m6(9) =        ". & .. .."
+$5:sus4 =         ". # .  ."
+$5:7sus4 =        ". # . &."
+$5:M9 =           ". . . ..."
+$5:m9 =           ". & . &.."
+$5:9 =            ". . . &.."
+$5:%9 =           ". & & &.."
+$5:7(#9) =        ". . . &.#"
+$5:7#9 =          ". . . &.#"
+$5:7+9 =          ". . . &.#"
+$5:7(&9) =        ". . . &.&"
+$5:7&9 =          ". . . &.&"
+$5:7-9 =          ". . . &.&"
+$5:7(#5) =        ". . # &."
+$5:7#5 =          ". . # &."
+$5:7+5 =          ". . # &."
+$5:7(&5) =        ". . & &."
+$5:7&5 =          ". . & &."
+$5:7-5 =          ". . & &."
+$5:add9 =         ". . .  .."
+$5:M7+11 =        ". .#. . "
+$5:M7(#11) =      ". .#. . "
+$5:M6+11 =        ". .#..  "
+$5:M6(#11) =      ". .#..  "
+$5:M9+11 =        " ..#. . "
+$5:M9(#11) =      " ..#. . "
+$5:m711 =         ". &.. & "
+$5:m7(11) =       ". &.. & "
+$5:m7(#11) =      ". &#. & "
+$5:m911 =         " .&.. & "
+$5:m9(11) =       " .&.. & "
+$5:%11 =          ". &.& & "
+$5:7+11 =         ". .#. & "
+$5:7(#11) =       ". .#. & "
+$5:9+11 =         " ..#. & "
+$5:79+11 =        " ..#. & "
+$5:79(#11) =      " ..#. & "
+$5:713 =          ". . ..& "
+$5:7(13) =        ". . ..& "
+$5:913 =          " .. ..  "
+$5:9(13) =        " .. ..  "
+$5:7913 =         " .. ..& "
+$5:7(913) =       " .. ..& "
+$5:7(9,13) =      " .. ..& "
+$5:7-13 =         ". . .&& "
+$5:7(&13) =       ". . .&& "
+$5:79-13 =        " .. .&& "
+$5:79(&13) =      " .. .&& "
+$5:%-13 =         ". & &&& "
+$5:%(&13) =       ". & &&& "
+$5:END
+
+$5:6Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . .  . . ."
+$5:m =            ". & .  . & ."
+$5:dim =          ". & &  . & &"
+$5:aug =          ". . #  . . #"
+$5:(#5) =         ". . #  . . #"
+$5:M7 =           ". . . .. ."
+$5:7 =            ". . . &. ."
+$5:m7 =           ". & . &. &"
+$5:m7(&5) =       ". & & &. &"
+$5:m7&5 =         ". & & &. &"
+$5:m7-5 =         ". & & &. &"
+$5:% =            ". & &  . & &"
+$5:dim7 =         ". & &. . &"
+$5:mM7 =          ". & . .. &"
+$5:6 =            ". . .. . ."
+$5:m6 =           ". & .. . &"
+$5:69 =           ". . .. .."
+$5:6(9) =         ". . .. .."
+$5:m69 =          ". & .. .."
+$5:m6(9) =        ". & .. .."
+$5:sus4 =         ". # .  .."
+$5:7sus4 =        ". # . &.."
+$5:M9 =           ". . . ..."
+$5:m9 =           ". & . &.."
+$5:9 =            ". . . &.."
+$5:%9 =           ". & & &.."
+$5:7(#9) =        ". . . &.#."
+$5:7#9 =          ". . . &.#."
+$5:7+9 =          ". . . &.#."
+$5:7(&9) =        ". . . &.&."
+$5:7&9 =          ". . . &.&."
+$5:7-9 =          ". . . &.&."
+$5:7(#5) =        ". . # &. ."
+$5:7#5 =          ". . # &. ."
+$5:7+5 =          ". . # &. ."
+$5:7(&5) =        ". . & &. ."
+$5:7&5 =          ". . & &. ."
+$5:7-5 =          ". . & &. ."
+$5:add9 =         ". . .  ..."
+$5:M7+11 =        ". .#. .  ."
+$5:M7(#11) =      ". .#. .  ."
+$5:M6+11 =        ". .#..   ."
+$5:M6(#11) =      ". .#..   ."
+$5:M9+11 =        " ..#. . ."
+$5:M9(#11) =      " ..#. . ."
+$5:m711 =         ". &.. & ."
+$5:m7(11) =       ". &.. & ."
+$5:m7(#11) =      ". &#. & ."
+$5:m911 =         " .&.. & ."
+$5:m9(11) =       " .&.. & ."
+$5:%11 =          ". &.& & ."
+$5:7+11 =         ". .#. & ."
+$5:7(#11) =       ". .#. & ."
+$5:9+11 =         " ..#. & ."
+$5:79+11 =        " ..#. & ."
+$5:79(#11) =      " ..#. & ."
+$5:713 =          ". . ..& ."
+$5:7(13) =        ". . ..& ."
+$5:913 =          " .. ..  ."
+$5:9(13) =        " .. ..  ."
+$5:7913 =         " .. ..& ."
+$5:7(913) =       " .. ..& ."
+$5:7(9,13) =      " .. ..& ."
+$5:7-13 =         ". . .&& ."
+$5:7(&13) =       ". . .&& ."
+$5:79-13 =        " .. .&& ."
+$5:79(&13) =      " .. .&& ."
+$5:%-13 =         ". & &&& ."
+$5:%(&13) =       ". & &&& ."
+$5:END
+
+$5:7Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . .  . . .  ."
+$5:m =            ". & .  . & .  ."
+$5:dim =          ". & &  . & &  ."
+$5:aug =          ". . #  . . #  ."
+$5:(#5) =         ". . #  . . #  ."
+$5:M7 =           ". . . .. . ."
+$5:7 =            ". . . &. . ."
+$5:m7 =           ". & . &. & ."
+$5:m7(&5) =       ". & & &. & &"
+$5:m7&5 =         ". & & &. & &"
+$5:m7-5 =         ". & & &. & &"
+$5:% =            ". & &  . & &"
+$5:dim7 =         ". & &. . & &"
+$5:mM7 =          ". & . .. & ."
+$5:6 =            ". . .. . . ."
+$5:m6 =           ". & .. . & ."
+$5:69 =           ". . .. ..  ."
+$5:6(9) =         ". . .. ..  ."
+$5:m69 =          ". & .. ..  ."
+$5:m6(9) =        ". & .. ..  ."
+$5:sus4 =         ". # .  ..  ."
+$5:7sus4 =        ". # . &..  ."
+$5:M9 =           ". . . ...  ."
+$5:m9 =           ". & . &..  ."
+$5:9 =            ". . . &..  ."
+$5:%9 =           ". & & &..  &"
+$5:7(#9) =        ". . . &.#. ."
+$5:7#9 =          ". . . &.#. ."
+$5:7+9 =          ". . . &.#. ."
+$5:7(&9) =        ". . . &.&. ."
+$5:7&9 =          ". . . &.&. ."
+$5:7-9 =          ". . . &.&. ."
+$5:7(#5) =        ". . # &. . #"
+$5:7#5 =          ". . # &. . #"
+$5:7+5 =          ". . # &. . #"
+$5:7(&5) =        ". . & &. . &"
+$5:7&5 =          ". . & &. . &"
+$5:7-5 =          ". . & &. . &"
+$5:add9 =         ". . .  ... ."
+$5:M7+11 =        ". .#. .  .#"
+$5:M7(#11) =      ". .#. .  .#"
+$5:M6+11 =        ". .#..   .#"
+$5:M6(#11) =      ". .#..   .#"
+$5:M9+11 =        " ..#. . . #"
+$5:M9(#11) =      " ..#. . . #"
+$5:m711 =         ". &.. & . ."
+$5:m7(11) =       ". &.. & . ."
+$5:m7(#11) =      ". &#. & . #"
+$5:m911 =         " .&.. & . ."
+$5:m9(11) =       " .&.. & . ."
+$5:%11 =          ". &.& & . ."
+$5:7+11 =         ". .#. & . #"
+$5:7(#11) =       ". .#. & . #"
+$5:9+11 =         " ..#. & . #"
+$5:79+11 =        " ..#. & . #"
+$5:79(#11) =      " ..#. & . #"
+$5:713 =          ". . ..& .  ."
+$5:7(13) =        ". . ..& .  ."
+$5:913 =          " .. ..  .  ."
+$5:9(13) =        " .. ..  .  ."
+$5:7913 =         " .. ..& .  ."
+$5:7(913) =       " .. ..& .  ."
+$5:7(9,13) =      " .. ..& .  ."
+$5:7-13 =         ". . .&& .  ."
+$5:7(&13) =       ". . .&& .  ."
+$5:79-13 =        " .. .&& .  ."
+$5:79(&13) =      " .. .&& .  ."
+$5:%-13 =         ". & &&& .  &"
+$5:%(&13) =       ". & &&& .  &"
+$5:END
+
+
+$5:8Way_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ". . .  . . .  . ."
+$5:m =            ". & .  . & .  . &"
+$5:dim =          ". & &  . & &  . &"
+$5:aug =          ". . #  . . #  . ."
+$5:(#5) =         ". . #  . . #  . ."
+$5:M7 =           ". . . .. . .  ."
+$5:7 =            ". . . &. . .  ."
+$5:m7 =           ". & . &. & .  ."
+$5:m7(&5) =       ". & & &. & &  ."
+$5:m7&5 =         ". & & &. & &  ."
+$5:m7-5 =         ". & & &. & &  ."
+$5:% =            ". & &  . & &  ."
+$5:dim7 =         ". & &. . & &  ."
+$5:mM7 =          ". & . .. & .  ."
+$5:6 =            ". . .. . . .  ."
+$5:m6 =           ". & .. . & .  ."
+$5:69 =           ". . .. ..  .  ."
+$5:6(9) =         ". . .. ..  .  ."
+$5:m69 =          ". & .. ..  .  ."
+$5:m6(9) =        ". & .. ..  .  ."
+$5:sus4 =         ". # .  ..  .  ."
+$5:7sus4 =        ". # . &..  .  ."
+$5:M9 =           ". . . ...  .  ."
+$5:m9 =           ". & . &..  .  ."
+$5:9 =            ". . . &..  .  ."
+$5:%9 =           ". & & &..  &  ."
+$5:7(#9) =        ". . . &.#. .  ."
+$5:7#9 =          ". . . &.#. .  ."
+$5:7+9 =          ". . . &.#. .  ."
+$5:7(&9) =        ". . . &.&. .  ."
+$5:7&9 =          ". . . &.&. .  ."
+$5:7-9 =          ". . . &.&. .  ."
+$5:7(#5) =        ". . # &. . #  ."
+$5:7#5 =          ". . # &. . #  ."
+$5:7+5 =          ". . # &. . #  ."
+$5:7(&5) =        ". . & &. . &  ."
+$5:7&5 =          ". . & &. . &  ."
+$5:7-5 =          ". . & &. . &  ."
+$5:add9 =         ". . .  ... .  ."
+$5:M7+11 =        ". .#. .  .#  ."
+$5:M7(#11) =      ". .#. .  .#  ."
+$5:M6+11 =        ". .#..   .# ."
+$5:M6(#11) =      ". .#..   .# ."
+$5:M9+11 =        " ..#. . . #  ."
+$5:M9(#11) =      " ..#. . . #  ."
+$5:m711 =         ". &.. & . .  &"
+$5:m7(11) =       ". &.. & . .  &"
+$5:m7(#11) =      ". &#. & . #  &"
+$5:m911 =         " .&.. & . .  &"
+$5:m9(11) =       " .&.. & . .  &"
+$5:%11 =          ". &.& & . .  &"
+$5:7+11 =         ". .#. & . #  &"
+$5:7(#11) =       ". .#. & . #  &"
+$5:9+11 =         " ..#. & . #  &"
+$5:79+11 =        " ..#. & . #  &"
+$5:79(#11) =      " ..#. & . #  &"
+$5:713 =          ". . ..& .  . &"
+$5:7(13) =        ". . ..& .  . &"
+$5:913 =          ". . ..  .  .  ."
+$5:9(13) =        ". . ..  .  .  ."
+$5:7913 =         ". . ..& .  . &"
+$5:7(913) =       ". . ..& .  . &"
+$5:7(9,13) =      ". . ..& .  . &"
+$5:7-13 =         ". . .&& .  . &"
+$5:7(&13) =       ". . .&& .  . &"
+$5:79-13 =        ". . .&& .  . &"
+$5:79(&13) =      ". . .&& .  . &"
+$5:%-13 =         ". & &&& .  & &"
+$5:%(&13) =       ". & &&& .  & &"
+$5:END
+
+$5:Open
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".   .    ."
+$5:m =            ".   .    &"
+$5:dim =          ".   &    &"
+$5:aug =          ".   #    ."
+$5:(#5) =         ".   #    ."
+$5:M7 =           ".   . .  ."
+$5:7 =            ".   . &  ."
+$5:m7 =           ".   . &  &"
+$5:m7(&5) =       ".   & &  &"
+$5:m7&5 =         ".   & &  &"
+$5:m7-5 =         ".   & &  &"
+$5:% =            ".   &    &"
+$5:dim7 =         ".   &.   &"
+$5:mM7 =          ".   . .  &"
+$5:6 =            ".   ..   ."
+$5:m6 =           ".   ..   &"
+$5:69 =           ". . ..  . "
+$5:6(9) =         ". . ..  . "
+$5:m69 =          ". & ..  . "
+$5:m6(9) =        ". & ..  . "
+$5:sus4 =         ".   .    #"
+$5:7sus4 =        ".   . &  #"
+$5:M9 =           ". . . . ." 
+$5:m9 =           ". & . & ." 
+$5:9 =            ". .   & ."
+$5:%9 =           ". & & & ."
+$5:7(#9) =        ". .   & #"
+$5:7#9 =          ". .   & #"
+$5:7+9 =          ". .   & #"
+$5:7(&9) =        ". .   & &"
+$5:7&9 =          ". .   & &"
+$5:7-9 =          ". .   & &"
+$5:7(#5) =        ".   # &  ."
+$5:7#5 =          ".   # &  ."
+$5:7+5 =          ".   # &  ."
+$5:7(&5) =        ".   & &  ."
+$5:7&5 =          ".   & &  ."
+$5:7-5 =          ".   & &  ."
+$5:add9 =         ". . .   ."
+$5:M7+11 =        ".   . .   #"
+$5:M7(#11) =      ".   . .   #"
+$5:M6+11 =        ". .  .    #"
+$5:M6(#11) =      ". .  .    #"
+$5:M9+11 =        ". .   . . #"
+$5:M9(#11) =      ". .   . . #"
+$5:m711 =         ". &   &   ."
+$5:m7(11) =       ". &   &   ."
+$5:m7(#11) =      ". &   &   #"
+$5:m911 =         ". &   & . ."
+$5:m9(11) =       ". &   & . ."
+$5:%11 =          ". & &     ."
+$5:7+11 =         ". .   &   #"
+$5:7(#11) =       ". .   &   #"
+$5:9+11 =         ". .   & . #"
+$5:79+11 =        ". .   & . #"
+$5:79(#11) =      ". .   & . #"
+$5:713 =          ". .   &     ."
+$5:7(13) =        ". .   &     ."
+$5:913 =          ". .     .   ."
+$5:9(13) =        ". .     .   ."
+$5:7913 =         ". .   & .   ."
+$5:7(913) =       ". .   & .   ."
+$5:7(9,13) =      ". .   & .   ."
+$5:7-13 =         ". .   &     &"
+$5:7(&13) =       ". .   &     &"
+$5:79-13 =        ". .   & .   &"
+$5:79(&13) =      ". .   & .   &"
+$5:%-13 =         ". & &       &"
+$5:%(&13) =       ". & &       &"
+$5:END
+
+ Base Oct. down
+$5:Low_Base
+ #define chord_base_position 0
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".        . ."
+$5:m =            ".        & ."
+$5:dim =          ".        & &"
+$5:aug =          ".        . #"
+$5:(#5) =         ".        . #"
+$5:M7 =           ".        . . ."
+$5:7 =            ".        . . &"
+$5:m7 =           ".        & . &"
+$5:m7(&5) =       ".        & & &"
+$5:m7&5 =         ".        & & &"
+$5:m7-5 =         ".        & & &"
+$5:% =            ".        & & &"
+$5:dim7 =         ".        & &."
+$5:mM7 =          ".        & . ."
+$5:6 =            ".        . .."
+$5:m6 =           ".        & .."
+$5:69 =           ".        . ..  ."
+$5:6(9) =         ".        . ..  ."
+$5:m69 =          ".        & ..  ."
+$5:m6(9) =        ".        & ..  ."
+$5:sus4 =         ".        # ."
+$5:7sus4 =        ".        # . &"
+$5:M9 =           ".        . . . ."
+$5:m9 =           ".        & . & ."
+$5:9 =            ".        . . & ."
+$5:%9 =           ".        & & & ."
+$5:7(#9) =        ".        . . & #"
+$5:7#9 =          ".        . . & #"
+$5:7+9 =          ".        . . & #"
+$5:7(&9) =        ".        . . & &"
+$5:7&9 =          ".        . . & &"
+$5:7-9 =          ".        . . & &"
+$5:7(#5) =        ".        . # &"
+$5:7#5 =          ".        . # &"
+$5:7+5 =          ".        . # &"
+$5:7(&5) =        ".        . & &"
+$5:7&5 =          ".        . & &"
+$5:7-5 =          ".        . & &"
+$5:add9 =         ".        . .   ."
+$5:M7+11 =        ".        . . .   #"
+$5:M7(#11) =      ".        . . .   #"
+$5:M6+11 =        ".        . ..    #"
+$5:M6(#11) =      ".        . ..    #"
+$5:M9+11 =        ".        . . . . #"
+$5:M9(#11) =      ".        . . . . #"
+$5:m711 =         ".        & . &   ."
+$5:m7(11) =       ".        & . &   ."
+$5:m7(#11) =      ".        & . &   #"
+$5:m911 =         ".        & . & . ."
+$5:m9(11) =       ".        & . & . ."
+$5:%11 =          ".        & & &   ."
+$5:7+11 =         ".        . . &   #"
+$5:7(#11) =       ".        . . &   #"
+$5:9+11 =         ".        . . & . #"
+$5:79+11 =        ".        . . & . #"
+$5:79(#11) =      ".        . . & . #"
+$5:713 =          ".        . . &     ."
+$5:7(13) =        ".        . . &     ."
+$5:913 =          ".        . .   .   ."
+$5:9(13) =        ".        . .   .   ."
+$5:7913 =         ".        . . & .   ."
+$5:7(913) =       ".        . . & .   ."
+$5:7(9,13) =      ".        . . & .   ."
+$5:7-13 =         ".        . . &     &"
+$5:7(&13) =       ".        . . &     &"
+$5:79-13 =        ".        . . & .   &"
+$5:79(&13) =      ".        . . & .   &"
+$5:%-13 =         ".        & & &     &"
+$5:%(&13) =       ".        & & &     &"
+$5:END 
+
+ Drop2&4
+$5:Voice4 Drop2&4
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            "  . .    .    ." 
+$5:m =            "  & .    &    ." 
+$5:dim =          "  & &    &    ."   
+$5:aug =          "  & #    &    ."   
+$5:(#5) =         "  & #    &    ."   
+$5:M7 =           ".   .    .   ."
+$5:7 =            ".   .    .   &"
+$5:m7 =           ".   .    &   &" 
+$5:m7(&5) =       ".   &    &   &"
+$5:m7&5 =         ".   &    &   &"
+$5:m7-5 =         ".   &    &   &"
+$5:% =            ".   &    &   &" 
+$5:dim7 =         ".   &    &  ."  
+$5:mM7 =          ".   .    &   ." 
+$5:6 =            ".   .    .  ."
+$5:m6 =           ".   .    &  ."
+$5:69 =           "  .  .     .   ."
+$5:6(9) =         "  .  .     .   ."
+$5:m69 =          "  &  .     .   ."
+$5:m6(9) =        "  &  .     .   ."
+$5:sus4 =         "  # .    #    ."
+$5:7sus4 =        ".   .    #   &" 
+$5:M9 =           "  .   .    .   ."
+$5:m9 =           "  &   &    .   ."
+$5:9 =            "  .   &    .   ."
+$5:%9 =           "  &   &    &   ."
+$5:7(#9) =        "  .   &    .   #"
+$5:7#9 =          "  .   &    .   #"
+$5:7+9 =          "  .   &    .   #"
+$5:7(&9) =        "  .   &    .   &"
+$5:7&9 =          "  .   &    .   &"
+$5:7-9 =          "  .   &    .   &"
+$5:7(#5) =        ".   #    .   &"
+$5:7#5 =          ".   #    .   &"
+$5:7+5 =          ".   #    .   &"
+$5:7(&5) =        ".   &    .   &"
+$5:7&5 =          ".   &    .   &"
+$5:7-5 =          ".   &    .   &"
+$5:add9 =         ".   .    .     ." 
+$5:END 
+
+ Drop2&4_Close
+$5:Voice4_Close Drop2&4_Close
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            "  . .  ." 
+$5:m =            "  & .  ." 
+$5:dim =          "  & &  ."   
+$5:aug =          "  & #  ."   
+$5:(#5) =         "  & #  ."   
+$5:M7 =           ".   . ."
+$5:7 =            ".   . &"
+$5:m7 =           ".   . &" 
+$5:m7(&5) =       ".   & &"
+$5:m7&5 =         ".   & &"
+$5:m7-5 =         ".   & &"
+$5:% =            ".   & &" 
+$5:dim7 =         ".   &."  
+$5:mM7 =          ".   . ." 
+$5:6 =            ".   .."
+$5:m6 =           ".   .."
+$5:69 =           "  .  .  ."
+$5:6(9) =         "  .  .  ."
+$5:m69 =          "  &  .  ."
+$5:m6(9) =        "  &  .  ."
+$5:sus4 =         "  # .  ."
+$5:7sus4 =        ".   . &" 
+$5:M9 =           "  .   . ."
+$5:m9 =           "  &   & ."
+$5:9 =            "  .   & ."
+$5:%9 =           "  &   & ."
+$5:7(#9) =        "  .   & #"
+$5:7#9 =          "  .   & #"
+$5:7+9 =          "  .   & #"
+$5:7(&9) =        "  .   & &"
+$5:7&9 =          "  .   & &"
+$5:7-9 =          "  .   & &"
+$5:7(#5) =        ".   # &"
+$5:7#5 =          ".   # &"
+$5:7+5 =          ".   # &"
+$5:7(&5) =        ".   & &"
+$5:7&5 =          ".   & &"
+$5:7-5 =          ".   & &"
+$5:add9 =         ". . .   ." 
+$5:END 
+
+$5:4Way_Spread
+ #define chord_base_position 1
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".   .    .    ."
+$5:m =            ".   .    &    ."
+$5:dim =          ".   &    &    ."
+$5:aug =          ".   #    .    ."
+$5:(#5) =         ".   #    .    ."
+$5:M7 =           ".   .    .   . "
+$5:7 =            ".   .    .   & "
+$5:m7 =           ".   .    &   & "
+$5:m7(&5) =       ".   &    &   & "
+$5:m7&5 =         ".   &    &   & "
+$5:m7-5 =         ".   &    &   & "
+$5:% =            ".   &    &    ."
+$5:dim7 =         ".    .   &    ."
+$5:mM7 =          ".   .    &   . "
+$5:6 =            ".    .   .    ."
+$5:m6 =           ".    .   &    ."
+$5:69 =           ".    .   .     ."
+$5:6(9) =         ".    .   .     ."
+$5:m69 =          ".    .   &     ."
+$5:m6(9) =        ".    .   &     ."
+$5:sus4 =         ".   .    #    ."
+$5:7sus4 =        ".   .    #   & "
+$5:M9 =           ".     .  .     ."
+$5:m9 =           ".     &  &     ."
+$5:9 =            ".     &  .     ."
+$5:%9 =           ".     &  &     ."
+$5:7(#9) =        ".     &  .     #"
+$5:7#9 =          ".     &  .     #"
+$5:7+9 =          ".     &  .     #"
+$5:7(&9) =        ".     &  .     &"
+$5:7&9 =          ".     &  .     &"
+$5:7-9 =          ".     &  .     &"
+$5:7(#5) =        ".   #    .   &"
+$5:7#5 =          ".   #    .   &"
+$5:7+5 =          ".   #    .   &"
+$5:7(&5) =        ".   &    .   &"
+$5:7&5 =          ".   &    .   &"
+$5:7-5 =          ".   &    .   &"
+$5:add9 =         ".   .    .     ."
+$5:M7+11 =        ".     .   #     ."
+$5:M7(#11) =      ".     .   #     ."
+$5:M6+11 =        ".    .    #     ."
+$5:M6(#11) =      ".    .    #     ."
+$5:M9+11 =        ".     .   #    ."
+$5:M9(#11) =      ".     .   #    ."
+$5:m711 =         ".     &   .     &"
+$5:m7(11) =       ".     &   .     &"
+$5:m7(#11) =      ".     &   #     &"
+$5:m911 =         "  &   &   .    ."
+$5:m9(11) =       "  &   &   .    ."
+$5:%11 =          ".     &    &    &"
+$5:7+11 =         ".     &   #     ."
+$5:7(#11) =       ".     &   #     ."
+$5:9+11 =         ".     &   #    ."
+$5:79+11 =        ".     &   #    ."
+$5:79(#11) =      ".     &   #    ."
+$5:713 =          ".     &  .  ."
+$5:7(13) =        ".     &  .  ."
+$5:913 =          ".    .   .     ."
+$5:9(13) =        ".    .   .     ."
+$5:7913 =         ".     &  .     ."
+$5:7(913) =       ".     &  .     ."
+$5:7(9,13) =      ".     &  .     ."
+$5:7-13 =         ".    &       &  ."
+$5:7(&13) =       ".    &       &  ."
+$5:79-13 =        ".    &  .    &"
+$5:79(&13) =      ".    &  .    &"
+$5:%-13 =         ".   &    &  &"
+$5:%(&13) =       ".   &    &  &"
+$5:END 
+
+$5:5Way_Spread
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".   .    . .  ."
+$5:m =            ".   .    & .  ."
+$5:dim =          ".   &    & &  ."
+$5:aug =          ".   #    . #  ."
+$5:(#5) =         ".   #    . #  ."
+$5:M7 =           ".   .    . . . "
+$5:7 =            ".   .    . . & "
+$5:m7 =           ".   .    & . & "
+$5:m7(&5) =       ".   &    & & & "
+$5:m7&5 =         ".   &    & & & "
+$5:m7-5 =         ".   &    & & & "
+$5:% =            ".   &    & &  ."
+$5:dim7 =         ".   &    &  . ."
+$5:mM7 =          ".   .    & . . "
+$5:6 =            ".   .    .  . ."
+$5:m6 =           ".   .    &  . ."
+$5:69 =           ".   .    .  .  ."
+$5:6(9) =         ".   .    .  .  ."
+$5:m69 =          ".   .    &  .  ."
+$5:m6(9) =        ".   .    &  .  ."
+$5:sus4 =         ".   .    # .  ."
+$5:7sus4 =        ".   .      . &  #"
+$5:M9 =           ".   .    .   . ."
+$5:m9 =           ".   .    &   & ."
+$5:9 =            ".   .    .   & ."
+$5:%9 =           ".   &    &   & ."
+$5:7(#9) =        ".   .    .   & #"
+$5:7#9 =          ".   .    .   & #"
+$5:7+9 =          ".   .    .   & #"
+$5:7(&9) =        ".   .    .   & &"
+$5:7&9 =          ".   .    .   & &"
+$5:7-9 =          ".   .    .   & &"
+$5:7(#5) =        ".   #    . # &"
+$5:7#5 =          ".   #    . # &"
+$5:7+5 =          ".   #    . # &"
+$5:7(&5) =        ".   &    . & &"
+$5:7&5 =          ".   &    . & &"
+$5:7-5 =          ".   &    . & &"
+$5:add9 =         ".   .    . .   ."
+$5:M7+11 =        ".   .     #  .  ."
+$5:M7(#11) =      ".   .     #  .  ."
+$5:M6+11 =        ".   .     # .   ."
+$5:M6(#11) =      ".   .     # .   ."
+$5:M9+11 =        ".   .   . #  ."
+$5:M9(#11) =      ".   .   . #  ."
+$5:m711 =         ".   .     .  &  &"
+$5:m7(11) =       ".   .     .  &  &"
+$5:m7(#11) =      ".   .     #  &  &"
+$5:m911 =         ".  .     &   & ."
+$5:m9(11) =       ".  .     &   & ."
+$5:%11 =          ".  .     & & &"
+$5:7+11 =         ".   .    .#  &"
+$5:7(#11) =       ". . . &   #  &"
+$5:9+11 =         ".   .   . #  &"
+$5:79+11 =        ".   .   . #  &"
+$5:79(#11) =      ".   .   . #  &"
+$5:713 =          ".   . &  .  ."
+$5:7(13) =        ".   . &  .  ."
+$5:913 =          ".   .    .  .  ."
+$5:9(13) =        ".   .    .  .  ."
+$5:7913 =         ".     &  .  .  ."
+$5:7(913) =       ".     &  .  .  ."
+$5:7(9,13) =      ".     &  .  .  ."
+$5:7-13 =         ".    &     . &  ."
+$5:7(&13) =       ".    &     . &  ."
+$5:79-13 =        ".    &  .  . &"
+$5:79(&13) =      ".    &  .  . &"
+$5:%-13 =         ".   & &  &  &"
+$5:%(&13) =       ".   & &  &  &"
+$5:END 
+
+ Oct. Up
+$5:Default_Note_Oct
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            "       . . ."
+$5:m =            "       . & ."
+$5:dim =          "       . & &"
+$5:aug =          "       . . #"
+$5:(#5) =         "       . . #"
+$5:M7 =           "       . . . ."
+$5:7 =            "       . . . &"
+$5:m7 =           "       . & . &"
+$5:m7(&5) =       "       . & & &"
+$5:m7&5 =         "       . & & &"
+$5:m7-5 =         "       . & & &"
+$5:% =            "       . & &"
+$5:dim7 =         "       . & &."
+$5:mM7 =          "       . & . ."
+$5:6 =            "       . . .."
+$5:m6 =           "       . & .."
+$5:69 =           "       . . ..  ."
+$5:6(9) =         "       . . ..  ."
+$5:m69 =          "       . & ..  ."
+$5:m6(9) =        "       . & ..  ."
+$5:sus4 =         "       . # ."
+$5:7sus4 =        "       . # . &"
+$5:M9 =           "       . . . . ."
+$5:m9 =           "       . & . & ."
+$5:9 =            "       . . . & ."
+$5:%9 =           "       . & & & ."
+$5:7(#9) =        "       . . . & #"
+$5:7#9 =          "       . . . & #"
+$5:7+9 =          "       . . . & #"
+$5:7(&9) =        "       . . . & &"
+$5:7&9 =          "       . . . & &"
+$5:7-9 =          "       . . . & &"
+$5:7(#5) =        "       . . # &"
+$5:7#5 =          "       . . # &"
+$5:7+5 =          "       . . # &"
+$5:7(&5) =        "       . . & &"
+$5:7&5 =          "       . . & &"
+$5:7-5 =          "       . . & &"
+$5:add9 =         "       . . .   ."
+$5:M7+11 =        "       . . . .   #" 
+$5:M7(#11) =      "       . . . .   #" 
+$5:M6+11 =        "       . . ..    #" 
+$5:M6(#11) =      "       . . ..    #" 
+$5:M9+11 =        "       . . . . . #" 
+$5:M9(#11) =      "       . . . . . #"
+$5:m711 =         "       . & . &   ."
+$5:m7(11) =       "       . & . &   ."
+$5:m7(#11) =      "       . & . &   #"
+$5:m911 =         "       . & . & . ."
+$5:m9(11) =       "       . & . & . ."
+$5:%11 =          "       . & & &   ."
+$5:7+11 =         "       . . . &   ."
+$5:7(#11) =       "       . . . &   ."
+$5:9+11 =         "       . . . & . #"
+$5:79+11 =        "       . . . & . #"
+$5:79(#11) =      "       . . . & . #"
+$5:713 =          "       . . . &     ."
+$5:7(13) =        "       . . . &     ."
+$5:913 =          "       . . .   .   ."
+$5:9(13) =        "       . . .   .   ."
+$5:7913 =         "       . . . & .   ."
+$5:7(913) =       "       . . . & .   ."
+$5:7(9,13) =      "       . . . & .   ."
+$5:7-13 =         "       . . . &     &"
+$5:7(&13) =       "       . . . &     &"
+$5:79-13 =        "       . . . & .   &"
+$5:79(&13) =      "       . . . & .   &"
+$5:%-13 =         "       . & & &     &"
+$5:%(&13) =       "       . & & &     &"
+$5:END 
+
+$5:Open
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".   .    ."
+$5:m =            ".   .    &"
+$5:dim =          ".   &    &"
+$5:aug =          ".   #    ."
+$5:(#5) =         ".   #    ."
+$5:M7 =           ".   . .  ."
+$5:7 =            ".   . &  ."
+$5:m7 =           ".   . &  &"
+$5:m7(&5) =       ".   & &  &"
+$5:m7&5 =         ".   & &  &"
+$5:m7-5 =         ".   & &  &"
+$5:% =            ".   &    &"
+$5:dim7 =         ".   &.   &"
+$5:mM7 =          ".   . .  &"
+$5:6 =            ".   ..   ."
+$5:m6 =           ".   ..   &"
+$5:69 =           ". . ..  . "
+$5:6(9) =         ". . ..  . "
+$5:m69 =          ". & ..  . "
+$5:m6(9) =        ". & ..  . "
+$5:sus4 =         ".   .    #"
+$5:7sus4 =        ".   . &  #"
+$5:M9 =           ". . . . ." 
+$5:m9 =           ". & . & ." 
+$5:9 =            ". .   & ."
+$5:%9 =           ". & & & ."
+$5:7(#9) =        ". .   & #"
+$5:7#9 =          ". .   & #"
+$5:7+9 =          ". .   & #"
+$5:7(&9) =        ". .   & &"
+$5:7&9 =          ". .   & &"
+$5:7-9 =          ". .   & &"
+$5:7(#5) =        ".   # &  ."
+$5:7#5 =          ".   # &  ."
+$5:7+5 =          ".   # &  ."
+$5:7(&5) =        ".   & &  ."
+$5:7&5 =          ".   & &  ."
+$5:7-5 =          ".   & &  ."
+$5:add9 =         ". . .   ."
+$5:M7+11 =        ".   . .   #"
+$5:M7(#11) =      ".   . .   #"
+$5:M6+11 =        ". .  .    #"
+$5:M6(#11) =      ". .  .    #"
+$5:M9+11 =        ". .   . . #"
+$5:M9(#11) =      ". .   . . #"
+$5:m711 =         ". &   &   ."
+$5:m7(11) =       ". &   &   ."
+$5:m7(#11) =      ". &   &   #"
+$5:m911 =         ". &   & . ."
+$5:m9(11) =       ". &   & . ."
+$5:%11 =          ". & &     ."
+$5:7+11 =         ". .   &   #"
+$5:7(#11) =       ". .   &   #"
+$5:9+11 =         ". .   & . #"
+$5:79+11 =        ". .   & . #"
+$5:79(#11) =      ". .   & . #"
+$5:713 =          ". .   &     ."
+$5:7(13) =        ". .   &     ."
+$5:913 =          ". .     .   ."
+$5:9(13) =        ". .     .   ."
+$5:7913 =         ". .   & .   ."
+$5:7(913) =       ". .   & .   ."
+$5:7(9,13) =      ". .   & .   ."
+$5:7-13 =         ". .   &     &"
+$5:7(&13) =       ". .   &     &"
+$5:79-13 =        ". .   & .   &"
+$5:79(&13) =      ". .   & .   &"
+$5:%-13 =         ". & &       &"
+$5:%(&13) =       ". & &       &"
+$5:END
+
+ Base Oct. down
+$5:Low_Base
+ #define chord_base_position 0
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".        . ."
+$5:m =            ".        & ."
+$5:dim =          ".        & &"
+$5:aug =          ".        . #"
+$5:(#5) =         ".        . #"
+$5:M7 =           ".        . . ."
+$5:7 =            ".        . . &"
+$5:m7 =           ".        & . &"
+$5:m7(&5) =       ".        & & &"
+$5:m7&5 =         ".        & & &"
+$5:m7-5 =         ".        & & &"
+$5:% =            ".        & &"
+$5:dim7 =         ".        & &."
+$5:mM7 =          ".        & . ."
+$5:6 =            ".        . .."
+$5:m6 =           ".        & .."
+$5:69 =           ".        . ..  ."
+$5:6(9) =         ".        . ..  ."
+$5:m69 =          ".        & ..  ."
+$5:m6(9) =        ".        & ..  ."
+$5:sus4 =         ".        # ."
+$5:7sus4 =        ".        # . &"
+$5:M9 =           ".        . . . ."
+$5:m9 =           ".        & . & ."
+$5:9 =            ".        . . & ."
+$5:%9 =           ".        & & & ."
+$5:7(#9) =        ".        . . & #"
+$5:7#9 =          ".        . . & #"
+$5:7+9 =          ".        . . & #"
+$5:7(&9) =        ".        . . & &"
+$5:7&9 =          ".        . . & &"
+$5:7-9 =          ".        . . & &"
+$5:7(#5) =        ".        . # &"
+$5:7#5 =          ".        . # &"
+$5:7+5 =          ".        . # &"
+$5:7(&5) =        ".        . & &"
+$5:7&5 =          ".        . & &"
+$5:7-5 =          ".        . & &"
+$5:add9 =         ".        . .   ."
+$5:M7+11 =        ".        . . .   #"
+$5:M7(#11) =      ".        . . .   #"
+$5:M6+11 =        ".        . ..    #"
+$5:M6(#11) =      ".        . ..    #"
+$5:M9+11 =        ".        . . . . #"
+$5:M9(#11) =      ".        . . . . #"
+$5:m711 =         ".        & . &   ."
+$5:m7(11) =       ".        & . &   ."
+$5:m7(#11) =      ".        & . &   #"
+$5:m911 =         ".        & . & . ."
+$5:m9(11) =       ".        & . & . ."
+$5:%11 =          ".        & & &   ."
+$5:7+11 =         ".        . . &   #"
+$5:7(#11) =       ".        . . &   #"
+$5:9+11 =         ".        . . & . #"
+$5:79+11 =        ".        . . & . #"
+$5:79(#11) =      ".        . . & . #"
+$5:713 =          ".        . . &     ."
+$5:7(13) =        ".        . . &     ."
+$5:913 =          ".        . .   .   ."
+$5:9(13) =        ".        . .   .   ."
+$5:7913 =         ".        . . & .   ."
+$5:7(913) =       ".        . . & .   ."
+$5:7(9,13) =      ".        . . & .   ."
+$5:7-13 =         ".        . . &     &"
+$5:7(&13) =       ".        . . &     &"
+$5:79-13 =        ".        . . & .   &"
+$5:79(&13) =      ".        . . & .   &"
+$5:%-13 =         ".        & & &     &"
+$5:%(&13) =       ".        & & &     &"
+$5:END 
+$5:END
+
+$5:Low_Base_add_Top      
+ #define chord_base_position 0       
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =            ".        . .      ." 
+$5:m =            ".        & .      ."  
+$5:dim =          ".        & &      &"
+$5:aug =          ".        . #      #"
+$5:(#5) =         ".        . #      #"
+$5:M7 =           ".        . . .      ."
+$5:7 =            ".        . . &      &"
+$5:m7 =           ".        & . &      &"
+$5:m7(&5) =       ".        & & &      &"
+$5:m7&5 =         ".        & & &      &"
+$5:m7-5 =         ".        & & &      &"
+$5:% =            ".        & & &     ."
+$5:dim7 =         ".        & &.      ."
+$5:mM7 =          ".        & . .      ."
+$5:6 =            ".        . ..      ."
+$5:m6 =           ".        & ..      ."
+$5:69 =           ".        . .. .      ."
+$5:6(9) =         ".        . .. .      ."
+$5:m69 =          ".        & .. .      ."
+$5:m6(9) =        ".        & .. .      ."
+$5:sus4 =         ".        # .      ."
+$5:7sus4 =        ".        # . &      &"
+$5:M9 =           ".        . . . .      ."
+$5:m9 =           ".        & . & .      ."
+$5:9 =            ".        . . & .      ."
+$5:%9 =           ".        & & & .      ."
+$5:7(#9) =        ".        . . & &      #"
+$5:7#9 =          ".        . . & &      #"
+$5:7+9 =          ".        . . & &      #"
+$5:7(&9) =        ".        . . & &      &"
+$5:7&9 =          ".        . . & &      &"
+$5:7-9 =          ".        . . & &      &"
+$5:7(#5) =        ".        . # &      &"
+$5:7#5 =          ".        . # &      &"
+$5:7+5 =          ".        . # &      &"
+$5:7(&5) =        ".        . & &      &"
+$5:7&5 =          ".        . & &      &"
+$5:7-5 =          ".        . & &      &"
+$5:add9 =         ".        . .   .      ."
+$5:END
+
+$5:Separate_Note
+ #define chord_base_position 1
+ m0000005 _-1______0______1______2______*______4______5______6______7
+$5:M =                   ".        . ."  
+$5:m =                   ".        & ."  
+$5:dim =                 ".        & &"  
+$5:aug =                 ".        . #"  
+$5:(#5) =                ".        . #"  
+$5:M7 =                  ". .        . ."
+$5:7 =                   ". .        . &"
+$5:m7 =                  ". &        . &"
+$5:m7(&5) =              ". &        & &"
+$5:m7&5 =                ". &        & &"
+$5:m7-5 =                ". &        & &"
+$5:% =                   ". &        &"
+$5:dim7 =                ". &        &."
+$5:mM7 =                 ". &        . ."
+$5:6 =                   ". .        .."
+$5:m6 =                  ". &        .."
+$5:69 =                  ". .        .. ."
+$5:6(9) =                ". .        .. ."
+$5:m69 =                 ". &        .. ."
+$5:m6(9) =               ". &        .. ."
+$5:sus4 =                ".        # ."  
+$5:7sus4 =               ". #        . &"
+$5:M9 =                  ". .        . . ."
+$5:m9 =                  ". &        . & ."
+$5:9 =                   ". .        . & ."
+$5:%9 =                  ". &        & & ."
+$5:7(#9) =               ". .        . & #"
+$5:7#9 =                 ". .        . & #"
+$5:7+9 =                 ". .        . & #"
+$5:7(&9) =               ". .        . & &"
+$5:7&9 =                 ". .        . & &"
+$5:7-9 =                 ". .        . & &"
+$5:7(#5) =               ". .        # &"
+$5:7#5 =                 ". .        # &"
+$5:7+5 =                 ". .        # &"
+$5:7(&5) =               ". .        & &" 
+$5:7&5 =                 ". .        & &" 
+$5:7-5 =                 ". .        & &" 
+$5:add9 =                ". .        .   ."
+$5:END
+
+ Exchange ! Chord progression line
+!&I = $2:&I
+!&I6 = $2:&I6
+!&I7 = $2:&I7
+!&I69 = $2:&I69
+!&I6(9) = $2:&I6(9)
+!&Iaug = $2:&Iaug
+!&IM7 = $2:&IM7
+!&I7(&5) = $2:&I7(&5)
+!&I7&5 = $2:&I7&5
+!&I7-5 = $2:&I7-5
+!&I9 = $2:&I9
+!&I(&5) = $2:&I(&5)
+!&I&5 = $2:&I&5
+!&I-5 = $2:&I-5
+!&IM9 = $2:&IM9
+!&I7(#5) = $2:&I7(#5)
+!&I7#5 = $2:&I7#5
+!&I7+5 = $2:&I7+5
+!&I7(#9) = $2:&I7(#9)
+!&I7#9 = $2:&I7#9
+!&I7+9 = $2:&I7+9
+!&I7(&10) = $2:&I7+9
+!&I7&10 = $2:&I7+9
+!&I7-10 = $2:&I7+9
+!&I7(&9) = $2:&I7(&9)
+!&I7&9 = $2:&I7&9
+!&I7-9 = $2:&I7-9
+!&Im = $2:&Im
+!&Im6 = $2:&Im6
+!&Im7 = $2:&Im7
+!&ImM7 = $2:&ImM7
+!&Im9 = $2:&Im9
+!&Im69 = $2:&Im69
+!&Im79 = $2:&Im79
+!&Im6(9) = $2:&Im6(9)
+!&Im7(&5) = $2:&Im7(&5)
+!&Im7&5 = $2:&Im7&5
+!&Im7-5 = $2:&Im7-5
+!&Im7(11) = $2:&Im7(11)
+!&Im7(#11) = $2:&Im7(#11)
+!&I% = $2:&I%
+!&Idim = $2:&Idim
+!&Idim = $2:&Idim
+!&Idim7 = $2:&Idim7
+!&Isus4 = $2:&Isus4
+!&I7sus4 = $2:&I7sus4
+
+!I = $2:I
+!I6 = $2:I6
+!I7 = $2:I7
+!I69 = $2:I69
+!I6(9) = $2:I6(9)
+!Iaug = $2:Iaug
+!I(#5) = $2:I(#5)
+!IM7 = $2:IM7
+!I7(&5) = $2:I7(&5)
+!I7&5 = $2:I7&5
+!I7-5 = $2:I7-5
+!I9 = $2:I9
+!I(&5) = $2:I(&5)
+!I&5 = $2:I&5
+!I-5 = $2:I-5
+!IM9 = $2:IM9
+!I7(#5) = $2:I7(#5)
+!I7#5 = $2:I7#5
+!I7+5 = $2:I7+5
+!I7(&10) = $2:I7(#9)
+!I7&10 = $2:I7#9
+!I7-10 = $2:I7+9
+!I7(#9) = $2:I7(#9)
+!I7#9 = $2:I7#9
+!I7+9 = $2:I7+9
+!I7(&9) = $2:I7(&9)
+!I7&9 = $2:I7&9
+!I7-9 = $2:I7-9
+!Im = $2:Im
+!Im6 = $2:Im6
+!Im7 = $2:Im7
+!ImM7 = $2:ImM7
+!Im9 = $2:Im9
+!Im69 = $2:Im69
+!Im79 = $2:Im79
+!Im6(9) = $2:Im6(9)
+!Im7(9) = $2:Im7(9)
+!Im7(&5) = $2:Im7(&5)
+!Im7&5 = $2:Im7&5
+!Im7-5 = $2:Im7-5
+!Im7(11) = $2:Im7(11)
+!Im7(#11) = $2:Im7(#11)
+!I% = $2:I%
+!Idim = $2:Idim
+!Idim = $2:Idim
+!Idim7 = $2:Idim7
+!Isus4 = $2:Isus4
+!I7sus4 = $2:I7sus4
+
+!#I = $2:#I
+!#I6 = $2:#I6
+!#I7 = $2:#I7
+!#I69 = $2:#I69
+!#I6(9) = $2:#I6(9)
+!#Iaug = $2:#Iaug
+!#I(#5) = $2:#I(#5)
+!#IM7 = $2:#IM7
+!#I7(&5) = $2:#I7(&5)
+!#I7&5 = $2:#I7&5
+!#I7-5 = $2:#I7-5
+!#I9 = $2:#I9
+!#I(&5) = $2:#I(&5)
+!#I&5 = $2:#I&5
+!#I-5 = $2:#I-5
+!#IM9 = $2:#IM9
+!#I7(#5) = $2:#I7(#5)
+!#I7#5 = $2:#I7#5
+!#I7+5 = $2:#I7+5
+!#I7(#9) = $2:#I7(#9)
+!#I7#9 = $2:#I7#9
+!#I7+9 = $2:#I7+9
+!#I7(&10) = $2:#I7(#9)
+!#I7&10 = $2:#I7#9
+!#I7-10 = $2:#I7+9
+!#I7(&9) = $2:#I7(&9)
+!#I7&9 = $2:#I7&9
+!#I7-9 = $2:#I7-9
+!#Im = $2:#Im
+!#Im6 = $2:#Im6
+!#Im7 = $2:#Im7
+!#ImM7 = $2:#ImM7
+!#Im9 = $2:#Im9
+!#Im69 = $2:#Im69
+!#Im79 = $2:#Im79
+!#Im6(9) = $2:#Im6(9)
+!#Im7(9) = $2:#Im7(9)
+!#Im7(&5) = $2:#Im7(&5)
+!#Im7&5 = $2:#Im7&5
+!#Im7-5 = $2:#Im7-5
+!#Im7(11) = $2:#Im7(11)
+!#Im7(#11) = $2:#Im7(#11)
+!#I% = $2:#I%
+!#Idim = $2:#Idim
+!#Idim = $2:#Idim
+!#Idim7 = $2:#Idim7
+!#Isus4 = $2:#Isus4
+!#I7sus4 = $2:#I7sus4
+
+!&II = $2:&II
+!&II6 = $2:&II6
+!&II7 = $2:&II7
+!&II69 = $2:&II69
+!&II6(9) = $2:&II6(9)
+!&IIaug = $2:&IIaug
+!&II(#5) = $2:&II(#5)
+!&IIM7 = $2:&IIM7
+!&II7(&5) = $2:&II7(&5)
+!&II7&5 = $2:&II7&5
+!&II7-5 = $2:&II7-5
+!&II9 = $2:&II9
+!&II(&5) = $2:&II(&5)
+!&II&5 = $2:&II&5
+!&II-5 = $2:&II-5
+!&IIM9 = $2:&IIM9
+!&II7(#5) = $2:&II7(#5)
+!&II7#5 = $2:&II7#5
+!&II7+5 = $2:&II7+5
+!&II7(#9) = $2:&II7(#9)
+!&II7#9 = $2:&II7#9
+!&II7+9 = $2:&II7+9
+!&II7(&10) = $2:&II7(#9)
+!&II7&10 = $2:&II7#9
+!&II7-10 = $2:&II7+9
+!&II7(&9) = $2:&II7(&9)
+!&II7&9 = $2:&II7&9
+!&II7-9 = $2:&II7-9
+!&IIm = $2:&IIm
+!&IIm6 = $2:&IIm6
+!&IIm7 = $2:&IIm7
+!&IImM7 = $2:&IImM7
+!&IIm9 = $2:&IIm9
+!&IIm69 = $2:&IIm69
+!&IIm79 = $2:&IIm79
+!&IIm6(9) = $2:&IIm6(9)
+!&IIm7(9) = $2:&IIm7(9)
+!&IIm7(&5) = $2:&IIm7(&5)
+!&IIm7&5 = $2:&IIm7&5
+!&IIm7-5 = $2:&IIm7-5
+!&IIm7(11) = $2:&IIm7(11)
+!&IIm7(#11) = $2:&IIm7(#11)
+!&II% = $2:&II%
+!&IIdim = $2:&IIdim
+!&IIdim = $2:&IIdim
+!&IIdim7 = $2:&IIdim7
+!&IIsus4 = $2:&IIsus4
+!&II7sus4 = $2:&II7sus4
+
+!II = $2:II
+!II6 = $2:II6
+!II7 = $2:II7
+!II69 = $2:II69
+!II6(9) = $2:II6(9)
+!IIaug = $2:IIaug
+!II(#5) = $2:II(#5)
+!IIM7 = $2:IIM7
+!II7(&5) = $2:II7(&5)
+!II7&5 = $2:II7&5
+!II7-5 = $2:II7-5
+!II9 = $2:II9
+!II(&5) = $2:II(&5)
+!II&5 = $2:II&5
+!II-5 = $2:II-5
+!IIM9 = $2:IIM9
+!II7(#5) = $2:II7(#5)
+!II7#5 = $2:II7#5
+!II7+5 = $2:II7+5
+!II7(&10) = $2:II7(#9)
+!II7&10 = $2:II7#9
+!II7-10 = $2:II7+9
+!II7(#9) = $2:II7(#9)
+!II7#9 = $2:II7#9
+!II7+9 = $2:II7+9
+!II7(&9) = $2:II7(&9)
+!II7&9 = $2:II7&9
+!II7-9 = $2:II7-9
+!IIm = $2:IIm
+!IIm6 = $2:IIm6
+!IIm7 = $2:IIm7
+!IImM7 = $2:IImM7
+!IIm9 = $2:IIm9
+!IIm69 = $2:IIm69
+!IIm79 = $2:IIm79
+!IIm6(9) = $2:IIm6(9)
+!IIm7(9) = $2:IIm7(9)
+!IIm7(11) = $2:IIm7(11)
+!IIm7(#11) = $2:IIm7(#11)
+!IIm7(&5) = $2:IIm7(&5)
+!IIm7&5 = $2:IIm7&5
+!IIm7-5 = $2:IIm7-5
+!IIm7(11) = $2:IIm7(11)
+!IIm7(#11) = $2:IIm7(#11)
+!II% = $2:II%
+!IIdim = $2:IIdim
+!IIdim = $2:IIdim
+!IIdim7 = $2:IIdim7
+!IIsus4 = $2:IIsus4
+!II7sus4 = $2:II7sus4
+
+!#II = $2:#II
+!#II6 = $2:#II6
+!#II7 = $2:#II7
+!#II69 = $2:#II69
+!#II6(9) = $2:#II6(9)
+!#IIaug = $2:#IIaug
+!#II(#5) = $2:#II(#5)
+!#IIM7 = $2:#IIM7
+!#II7(&5) = $2:#II7(&5)
+!#II7&5 = $2:#II7&5
+!#II7-5 = $2:#II7-5
+!#II9 = $2:#II9
+!#II(&5) = $2:#II(&5)
+!#II&5 = $2:#II&5
+!#II-5 = $2:#II-5
+!#IIM9 = $2:#IIM9
+!#II7(#5) = $2:#II7(#5)
+!#II7#5 = $2:#II7#5
+!#II7+5 = $2:#II7+5
+!#II7(&10) = $2:#II7(#9)
+!#II7&10 = $2:#II7#9
+!#II7-10 = $2:#II7+9
+!#II7(#9) = $2:#II7(#9)
+!#II7#9 = $2:#II7#9
+!#II7+9 = $2:#II7+9
+!#II7(&9) = $2:#II7(&9)
+!#II7&9 = $2:#II7&9
+!#II7-9 = $2:#II7-9
+!#IIm = $2:#IIm
+!#IIm6 = $2:#IIm6
+!#IIm7 = $2:#IIm7
+!#IImM7 = $2:#IImM7
+!#IIm9 = $2:#IIm9
+!#IIm69 = $2:#IIm69
+!#IIm79 = $2:#IIm79
+!#IIm6(9) = $2:#IIm6(9)
+!#IIm7(9) = $2:#IIm7(9)
+!#IIm7(&5) = $2:#IIm7(&5)
+!#IIm7&5 = $2:#IIm7&5
+!#IIm7-5 = $2:#IIm7-5
+!#IIm7(11) = $2:#IIm7(11)
+!#IIm7(#11) = $2:#IIm7(#11)
+!#II% = $2:#II%
+!#IIdim = $2:#IIdim
+!#IIdim = $2:#IIdim
+!#IIdim7 = $2:#IIdim7
+!#IIsus4 = $2:#IIsus4
+!#II7sus4 = $2:#II7sus4
+
+!&III = $2:&III
+!&III6 = $2:&III6
+!&III7 = $2:&III7
+!&III69 = $2:&III69
+!&III6(9) = $2:&III6(9)
+!&IIIaug = $2:&IIIaug
+!&III(#5) = $2:&III(#5)
+!&IIIM7 = $2:&IIIM7
+!&III7(&5) = $2:&III7(&5)
+!&III7&5 = $2:&III7&5
+!&III7-5 = $2:&III7-5
+!&III9 = $2:&III9
+!&III(&5) = $2:&III(&5)
+!&III&5 = $2:&III&5
+!&III-5 = $2:&III-5
+!&IIIM9 = $2:&IIIM9
+!&III7(#5) = $2:&III7(#5)
+!&III7#5 = $2:&III7#5
+!&III7+5 = $2:&III7+5
+!&III7(&10) = $2:&III7(#9)
+!&III7&10 = $2:&III7#9
+!&III7-10 = $2:&III7+9
+!&III7(#9) = $2:&III7(#9)
+!&III7#9 = $2:&III7#9
+!&III7+9 = $2:&III7+9
+!&III7(&9) = $2:&III7(&9)
+!&III7&9 = $2:&III7&9
+!&III7-9 = $2:&III7-9
+!&IIIm = $2:&IIIm
+!&IIIm6 = $2:&IIIm6
+!&IIIm7 = $2:&IIIm7
+!&IIImM7 = $2:&IIImM7
+!&IIIm9 = $2:&IIIm9
+!&IIIm69 = $2:&IIIm69
+!&IIIm79 = $2:&IIIm79
+!&IIIm6(9) = $2:&IIIm6(9)
+!&IIIm7(9) = $2:&IIIm7(9)
+!&IIIm7(&5) = $2:&IIIm7(&5)
+!&IIIm7&5 = $2:&IIIm7&5
+!&IIIm7-5 = $2:&IIIm7-5
+!&IIIm7(11) = $2:&IIIm7(11)
+!&IIIm7(#11) = $2:&IIIm7(#11)
+!&III% = $2:&III%
+!&IIIdim = $2:&IIIdim
+!&IIIdim = $2:&IIIdim
+!&IIIdim7 = $2:&IIIdim7
+!&IIIsus4 = $2:&IIIsus4
+!&III7sus4 = $2:&III7sus4
+
+!III = $2:III
+!III6 = $2:III6
+!III7 = $2:III7
+!III69 = $2:III69
+!III6(9) = $2:III6(9)
+!IIIaug = $2:IIIaug
+!III(#5) = $2:III(#5)
+!IIIM7 = $2:IIIM7
+!III7(&5) = $2:III7(&5)
+!III7&5 = $2:III7&5
+!III7-5 = $2:III7-5
+!III9 = $2:III9
+!III(&5) = $2:III(&5)
+!III&5 = $2:III&5
+!III-5 = $2:III-5
+!IIIM9 = $2:IIIM9
+!III7(#5) = $2:III7(#5)
+!III7#5 = $2:III7#5
+!III7+5 = $2:III7+5
+!III7(&10) = $2:III7(#9)
+!III7&10 = $2:III7#9
+!III7-10 = $2:III7+9
+!III7(#9) = $2:III7(#9)
+!III7#9 = $2:III7#9
+!III7+9 = $2:III7+9
+!III7(&9) = $2:III7(&9)
+!III7&9 = $2:III7&9
+!III7-9 = $2:III7-9
+!IIIm = $2:IIIm
+!IIIm6 = $2:IIIm6
+!IIIm7 = $2:IIIm7
+!IIImM7 = $2:IIImM7
+!IIIm9 = $2:IIIm9
+!IIIm69 = $2:IIIm69
+!IIIm79 = $2:IIIm79
+!IIIm6(9) = $2:IIIm6(9)
+!IIIm7(9) = $2:IIIm7(9)
+!IIIm7(&5) = $2:IIIm7(&5)
+!IIIm7&5 = $2:IIIm7&5
+!IIIm7-5 = $2:IIIm7-5
+!IIIm7(11) = $2:IIIm7(11)
+!IIIm7(#11) = $2:IIIm7(#11)
+!III% = $2:III%
+!IIIdim = $2:IIIdim
+!IIIdim = $2:IIIdim
+!IIIdim7 = $2:IIIdim7
+!IIIsus4 = $2:IIIsus4
+!III7sus4 = $2:III7sus4
+
+!#III = $2:#III
+!#III6 = $2:#III6
+!#III7 = $2:#III7
+!#III69 = $2:#III69
+!#III6(9) = $2:#III6(9)
+!#IIIaug = $2:#IIIaug
+!#III(#5) = $2:#III(#5)
+!#IIIM7 = $2:#IIIM7
+!#III7(&5) = $2:#III7(&5)
+!#III7&5 = $2:#III7&5
+!#III7-5 = $2:#III7-5
+!#III9 = $2:#III9
+!#III(&5) = $2:#III(&5)
+!#III&5 = $2:#III&5
+!#III-5 = $2:#III-5
+!#IIIM9 = $2:#IIIM9
+!#III7(#5) = $2:#III7(#5)
+!#III7#5 = $2:#III7#5
+!#III7+5 = $2:#III7+5
+!#III7(&10) = $2:#III7(#9)
+!#III7&10 = $2:#III7#9
+!#III7-10 = $2:#III7+9
+!#III7(#9) = $2:#III7(#9)
+!#III7#9 = $2:#III7#9
+!#III7+9 = $2:#III7+9
+!#III7(&9) = $2:#III7(&9)
+!#III7&9 = $2:#III7&9
+!#III7-9 = $2:#III7-9
+!#IIIm = $2:#IIIm
+!#IIIm6 = $2:#IIIm6
+!#IIIm7 = $2:#IIIm7
+!#IIImM7 = $2:#IIImM7
+!#IIIm9 = $2:#IIIm9
+!#IIIm69 = $2:#IIIm69
+!#IIIm79 = $2:#IIIm79
+!#IIIm6(9) = $2:#IIIm6(9)
+!#IIIm7(9) = $2:#IIIm7(9)
+!#IIIm7(&5) = $2:#IIIm7(&5)
+!#IIIm7&5 = $2:#IIIm7&5
+!#IIIm7-5 = $2:#IIIm7-5
+!#IIIm7(11) = $2:#IIIm7(11)
+!#IIIm7(#11) = $2:#IIIm7(#11)
+!#III% = $2:#III%
+!#IIIdim = $2:#IIIdim
+!#IIIdim = $2:#IIIdim
+!#IIIdim7 = $2:#IIIdim7
+!#IIIsus4 = $2:#IIIsus4
+!#III7sus4 = $2:#III7sus4
+
+!&IV = $2:&IV
+!&IV6 = $2:&IV6
+!&IV7 = $2:&IV7
+!&IV69 = $2:&IV69
+!&IV6(9) = $2:&IV6(9)
+!&IVaug = $2:&IVaug
+!&IV(#5) = $2:&IV(#5)
+!&IVM7 = $2:&IVM7
+!&IV7(&5) = $2:&IV7(&5)
+!&IV7&5 = $2:&IV7&5
+!&IV7-5 = $2:&IV7-5
+!&IV9 = $2:&IV9
+!&IV(&5) = $2:&IV(&5)
+!&IV&5 = $2:&IV&5
+!&IV-5 = $2:&IV-5
+!&IVM9 = $2:&IVM9
+!&IV7(#5) = $2:&IV7(#5)
+!&IV7#5 = $2:&IV7#5
+!&IV7+5 = $2:&IV7+5
+!&IV7(&10) = $2:&IV7(#9)
+!&IV7&10 = $2:&IV7#9
+!&IV7-10 = $2:&IV7+9
+!&IV7(#9) = $2:&IV7(#9)
+!&IV7#9 = $2:&IV7#9
+!&IV7+9 = $2:&IV7+9
+!&IV7(&9) = $2:&IV7(&9)
+!&IV7&9 = $2:&IV7&9
+!&IV7-9 = $2:&IV7-9
+!&IVm = $2:&IVm
+!&IVm6 = $2:&IVm6
+!&IVm7 = $2:&IVm7
+!&IVmM7 = $2:&IVmM7
+!&IVm9 = $2:&IVm9
+!&IVm69 = $2:&IVm69
+!&IVm79 = $2:&IVm79
+!&IVm6(9) = $2:&IVm6(9)
+!&IVm7(9) = $2:&IVm7(9)
+!&IVm7(&5) = $2:&IVm7(&5)
+!&IVm7&5 = $2:&IVm7&5
+!&IVm7-5 = $2:&IVm7-5
+!&IVm7(11) = $2:&IVm7(11)
+!&IVm7(#11) = $2:&IVm7(#11)
+!&IV% = $2:&IV%
+!&IVdim = $2:&IVdim
+!&IVdim = $2:&IVdim
+!&IVdim7 = $2:&IVdim7
+!&IVsus4 = $2:&IVsus4
+!&IV7sus4 = $2:&IV7sus4
+
+!IV = $2:IV
+!IV6 = $2:IV6
+!IV7 = $2:IV7
+!IV69 = $2:IV69
+!IV6(9) = $2:IV6(9)
+!IVaug = $2:IVaug
+!IV(#5) = $2:IV(#5)
+!IVM7 = $2:IVM7
+!IV7(&5) = $2:IV7(&5)
+!IV7&5 = $2:IV7&5
+!IV7-5 = $2:IV7-5
+!IV9 = $2:IV9
+!IV(&5) = $2:IV(&5)
+!IV&5 = $2:IV&5
+!IV-5 = $2:IV-5
+!IVM9 = $2:IVM9
+!IV7(#5) = $2:IV7(#5)
+!IV7#5 = $2:IV7#5
+!IV7+5 = $2:IV7+5
+!IV7(&10) = $2:IV7(#9)
+!IV7&10 = $2:IV7#9
+!IV7-10 = $2:IV7+9
+!IV7(#9) = $2:IV7(#9)
+!IV7#9 = $2:IV7#9
+!IV7+9 = $2:IV7+9
+!IV7(&9) = $2:IV7(&9)
+!IV7&9 = $2:IV7&9
+!IV7-9 = $2:IV7-9
+!IVm = $2:IVm
+!IVm6 = $2:IVm6
+!IVm7 = $2:IVm7
+!IVmM7 = $2:IVmM7
+!IVm9 = $2:IVm9
+!IVm69 = $2:IVm69
+!IVm79 = $2:IVm79
+!IVm6(9) = $2:IVm6(9)
+!IVm7(9) = $2:IVm7(9)
+!IVm7(&5) = $2:IVm7(&5)
+!IVm7&5 = $2:IVm7&5
+!IVm7-5 = $2:IVm7-5
+!IVm7(11) = $2:IVm7(11)
+!IVm7(#11) = $2:IVm7(#11)
+!IV% = $2:IV%
+!IVdim = $2:IVdim
+!IVdim = $2:IVdim
+!IVdim7 = $2:IVdim7
+!IVsus4 = $2:IVsus4
+!IV7sus4 = $2:IV7sus4
+
+!#IV = $2:#IV
+!#IV6 = $2:#IV6
+!#IV7 = $2:#IV7
+!#IV69 = $2:#IV69
+!#IV6(9) = $2:#IV6(9)
+!#IVaug = $2:#IVaug
+!#IV(#5) = $2:#IV(#5)
+!#IVM7 = $2:#IVM7
+!#IV7(&5) = $2:#IV7(&5)
+!#IV7&5 = $2:#IV7&5
+!#IV7-5 = $2:#IV7-5
+!#IV9 = $2:#IV9
+!#IV(&5) = $2:#IV(&5)
+!#IV&5 = $2:#IV&5
+!#IV-5 = $2:#IV-5
+!#IVM9 = $2:#IVM9
+!#IV7(#5) = $2:#IV7(#5)
+!#IV7#5 = $2:#IV7#5
+!#IV7+5 = $2:#IV7+5
+!#IV7(&10) = $2:#IV7(#9)
+!#IV7&10 = $2:#IV7#9
+!#IV7-10 = $2:#IV7+9
+!#IV7(#9) = $2:#IV7(#9)
+!#IV7#9 = $2:#IV7#9
+!#IV7+9 = $2:#IV7+9
+!#IV7(&9) = $2:#IV7(&9)
+!#IV7&9 = $2:#IV7&9
+!#IV7-9 = $2:#IV7-9
+!#IVm = $2:#IVm
+!#IVm6 = $2:#IVm6
+!#IVm7 = $2:#IVm7
+!#IVmM7 = $2:#IVmM7
+!#IVm9 = $2:#IVm9
+!#IVm69 = $2:#IVm69
+!#IVm79 = $2:#IVm79
+!#IVm6(9) = $2:#IVm6(9)
+!#IVm7(9) = $2:#IVm7(9)
+!#IVm7(&5) = $2:#IVm7(&5)
+!#IVm7&5 = $2:#IVm7&5
+!#IVm7-5 = $2:#IVm7-5
+!#IVm7(11) = $2:#IVm7(11)
+!#IVm7(#11) = $2:#IVm7(#11)
+!#IV% = $2:#IV%
+!#IVdim = $2:#IVdim
+!#IVdim = $2:#IVdim
+!#IVdim7 = $2:#IVdim7
+!#IVsus4 = $2:#IVsus4
+!#IV7sus4 = $2:#IV7sus4
+
+!&V = $2:&V
+!&V6 = $2:&V6
+!&V7 = $2:&V7
+!&V69 = $2:&V69
+!&V6(9) = $2:&V6(9)
+!&Vaug = $2:&Vaug
+!&V(#5) = $2:&V(#5)
+!&VM7 = $2:&VM7
+!&V7(&5) = $2:&V7(&5)
+!&V7&5 = $2:&V7&5
+!&V7-5 = $2:&V7-5
+!&V9 = $2:&V9
+!&V(&5) = $2:&V(&5)
+!&V&5 = $2:&V&5
+!&V-5 = $2:&V-5
+!&VM9 = $2:&VM9
+!&V7(#5) = $2:&V7(#5)
+!&V7#5 = $2:&V7#5
+!&V7+5 = $2:&V7+5
+!&V7(&10) = $2:&V7(#9)
+!&V7&10 = $2:&V7#9
+!&V7-10 = $2:&V7+9
+!&V7(#9) = $2:&V7(#9)
+!&V7#9 = $2:&V7#9
+!&V7+9 = $2:&V7+9
+!&V7(&9) = $2:&V7(&9)
+!&V7&9 = $2:&V7&9
+!&V7-9 = $2:&V7-9
+!&Vm = $2:&Vm
+!&Vm6 = $2:&Vm6
+!&Vm7 = $2:&Vm7
+!&VmM7 = $2:&VmM7
+!&Vm9 = $2:&Vm9
+!&Vm69 = $2:&Vm69
+!&Vm79 = $2:&Vm79
+!&Vm6(9) = $2:&Vm6(9)
+!&Vm7(9) = $2:&Vm7(9)
+!&Vm7(&5) = $2:&Vm7(&5)
+!&Vm7&5 = $2:&Vm7&5
+!&Vm7-5 = $2:&Vm7-5
+!&Vm7(11) = $2:&Vm7(11)
+!&Vm7(#11) = $2:&Vm7(#11)
+!&V% = $2:&V%
+!&Vdim = $2:&Vdim
+!&Vdim = $2:&Vdim
+!&Vdim7 = $2:&Vdim7
+!&Vsus4 = $2:&Vsus4
+!&V7sus4 = $2:&V7sus4
+
+!V = $2:V
+!V6 = $2:V6
+!V7 = $2:V7
+!V69 = $2:V69
+!V6(9) = $2:V6(9)
+!Vaug = $2:Vaug
+!V(#5) = $2:V(#5)
+!VM7 = $2:VM7
+!V7(&5) = $2:V7(&5)
+!V7&5 = $2:V7&5
+!V7-5 = $2:V7-5
+!V9 = $2:V9
+!V(&5) = $2:V(&5)
+!V&5 = $2:V&5
+!V-5 = $2:V-5
+!VM9 = $2:VM9
+!V7(#5) = $2:V7(#5)
+!V7#5 = $2:V7#5
+!V7+5 = $2:V7+5
+!V7(&10) = $2:V7(#9)
+!V7&10 = $2:V7#9
+!V7-10 = $2:V7+9
+!V7(#9) = $2:V7(#9)
+!V7#9 = $2:V7#9
+!V7+9 = $2:V7+9
+!V7(&9) = $2:V7(&9)
+!V7&9 = $2:V7&9
+!V7-9 = $2:V7-9
+!Vm = $2:Vm
+!Vm6 = $2:Vm6
+!Vm7 = $2:Vm7
+!VmM7 = $2:VmM7
+!Vm9 = $2:Vm9
+!Vm69 = $2:Vm69
+!Vm79 = $2:Vm79
+!Vm6(9) = $2:Vm6(9)
+!Vm7(9) = $2:Vm7(9)
+!Vm7(&5) = $2:Vm7(&5)
+!Vm7&5 = $2:Vm7&5
+!Vm7-5 = $2:Vm7-5
+!Vm7(11) = $2:Vm7(11)
+!Vm7(#11) = $2:Vm7(#11)
+!V% = $2:V%
+!Vdim = $2:Vdim
+!Vdim = $2:Vdim
+!Vdim7 = $2:Vdim7
+!Vsus4 = $2:Vsus4
+!V7sus4 = $2:V7sus4
+
+!#V = $2:#V
+!#V6 = $2:#V6
+!#V7 = $2:#V7
+!#V69 = $2:#V69
+!#V6(9) = $2:#V6(9)
+!#Vaug = $2:#Vaug
+!#V(#5) = $2:#V(#5)
+!#VM7 = $2:#VM7
+!#V7(&5) = $2:#V7(&5)
+!#V7&5 = $2:#V7&5
+!#V7-5 = $2:#V7-5
+!#V9 = $2:#V9
+!#V(&5) = $2:#V(&5)
+!#V&5 = $2:#V&5
+!#V-5 = $2:#V-5
+!#VM9 = $2:#VM9
+!#V7(#5) = $2:#V7(#5)
+!#V7#5 = $2:#V7#5
+!#V7+5 = $2:#V7+5
+!#V7(&10) = $2:#V7(#9)
+!#V7&10 = $2:#V7#9
+!#V7-10 = $2:#V7+9
+!#V7(#9) = $2:#V7(#9)
+!#V7#9 = $2:#V7#9
+!#V7+9 = $2:#V7+9
+!#V7(&9) = $2:#V7(&9)
+!#V7&9 = $2:#V7&9
+!#V7-9 = $2:#V7-9
+!#Vm = $2:#Vm
+!#Vm6 = $2:#Vm6
+!#Vm7 = $2:#Vm7
+!#VmM7 = $2:#VmM7
+!#Vm9 = $2:#Vm9
+!#Vm69 = $2:#Vm69
+!#Vm79 = $2:#Vm79
+!#Vm6(9) = $2:#Vm6(9)
+!#Vm7(9) = $2:#Vm7(9)
+!#Vm7(&5) = $2:#Vm7(&5)
+!#Vm7&5 = $2:#Vm7&5
+!#Vm7-5 = $2:#Vm7-5
+!#Vm7(11) = $2:#Vm7(11)
+!#Vm7(#11) = $2:#Vm7(#11)
+!#V% = $2:#V%
+!#Vdim = $2:#Vdim
+!#Vdim = $2:#Vdim
+!#Vdim7 = $2:#Vdim7
+!#Vsus4 = $2:#Vsus4
+!#V7sus4 = $2:#V7sus4
+
+!&VI = $2:&VI
+!&VI6 = $2:&VI6
+!&VI7 = $2:&VI7
+!&VI69 = $2:&VI69
+!&VI6(9) = $2:&VI6(9)
+!&VIaug = $2:&VIaug
+!&VI(#5) = $2:&VI(#5)
+!&VIM7 = $2:&VIM7
+!&VI7(&5) = $2:&VI7(&5)
+!&VI7&5 = $2:&VI7&5
+!&VI7-5 = $2:&VI7-5
+!&VI9 = $2:&VI9
+!&VI(&5) = $2:&VI(&5)
+!&VI&5 = $2:&VI&5
+!&VI-5 = $2:&VI-5
+!&VIM9 = $2:&VIM9
+!&VI7(#5) = $2:&VI7(#5)
+!&VI7#5 = $2:&VI7#5
+!&VI7+5 = $2:&VI7+5
+!&VI7(&10) = $2:&VI7(#9)
+!&VI7&10 = $2:&VI7#9
+!&VI7-10 = $2:&VI7+9
+!&VI7(#9) = $2:&VI7(#9)
+!&VI7#9 = $2:&VI7#9
+!&VI7+9 = $2:&VI7+9
+!&VI7(&9) = $2:&VI7(&9)
+!&VI7&9 = $2:&VI7&9
+!&VI7-9 = $2:&VI7-9
+!&VIm = $2:&VIm
+!&VIm6 = $2:&VIm6
+!&VIm7 = $2:&VIm7
+!&VImM7 = $2:&VImM7
+!&VIm9 = $2:&VIm9
+!&VIm69 = $2:&VIm69
+!&VIm79 = $2:&VIm79
+!&VIm6(9) = $2:&VIm6(9)
+!&VIm7(9) = $2:&VIm7(9)
+!&VIm7(&5) = $2:&VIm7(&5)
+!&VIm7&5 = $2:&VIm7&5
+!&VIm7-5 = $2:&VIm7-5
+!&VIm7(11) = $2:&VIm7(11)
+!&VIm7(#11) = $2:&VIm7(#11)
+!&VI% = $2:&VI%
+!&VIdim = $2:&VIdim
+!&VIdim = $2:&VIdim
+!&VIdim7 = $2:&VIdim7
+!&VIsus4 = $2:&VIsus4
+!&VI7sus4 = $2:&VI7sus4
+
+!VI = $2:VI
+!VI6 = $2:VI6
+!VI7 = $2:VI7
+!VI69 = $2:VI69
+!VI6(9) = $2:VI6(9)
+!VIaug = $2:VIaug
+!VI(#5) = $2:VI(#5)
+!VIM7 = $2:VIM7
+!VI7(&5) = $2:VI7(&5)
+!VI7&5 = $2:VI7&5
+!VI7-5 = $2:VI7-5
+!VI9 = $2:VI9
+!VI(&5) = $2:VI(&5)
+!VI&5 = $2:VI&5
+!VI-5 = $2:VI-5
+!VIM9 = $2:VIM9
+!VI7(#5) = $2:VI7(#5)
+!VI7#5 = $2:VI7#5
+!VI7+5 = $2:VI7+5
+!VI7(&10) = $2:VI7(#9)
+!VI7&10 = $2:VI7#9
+!VI7-10 = $2:VI7+9
+!VI7(#9) = $2:VI7(#9)
+!VI7#9 = $2:VI7#9
+!VI7+9 = $2:VI7+9
+!VI7(&9) = $2:VI7(&9)
+!VI7&9 = $2:VI7&9
+!VI7-9 = $2:VI7-9
+!VIm = $2:VIm
+!VIm6 = $2:VIm6
+!VIm7 = $2:VIm7
+!VImM7 = $2:VImM7
+!VIm9 = $2:VIm9
+!VIm69 = $2:VIm69
+!VIm79 = $2:VIm79
+!VIm6(9) = $2:VIm6(9)
+!VIm7(9) = $2:VIm7(9)
+!VIm7(&5) = $2:VIm7(&5)
+!VIm7&5 = $2:VIm7&5
+!VIm7-5 = $2:VIm7-5
+!VIm7(11) = $2:VIm7(11)
+!VIm7(#11) = $2:VIm7(#11)
+!VI% = $2:VI%
+!VIdim = $2:VIdim
+!VIdim = $2:VIdim
+!VIdim7 = $2:VIdim7
+!VIsus4 = $2:VIsus4
+!VI7sus4 = $2:VI7sus4
+
+!#VI = $2:#VI
+!#VI6 = $2:#VI6
+!#VI7 = $2:#VI7
+!#VI69 = $2:#VI69
+!#VI6(9) = $2:#VI6(9)
+!#VIaug = $2:#VIaug
+!#VI(#5) = $2:#VI(#5)
+!#VIM7 = $2:#VIM7
+!#VI7(&5) = $2:#VI7(&5)
+!#VI7&5 = $2:#VI7&5
+!#VI7-5 = $2:#VI7-5
+!#VI9 = $2:#VI9
+!#VI(&5) = $2:#VI(&5)
+!#VI&5 = $2:#VI&5
+!#VI-5 = $2:#VI-5
+!#VIM9 = $2:#VIM9
+!#VI7(#5) = $2:#VI7(#5)
+!#VI7#5 = $2:#VI7#5
+!#VI7+5 = $2:#VI7+5
+!#VI7(&10) = $2:#VI7(#9)
+!#VI7&10 = $2:#VI7#9
+!#VI7-10 = $2:#VI7+9
+!#VI7(#9) = $2:#VI7(#9)
+!#VI7#9 = $2:#VI7#9
+!#VI7+9 = $2:#VI7+9
+!#VI7(&9) = $2:#VI7(&9)
+!#VI7&9 = $2:#VI7&9
+!#VI7-9 = $2:#VI7-9
+!#VIm = $2:#VIm
+!#VIm6 = $2:#VIm6
+!#VIm7 = $2:#VIm7
+!#VImM7 = $2:#VImM7
+!#VIm9 = $2:#VIm9
+!#VIm69 = $2:#VIm69
+!#VIm79 = $2:#VIm79
+!#VIm6(9) = $2:#VIm6(9)
+!#VIm7(9) = $2:#VIm7(9)
+!#VIm7(&5) = $2:#VIm7(&5)
+!#VIm7&5 = $2:#VIm7&5
+!#VIm7-5 = $2:#VIm7-5
+!#VIm7(11) = $2:#VIm7(11)
+!#VIm7(#11) = $2:#VIm7(#11)
+!#VI% = $2:#VI%
+!#VIdim = $2:#VIdim
+!#VIdim = $2:#VIdim
+!#VIdim7 = $2:#VIdim7
+!#VIsus4 = $2:#VIsus4
+!#VI7sus4 = $2:#VI7sus4
+
+!&VII = $2:&VII
+!&VII6 = $2:&VII6
+!&VII7 = $2:&VII7
+!&VII69 = $2:&VII69
+!&VII6(9) = $2:&VII6(9)
+!&VIIaug = $2:&VIIaug
+!&VII(#5) = $2:&VII(#5)
+!&VIIM7 = $2:&VIIM7
+!&VII7(&5) = $2:&VII7(&5)
+!&VII7&5 = $2:&VII7&5
+!&VII7-5 = $2:&VII7-5
+!&VII9 = $2:&VII9
+!&VII(&5) = $2:&VII(&5)
+!&VII&5 = $2:&VII&5
+!&VII-5 = $2:&VII-5
+!&VIIM9 = $2:&VIIM9
+!&VII7(#5) = $2:&VII7(#5)
+!&VII7#5 = $2:&VII7#5
+!&VII7+5 = $2:&VII7+5
+!&VII7(&10) = $2:&VII7(#9)
+!&VII7&10 = $2:&VII7#9
+!&VII7-10 = $2:&VII7+9
+!&VII7(#9) = $2:&VII7(#9)
+!&VII7#9 = $2:&VII7#9
+!&VII7+9 = $2:&VII7+9
+!&VII7(&9) = $2:&VII7(&9)
+!&VII7&9 = $2:&VII7&9
+!&VII7-9 = $2:&VII7-9
+!&VIIm = $2:&VIIm
+!&VIIm6 = $2:&VIIm6
+!&VIIm7 = $2:&VIIm7
+!&VIImM7 = $2:&VIImM7
+!&VIIm9 = $2:&VIIm9
+!&VIIm69 = $2:&VIIm69
+!&VIIm79 = $2:&VIIm79
+!&VIIm6(9) = $2:&VIIm6(9)
+!&VIIm7(9) = $2:&VIIm7(9)
+!&VIIm7(&5) = $2:&VIIm7(&5)
+!&VIIm7&5 = $2:&VIIm7&5
+!&VIIm7-5 = $2:&VIIm7-5
+!&VIIm7(11) = $2:&VIIm7(11)
+!&VIIm7(#11) = $2:&VIIm7(#11)
+!&VII% = $2:&VII%
+!&VIIdim = $2:&VIIdim
+!&VIIdim = $2:&VIIdim
+!&VIIdim7 = $2:&VIIdim7
+!&VIIsus4 = $2:&VIIsus4
+!&VII7sus4 = $2:&VII7sus4
+
+!VII = $2:VII
+!VII6 = $2:VII6
+!VII7 = $2:VII7
+!VII69 = $2:VII69
+!VII6(9) = $2:VII6(9)
+!VIIaug = $2:VIIaug
+!VII(#5) = $2:VII(#5)
+!VIIM7 = $2:VIIM7
+!VII7(&5) = $2:VII7(&5)
+!VII7&5 = $2:VII7&5
+!VII7-5 = $2:VII7-5
+!VII9 = $2:VII9
+!VII(&5) = $2:VII(&5)
+!VII&5 = $2:VII&5
+!VII-5 = $2:VII-5
+!VIIM9 = $2:VIIM9
+!VII7(#5) = $2:VII7(#5)
+!VII7#5 = $2:VII7#5
+!VII7+5 = $2:VII7+5
+!VII7(&10) = $2:VII7(#9)
+!VII7&10 = $2:VII7#9
+!VII7-10 = $2:VII7+9
+!VII7(#9) = $2:VII7(#9)
+!VII7#9 = $2:VII7#9
+!VII7+9 = $2:VII7+9
+!VII7(&9) = $2:VII7(&9)
+!VII7&9 = $2:VII7&9
+!VII7-9 = $2:VII7-9
+!VIIm = $2:VIIm
+!VIIm6 = $2:VIIm6
+!VIIm7 = $2:VIIm7
+!VIImM7 = $2:VIImM7
+!VIIm9 = $2:VIIm9
+!VIIm69 = $2:VIIm69
+!VIIm79 = $2:VIIm79
+!VIIm6(9) = $2:VIIm6(9)
+!VIIm7(9) = $2:VIIm7(9)
+!VIIm7(&5) = $2:VIIm7(&5)
+!VIIm7&5 = $2:VIIm7&5
+!VIIm7-5 = $2:VIIm7-5
+!VIIm7(11) = $2:VIIm7(11)
+!VIIm7(#11) = $2:VIIm7(#11)
+!VII% = $2:VII%
+!VIIdim = $2:VIIdim
+!VIIdim = $2:VIIdim
+!VIIdim7 = $2:VIIdim7
+!VIIsus4 = $2:VIIsus4
+!VII7sus4 = $2:VII7sus4
+
+!#VII = $2:#VII
+!#VII6 = $2:#VII6
+!#VII7 = $2:#VII7
+!#VII69 = $2:#VII69
+!#VII6(9) = $2:#VII6(9)
+!#VIIaug = $2:#VIIaug
+!#VII(#5) = $2:#VII(#5)
+!#VIIM7 = $2:#VIIM7
+!#VII7(&5) = $2:#VII7(&5)
+!#VII7&5 = $2:#VII7&5
+!#VII7-5 = $2:#VII7-5
+!#VII9 = $2:#VII9
+!#VII(&5) = $2:#VII(&5)
+!#VII&5 = $2:#VII&5
+!#VII-5 = $2:#VII-5
+!#VIIM9 = $2:#VIIM9
+!#VII7(#5) = $2:#VII7(#5)
+!#VII7#5 = $2:#VII7#5
+!#VII7+5 = $2:#VII7+5
+!#VII7(&10) = $2:#VII7(#9)
+!#VII7&10 = $2:#VII7#9
+!#VII7-10 = $2:#VII7+9
+!#VII7(#9) = $2:#VII7(#9)
+!#VII7#9 = $2:#VII7#9
+!#VII7+9 = $2:#VII7+9
+!#VII7(&9) = $2:#VII7(&9)
+!#VII7&9 = $2:#VII7&9
+!#VII7-9 = $2:#VII7-9
+!#VIIm = $2:#VIIm
+!#VIIm6 = $2:#VIIm6
+!#VIIm7 = $2:#VIIm7
+!#VIImM7 = $2:#VIImM7
+!#VIIm9 = $2:#VIIm9
+!#VIIm69 = $2:#VIIm69
+!#VIIm79 = $2:#VIIm79
+!#VIIm6(9) = $2:#VIIm6(9)
+!#VIIm7(9) = $2:#VIIm7(9)
+!#VIIm7(&5) = $2:#VIIm7(&5)
+!#VIIm7&5 = $2:#VIIm7&5
+!#VIIm7-5 = $2:#VIIm7-5
+!#VIIm7(11) = $2:#VIIm7(11)
+!#VIIm7(#11) = $2:#VIIm7(#11)
+!#VII% = $2:#VII%
+!#VIIdim = $2:#VIIdim
+!#VIIdim = $2:#VIIdim
+!#VIIdim7 = $2:#VIIdim7
+!#VIIsus4 = $2:#VIIsus4
+!#VII7sus4 = $2:#VII7sus4
+$2:END
+ -------Chord Select Param-----
+ Ex. procedure
+ V1 = ka*a + kb*b + kc*c + kd*d; /* Note1 */
+ V2 = ka*a + kb*b + kc*c + kd*d; /* Note2 */
+ V3 = ka*a + kb*b + kc*c + kd*d; /* Note3 */
+ V = V1 + V2 + V3 ..
+
+ Make Before Note Selsect chord line
+ Chord M
+  IM V = 11
+ Chord m
+  Im V = 55
+ Chord dim
+  IIdim V = 33
+  :
+ Compear IM & Im & IIdim ..
+ ?IM,IIdim,Im,...
+
+ Make Current Note Selsect chord line
+  Same above
+ ?Im,IIdim,V..
+
+ Make After Note Select chord line
+ ?I,...
+
+ Check Chord Progress ex.$2:T-T & finally set Current Chord
+ ?IM,IIdim,..
+
+$6:Default_chord_select
+ m0000006 _-1______0______1______2______*______4______5______6______7
+  Val(Root,2nd,3d,5th,.) Comment
+$6:M = 5,5,5             ". . ."
+$6:m = 5,5,5             ". & ."
+$6:dim = 5,5,5           ". & &"
+$6:aug = 5,5,5           ". . #"
+$6:(#5) = 5,5,5          ". . #"
+$6:M7 = 5,5,5,5          ". . . ."
+$6:7 = 5,5,5,5           ". . . &"
+$6:m7 = 5,5,5,5          ". & . &"
+$6:m7(&5) = 5,5,5,5      ". & & &"
+$6:m7&5 = 5,5,5,5        ". & & &"
+$6:m7-5 = 5,5,5,5        ". & & &"
+$6:% = 5,5,5,5           ". & & &"
+$6:dim7 = 5,5,5,5        ". & &."
+$6:mM7 = 5,5,5,5         ". & . ."
+$6:6 = 5,5,5,5           ". . .."
+$6:m6 = 5,5,5,5          ". & .."
+$6:69 = 5,5,5,5,5        ". . ..  ."
+$6:6(9) = 5,5,5,5,5      ". . ..  ."
+$6:m69 = 5,5,5,5,5       ". & ..  ."
+$6:m6(9) = 5,5,5,5,5     ". & ..  ."
+$6:sus4 = 5,5,5          ". # ."
+$6:7sus4 = 5,5,5,5       ". # . &"
+$6:M9 = 5,5,5,5,5        ". . . . ."
+$6:m9 = 5,5,5,5,5        ". & . & ."
+$6:9 = 5,5,5,5,5         ". . . & ."
+$6:%9 = 5,5,5,5,5        ". & & & ."
+$6:7(#9) = 5,5,5,5,5     ". . . & #"
+$6:7#9 = 5,5,5,5,5       ". . . & #"
+$6:7+9 = 5,5,5,5,5       ". . . & #"
+$6:7(&9) = 5,5,5,5,5     ". . . & &"
+$6:7&9 = 5,5,5,5,5       ". . . & &"
+$6:7-9 = 5,5,5,5,5       ". . . & &"
+$6:7(#5) = 5,5,5,5       ". . # &"
+$6:7#5 = 5,5,5,5         ". . # &"
+$6:7+5 = 5,5,5,5         ". . # &"
+$6:7(&5) = 5,5,5,5       ". . & &"
+$6:7&5 = 5,5,5,5         ". . & &"
+$6:7-5 = 5,5,5,5         ". . & &"
+$6:add9 = 5,5,5,5        ". . .   ."
+$6:m7(11) = 5,5,5,5      ". . .   ."
+$6:m711 =  5,5,5,3,3     ". & . &   ."
+$6:m7(11) = 5,5,5,3,3    ". & . &   ."
+$6:m7(#11) = 5,5,5,3,3   ". & . &   #"
+$6:END
+
+$6:Special_chord_select
+ m0000006 _-1______0______1______2______*______4______5______6______7
+  Val(Root,2nd,3d,5th,.) Comment
+$6:M = 5,5.6,5           ". . ."
+$6:m = 5,5,5             ". & ."
+$6:dim = 5,5,5           ". & &"
+$6:aug = 5,5,5           ". . #"
+$6:(#5) = 5,5,5          ". . #"
+$6:M7 = 5,5,5,5          ". . . ."
+$6:7 = 5,5,5,5           ". . . &"
+$6:m7 = 5,5,5,5          ". & . &"
+$6:m7(&5) = 5,5,5,5      ". & & &"
+$6:m7&5 = 5,5,5,5        ". & & &"
+$6:m7-5 = 5,5,5,5        ". & & &"
+$6:% = 5,5,5,5           ". & & &"
+$6:dim7 = 5,5,5,5        ". & &."
+$6:mM7 = 5,5,5,5         ". & . ."
+$6:6 = 5,5,5,5           ". . .."
+$6:m6 = 5,5,5,5          ". & .."
+$6:69 = 5,5,5,5,5        ". . ..  ."
+$6:6(9) = 5,5,5,5,5      ". . ..  ."
+$6:m69 = 5,5,5,5,5       ". & ..  ."
+$6:m6(9) = 5,5,5,5,5     ". & ..  ."
+$6:sus4 = 5,5,5          ". # ."
+$6:7sus4 = 5,5,5,5       ". # . &"
+$6:M9 = 5,5,5,5,5        ". . . . ."
+$6:m9 = 5,5,5,5,5        ". & . & ."
+$6:9 = 5,5,5,5,5         ". . . & ."
+$6:%9 = 5,5,5,5,5        ". & & & ."
+$6:7(#9) = 5,5,5,5,5     ". . . & #"
+$6:7#9 = 5,5,5,5,5       ". . . & #"
+$6:7+9 = 5,5,5,5,5       ". . . & #"
+$6:7(&9) = 5,5,5,5,5     ". . . & &"
+$6:7&9 = 5,5,5,5,5       ". . . & &"
+$6:7-9 = 5,5,5,5,5       ". . . & &"
+$6:7(#5) = 5,5,5,5       ". . # &"
+$6:7#5 = 5,5,5,5         ". . # &"
+$6:7+5 = 5,5,5,5         ". . # &"
+$6:7(&5) = 5,5,5,5       ". . & &"
+$6:7&5 = 5,5,5,5         ". . & &"
+$6:7-5 = 5,5,5,5         ". . & &"
+$6:add9 = 5,5,5,5        ". . .   ."
+$6:END
+
+ current = kcp * (klp*nval + kvp*velo + knp*keyp)
+ befor   = kbp * (klp*nval + kvp*velo + knp*keyp)
+ after   = kap * (klp*nval + kvp*velo + knp*keyp)
+ cs->scv[n] = current + befor + after
+
+$7:Chord_Select_Param
+$7:klp = 0.00053  /* Note length */ 
+$7:knp = -0.4     /* Note Position */
+$7:kvp = 0.5      /* Velocity */
+$7:kgc = 0.3      /* Global Current Chord */
+$7:kgb = 0.05     /* Global Before Chord */
+$7:kcp = 0.14     /* Current Chord */
+$7:kbp = 0.1      /* Before Chord */
+$7:kap = 0.08     /* After Chord */
+$7:END
+
+$8:Exstra_Chord
+$8:~M = "~ $:~ $4:M $3:M $9:~M"
+$8:~6 = "~ $:~ $4:6 $3:6 $9:~6"
+$8:~7 = "~ $:~ $4:7 $3:7 $9:~7"
+$8:~69 = "~ $:~ $4:69 $3:69 $9:~69"
+$8:~6(9) = "~ $:~ $4:6(9) $3:6(9) $9:~6(9)"
+$8:~aug = "~ $:~ $4:aug $3:aug $9:~aug"
+$8:~(#5) = "~ $:~ $4:aug $3:aug $9:~aug"
+$8:~M7 = "~ $:~ $4:M7 $3:M7 $9:~M7"
+$8:~7(&5) = "~ $:~ $4:7(&5) $3:7(&5) $9:~7(&5)"
+$8:~7&5 = "~ $:~ $4:7&5 $3:7&5 $9:~7&5"
+$8:~7-5 = "~ $:~ $4:7-5 $3:7-5 $9:~7-5"
+$8:~9 = "~ $:~ $4:9 $3:9 $9:~9"
+$8:~(&5) = "~ $:~ $4:(&5) $3:(&5) $9:~(&5)"
+$8:~&5 = "~ $:~ $4:&5 $3:&5 $9:~&5"
+$8:~-5 = "~ $:~ $4:-5 $3:-5 $9:~-5"
+$8:~M9 = "~ $:~ $4:M9 $3:M9 $9:~M9"
+$8:~7(#5) = "~ $:~ $4:7(#5) $3:7(#5) $9:~7(#5)"
+$8:~7#5 = "~ $:~ $4:7#5 $3:7#5 $9:~7#5"
+$8:~7+5 = "~ $:~ $4:7+5 $3:7+5 $9:~7+5"
+$8:~7(&10) = "~ $:~ $4:7(&10) $3:7(&10) $9:~7(&10)"
+$8:~7&10 = "~ $:~ $4:7&10 $3:7&10 $9:~7&10"
+$8:~7-10 = "~ $:~ $4:7-10 $3:7-10 $9:~7-10"
+$8:~7(#9) = "~ $:~ $4:7(#9) $3:7(#9) $9:~7(#9)"
+$8:~7#9 = "~ $:~ $4:7#9 $3:7#9 $9:~7#9"
+$8:~7+9 = "~ $:~ $4:7+9 $3:7+9 $9:~7+9"
+$8:~7(&9) = "~ $:~ $4:7(&9) $3:7(&9) $9:~7(&9)"
+$8:~7&9 = "~ $:~ $4:7&9 $3:7&9 $9:~7&9"
+$8:~7-9 = "~ $:~ $4:7-9 $3:7-9 $9:~7-9"
+$8:~m = "~ $:~ $4:m $3:m $9:~m"
+$8:~m6 = "~ $:~ $4:m6 $3:m6 $9:~m6"
+$8:~m7 = "~ $:~ $4:m7 $3:m7 $9:~m7"
+$8:~mM7 = "~ $:~ $4:mM7 $3:mM7 $9:~mM7"
+$8:~m9 = "~ $:~ $4:m9 $3:m9 $9:~m9"
+$8:~m69 = "~ $:~ $4:m69 $3:m69 $9:~m69"
+$8:~m6(9) = "~ $:~ $4:m6(9) $3:m6(9) $9:~m6(9)"
+$8:~m7(&5) = "~ $:~ $4:m7(&5) $3:m7(&5) $9:~m7(&5)"
+$8:~m7&5 = "~ $:~ $4:m7&5 $3:m7&5 $9:~m7&5"
+$8:~m7-5 = "~ $:~ $4:m7-5 $3:m7-5 $9:~m7-5"
+$8:~% = "~ $:~ $4:% $3:% $9:~%"
+$8:~dim = "~ $:~ $4:dim $3:dim $9:~dim"
+$8:~dim7 = "~ $:~ $4:dim7 $3:dim7 $9:~dim7"
+$8:~sus4 = "~ $:~ $4:sus4 $3:sus4 $9:~sus4"
+$8:~7sus4 = "~ $:~ $4:7sus4 $3:7sus4 $9:~7sus4"
+$8:~7+11 = "~ $:~ $4:7+11 $3:7+11 $9:~7+11"    
+$8:~M7+11 = "~ $:~ $4:M7+11 $3:M7+11 $9:~M7+11"
+$8:~m711 = "~ $:~ $4:m711 $3:m711 $9:~m711"    
+$8:~m7(11) = "~ $:~ $4:m7(11) $3:m7(11) $9:~m7(11)"    
+$8:~%11 = "~ $:~ $4:%11 $3:%11 $9:~%11"    
+$8:~713 = "~ $:~ $4:713 $3:713 $9:~713"    
+$8:~7(13) = "~ $:~ $4:7(13) $3:7(13) $9:~7(13)"    
+$8:~7-13 = "~ $:~ $4:7-13 $3:7-13 $9:~7-13"
+
+ Special_Chord
+$8:~Special = "~Special $:~Special $4:Special $3:Special $9:~Special"
+
+ Original_Chord
+$8:~Original = "~Original $:~Original $4:Original $3:Original $9:~Original"
+
+$8:END
+
+$9:Special_Chord_Progression Original_Chord_Progression
+$9:IOriginal = "-> abc"
+$9:ISpecial = "-> xyz"
+$9:IM = "-> xyz"
+$9:VIm/IM = " -> zzz"
+$9:VIM = "-> xyz"
+$9:END 
+
+
+ Available Note Scale
+ - = &  : Flat
+ + = #  : Sharp
+ [ = @  : Duble Flat
+ ] = *  : Duble Sharp  
+ p = .+ : Both Available
+ q = -. : Both Available
+ 1 -9   : Note Velocity
+ <  >   : Note Velocity 5 (& #)
+
+$A:Default_Scale  Natural_Minor_Scale
+ A_Minor key 
+          _-1______0______1______2______*______4______5______6______7
+$A:Im =           "     ........"  A_Natural-Minor
+ $A:Im =           "     ......+."  A_Harmonic-Minor
+ $A:Im =           "     .....++."  A_Melodic-Minor
+ $A:Im =           "     .....+.."  A_Dorian
+$A:Im7 =          "     .....x.."  A_Aeolian
+$A:Im9 =          "     .....x.."  A_Aeolian
+$A:I7 =           "     .-+x...."  A_Hmp5D
+ $A:I7 =           "     .-.--..."  A_Alterd
+$A:&II7 =         "      -.....--"  B&_Lydian7th
+$A:&IIM7 =        "      -......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o.."  B_Locrian 
+$A:IIm9(&5) =     "      .+...o.."  B_Alt-Dor-Loc-9th
+$A:II7 =          "      ...-...."  B_Alterd
+ $A:&III7 =        "---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-...."  B_Alterd
+$A:IVm  =         " .....x."  D_Dorian
+$A:IVm7 =         " .....x."  D_Dorian
+$A:IVm9 =         " .....x."  D_Dorian
+$A:V7 =           "  ..+....."  E_Hmp5D
+ $A:V7 =           "  ...++..."  E_Alterd
+$A:V9 =           "  ..++.+.."  E_Com.Dim.
+ $A:V9 =           "  .+++.. ."  E_Whole-Tone
+$A:Vm7 =          "  .x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x.."  E_Dorian
+$A:&VI7 =         "  .+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.----"  G&_Lydian7th
+$A:END
+
+$A:Default_2oct.Scale  Natural_Minor_2oct.Scale
+ A_Minor key
+          _-1______0______1______2______*______4______5______6______7
+$A:Im =           "     ..............."  A_Natural-Minor 
+ $A:Im =           "     ......+......+."  A_Harmonic-Minor
+ $A:Im =           "     .....++.....++."  A_Melodic-Minor
+ $A:Im =           "     .....+......+.."  A_Dorian
+$A:Im7 =          "     .....x......x.."  A_Aeolian
+$A:Im9 =          "     .....x......x.."  A_Aeolian
+$A:I7 =           "     .-+x....-+x...."  A_Hmp5D 
+ $A:I7 =           "     .-.--...-.--..."  A_Alterd
+$A:&II7 =         "      -.....--.....--"  B&_Lydian7th
+$A:&IIM7 =        "      -......-......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o..+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o..x...o.."  B_Locrian
+$A:IIm9(&5) =     "      .+...o..+...o.."  B_Alt-Dor-Loc-9th
+$A:II7 =          "      ...-......-...."  B_Alterd
+ $A:&III7 =        "---x--.---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-......-...."  B_Alterd  
+$A:IVm  =         " .....x......x.."  D_Dorian  
+$A:IVm7 =         " .....x......x.."  D_Dorian 
+$A:IVm9 =         " .....x......x.."  D_Dorian
+$A:V7 =           "  ..+......+....."  E_Hmp5D
+$A:V7 =           "  ...++.....++..."  E_Alterd
+$A:V9 =           "  ..++.+...++.+.."  E_Com.Dim.
+ $A:V9 =           "  .+++.. .+++.. ."  E_Whole-Tone
+$A:Vm7 =          "  .x...o..x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x..+...x.."  E_Dorian
+$A:&VI7 =         "  .+++.+..+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+x...o.+"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.------.----"  G&_Lydian7th
+$A:END
+
+$A:Harmonic_Minor_Scale
+ A_Minor key
+          _-1______0______1______2______*______4______5______6______7
+ $A:Im =           "     ........"  A_Natural-Minor 
+$A:Im =           "     ......+."  A_Harmonic-Minor
+ $A:Im =           "     .....++."  A_Melodic-Minor 
+ $A:Im =           "     .....+.."  A_Dorian
+$A:Im7 =          "     .....x+."  A_Aeolian 
+$A:Im9 =          "     .....x+."  A_Aeolian 
+$A:I7 =           "     .-+x...."  A_Hmp5D
+ $A:I7 =           "     .-.--..."  A_Alterd
+$A:&II7 =         "      -.....--"  B&_Lydian7th
+$A:&IIM7 =        "      -......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o.."  B_Locrian
+$A:IIm9(&5) =     "      .+...o.."  B_Alt-Dor-Loc-9th
+$A:II7 =          "      ...-...."  B_Alterd
+ $A:&III7 =        "---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-...."  B_Alterd
+$A:IVm7 =         " .....x."  D_Dorian
+$A:IVm9 =         " .....x."  D_Dorian
+$A:V7 =           "  ..+....."  E_Hmp5D
+ $A:V7 =           "  ...++..."  E_Alterd
+$A:V9 =           "  ..++.+.."  E_Com.Dim.
+ $A:V9 =           "  .+++.. ."  E_Whole-Tone
+$A:Vm7 =          "  .x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x.."  E_Dorian
+$A:&VI7 =         "  .+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.----"  G&_Lydian7th
+$A:END    
+
+$A:Harmonic_Minor_2oct.Scale
+ A_Minor key
+          _-1______0______1______2______*______4______5______6______7
+$A:Im =           "     ......+......+."  A_Harmonic-Minor 
+$A:Im7 =          "     .....x+.....x+."  A_Aeolian
+$A:Im9 =          "     .....x+.....x+."  A_Aeolian
+ $A:I7 =           "     .-+x....-+x...."  A_Hmp5D
+$A:I7 =           "     .-.--...-.--..."  A_Alterd
+$A:&II7 =         "      -.....--.....--"  B&_Lydian7th
+$A:&IIM7 =        "      -......-......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o..+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o..x...o.."  B_Locrian
+$A:IIm9(&5) =     "      .+...o..+...o.."  B_Alt-Dor-Loc-9th
+$A:II7 =          "      ...-......-...."  B_Alterd
+ $A:&III7 =        "---x--.---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-......-...."  B_Alterd
+$A:IVm7 =         " .....x.....x.."  D_Dorian
+$A:IVm9 =         " .....x.....x.."  D_Dorian
+$A:V7 =           "  ..+......+....."  E_Hmp5D
+ $A:V7 =           "  ...++.....++..."  E_Alterd
+$A:V9 =           "  ..++.+...++.+.."  E_Com.Dim.
+$A:V9 =           "  .+++.. .+++.. ."  E_Whole-Tone
+$A:Vm7 =          "  .x...o..x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x..+...x.."  E_Dorian  
+$A:&VI7 =         "  .+++.+..+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+x...o.+x"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.------.-----"  G&_Lydian7th
+$A:END
+
+$A:Melodic_Minor_Scale              
+ A_Minor key
+          _-1______0______1______2______*______4______5______6______7
+ $A:Im =           "     ........"  A_Natural-Minor
+ $A:Im =           "     ......+."  A_Harmonic-Minor 
+$A:Im =           "     .....++."  A_Melodic-Minor
+ $A:Im =           "     .....+.."  A_Dorian
+$A:Im7 =          "     .....x+."  A_Aeolian
+$A:Im9 =          "     .....x+."  A_Aeolian
+$A:I7 =           "     .-+x...."  A_Hmp5D
+ $A:I7 =           "     .-.--..."  A_Alterd
+$A:&II7 =         "      -.....--"  B&_Lydian7th
+$A:&IIM7 =        "      -......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o.."  B_Locrian
+$A:IIm9(&5) =     "      .+...o.."  B_Alt-Dor-Loc-9th
+$A:II7 =          "      ...-...."  B_Alterd
+ $A:&III7 =        "---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-...."  B_Alterd
+$A:IVm7 =         " .....x."  D_Dorian
+$A:IVm9 =         " .....x."  D_Dorian
+$A:V7 =           "  ..+....."  E_Hmp5D
+ $A:V7 =           "  ...++..."  E_Alterd
+$A:V9 =           "  ..++.+.."  E_Com.Dim.
+ $A:V9 =           "  .+++.. ."  E_Whole-Tone
+$A:Vm7 =          "  .x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x.."  E_Dorian
+$A:&VI7 =         "  .+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.----"  G&_Lydian7th
+$A:END
+
+$A:Melodic_Minor_2oct.Scale
+ A_Minor key
+          _-1______0______1______2______*______4______5______6______7
+$A:Im =           "     .....++.....++."  A_Melodic-Minor
+$A:Im7 =          "     .....x+.....x+."  A_Aeolian
+$A:Im9 =          "     .....x+.....x+."  A_Aeolian
+$A:I7 =           "     .-+x....-+x...."  A_Hmp5D
+ $A:I7 =           "     .-.--...-.--..."  A_Alterd
+$A:&II7 =         "      -.....--.....--"  B&_Lydian7th  
+$A:&IIM7 =        "      -......-......-"  B&_Lydian
+ $A:IIm7(&5) =     "      .+...o..+...o.."  B_Alt.Dor.
+$A:IIm7(&5) =     "      .x...o..x...o.."  B_Locrian
+$A:IIm9(&5) =     "      .+...o..+...o.."  B_Alt-Dor-Loc-9th 
+$A:II7 =          "      ...-......-...."  B_Alterd
+ $A:&III7 =        "---x--.---x--.-"  C&_Mixo-Lydian
+ $A:&III7 =        "-[-x-[[-[-x-[[-"  C&_Hmp5D
+$A:&III7 =        "      ...-......-...."  B_Alterd
+$A:IVm7 =         " .....x......x.."  D_Dorian
+$A:IVm9 =         " .....x......x.."  D_Dorian
+$A:V7 =           "  ..+......+....."  E_Hmp5D
+ $A:V7 =           "  ...++.....++..."  E_Alterd
+$A:V9 =           "  ..++.+...++.+.."  E_Com.Dim.
+ $A:V9 =           "  .+++.. .+++.. "  E_Whole-Tone
+$A:Vm7 =          "  .x...o..x...o.."  E_Phrygian
+$A:Vm9 =          "  .+...x..+...x.."  E_Dorian
+$A:&VI7 =         "  .+++.+..+++.+.."  E_Lydian7th
+$A:VI7 =          "   ...-..-...-..-."  F_Lydian7th
+$A:VIm7(&5) =     "   +x...o.+x...o.+"  F#_Alt.Dor.
+$A:&VII7 =        "    ---.------.----"  G&_Lydian7th
+$A:END
+
+
+ ++++++++++++++++++++++
+ $M: Mec data
+ Temperament/Multi Channel
+
+                                          100 Cent : 8192 p.v
+
+       Equal    Pure(Mersenne)        Eq-Pure      P.V(Mersenne) ok
+ 1  C      0                 0              0             0.000
+ 2       100          70.67214      -29.32786         -2402.538
+ 3  D    200         203.90986        3.90986           320.296
+ 4       300         274.58243     -25.41757          -2082.207
+ 5  E    400         386.31369      -13.68631         -1121.182
+ 6  F    500           498.045         -1.955          -160.154
+ 7       600         568.71745      -31.28255         -2652.667
+ 8  G    700         701.95509        1.95509           160.161
+ 9       800         772.62754      -27.37246         -2242.352
+ 10 A    900         884.35867      -15.64133         -1281.338
+ 11     1000         996.09021       -3.90979          -320.290
+ 12 B   1100        1088.26887      -11.73113          -961.014
+ 13 C   1200              1200              0             0.000
+
+       Equal        Pure(Q-50)        Eq-Pure          P.V(Q-50) ok
+ 1  C      0                 0              0             0.000
+ 2       100         111.73119       11.73119           961.014
+ 3  D    200         203.90986        3.90986           320.296
+ 4       300         315.64127       15.64127          1281.333
+ 5  E    400         386.31369      -13.68631         -1121.182
+ 6  F    500           498.045         -1.955          -160.154
+ 7       600         590.22371       -9.77629          -800.874
+ 8  G    700         701.95509        1.95509           160.161
+ 9       800         813.68643       13.68643          1121.192
+ 10 A    900         884.35867      -15.64133         -1281.338
+ 11     1000        1017.59637       17.59637          1441.495
+ 12 B   1100        1088.26887      -11.73113          -961.014
+ 13 C   1200              1200              0             0.000
+
+        Equal      Pythagorean       Eq-Pytha   P.V(Pythagorean) ok
+ 1  C      0                 0              0             0.000
+ 2       100         113.68491       13.68491          1121.068
+ 3  D    200         203.90986        3.90986           320.296
+ 4       300         294.13501       -5.86499          -480.460
+ 5  E    400         407.82001        7.82001           640.615
+ 6  F    500           498.045         -1.955          -160.154
+ 7       600         611.73002       11.73002           960.923
+ 8  G    700         701.95509        1.95509           160.161
+ 9       800         815.64017       15.64017          1281.243
+ 10 A    900         905.86514        5.86514           480.472
+ 11     1000         996.09021       -3.90979          -320.290
+ 12 B   1100        1109.77513        9.77513           800.779
+ 13 C   1200              1200              0             0.000
+
+        Equal     Werckmeister       Eq-Werck  P.V(Werckmeister) ok
+ 1  C      0                 0              0             0.000
+ 2       100          96.08988       -3.91012          -320.317
+ 3  D    200         203.90986        3.90986           320.296
+ 4       300         300.00002          2E-05             0.002
+ 5  E    400        396.089992      -3.910008          -320.308
+ 6  F    500         503.91001        3.91001           320.308
+ 7       600               600              0             0.000
+ 8  G    700         701.95509        1.95509           160.161
+ 9       800         792.18013       -7.81987          -640.604
+ 10 A    900         900.00013        0.00013             0.011
+ 11     1000        1001.95522        1.95522           160.172
+ 12 B   1100        1098.04511       -1.95489          -160.145
+ 13 C   1200              1200              0             0.000
+
+ Gamelan
+        Equal          Gamelan       Eq-Gamel       P.V(Gamelan)
+ 1  C      0                 0              0             0.000
+ 2       100                 -              -                 -
+ 3  D    200                 -              -                 -
+ 4       300               316            -37         -3031.040
+ 5  E    400                 -              -                 -
+ 6  F    500               486            -14         -1146.880
+ 7       600                 -              -                 -
+ 8  G    700               739            +39          3194.880
+ 9       800                 -              -                 -
+ 10 A    900                 -              -                 -
+ 11     1000               975            -25         -2048.000
+ 12 B   1100                 -              -                 -
+ 13 C   1200              1200              0             0.000
+
+$M:Pure_Mersenne Pure_M
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2   -2402      0"
+$M:SCP =  "   3     3     320      0"
+$M:SCP =  "   4     4   -2082      0"
+$M:SCP =  "   5     5   -1121      0"
+$M:SCP =  "   6     6    -160      0"
+$M:SCP =  "   7     7   -2652      0"
+$M:SCP =  "   8     8     160      0"
+$M:SCP =  "   9     9   -2242      0"
+$M:SCP =  "  10    11   -1281      0"
+$M:SCP =  "  11    12    -320      0"
+$M:SCP =  "  12    13    -961      0"
+$M:END
+
+$M:Pure_Mersenne_1-8ch Pure_M_1-8ch 
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1   -2402      0"
+$M:SCP =  "   3     2     320      0"
+$M:SCP =  "   4     2   -2082      0"
+$M:SCP =  "   5     3   -1121      0"
+$M:SCP =  "   6     4    -160      0"
+$M:SCP =  "   7     5   -2652      0"
+$M:SCP =  "   8     5     160      0"
+$M:SCP =  "   9     6   -2242      0"
+$M:SCP =  "  10     6   -1281      0"
+$M:SCP =  "  11     7    -320      0"
+$M:SCP =  "  12     8    -961      0"
+$M:END
+
+$M:Pure_Mersenne_9-16ch Pure_M_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9   -2402      0"
+$M:SCP =  "   3    10     320      0"
+$M:SCP =  "   4    10   -2082      0"
+$M:SCP =  "   5    11   -1121      0"
+$M:SCP =  "   6    12    -160      0"
+$M:SCP =  "   7    13   -2652      0"
+$M:SCP =  "   8    13     160      0"
+$M:SCP =  "   9    14   -2242      0"
+$M:SCP =  "  10    14   -1281      0"
+$M:SCP =  "  11    15    -320      0"
+$M:SCP =  "  12    16    -961      0"
+$M:END
+
+
+
+$M:Pure_Q50 Pure_Q50 
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     961      0"
+$M:SCP =  "   3     3     320      0"
+$M:SCP =  "   4     4    1281      0"
+$M:SCP =  "   5     5   -1121      0"
+$M:SCP =  "   6     6    -160      0"
+$M:SCP =  "   7     7    -800      0"
+$M:SCP =  "   8     8     160      0"
+$M:SCP =  "   9     9    1121      0"
+$M:SCP =  "  10    11   -1281      0"
+$M:SCP =  "  11    12    1441      0"
+$M:SCP =  "  12    13    -961      0"
+$M:END
+
+$M:Pure_Q50_1-8ch Pure_Q50_1-8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1     961      0"
+$M:SCP =  "   3     2     320      0"
+$M:SCP =  "   4     2    1281      0"
+$M:SCP =  "   5     3   -1121      0"
+$M:SCP =  "   6     4    -160      0"
+$M:SCP =  "   7     5    -800      0"
+$M:SCP =  "   8     5     160      0"
+$M:SCP =  "   9     6    1121      0"
+$M:SCP =  "  10     6   -1281      0"
+$M:SCP =  "  11     7    1441      0"
+$M:SCP =  "  12     8    -961      0"
+$M:END
+
+$M:Pure_Q50_9-16ch Pure_Q50_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9     961      0"
+$M:SCP =  "   3    10     320      0"
+$M:SCP =  "   4    10    1281      0"
+$M:SCP =  "   5    11   -1121      0"
+$M:SCP =  "   6    12    -160      0"
+$M:SCP =  "   7    13    -800      0"
+$M:SCP =  "   8    13     160      0"
+$M:SCP =  "   9    14    1121      0"
+$M:SCP =  "  10    14   -1281      0"
+$M:SCP =  "  11    15    1441      0"
+$M:SCP =  "  12    16    -961      0"
+$M:END
+ 
+$M:Pythagorean
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2    1121      0"
+$M:SCP =  "   3     3     320      0"
+$M:SCP =  "   4     4    -480      0"
+$M:SCP =  "   5     5     640      0"
+$M:SCP =  "   6     6    -160      0"
+$M:SCP =  "   7     7     960      0"
+$M:SCP =  "   8     8     160      0"
+$M:SCP =  "   9     9    1281      0"
+$M:SCP =  "  10    11     480      0"
+$M:SCP =  "  11    12    -320      0"
+$M:SCP =  "  12    13     800      0"
+$M:END
+
+$M:Pythagorean_1-8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1    1121      0"
+$M:SCP =  "   3     2     320      0"
+$M:SCP =  "   4     2    -480      0"
+$M:SCP =  "   5     3     640      0"
+$M:SCP =  "   6     4    -160      0"
+$M:SCP =  "   7     5     960      0"
+$M:SCP =  "   8     5     160      0"
+$M:SCP =  "   9     6    1281      0"
+$M:SCP =  "  10     6     480      0"
+$M:SCP =  "  11     7    -320      0"
+$M:SCP =  "  12     8     800      0"
+$M:END
+
+$M:Pythagorean_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9    1121      0"
+$M:SCP =  "   3    10     320      0"
+$M:SCP =  "   4    10    -480      0"
+$M:SCP =  "   5    11     640      0"
+$M:SCP =  "   6    12    -160      0"
+$M:SCP =  "   7    13     960      0"
+$M:SCP =  "   8    13     160      0"
+$M:SCP =  "   9    14    1281      0"
+$M:SCP =  "  10    14     480      0"
+$M:SCP =  "  11    15    -320      0"
+$M:SCP =  "  12    16     800      0"
+$M:END
+
+$M:Werckmeister
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2    -320      0"
+$M:SCP =  "   3     3     320      0"
+$M:SCP =  "   4     4       0      0"
+$M:SCP =  "   5     5    -320      0"
+$M:SCP =  "   6     6     320      0"
+$M:SCP =  "   7     7       0      0"
+$M:SCP =  "   8     8     160      0"
+$M:SCP =  "   9     9    -640      0"
+$M:SCP =  "  10    11       0      0"
+$M:SCP =  "  11    12     160      0"
+$M:SCP =  "  12    13    -160      0"
+$M:END
+
+$M:Werckmeister_1-8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1    -320      0"
+$M:SCP =  "   3     2     320      0"
+$M:SCP =  "   4     2       0      0"
+$M:SCP =  "   5     3    -320      0"
+$M:SCP =  "   6     4     320      0"
+$M:SCP =  "   7     5       0      0"
+$M:SCP =  "   8     5     160      0"
+$M:SCP =  "   9     6    -640      0"
+$M:SCP =  "  10     6       0      0"
+$M:SCP =  "  11     7     160      0"
+$M:SCP =  "  12     8    -160      0"
+$M:END
+
+$M:Werckmeister_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9    -320      0"
+$M:SCP =  "   3    10     320      0"
+$M:SCP =  "   4    10       0      0"
+$M:SCP =  "   5    11    -320      0"
+$M:SCP =  "   6    12     320      0"
+$M:SCP =  "   7    13       0      0"
+$M:SCP =  "   8    13     160      0"
+$M:SCP =  "   9    14    -640      0"
+$M:SCP =  "  10    14       0      0"
+$M:SCP =  "  11    15     160      0"
+$M:SCP =  "  12    16    -160      0"
+$M:END
+
+      Just  Aravia   Pure       Wel_Temper    Pythagoras
+ key  Cent    Cent                 Cent          Cent
+ C       0      -6      1       0.00    0.00        0
+ D&                                                90
+ C#      8      45   16/15     90.23   -9.77      114
+ D       4      -2    9/8     192.18   -7.82      204
+ E&                                               294
+ D#     16     -12    6/5     294.14   -5.86      318
+ E     -14     -51    5/4     384.36  -15.64      408
+ F      -2      -8    4/3     498.05   -1.95      498
+ G&                                               588
+ F#    -10      43   45/32    588.27  -11.73      612
+ G       2      -4    3/2     696.09   -3.91      702
+ A&                                               792
+ G#     14      47    8/5     792.18   -7.82      816
+ A     -16       0    5/3     888.27  -11.73      906
+ B&                                               996
+ A#     14     -10   16/9     996.09   -3.91     1020
+ B     -12     -49   15/8    1086.09  -13.91     1110
+ C       0      -6      2    1200.00    0.00     1200
+
+  Oct. = 1200 Cent
+  Half = 100 Cent,  P.V = 8192
+  P.V. = Cent * 81.92
+
+$M:Just_Intonation
+$M:Cycle = 12
+$M:Start = Relative
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     655      0"
+$M:SCP =  "   3     3     327      0"
+$M:SCP =  "   4     4    1310      0"
+$M:SCP =  "   5     5   -1146      0"
+$M:SCP =  "   6     6    -163      0"
+$M:SCP =  "   7     7    -819      0"
+$M:SCP =  "   8     8     163      0"
+$M:SCP =  "   9     9    1146      0"
+$M:SCP =  "  10    11   -1310      0"
+$M:SCP =  "  11    12    1146      0"
+$M:SCP =  "  12    13    -983      0"
+$M:END 
+
+$M:Just_Intonation_1-8ch Just_1-8ch Just_8ch
+$M:Cycle = 12
+$M:Start = Relative
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1     655      0"
+$M:SCP =  "   3     2     327      0"
+$M:SCP =  "   4     2    1310      0"
+$M:SCP =  "   5     3   -1146      0"
+$M:SCP =  "   6     4    -163      0"
+$M:SCP =  "   7     5    -819      0"
+$M:SCP =  "   8     5     163      0"
+$M:SCP =  "   9     6    1146      0"
+$M:SCP =  "  10     6   -1310      0"
+$M:SCP =  "  11     7    1146      0"
+$M:SCP =  "  12     8    -983      0"
+$M:END 
+
+$M:Just_Intonation_9-16ch Just_9-16ch
+$M:Cycle = 12
+$M:Start = Relative
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9     655      0"
+$M:SCP =  "   3    10     327      0"
+$M:SCP =  "   4    10    1310      0"
+$M:SCP =  "   5    11   -1146      0"
+$M:SCP =  "   6    12    -163      0"
+$M:SCP =  "   7    13    -819      0"
+$M:SCP =  "   8    13     163      0"
+$M:SCP =  "   9    14    1146      0"
+$M:SCP =  "  10    14   -1310      0"
+$M:SCP =  "  11    15    1146      0"
+$M:SCP =  "  12    16    -983      0"
+$M:END 
+
+$M:Pure_Temperament Pure
+$M:Cycle = 12 
+$M:Start = Root     
+           Sclp  Chan  Pitch.V.  Mod  ok 
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0"
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END 
+
+$M:Pure_Temperament_1-8ch Pure_1-8ch Pure_8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1     938      0"
+$M:SCP =  "   3     2     312      0"
+$M:SCP =  "   4     2    1250      0"
+$M:SCP =  "   5     3   -1150      0"
+$M:SCP =  "   6     4    -164      0"
+$M:SCP =  "   7     5    -822      0"
+$M:SCP =  "   8     5     156      0"
+$M:SCP =  "   9     6    1094      0"
+$M:SCP =  "  10     6   -1314      0"
+$M:SCP =  "  11     7    -328      0"
+$M:SCP =  "  12     8    -984      0"
+$M:END
+
+$M:Pure_Temperament_9-16ch Pure_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9     938      0"
+$M:SCP =  "   3    10     312      0"
+$M:SCP =  "   4    10    1250      0"
+$M:SCP =  "   5    11   -1150      0"
+$M:SCP =  "   6    12    -164      0"
+$M:SCP =  "   7    13    -822      0"
+$M:SCP =  "   8    13     156      0"
+$M:SCP =  "   9    14    1094      0"
+$M:SCP =  "  10    14   -1314      0"
+$M:SCP =  "  11    15    -328      0"
+$M:SCP =  "  12    16    -984      0"
+$M:END
+
+$M:Aravia_temperament
+$M:Cycle = 12
+$M:Start = Root 
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1    -491      0"
+$M:SCP =  "   2     2    3686      0"
+$M:SCP =  "   3     3    -163      0"
+$M:SCP =  "   4     4    -983      0"
+$M:SCP =  "   5     5   -4177      0"
+$M:SCP =  "   6     6    -655      0"
+$M:SCP =  "   7     7    3522      0"
+$M:SCP =  "   8     8    -327      0"
+$M:SCP =  "   9     9    3850      0"
+$M:SCP =  "  10    11       0      0"
+$M:SCP =  "  11    12    -819      0"
+$M:SCP =  "  12    13   -4014      0"
+$M:END 
+
+$M:Aravia_temperament_1-8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1    -491      0"
+$M:SCP =  "   2     1    3686      0"
+$M:SCP =  "   3     2    -163      0"
+$M:SCP =  "   4     2    -983      0"
+$M:SCP =  "   5     3   -4177      0"
+$M:SCP =  "   6     4    -655      0"
+$M:SCP =  "   7     5    3522      0"
+$M:SCP =  "   8     5    -327      0"
+$M:SCP =  "   9     6    3850      0"
+$M:SCP =  "  10     6       0      0"
+$M:SCP =  "  11     7    -819      0"
+$M:SCP =  "  12     8   -4014      0"
+$M:END
+
+$M:Aravia_temperament_9-16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9    -491      0"
+$M:SCP =  "   2     9    3686      0"
+$M:SCP =  "   3    10    -163      0"
+$M:SCP =  "   4    10    -983      0"
+$M:SCP =  "   5    11   -4177      0"
+$M:SCP =  "   6    12    -655      0"
+$M:SCP =  "   7    13    3522      0"
+$M:SCP =  "   8    13    -327      0"
+$M:SCP =  "   9    14    3850      0"
+$M:SCP =  "  10    14       0      0"
+$M:SCP =  "  11    15    -819      0"
+$M:SCP =  "  12    16   -4014      0"
+$M:END
+
+$M:Pure_Temperament_C  
+$M:Cycle = 12    
+$M:Start = 0     
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_C# Pure_Temperament_D&
+$M:Cycle = 12
+$M:Start = 1
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_D
+$M:Cycle = 12
+$M:Start = 2
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_D# Pure_Temperament_E&
+$M:Cycle = 12
+$M:Start = 3
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_E
+$M:Cycle = 12
+$M:Start = 4
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_E# Pure_Temperament_F
+$M:Cycle = 12
+$M:Start = 5
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_F# Pure_Temperament_G&
+$M:Cycle = 12
+$M:Start = 6
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+$M:END
+
+$M:Pure_Temperament_G
+$M:Cycle = 12
+$M:Start = 7
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+
+$M:Pure_Temperament_G# Pure_Temperament_A&
+$M:Cycle = 12
+$M:Start = 8
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+
+$M:Pure_Temperament_A
+$M:Cycle = 12
+$M:Start = 9
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+
+$M:Pure_Temperament_A# Pure_Temperament_B&
+$M:Cycle = 12
+$M:Start = 10
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+
+$M:Pure_Temperament_B
+$M:Cycle = 12
+$M:Start = 11
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2     938      0"
+$M:SCP =  "   3     3     312      0"
+$M:SCP =  "   4     4    1250      0"
+$M:SCP =  "   5     5   -1150      0" 
+$M:SCP =  "   6     6    -164      0"
+$M:SCP =  "   7     7    -822      0"
+$M:SCP =  "   8     8     156      0"
+$M:SCP =  "   9     9    1094      0"
+$M:SCP =  "  10    11   -1314      0"
+$M:SCP =  "  11    12    -328      0"
+$M:SCP =  "  12    13    -984      0"
+
+$M:Gamelan
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2       0      0"
+$M:SCP =  "   3     3       0      0"
+$M:SCP =  "   4     4   -3031      0"
+$M:SCP =  "   5     5       0      0"
+$M:SCP =  "   6     6   -1146      0"
+$M:SCP =  "   7     7       0      0"
+$M:SCP =  "   8     8    3194      0"
+$M:SCP =  "   9     9       0      0"
+$M:SCP =  "  10    11       0      0"
+$M:SCP =  "  11    12   -2048      0"
+$M:SCP =  "  12    13       0      0"
+
+$M:Gamelan_1-8ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     1       0      0"
+$M:SCP =  "   3     2       0      0"
+$M:SCP =  "   4     2   -3031      0"
+$M:SCP =  "   5     3       0      0"
+$M:SCP =  "   6     4   -1146      0"
+$M:SCP =  "   7     5       0      0"
+$M:SCP =  "   8     5    3194      0"
+$M:SCP =  "   9     6       0      0"
+$M:SCP =  "  10     6       0      0"
+$M:SCP =  "  11     7   -2048      0"
+$M:SCP =  "  12     8       0      0"
+
+$M:Gamelan_9_16ch
+$M:Cycle = 12
+$M:Start = Root
+           Sclp  Chan  Pitch.V.  Mod  ok
+$M:SCP =  "   1     9       0      0"
+$M:SCP =  "   2     9       0      0"
+$M:SCP =  "   3    10       0      0"
+$M:SCP =  "   4    10   -3031      0"
+$M:SCP =  "   5    11       0      0"
+$M:SCP =  "   6    12   -1146      0"
+$M:SCP =  "   7    13       0      0"
+$M:SCP =  "   8    13    3194      0"
+$M:SCP =  "   9    14       0      0"
+$M:SCP =  "  10    14       0      0"
+$M:SCP =  "  11    15   -2048      0"
+$M:SCP =  "  12    16       0      0"
+
+$M:multi_Channel
+$M:Cycle = 0
+$M:Start = 0
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "   1     1       0      0"
+$M:SCP =  "   2     2       0      0"
+$M:SCP =  "   3     3       0      0"
+$M:SCP =  "   4     4       0      0"
+$M:SCP =  "   5     5       0      0"
+$M:SCP =  "   6     6       0      0"
+$M:SCP =  "   7     7       0      0"
+$M:SCP =  "   8     8       0      0"
+$M:SCP =  "   9     9       0      0"
+$M:SCP =  "  10    10       0      0"
+$M:SCP =  "  11    11       0      0"
+$M:SCP =  "  12    12       0      0"
+$M:SCP =  "  13    13       0      0"
+$M:SCP =  "  14    14       0      0"
+$M:SCP =  "  15    15       0      0"
+$M:SCP =  "  16    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "  17     1       0      0"
+$M:SCP =  "  18     2       0      0"
+$M:SCP =  "  19     3       0      0"
+$M:SCP =  "  20     4       0      0"
+$M:SCP =  "  21     5       0      0"
+$M:SCP =  "  22     6       0      0"
+$M:SCP =  "  23     7       0      0"
+$M:SCP =  "  24     8       0      0"
+$M:SCP =  "  25     9       0      0"
+$M:SCP =  "  26    10       0      0"
+$M:SCP =  "  27    11       0      0"
+$M:SCP =  "  28    12       0      0"
+$M:SCP =  "  29    13       0      0"
+$M:SCP =  "  30    14       0      0"
+$M:SCP =  "  31    15       0      0"
+$M:SCP =  "  32    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "  33     1       0      0"
+$M:SCP =  "  34     2       0      0"
+$M:SCP =  "  35     3       0      0"
+$M:SCP =  "  36     4       0      0"
+$M:SCP =  "  37     5       0      0"
+$M:SCP =  "  38     6       0      0" 
+$M:SCP =  "  39     7       0      0"
+$M:SCP =  "  40     8       0      0"
+$M:SCP =  "  41     9       0      0"
+$M:SCP =  "  42    10       0      0"
+$M:SCP =  "  43    11       0      0"
+$M:SCP =  "  44    12       0      0"
+$M:SCP =  "  45    13       0      0"
+$M:SCP =  "  46    14       0      0"
+$M:SCP =  "  47    15       0      0"
+$M:SCP =  "  48    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "  49     1       0      0"
+$M:SCP =  "  50     3       0      0"
+$M:SCP =  "  51     4       0      0"
+$M:SCP =  "  52     5       0      0"
+$M:SCP =  "  53     6       0      0"
+$M:SCP =  "  54     7       0      0" 
+$M:SCP =  "  55     8       0      0"
+$M:SCP =  "  56     9       0      0"
+$M:SCP =  "  57    10       0      0"
+$M:SCP =  "  58    11       0      0"
+$M:SCP =  "  59    12       0      0"
+$M:SCP =  "  60    13       0      0"
+$M:SCP =  "  61    14       0      0"
+$M:SCP =  "  62    15       0      0"
+$M:SCP =  "  63    16       0      0"
+$M:SCP =  "  64    17       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "  65     1       0      0"
+$M:SCP =  "  66     2       0      0"
+$M:SCP =  "  67     3       0      0"
+$M:SCP =  "  68     4       0      0"
+$M:SCP =  "  69     5       0      0"
+$M:SCP =  "  70     6       0      0" 
+$M:SCP =  "  71     7       0      0"
+$M:SCP =  "  72     8       0      0"
+$M:SCP =  "  73     9       0      0"
+$M:SCP =  "  74    10       0      0"
+$M:SCP =  "  75    11       0      0"
+$M:SCP =  "  76    12       0      0"
+$M:SCP =  "  77    13       0      0"
+$M:SCP =  "  78    14       0      0"
+$M:SCP =  "  79    15       0      0"
+$M:SCP =  "  80    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP =  "  81     1       0      0"
+$M:SCP =  "  82     2       0      0"
+$M:SCP =  "  83     3       0      0"
+$M:SCP =  "  84     4       0      0"
+$M:SCP =  "  85     5       0      0"
+$M:SCP =  "  86     6       0      0"
+$M:SCP =  "  87     7       0      0"
+$M:SCP =  "  88     8       0      0"
+$M:SCP =  "  89     9       0      0"
+$M:SCP =  "  90    10       0      0"
+$M:SCP =  "  91    11       0      0"
+$M:SCP =  "  92    12       0      0"
+$M:SCP =  "  93    13       0      0"
+$M:SCP =  "  94    14       0      0"
+$M:SCP =  "  95    15       0      0"
+$M:SCP =  "  96    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP  = "  97     1       0      0"
+$M:SCP  = "  98     2       0      0"
+$M:SCP  = "  99     3       0      0"
+$M:SCP  = " 100     4       0      0"
+$M:SCP  = " 101     5       0      0"
+$M:SCP  = " 102     6       0      0"
+$M:SCP  = " 103     7       0      0"
+$M:SCP  = " 104     8       0      0"
+$M:SCP  = " 105     9       0      0"
+$M:SCP  = " 106    10       0      0"
+$M:SCP  = " 107    11       0      0"
+$M:SCP  = " 108    12       0      0"
+$M:SCP  = " 109    13       0      0"
+$M:SCP  = " 110    14       0      0"
+$M:SCP  = " 111    15       0      0"
+$M:SCP  = " 112    16       0      0"
+           Sclp  Chan  Pitch.V.  Mod
+$M:SCP  = " 113     1       0      0"
+$M:SCP  = " 114     2       0      0"
+$M:SCP  = " 115     3       0      0"
+$M:SCP  = " 116     4       0      0"
+$M:SCP  = " 117     5       0      0"
+$M:SCP  = " 118     6       0      0"
+$M:SCP  = " 119     7       0      0"
+$M:SCP  = " 120     8       0      0"
+$M:SCP  = " 121     9       0      0"
+$M:SCP  = " 122    10       0      0"
+$M:SCP  = " 123    11       0      0"
+$M:SCP  = " 124    12       0      0"
+$M:SCP  = " 125    13       0      0"
+$M:SCP  = " 126    14       0      0"
+$M:SCP  = " 127    15       0      0"
+$M:SCP  = " 128    16       0      0"
+$M:END
+
+ A_minor
+$1:A_minor a_moll
+$&I   = A&
+$I    = A
+$#I   = A#
+$&II  = B&
+$II   = B
+$#II  = C b#
+$&III = C
+$III  = C#
+$#III = D c*
+$&IV  = D&
+$IV   = D
+$#IV  = D#
+$&V   = E&
+$V    = E
+$#V   = F e#
+$&VI  = F
+$VI   = F#
+$#VI  = G# f*
+$&VII = G
+$VII  = G#
+$#VII = A g*
+$1:END
+
+ # E_minor F#
+$1:E_minor e_moll
+$&I   = E&
+$I    = E
+$#I   = F e#
+$&II  = F
+$II   = F#
+$#II  = G# f*
+$&III = G
+$III  = G#
+$#III = A g*
+$&IV  = A&
+$IV   = A
+$#IV  = A#
+$&V   = B&
+$V    = B
+$#V   = C b#
+$&VI  = C
+$VI   = C#
+$#VI  = D c*
+$&VII = D
+$VII  = D#
+$#VII = E d*
+$1:END
+
+ ## B_minor F#,C#
+$1:B_minor h_moll
+$&I   = B&
+$I    = B
+$#I   = C b#
+$&II  = C
+$II   = C#
+$#II  = D#
+$&III = D
+$III  = D#
+$#III = E d*
+$&IV  = E&
+$IV   = E
+$#IV  = F e#
+$&V   = F
+$V    = F#
+$#V   = G f*
+$&VI  = G
+$VI   = G#
+$#VI  = A g*
+$&VII = A
+$VII  = A#
+$#VII = B a*
+$1:END
+
+ ### F#_minor F#,C#,G#
+$1:F#_minor fis_moll
+$&I   = F
+$I    = F#
+$#I   = G f*
+$M&II = G
+$II   = G#
+$#II  = A g*
+$&III = A
+$III  = A#
+$#III = B a*
+$&IV  = B&
+$IV   = B
+$#IV  = C b#
+$&V   = C
+$V    = C#
+$#V   = D c*
+$&VI  = D
+$VI   = D#
+$#VI  = F
+$&VII = E d*
+$VII  = F
+$#VII = F#
+$1:END
+
+ ------------------------------------Up Ok down NG:
+ #### C#_minor F#,C#,G#,D#
+$1:C#_minor cis_moll
+$&I   = C
+$I    = C#
+$#I   = D c*
+$&II  = D
+$II   = D#
+$#II  = E d*
+$&III = E
+$III  = E#
+$#III = F# e*
+$&IV  = F
+$IV   = F#
+$#IV  = G f*
+$&V   = G
+$V    = G#
+$#V   = A g*
+$&VI  = A
+$VI   = A#
+$#VI  = B a*
+$&VII = B
+$VII  = C
+$#VII = C#
+$1:END
+
+ ##### G#_minor F#,C#,G#,D#,A#
+$1:G#_minor gis_moll
+$&I   = G
+$I    = G#
+$#I   = A g*
+$&II  = A
+$II   = A#
+$#II  = B a*
+$&III = B
+$III  = C b#
+$#III = C# b*
+$&IV  = C
+$IV   = C#
+$#IV  = D c*
+$&V   = D
+$V    = D#
+$#V   = E d*
+$&VI  = E
+$VI   = E#
+$#VI  = F#
+$&VII = F#
+$VII  = G f#
+$#VII = G#
+$1:END
+
+ ###### D#_minor F#,C#,G#,D#,A#,E#
+$1:D#_minor dis_moll
+$&I   = D
+$I    = D#
+$#I   = E d*
+$&II  = E
+$II   = F e#
+$#II  = F#
+$&III = F#
+$III  = G f*
+$#III = G#
+$&IV  = G
+$IV   = G#
+$#IV  = A g*
+$&V   = A
+$V    = A#
+$#V   = B a*
+$&VI  = B
+$VI   = C b#
+$#VI  = C# b*
+$&VII = C#
+$VII  = D
+$#VII = D#
+$1:END
+
+ ####### A#_minor F#,C#,G#,D#,A#,E#,B#
+$1:A#_minor ais_moll
+$&I   = A
+$I    = A#
+$#I   = B a*
+$&II  = B
+$II   = C
+$#II  = C#
+$&III = C#
+$III  = D c*
+$#III = D#
+$&IV  = D
+$IV   = D#
+$#IV  = E d*
+$&V   = E
+$V    = F
+$#V   = F#
+$&VI  = F#
+$VI   = G f*
+$#VI  = G#
+$&VII = G#
+$VII  = A
+$#VII = A#
+$1:END
+
+
+==============Up modify 2004.1--
+
+ & D_minor B&
+$1:D_minor d_moll
+$&I   = D&
+$I    = D
+$#I   = D#
+$&II  = E&
+$II   = E
+$#II  = F e#
+$&III = F
+$III  = F#
+$#III = G f*
+$&IV  = G&
+$IV   = G
+$#IV  = G#
+$&V   = A&
+$V    = A
+$#V   = A#
+$&VI  = B&
+$VI   = B
+$#VI  = C b#
+$&VII = C
+$VII  = C#
+$#VII = D c*
+$1:END
+
+ && G_minor B&,E&
+$1:G_minor g_moll
+$&I   = G&
+$I    = G
+$#I   = G#
+$&II  = A&
+$II   = A
+$#II  = A#
+$&III = B&
+$III  = B
+$#III = C b#
+$&IV  = B c&
+$IV   = C
+$#IV  = C#
+$&V   = D&
+$V    = D
+$#V   = D#
+$&VI  = E&
+$VI   = E
+$#VI  = F e#
+$&VII = F
+$VII  = F#
+$#VII = G f*
+$1:END
+
+ &&& C_minor B&,E&,A&
+$1:C_minor c_moll
+$&I   = B c&
+$I    = C
+$#I   = C#
+$&II  = D&
+$II   = D
+$#II  = D#
+$&III = E&
+$III  = E
+$#III = E#
+$&IV  = E f&
+$IV   = F
+$#IV  = F#
+$&V   = G&
+$V    = G
+$#V   = G#
+$&VI  = A&
+$VI   = A
+$#VI  = A#
+$&VII = B&
+$VII  = B
+$#VII = C b#
+$1:END
+
+ &&&& F_minor B&,E&,A&,D&
+$1:F_minor f_moll
+$&I   = E f&
+$I    = F
+$#I   = F#
+$&II  = G&
+$II   = G
+$#II  = G#
+$&III = A&
+$III  = A
+$#III = A#
+$&IV  = A
+$IV   = B&
+$#IV  = B
+$&V   = B c&
+$V    = C
+$#V   = C#
+$&VI  = D&
+$VI   = D
+$#VI  = D#
+$&VII = E&
+$VII  = E
+$#VII = F e#
+$1:END
+
+ &&&&& B&_minor B&,E&,A&,D&,G&
+$1:B&_minor b_moll
+$&I   = A b@
+$I    = B&
+$#I   = B
+$&II  = B c&
+$II   = C
+$#II  = C#
+$&III = D&
+$III  = D
+$#III = D#
+$&IV  = D e@
+$IV   = E&
+$#IV  = E
+$&V   = E f&
+$V    = F
+$#V   = F#
+$&VI  = G&
+$VI   = G
+$#VI  = G#
+$&VII = A&
+$VII  = A
+$#VII = A#
+$1:END
+
+ &&&&&& E&_minor B&,E&,A&,D&,G&,C&
+$1:E&_minor es_moll
+$&I   = D e@
+$I    = E&
+$#I   = E
+$&II  = F&
+$II   = F
+$#II  = F#
+$&III = G&
+$III  = G
+$#III = G#
+$&IV  = G a@
+$IV   = A&
+$#IV  = A
+$&V   = A b@
+$V    = B&
+$#V   = B
+$&VI  = B c&
+$VI   = C
+$#VI  = C#
+$&VII = D&
+$VII  = D
+$#VII = D#
+$1:END
+
+ &&&&&&& A&_minor B&,E&,A&,D&,G&,C&,F&
+$1:A&_minor as_moll
+$&I   = G a@
+$I    = A&
+$#I   = A
+$&II7 = A b@
+$II   = B&
+$#II  = B
+$&III = B c&
+$III  = C
+$#III = C#
+$&IV  = C d@
+$IV   = D&
+$#IV  = D
+$&V   = D e@
+$V    = E&
+$#V   = E
+$&VI  = E f&
+$VI   = F
+$#VI  = F#
+$&VII = G&
+$VII  = G
+$#VII = G#
+$1:END
+
+   Chord_Name_Voicing
+$N:A_Minor+Default
+             _-1______0______1______2______*______4______5______6______7
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$2:Voicing+Im_IVm_V7_Im
+$2:Im = "Im $Im $4:m $3:m -> IVm"
+$2:IVm = "IVm $IVm $4:m $3:m -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7  -> Im~1"
+$2:Im~1 = "Im~1 $Im~1 $4:m $3:m -> Im"
+$2:END
+
+$N:A_Minor+Im_IVm_V7_Im
+ ()          _-1______0______1______2______*______4______5______6______7
+$N:Am       = "                   .        . .  .                        "
+$N:Dm       = "                      .      . . .                        "
+$N:E7       = "                       .   . .. +                         "
+$N:Am~1     = "                   .        . .  .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B&_Minor+Im_IVm_V7_Im
+ (&&&&&)     _-1______0______1______2______*______4______5______6______7
+$N:B&m      = "                    .      . . .                          "
+$N:E&m      = "                .          .  . .                         "
+$N:F7       = "                 .        + . ..                          "
+$N:B&m~1    = "                    .      . . .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B_Minor+Im_IVm_V7_Im
+ (##)        _-1______0______1______2______*______4______5______6______7
+$N:Bm       = "                    .        . .  .                       "
+$N:Em       = "                .             . . .                       "
+$N:F#7      = "                 .          . .. +                        "
+$N:Bm~1     = "                    .        . .  .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C_Minor+Im_IVm_V7_Im
+ (&&&)       _-1______0______1______2______*______4______5______6______7
+$N:Cm       = "                     .   .  . .                           "
+$N:Fm       = "                 .        . .  .                          "
+$N:G7       = "                  .      . + . .                          "
+$N:Cm~1     = "                     .   .  . .                           "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C#_Minor+Im_IVm_V7_Im
+ (####)      _-1______0______1______2______*______4______5______6______7
+$N:C#m      = "                     .      . . .                         "
+$N:F#m      = "                 .          .  . .                        "
+$N:G#7      = "                  .        + . ..                         "
+$N:C#m~1    = "                     .      . . .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:D_Minor+Im_IVm_V7_Im
+ (&)         _-1______0______1______2______*______4______5______6______7
+$N:Dm       = "                      .   .  . .                          "
+$N:Gm       = "                  .        . .  .                         "
+$N:A7       = "                   .     .. + .                           "
+$N:Dm~1     = "                      .   .  . .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E&_Minor+Im_IVm_V7_Im
+ (&&&&&&)    _-1______0______1______2______*______4______5______6______7
+$N:E&m      = "                .          .  . .                         "
+$N:A&m      = "                  .         . .  .                        "
+$N:B&7      = "                    .      . + . .                        "
+$N:E&m~1    = "                .          .  . .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E_Minor+Im_IVm_V7_Im
+ (#)         _-1______0______1______2______*______4______5______6______7
+$N:Em       = "                .             . . .                       "
+$N:Am       = "                  .           .  . .                      "
+$N:B7       = "                    .        + . ..                       "
+$N:Em~1     = "                .             . . .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F_Minor+Im_IVm_V7_Im
+ (&&&&)      _-1______0______1______2______*______4______5______6______7
+$N:Fm       = "                 .        . .  .                          "
+$N:B&m      = "                    .      . . .                          "
+$N:C7       = "                     .   . .. +                           "
+$N:Fm~1     = "                 .        . .  .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F#_Minor+Im_IVm_V7_Im
+ (###)       _-1______0______1______2______*______4______5______6______7
+$N:F#m      = "                 .          .  . .                        "
+$N:Bm       = "                    .        . .  .                       "
+$N:C#7      = "                     .     .. + .                         "
+$N:F#m~1    = "                 .          .  . .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G_Minor+Im_IVm_V7_Im
+ (&&)        _-1______0______1______2______*______4______5______6______7
+$N:Gm       = "                  .      . . .                            "
+$N:Cm       = "                     .   .  . .                           "
+$N:D7       = "                      . + . ..                            "
+$N:Gm~1     = "                  .      . . .                            "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G#_Minor+Im_IVm_V7_Im
+ (#####)     _-1______0______1______2______*______4______5______6______7
+$N:G#m      = "                  .        . .  .                         "
+$N:C#m      = "              .             . . .                         "
+$N:D#7      = "               .          . .. +                          "
+$N:G#m~1    = "                  .        . .  .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$2:xx_Minor+Im_II7_V7_Im
+$2:Im = "Im $Im $4:m $3:m -> IVm"
+$2:II7 = "II7 $II7 $4:7 $3:7 -> V7"
+$2:V7 = "V7 $V7 $4:7 $3:7  -> Im~1"
+$2:Im~1 = "Im~1 $Im~1 $4:m $3:m -> Im"
+$2:END
+
+$N:A_Minor+Im_II7_V7_Im
+ ()          _-1______0______1______2______*______4______5______6______7
+$N:Am       = "                   .      . . .                           "
+$N:B7       = "                    .   + .. +                            "
+$N:E7       = "                .        + . ..                           "
+$N:Am~1     = "                   .      . . .                           "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B&_Minor+Im_II7_V7_Im
+ (&&&&&)     _-1______0______1______2______*______4______5______6______7
+$N:B&m      = "                    .        . .  .                       "
+$N:C7       = "                     .        + + ..                      "
+$N:F7       = "                 .          . .. +                        "
+$N:B&m~1    = "                    .        . .  .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B_Minor+Im_II7_V7_Im
+ (##)        _-1______0______1______2______*______4______5______6______7
+$N:Bm       = "                    .          .  . .                     "
+$N:C#7      = "                     .        + + ..                      "
+$N:F#7      = "                 .            .. + .                      "
+$N:Bm~1     = "                    .          .  . .                     "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C_Minor+Im_II7_V7_Im
+ (&&&)       _-1______0______1______2______*______4______5______6______7
+$N:Cm       = "                     .      . . .                         "
+$N:D7       = "                      .   + .. +                          "
+$N:G7       = "                  .      . + . .                          "
+$N:Cm~1     = "                     .   .  . .                           "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C#_Minor+Im_II7_V7_Im
+ (####)      _-1______0______1______2______*______4______5______6______7
+$N:C#m      = "                     .        . .  .                      "
+$N:D#7      = "                      .     .. + +                        "
+$N:G#7      = "                  .          . .. +                       "
+$N:C#m~1    = "                     .        . .  .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:D_Minor+Im_II7_V7_Im
+ (&)         _-1______0______1______2______*______4______5______6______7
+$N:Dm       = "               .             . . .                        "
+$N:E7       = "                .          + .. +                         "
+$N:A7       = "                   .        + . ..                        "
+$N:Dm~1     = "               .             . . .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E&_Minor+Im_II7_V7_Im
+ (&&&&&&)    _-1______0______1______2______*______4______5______6______7
+$N:E&m      = "                .             . . .                       "
+$N:F7       = "                 .          + .. +                        "
+$N:B&7      = "                    .        + . ..                       "
+$N:E&m~1    = "                .             . . .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E_Minor+Im_II7_V7_Im
+ (#)         _-1______0______1______2______*______4______5______6______7
+$N:Em       = "                .               . .  .                    "
+$N:F#7      = "                 .               + + ..                   "
+$N:B7       = "                    .            .. + .                   "
+$N:Em~1     = "                .               . .  .                    "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F_Minor+Im_II7_V7_Im
+ (&&&&)      _-1______0______1______2______*______4______5______6______7
+$N:Fm       = "                 .          .  . .                        "
+$N:G7       = "                  .        + + ..                         "
+$N:C7       = "              .            .. + .                         "
+$N:Fm~1     = "                 .          .  . .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F#_Minor+Im_II7_V7_Im
+ (###)       _-1______0______1______2______*______4______5______6______7
+$N:F#m      = "                 .             . . .                      "
+$N:G#7      = "                  .          + .. +                       "
+$N:C#7      = "              .               + . ..                      "
+$N:F#m~1    = "                 .             . . .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G_Minor+Im_II7_V7_Im
+ (&&)        _-1______0______1______2______*______4______5______6______7
+$N:Gm       = "                  .        . .  .                         "
+$N:A7       = "                   .      . + + .                         "
+$N:D7       = "               .          . .. +                          "
+$N:Gm~1     = "                  .        . .  .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G#_Minor+Im_II7_V7_Im
+ (#####)     _-1______0______1______2______*______4______5______6______7
+$N:G#m      = "                  .          .  . .                       "
+$N:A#7      = "                   .        + + ..                        "
+$N:D#7      = "               .            .. + .                        "
+$N:G#m~1    = "                  .        . .  .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$2:Voicing+Im_&VII_&VI_V7
+$2:Im    = "Im $Im $4:m $3:m -> &VII"
+$2:&VII  = "&VII $&VII $4:M $3:M -> &VI"
+$2:&VI   = "&VI $&VI $4:M $3:M -> V7"
+$2:V7    = "V7 $V7 $4:7 $3:7  -> Im~1"
+$2:Im~1  = "Im~1 $Im~1 $4:m $3:m -> Im"
+$2:END
+
+$N:A_Minor+Im_&VII_&VI_V7
+ ()          _-1______0______1______2______*______4______5______6______7
+$N:Am       = "                   .          .  . .                      "
+$N:G        = "                  .          .  . .                       "
+$N:F        = "                 .          .  . .                        "
+$N:E7       = "                .            .. + .                       "
+$N:Am~1     = "                   .          .  . .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B&_Minor+Im_&VII_&VI_V7
+ (&&&&&)     _-1______0______1______2______*______4______5______6______7
+$N:B&m      = "                    .        . .  .                       "
+$N:A&       = "                   .        . .  .                        "
+$N:G&       = "                  .          .  . .                       "
+$N:F7       = "                 .            .. + .                      "
+$N:B&m~1    = "                    .        . .  .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B_Minor+Im_&VII_&VI_V7
+ (##)        _-1______0______1______2______*______4______5______6______7
+$N:Bm       = "                    .      . . .                          "
+$N:A        = "                   .      . . .                           "
+$N:G        = "                  .        . .  .                         "
+$N:F#7      = "                 .        + . ..                          "
+$N:Bm~1     = "                    .      . . .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C_Minor+Im_&VII_&VI_V7
+ (&&&)       _-1______0______1______2______*______4______5______6______7
+$N:Cm       = "                     .        . .  .                      "
+$N:B&       = "                    .        . .  .                       "
+$N:A&       = "                   .          .  . .                      "
+$N:G7       = "                  .          . .. +                       "
+$N:Cm~1     = "                     .        . .  .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C#_Minor+Im_&VII_&VI_V7
+ (####)      _-1______0______1______2______*______4______5______6______7
+$N:C#m      = "                     .        . .  .                      "
+$N:B        = "                    .        . .  .                       "
+$N:A        = "                   .        . .  .                        "
+$N:G#7      = "                  .        + . ..                         "
+$N:C#m~1    = "                     .      . . .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:D_Minor+Im_&VII_&VI_V7
+ (&)         _-1______0______1______2______*______4______5______6______7
+$N:Dm       = "                      .   .  . .                          "
+$N:C        = "                     .      . . .                         "
+$N:B&       = "                    .      . . .                          "
+$N:A7       = "                   .     .. + .                           "
+$N:Dm~1     = "                      .   .  . .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E&_Minor+Im_&VII_&VI_V7
+ (&&&&&&)    _-1______0______1______2______*______4______5______6______7
+$N:E&m      = "                       .        . .  .                    "
+$N:D&       = "                      .        . .  .                     "
+$N:B        = "                     .          .  . .                    "
+$N:B&7      = "                    .          . .. +                     "
+$N:E&m~1    = "                       .        . .  .                    "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E_Minor+Im_&VII_&VI_V7
+ (#)         _-1______0______1______2______*______4______5______6______7
+$N:Em       = "                       .          .  . .                  "
+$N:D        = "                      .          .  . .                   "
+$N:C        = "                     .             . . .                  "
+$N:B7       = "                    .             . + . .                 "
+$N:Em~1     = "                       .          .  . .                  "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F_Minor+Im_&VII_&VI_V7
+ (&&&&)      _-1______0______1______2______*______4______5______6______7
+$N:Fm       = "                 .          .  . .                        "
+$N:E&       = "                .          .  . .                         "
+$N:D&       = "               .          .  . .                          "
+$N:C7       = "              .          . .. +                           "
+$N:Fm~1     = "                 .      . . .                             "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F#_Minor+Im_&VII_&VI_V7
+ (###)       _-1______0______1______2______*______4______5______6______7
+$N:F#m      = "                 .        . .  .                          "
+$N:E        = "                .        . .  .                           "
+$N:D        = "               .          .  . .                          "
+$N:C#7      = "              .            .. + .                         "
+$N:F#m~1    = "                 .        . .  .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G_Minor+Im_&VII_&VI_V7
+ (&&)        _-1______0______1______2______*______4______5______6______7
+$N:Gm       = "                  .          .  . .                       "
+$N:F        = "                 .          .  . .                        "
+$N:E&       = "                .             . . .                       "
+$N:D7       = "               .            .. + .                        "
+$N:Gm~1     = "                  .          .  . .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G#_Minor+Im_&VII_&VI_V7
+ (#####)     _-1______0______1______2______*______4______5______6______7
+$N:G#m      = "                  .             . . .                     "
+$N:F#       = "                 .             . . .                      "
+$N:E        = "                .               . .  .                    "
+$N:D#7      = "               .               + . ..                     "
+$N:G#m~1    = "                  .             . . .                     "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+
+$2:Voicing+Im_Vm_IVm_V7
+$2:Im    = "Im $Im $4:m $3:m -> Vm"
+$2:Vm    = "Vm $Vm $4:m $3:m -> IVm"
+$2:IVm   = "IVm $IVm $4:m $3:m -> V7"
+$2:V7    = "V7 $V7 $4:7 $3:7  -> Im~1"
+$2:Im~1  = "Im~1 $Im~1 $4:m $3:m -> Im"
+$2:END
+
+$N:A_Minor+Im_Vm_IVm_V7
+ ()          _-1______0______1______2______*______4______5______6______7
+$N:Am       = "                   .        . .  .                        "
+$N:Em       = "                .          .  . .                         "
+$N:Dm       = "               .          .  . .                          "
+$N:E7       = "                .          . .. +                         "
+$N:Am~1     = "                   .        . .  .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B&_Minor+Im_Vm_IVm_V7
+ (&&&&&)     _-1______0______1______2______*______4______5______6______7
+$N:B&m      = "                    .      . . .                          "
+$N:Fm       = "                 .        . .  .                          "
+$N:E&m      = "                .          .  . .                         "
+$N:F7       = "                 .        + . ..                          "
+$N:B&m~1    = "                    .      . . .                          "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:B_Minor+Im_Vm_IVm_V7
+ (##)        _-1______0______1______2______*______4______5______6______7
+$N:Bm       = "                    .        . .  .                       "
+$N:F#m      = "                 .          .  . .                        "
+$N:Em       = "                .          .  . .                         "
+$N:F#7      = "                 .          . .. +                        "
+$N:Bm~1     = "                    .        . .  .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C_Minor+Im_Vm_IVm_V7
+ (&&&)       _-1______0______1______2______*______4______5______6______7
+$N:Cm       = "                     .      . . .                         "
+$N:Gm       = "                  .        . .  .                         "
+$N:Fm       = "                 .          .  . .                        "
+$N:G7       = "                  .        + . ..                         "
+$N:Cm~1     = "                     .      . . .                         "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:C#_Minor+Im_Vm_IVm_V7
+ (####)      _-1______0______1______2______*______4______5______6______7
+$N:C#m      = "                     .          .  . .                    "
+$N:G#m      = "                  .             . . .                     "
+$N:F#m      = "                 .             . . .                      "
+$N:G#7      = "                  .            .. + .                     "
+$N:C#m~1    = "                     .          .  . .                    "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:D_Minor+Im_Vm_IVm_V7
+ (&)         _-1______0______1______2______*______4______5______6______7
+$N:Dm       = "               .             . . .                        "
+$N:Am       = "                   .        . .  .                        "
+$N:Gm       = "                  .          .  . .                       "
+$N:A7       = "                   .        + . ..                        "
+$N:Dm~1     = "               .             . . .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E&_Minor+Im_Vm_IVm_V7
+ (&&&&&&)    _-1______0______1______2______*______4______5______6______7
+$N:E&m      = "                .        . .  .                           "
+$N:B&m      = "                    .      . . .                          "
+$N:A&m      = "                   .      . . .                           "
+$N:B&7      = "                    .   . .. +                            "
+$N:E&m~1    = "                .        . .  .                           "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:E_Minor+Im_Vm_IVm_V7
+ (#)         _-1______0______1______2______*______4______5______6______7
+$N:Em       = "                .             . . .                       "
+$N:Bm       = "                    .        . .  .                       "
+$N:Am       = "                   .          .  . .                      "
+$N:B7       = "                    .        + . ..                       "
+$N:Em~1     = "                       .      . . .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F_Minor+Im_Vm_IVm_V7
+ (&&&&)      _-1______0______1______2______*______4______5______6______7
+$N:Fm       = "                 .             . . .                      "
+$N:Cm       = "                     .        . .  .                      "
+$N:B&m      = "                    .          .  . .                     "
+$N:C7       = "                     .        + . ..                      "
+$N:Fm~1     = "                        .      . . .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:F#_Minor+Im_Vm_IVm_V7
+ (###)       _-1______0______1______2______*______4______5______6______7
+$N:F#m      = "                 .               . .  .                   "
+$N:C#m      = "                     .          .  . .                    "
+$N:Bm       = "                    .          .  . .                     "
+$N:C#7      = "                     .        + . ..                      "
+$N:F#m~1    = "                        .      . . .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G_Minor+Im_Vm_IVm_V7
+ (&&)        _-1______0______1______2______*______4______5______6______7
+$N:Gm       = "                  .             . . .                     "
+$N:Dm       = "               .               . .  .                     "
+$N:Cm       = "              .               . .  .                      "
+$N:D7       = "               .               + . ..                     "
+$N:Gm~1     = "                  .             . . .                     "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:G#_Minor+Im_Vm_IVm_V7
+ (#####)     _-1______0______1______2______*______4______5______6______7
+$N:G#m      = "                  .          .  . .                       "
+$N:D#m      = "               .             . . .                        "
+$N:C#m      = "              .             . . .                         "
+$N:D#7      = "               .            .. + .                        "
+$N:G#m~1    = "                  .          .  . .                       "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+
+$N:+Original
+             _-1______0______1______2______*______4______5______6______7   
+$N:Am       = "                   .        . .  .                        "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+$N:Original_Pattern
+             _-1______0______1______2______*______4______5______6______7
+$N:Am       = "                   .          .  . .                      "
+             _-1______0______1______2______*______4______5______6______7
+$N:END
+
+   xx_Minor+Im_VII_IV_V7
+$2:Chord_Name_Voicing_Test
+ 2:Voicing+Im_&VII_&VI_V7
+$2:Im    = "Im $Im $4:m $3:m -> &VII"
+$2:&VII  = "&VII $&VII $4:M $3:M -> &VI"
+$2:&VI   = "&VI $&VI $4:M $3:M -> V7"
+$2:V7    = "V7 $V7 $4:7 $3:7  -> Im~1"
+$2:Im~1  = "Im~1 $Im~1 $4:m $3:m -> Im"
+$2:END
+
+$0:END
+

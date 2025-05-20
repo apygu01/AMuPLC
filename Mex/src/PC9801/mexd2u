@@ -1,0 +1,9 @@
+dos2unix mex.h mex.h
+dos2unix mex1.c mex1.c
+dos2unix mex2.c mex2.c
+dos2unix mex3.c mex3.c
+dos2unix mex4.c mex4.c
+dos2unix mex5.c mex5.c
+dos2unix mex6.c mex6.c
+dos2unix mexm.c mexm.c
+dos2unix mexw.c mexw.c

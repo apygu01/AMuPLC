@@ -1,0 +1,119 @@
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Reset tempo values}                          <<                            >>
+>{Reset smpte values}                          <<                            >>
+ {Reset beautify values}                       <<                            >>
+ {Reset expand symbols}                        <<                            >>
+ {Reset dynamic values}                        <<                            >>
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+{Generate global chord lines}                 <<                            >>
+ {Generate global chord select lines}          <<                            >>
+ {Delete note lines}                           <<   First column space is    >>
+ {Delete rest lines}                           <<   comment line.            >>
+ {Delete large brackets lines}                 <<                            >>
+ {Delete parenthesis lines}                    <<                            >>
+ {Delete square lines}                         <<                            >>
+ {Delete symbol lines}                         <<                            >>
+ {Delete plus lines}                           <<                            >>
+ {Delete comment lines}                        <<                            >>
+ {Delete chord lines}                          <<                            >>
+ {Delete global chord select lines}            <<                            >>
+ {Renumber bar lines}                          <<                            >>
+ {Exchange parenthesis to large brackets}      <<                            >>
+ {Exchange large brackets to parenthesis}      <<                            >>
+ {Exchange midi format to cueing format}       <<                            >>
+ {Exchange cueing format to midi format}       <<                            >>
+ {Decode dynamic expand note lines} unit = b   << unit : time f q t b d s m  >>
+ {Clear notes}                                 <<                            >>
+ {Exchange global chord select to progression lines}                         >>
+ {Exchange global chord progression to select lines}                         >>
+ {Change chord progression lines}              <<                            >>
+ {Sequence_Transposition xx}                   <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ ===Start Time===
+ Smpte flame type = 3
+ Smpte start time = 00:00:00/00.00
+ Smpte lag time = 00:00:00/00.00
+
+ ===Tempo===
+ {/60} -> m.m. _/ = 60
+ {/90} -> m.m. _/ = 90
+
+ ===Global Gate Rate===
+ {#define gate_rate_parameter 25}
+ {#define gate_rate |O| =   99}
+ {#define gate_rate  O =    98}
+ {#define gate_rate  O. =   97}
+ {#define gate_rate  O.. =  98}
+ {#define gate_rate  o/ =   93}
+ {#define gate_rate  o/. =  94}
+ {#define gate_rate  o/.. = 95}
+ {#define gate_rate  _/ =   90}
+ {#define gate_rate  _/. =  91}
+ {#define gate_rate  _/.. = 92} 
+ {#define gate_rate  _/)  = 82}
+ {#define gate_rate  _/). = 84}
+ {#define gate_rate  _/).. = 86}
+ {#define gate_rate  _/)) = 66}
+
+ ===Key & Time Signature===
+ {$4/4}
+ {$#3/4}
+ {$&&&4/4}
+
+ ===Chord Progressions===
+ {#define next_progression_chord 2}
+ Chord Pattern T-SD-D(P1) T-SD-D(P2) T-DD-SD-D(P3) T-SD-D(P4)
+ {$2:Default_Chord_Progression}
+ {$2:Advance_Chord_Progression}
+ {$2:Natural_Minor}
+ {$2:Harmonic_Minor}
+ {$2:Melodic_Minor}
+ {$2:Modulate_to_Relative_Key}
+ {$2:T-SD}
+ {$2:Voicing+I_IV_V7_I}
+ {$2:Voicing+I_IV_IVm_I}
+ {$2:Voicing+I_VIm_IIm7-V7_I}
+ {$2:Voicing+I_IIIm_IV_I}
+ {$2:Voicing+Im_IVm_V7_Im}
+ {$2:Voicing+Im_II7_V7_Im}
+ {$2:Voicing+Im_&VII_&VI_V7}
+ {$2:Voicing+Im_Vm_IVm_V7}
+ {$2:Chord_Name_Voicing_Test}
+ {$2:Canon}
+ #stop chord_progression       /* off next progression chordi     */
+ #start chord_progression      /* off pre progression chord       */
+ #pose chord_progression       /* store next progression chord    */
+ #resume chord_progression     /* resume before progression chord */
+
+ ===Bar===
+ {#set renumber_start_value 0}
+
+ ===Dynamic Velocity Sample===
+ *G ( 96.0  95.0  95.4  95.2)*16
+
+ ===Standard Midi File===
+ *Line is SMF Meta Events for mec -smf, mlk -smfx option
+ *S <Sequence Name>
+ *C <Copyright Notice>
+ *X <Text Event>
+ *L <Liric>
+
+ ===lesson===
+ {/60}
+ {$4/4}
+ {#define gate_rate  o/ =   94}
+ {#define gate_rate  _/ =   91}
+ {#define gate_rate  _/. =  92}
+ {#define gate_rate  _/)  = 83}
+ {$2:Canon}
+ #start chord_progression
+ {!IV}
+

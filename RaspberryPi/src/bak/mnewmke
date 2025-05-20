@@ -1,0 +1,14 @@
+# Mnew makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = mnew.c
+PROGRAM = mnew
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mnew.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mnew.o:mnew.c mnew.h

@@ -1,0 +1,398 @@
+                                  2009.1.19 hiro
+ MIDI Patch
+
+ Port 0 GM sound                                          Max.128
+ Instruments  Device       Port       Ch      PC#    Out Comment             
+@Piccolo      GM              0        1       73    int Pipe(73-80)
+@Flute        GM              0        2       74    int Pipe(73-80)
+@Oboe         GM              0        3       69    int Reed(65-72)
+@Clarinet     GM              0        4       72    int Reed(65-72)
+@Trumpet      GM              0        5       57    int Brass(33-40)
+@Trombone     GM              0        6       58    int Brass(33-40)
+@A_Guitar     GM              0        7       25    int Guitar(25-32)
+@E_Guitar     GM              0        8       28    int Guitar(25-32)
+@Piano        GM              0        9        1    int Piano(1-8)
+@Drum         GM              0       10             int Drum
+@Percussion   GM              0       11       14    int Percussion(9-16)
+@Organ        GM              0       12       18    int Organ(17-24)
+@Choir        GM              0       13       92    int Synth(81-104)
+@Violin       GM              0       14       41    int Strings
+@Viola        GM              0       15       42    int Strings
+@Cello        GM              0       16       43    int Strings
+
+
+                                          Max.128
+ Instruments  Device       Port       Ch      PC#    Out Comment             
+@Piccolo      GM              9        1       73    int Pipe(73-80)
+@Flute        GM              9        2       74    int Pipe(73-80)
+@Oboe         GM              9        3       69    int Reed(65-72)
+@Clarinet     GM              9        4       72    int Reed(65-72)
+@Trumpet      GM              9        5       57    int Brass(33-40)
+@Trombone     GM              9        6       58    int Brass(33-40)
+@A_Guitar     GM              9        7       25    int Guitar(25-32)
+@E_Guitar     GM              9        8       28    int Guitar(25-32)
+@Piano        GM              9        9        1    int Piano(1-8)
+@Drum         GM              9       10             int Drum
+@Percussion   GM              9       11       14    int Percussion(9-16)
+@Organ        GM              9       12       18    int Organ(17-24)
+@Choir        GM              9       13       92    int Synth(81-104)
+@Violin       GM              9       14       41    int Strings
+@Viola        GM              9       15       42    int Strings
+@Cello        GM              9       16       43    int Strings
+
+GM1 Instrument Families
+PC#     Family                  PC#     Family
+1-8     Piano                   65-72   Reed
+9-16    Chromatic Percussion    73-80   Pipe
+17-24   Organ                   81-88   Synth Lead
+25-32   Guitar                  89-96   Synth Pad
+33-40   Bass                    97-104  Synth Effects
+41-48   Strings                 105-112 Ethnic
+49-56   Ensemble                113-120 Percussive
+57-64   Brass                   121-128 Sound Effects
+
+GM1 Instrument Patch Map
+PC#         Instrument
+1.      Acoustic Grand Piano            65.     Soprano Sax
+2.      Bright Acoustic Piano           66.     Alto Sax
+3.      Electric Grand Piano            67.     Tenor Sax
+4.      Honky-tonk Piano                68.     Baritone Sax
+5.      Electric Piano 1                69.     Oboe
+6.      Electric Piano 2                70.     English Horn
+7.      Harpsichord                     71.     Bassoon
+8.      Clavi                           72.     Clarinet
+9.      Celesta                         73.     Piccolo
+10.     Glockenspiel                    74.     Flute
+11.     Music Box                       75.     Recorder
+12.     Vibraphone                      76.     Pan Flute
+13.     Marimba                         77.     Blown Bottle
+14.     Xylophone                       78.     Shakuhachi
+15.     Tubular Bells                   79.     Whistle
+16.     Dulcimer                        80.     Ocarina
+17.     Drawbar Organ                   81.     Lead 1 (square)
+18.     Percussive Organ                82.     Lead 2 (sawtooth)
+19.     Rock Organ                      83.     Lead 3 (calliope)
+20.     Church Organ                    84.     Lead 4 (chiff)
+21.     Reed Organ                      85.     Lead 5 (charang)
+22.     Accordion                       86.     Lead 6 (voice)
+23.     Harmonica                       87.     Lead 7 (fifths)
+24.     Tango Accordion                 88.     Lead 8 (bass + lead)
+25.     Acoustic Guitar (nylon)         89.     Pad 1 (new age)
+26.     Acoustic Guitar (steel)         90.     Pad 2 (warm)
+27.     Electric Guitar (jazz)          91.     Pad 3 (polysynth)
+28.     Electric Guitar (clean)         92.     Pad 4 (choir)
+29.     Electric Guitar (muted)         93.     Pad 5 (bowed)
+30.     Overdriven Guitar               94.     Pad 6 (metallic)
+31.     Distortion Guitar               95.     Pad 7 (halo)
+32.     Guitar harmonics                96.     Pad 8 (sweep)
+33.     Acoustic Bass                   97.     FX 1 (rain)
+34.     Electric Bass (finger)          98.     FX 2 (soundtrack)
+35.     Electric Bass (pick)            99.     FX 3 (crystal)
+36.     Fretless Bass                   100.    FX 4 (atmosphere)
+37.     Slap Bass 1                     101.    FX 5 (brightness)
+38.     Slap Bass 2                     102.    FX 6 (goblins)
+39.     Synth Bass 1                    103.    FX 7 (echoes)
+40.     Synth Bass 2                    104.    FX 8 (sci-fi)
+41.     Violin                          105.    Sitar
+42.     Viola                           106.    Banjo
+43.     Cello                           107.    Shamisen
+44.     Contrabass                      108.    Koto
+45.     Tremolo Strings                 109.    Kalimba
+46.     Pizzicato Strings               110.    Bag pipe
+47.     Orchestral Harp                 111.    Fiddle
+48.     Timpani                         112.    Shanai
+49.     String Ensemble 1               113.    Tinkle Bell
+50.     String Ensemble 2               114.    Agogo
+51.     SynthStrings 1                  115.    Steel Drums
+52.     SynthStrings 2                  116.    Woodblock
+53.     Choir Aahs                      117.    Taiko Drum
+54.     Voice Oohs                      118.    Melodic Tom
+55.     Synth Voice                     119.    Synth Drum
+56.     Orchestra Hit                   120.    Reverse Cymbal
+57.     Trumpet                         121.    Guitar Fret Noise
+58.     Trombone                        122.    Breath Noise
+59.     Tuba                            123.    Seashore
+60.     Muted Trumpet                   124.    Bird Tweet
+61.     French Horn                     125.    Telephone Ring
+62.     Brass Section                   126.    Helicopter
+63.     SynthBrass 1                    127.    Applause
+64.     SynthBrass 2                    128.    Gunshot
+
+GM1 Percussion Key Map
+Key# Drum Sound         Key# Drum Sound
+35 Acoustic Bass Drum     59 Ride Cymbal 2
+36 Bass Drum 1            60 Hi Bongo
+37 Side Stick             61 Low Bongo
+38 Acoustic Snare         62 Mute Hi Conga
+39 Hand Clap              63 Open Hi Conga
+40 Electric Snare         64 Low Conga
+41 Low Floor Tom          65 High Timbale
+42 Closed Hi Hat          66 Low Timbale
+43 High Floor Tom         67 High Agogo
+44 Pedal Hi-Hat           68 Low Agogo
+45 Low Tom                69 Cabasa
+46 Open Hi-Hat            70 Maracas
+47 Low-Mid Tom            71 Short Whistle
+48 Hi-Mid Tom             72 Long Whistle
+49 Crash Cymbal 1         73 Short Guiro
+50 High Tom               74 Long Guiro
+51 Ride Cymbal 1          75 Claves
+52 Chinese Cymbal         76 Hi Wood Block
+53 Ride Bell              77 Low Wood Block
+54 Tambourine             78 Mute Cuica
+55 Splash Cymbal          79 Open Cuica
+56 Cowbell                80 Mute Triangle
+57 Crash Cymbal 2         81 Open Triangle
+58 Vibraslap
+
+ ------New Pop------XV-3 
+ Instruments  Device       Port       Ch      PC#    Out  Comment             
+@Piano        DSM1            1        1        .   Mix1  Rev
+@Piano        TX1P            1        3        .   Mix1  NG+Comp+Rev
+@Bell.pad     XV5080-3A       7        1        .    1,2  Mallet Pad   A075
+@Nylon        XV5080-3A       7        2        .      5  Nylon Rodes  A021
+@Piano.Bright XV5080-3A       7        3        .      5  Exp-E 12 Bright mono
+@World-093    XV5080-3A       7        4        .    1,2  Exp-B World
+@Merody       XV5080-3A       7        9        .    1,2  Exp-A71 D50 stack
+@Rhythm       XV5080-3A       7       10        .    1,2  Exp-F Drum Kits
+@Piano.Premi  XV5080-3A       8        1        .      6  Exp-E 11 Pre mono
+@Piano.SoftP  XV5080-3A       8        2        .      6  Exp-E 13 Soft Pedal
+@Piano.Gig1   XV5080-3A       8        3        .      6  Exp-E 45 Gig Spl 1
+@Piano.Gig2   XV5080-3A       8        4        .      6  Exp-E 46 Gig Spl 2
+@Piano.NewA   XV5080-3A       8        5        .      6  Exp-E 18 NewA Grand
+@Piano.FeBK   XV5080-3A       8        6        .      6  Exp-E 49 FeedBack
+
+ ------New Pop------XV-2 
+ Instruments  Device       Port       Ch      PC#    Out  Comment             
+@ACT.GT       XV5080-2A       5        2        .      6  Exp-F 104
+@Vn.Solo      XV5080-2A       5        6        .      4  Exp-E 64 VIOLN solo
+@Vn.Solo      XV5080-2A       5        7        .      4  Exp-E 66 Solo Vn.
+@Vn.Solo      XV5080-2A       5        8        .      4  Exp-E 65 Solo Vln/
+@Rhythm       XV5080-2A       5       10        .    1,2  PR-E
+@Bass         XV5080-2A       5       11        .      5  PR-B 040
+@Org.         XV5080-2A       5       12        .      5  Exp-A 012   
+@Harpsi       XV5080-2A       5       13        .      5  Exp-E 284
+@Glocken      XV5080-2A       5       14        .      5  Exp-E 314 
+@Xylophone    XV5080-2A       5       15        .      5  Exp-E 316 
+@Harp         XV5080-2A       5       16        .      5  Exp-E 408
+@Pic.         XV5080-2B       6        1        .      3  EP-E 159
+@Flute        XV5080-2B       6        2        .      3  EP-E 162
+ Vc.Solo      XV5080-2B       6        3        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6        4        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6        5        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6        6        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6        7        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6        8        .      6  EP-E 70
+@Vc.Solo      XV5080-2B       6        9        .      6  EP-E 70
+@Orch.Kit     XV5080-2B       6       10        .    1,2  EP-F    
+ Vc.Solo      XV5080-2B       6       10        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       11        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       12        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       13        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       14        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       15        .      6  EP-E 70
+ Vc.Solo      XV5080-2B       6       16        .      6  EP-E 70
+
+ ------New Pop------XV-1 
+ Instruments  Device       Port       Ch      PC#    Out  Comment             
+@Vn_Sec1      XV5080-1A       3        1        .    1,2  Exp-E 53
+@Vn_Sec2      XV5080-1A       3        2        .    1,2  Exp-E 54
+@Vn_Piz       XV5080-1A       3        3        .    1,2  Exp-E 64
+@Viola_Sec1   XV5080-1A       3        4        .    1,2  Exp-E 66
+@Viola_Sec2   XV5080-1A       3        5        .    1,2  Exp-E 67
+@Viola_Piz    XV5080-1A       3        6        .    1,2  Exp-E 71
+@Cello_Sec1   XV5080-1A       3        7        .    1,2  Exp-E 73
+@Cello_Sec2   XV5080-1A       3        8        .    1,2  Exp-E 74
+@Cello_Piz    XV5080-1A       3        9        .    1,2  Exp-E 76
+@DrumSet      XV5080-1A       3       10        .    1,2  Exp-E Drum
+@Bass_Sec1    XV5080-1A       3       11        .    1,2  Exp-E 83
+@Bass_Piz     XV5080-1A       3       12        .    1,2  Exp-E 86
+@FastStac     XV5080-1A       3       13        .    1,2  Exp-E 04
+@Full_Piz     XV5080-1A       3       14        .    1,2  Exp-E 06
+@SynphSt2     XV5080-1A       3       15        .    1,2  Exp-E 14
+@Full_Sec     XV5080-1A       3       16        .    1,2  Exp-E 25
+@JC_Strat     XV5080-1B       4        1        .    1,2  PrA 118-120
+@Dst_Gtr      XV5080-1B       4        2        .    1,2  PrB 1-1 
+@Bass_Nylon   XV5080-1B       4        3        .    1,2  PrB 14
+@Bass_Ac.Upr  XV5080-1B       4        4        .    1,2  PrB 15
+@Bass_House   XV5080-1B       4        5        .    1,2  PrB 24
+@Bass_Mondo   XV5080-1B       4        6        .    1,2  BrB 25
+@Bass_Untamd  XV5080-1B       4        7        .    1,2  PrB 36
+@EGT          XV5080-1B       4        8        .    1,2  PrD 32
+@EGT_SoloStr  XV5080-1B       4        9        .    1,2  PrD 33
+@DGT_GrindSt  XV5080-1B       4       10        .    1,2  PrD 38
+@Acid         XV5080-1B       4       11        .    1,2  PrD 49
+@Key_St.Hrpsi XV5080-1B       4       12        .    1,2  PrE 27
+@ORG_Rocker   XV5080-1B       4       13        .    1,2  PrE 35
+@ORG_Happy60s XV5080-1B       4       14        .    1,2  PrE 38
+@ORG_96Years  XV5080-1B       4       15        .    1,2  PrE 39
+@VOX_VoScat   XV5080-1B       4       16        .    1,2  PrE 63
+
+@Pic          Prot.A         10        1        .    1,2  U3.51
+@Fl           Prot.A         10        2        .    1,2  U3.53
+@Ob           Prot.A         10        3        .    1,2  U3.64
+@Cl           Prot.A         10        4        .    1,2  U3.74
+@Fg           Prot.A         10        5        .    1,2  U3.85
+@Cfg          Prot.A         10        6        .    1,2  U3.91 Bassoon
+@Hn           Prot.A         10        7        .    1,2  U3.97 F Horn
+@Tp           Prot.A         10        8        .    1,2  
+@Tp           Prot.A         10        9        .    1,2  
+@S_Hn         Prot.A         10       10        .    1,2  
+@Tb           Prot.A         10       11        .    1,2  
+@Tb           Prot.A         10       12        .    1,2  
+@Tuba         Prot.A         10       13        .    1,2  
+@             Prot.A         10       14        .    1,2  
+@             Prot.A         10       15        .    1,2  
+@             Prot.B         10       16        .    1,2  
+
+@Str.Full     Prot.B         11        1        .    1,2  008 
+ Pic          Prot.B         11        2        .    1,2  U3.51
+ Pic          Prot.B         11        3        .    1,2  U3.51
+ Pic          Prot.B         11        4        .    1,2  U3.51
+@xYlophone    Prot.B         11       11        .    1,2  U0.60 Xylophone
+
+ ----------Pop
+ Instruments  Device       Port       Ch      PC#    Out  Comment             
+ Pad          XV5080-1A       3        1        .    1,2  Change u.059 S.C
+ Add          XV5080-1A       5        1        .    1,2  User 44 Old friends
+ Music-Box    XV5080-3A       7        1        .      6  PR-A 82
+ World-093    XV5080-3A       7        3        .    1,2  Exp-B World
+ HipHop       XV5080-3A       7        4        .    1,2  Exp-C HipHop
+ Techno       XV5080-3A       7        5        .    1,2  Exp-D Techno
+ Pad          XV5080-3A       7        2        .    1,2  HolydayCheer D019
+ Piano        XV5080-3A       7        6        .    1,2  Piano        
+ Piano        XV5080-3A       7        7        .    1,2  Piano        
+ Bell.pad     XV5080-3A       7        1        .    1,2  Mallet Pad   A075
+ Rhythm       XV5080-3A       7       10        .    1,2  Exp-F Drum Kits
+ Childlike    XV5080-3A       7       11        .    1,2  3PartIbvention E026
+@Klavinet     XV5080-3A       7       12        .      6  Klavinet   A034
+ Str.Sec      XV5080-3A       7       13        .    1,2  Str. 
+ Organ        XV5080-3A       7       14        .    1,2  Organ   
+ Bass         XV5080-3A       7       15        .    1,2  Wh.Solo
+ Bass         XV5080-3A       7       16        .      5  Bass
+
+ Vocal        microKORG      12        1        .     -   -
+ Marinba      XV5080-3B       8        7        .    1,2  Marinba
+ Keybord      XV5080-3B       8        8        .      6  Keybord
+ Nylon        XV5080-3B       8        9        .      3  Nylon Rodes  A021
+ Rhythm       XV5080-3A       7       10        .    1,2  PR-E
+ Cello        XV5080-3B       8       13        .    1,2  Cello     
+ Bass         XV5080-3B       8       14        .    1,2  Wh.Solo
+ Xylophone    XV5080-3B       8       15        .    1,2  Xylophone
+ Click        SC88-Pro-A      9       10        .    1,2  Stick
+ Rhythm       DMpro          10       10        .    x08  Sturdio kit 11
+
+ AG           XV5080-2A       5        1        .      5  AGuitar
+ Harmonica    XV5080-2A       5        5        .      4  Solo
+ Celesta      XV5080-2A       5        6        .      4  Solo
+ Vn1          XV5080-2A       5        8        .      3  Solo
+ Vn2          XV5080-2A       5        9        .      4  Solo
+ Rhythm       XV5080-2A       5       10        .    1,2  WorldC. LatainDr.
+ Str          XV5080-2A       5       11        .      3  Str.
+ MG-solo      XV5080-2A       5       12        .      8  MG-solo B-83
+ DGT          XV5080-2A       5       13        .      8  solo
+ Bell         XV5080-2A       5       15        .      8  Wave-Bells A-084
+ GM-Gt.       XV5080-2A       5       16        .      8  solo
+ Cello        XV5080-2B       6       15        .      6  Bass
+ PianoBell    DX7II          11       13        .      M  Piano
+ RocMelody    DX7II          11       13        .      M  E Piano A 17
+ RocBase      XV5080-2A       5       14        .      7  Base
+ Rhodes 2B    DX7II          11       13        .      M  E Piano
+
+ ----------GM Sound
+  instrment    Device       Port  Channel   Output    Comment
+ gm-fl        <c1,49>_Flute   9        2      R,L    SC-88 Pro
+ gm-Vn        <c5,28>_Violn   9        6      R,L    SC-88 Pro
+ gm-Pf        <ca,00>_Apiano  9       11      R,L    SC-88 Pro
+ gm-Pf        <cb,00>_Apiano  9       12      R,L    SC-88 Pro
+ gm-Cello     <cd,2a>_Cello   9       14      R,L    SC-88 Pro
+
+ GM Rhytm set
+                    012  34  56  789        abcdefghi
+              3____.____4____.____5____.____6____.____7____.____8
+                 M  K S E C P  T C R  T C  R  C  T  A M  G      
+                 e  i n l l e  o r i  a o  i  o  a  g a  u
+                 t  c e S o d  m a d  m w  d  n  m  o r  i     
+                 r  k a n s a    s e  b b  e  g  b  g a  r
+                 o    r e e l    h    o e     a  HL o c  o
+                 n      a               l     MHLio   a
+                 o   S  rL T TC T T      C  B uio  A  s  SL
+                 m   i   o o oo o o      r  o      g
+                 e   d   w m mw m m      s  n      o
+                     e        b          h  g      g
+                     S        e   H         o      o
+                     K        l   i      C  HL
+                              l          y  io
+
+
+              3____.____4____.____5____.____6____.____7____.____8____
+ XV PR-E            KSS  3  C2O 1C RCRT
+                     s    L  M  Hr drdb
+                     k    o  d  i  1122
+
+
+ XV P:5 Ch:10 World Collection
+LatainDrmkit
+              3____.____4____.____5____.____6____.____7____.____8____
+              TTTT                   B B    CCCCC                    
+ XV2(A)       iiii                   g g    ggggg                    
+              mmmm                                                   
+                                     H L    HLSHL                    
+                                               oo   
+
+ XV P:6 Ch:10 Orch. Kit
+              3____.____4____.____5____.____6____.____7____.____8____
+                  BBBSSSSTTTTTTTTTTTTTCCMCGT   CCCBBBBBBTT  TCC   TT 
+ XV2(B)           DDDnnnniiiiiiiiiiiiirrCroa   hhheeeeeerr  aaa   ii 
+                  r    r mmmmmmmmmmmmm     m   iiillllllii  mss   mm 
+                                           T   mmm      om  btt   pp 
+                                                                  rr
+                                                                  pf
+
+                 
+ ----------from S1a
+ @Piatti       XV5080-3A       6       10      0xx    RR-C.2 OrDrm
+ @Harp         Prot.B          8       10      0xx    U0.8 Harp
+ @Harp         XV5080-3A       6       15      0xx    XP-A.186
+ @xYlophone    Prot.B          8       11      0xx    U0.60 Xylophone
+ @Cassa        XV5080-3A       6       14      0xx    XP-A.211
+ @Celesta      XV5080-3A       6       16      0xx    XP-A.200
+ @Timpany      XV5080-3B       7       10      0xx    XP-A.236
+ @T-tam        XV5080-3B       7       15      0xx    XP-A.241
+ @Snear        XV5080-3B       7       16      0xx    XP-A.229
+ @Tr-l         XV5080-2A      12       16      0cf    Dram-C 80,81(Triangle)
+
+ Device    Port - Unit(A,B,C)
+
+ XV5080(3)
+ Exp-A     SR-JV80-02 Orchestral
+ Exp-B     SR-JV80-05 World
+ Exp-C     SR-JV80-12 HipHop Collection
+ Exp-D     SR-JV80-11 Techno Collection
+ Exp-E     SRX-02 Concert Piano
+ Exp-F     SRX-01 Dynamic Drum Kits
+ Exp-G     SRX-06 Complete Orchestra
+
+ XV5080(2)
+ Exp-A     SR-JV80-01 Pop
+ Exp-E     SRX-06 Complete Orchestra
+ Exp-F     SRX-09 World
+
+ XV5080(1)
+ Exp-E     SRX-04 Stringth
+*XV5080(1)-A  3 - Direct(Sw)
+*XV5080(1)-B  4   Direct(Sw)
+*XV5080(2)-A  5 - Direct(Sw)
+*XV5080(2)-B  6 - Direct(Sw)
+*Proteus.A-A 10 - Direct(Sw)
+*Proteus.A-B 11 - Direct(Sw)
+*XV5080(3)-A  7 - Direct(Sw)
+*XV5080(3)-B  8 - Direct(Sw)
+*SC88-Pro-A   9 - Direct(Sw)
+*DMpro        X - Direct(Sw)
+*micro KORG  12 - Direct(Sw)
+
+ Tx1P    1  Piano
+ DSM1    1  Piano
+
+final$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

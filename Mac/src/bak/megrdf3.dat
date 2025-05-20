@@ -1,0 +1,158 @@
+ /////////////////////////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Generate phrase files}                       <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+ {Delete large brackets lines}                 <<                            >>
+ {Delete parenthesis lines}                    <<                            >>
+ {Delete square lines}                         <<                            >>
+ {Delete symbol lines}                         <<                            >>
+ {Delete comment lines}                        <<                            >>
+ {Delete chord lines}                          <<                            >>
+ {Delete chord check lines}                    <<                            >>
+ {Delete expand lines}                         <<                            >>
+ {Delete dumper signs}                         <<                            >>
+ {Reset beautify values}                       <<                            >>
+>{Reset gate_rate values}                      <<                            >>
+ {Reset pitch_vend values}                     <<                            >>
+ {Reset modulation values}                     <<                            >>
+ {Reset control_number values}                 <<                            >>
+ {Reset control_data values}                   <<                            >>
+ {Reset program_change values}                 <<                            >>
+ {Reset transpose values}                      <<                            >>
+ {Reset velocity_base values}                  <<                            >>
+ {Reset Dynamic expand symbols}                <<                            >>
+ {Generate beautify symbols}                   <<                            >>
+ {Clear notes}                                 <<                            >>
+ {Observe other notes}                         <<                            >>
+ {Clear observed notes}                        <<                            >>
+ {Clear P_Exp symbols}                         <<                            >>
+ {Reset Exp symbols}                           <<                            >>
+ {Change dumper signs}                         <<                            >>
+ {Modify dumper signs}                         <<                            >>
+>{Observe chord notes}                         <<<-|       Switch            >>
+ {Change chord notes}                          <<<-|                         >>
+>{Observe available note scale}                <<<-|  Chord & Available Note >>
+ {Observe chord_name voicing}                  <<<-|  Chord Name Voicing     >>
+ {Reset chord & available notes}               <<                            >>
+ {Decode dynamic expand note lines} unit = n   <<   unit : note _/ = 1000    >>
+ {Include expanded note lines}                 <<<-|                         >>
+ {Show expanded note lines}                    <<<-|                         >>
+ {Hide expanded note lines}                    <<<-|       Switch            >>
+ {Save expanded note lines}                    <<<-|     (Select One)        >>
+ {Reload expand files}                         <<<-|                         >>
+ {Save & Store expand files}                   <<<-|                         >>
+ {Save & Register expand files}                <<<-|                         >>
+ {Store expand files}                          <-  fn_exp.mph -> fn.mph      >>
+ {Register expand files}                       <-  fn_exp.mph -> meb.mph     >>
+ {Renumber bar lines}                          <<                            >>
+ {Exchange parenthesis to large brackets}      <<                            >>
+ {Exchange large brackets to parenthesis}      <<                            >>
+ {Exchange global chord select to progression lines}                         >>
+ {Exchange global chord progression to select lines}                         >>
+ {Change chord progression lines}              <<                            >>
+ {Hide chord progression lines}                <<                            >>
+                                                                             >>
+ ---Note Velocity---                                                         >>
+ #define Chord_base_position 2
+ #define Available_note_scale_base_position 4
+ #define Chord_velocity "55555555"
+ #define Available_note_scale_velocity "55555555"
+ #define Chord_name_voicing_velocity "55555555"
+ #set transpose 12   : ex 12 Outave up
+ #modify_start note_shift -7  : ex -7 Octave down
+Title/////////////////////////////////////////////////////////////////////Title
+
+ ---Part Gate rate--
+ #set gate_rate_parameter 25
+ #set gate_rate  O =    98
+ #set gate_rate  o/ =   93
+ #set gate_rate  o/. =  94
+ #set gate_rate  _/ =   90
+ #set gate_rate  _/. =  91
+ #set gate_rate  _/)  = 82
+ #set gate_rate  _/)) = 76
+
+ ---Chord Voicings---
+$5:Default
+ $5:Close
+ $5:3Way_Close
+ $5:4Way_Close
+ $5:5Way_Close
+ $5:6Way_Close
+ $5:7Way_Close
+ $5:8Way_Close
+ $5:Open
+ $5:Drop2&4
+ $5:Drop2&4_Close
+ $5:4Way_Spread
+ $5:5Way_Spread
+ $5:2Way_Base
+ $5:3Way_Base
+ --minor--
+ $5:Default_Note_Oct
+ $5:Low_Base
+ $5:Low_Base_add_Top
+ $5:Separate_Note
+
+ ---Natural Chord Voicings---
+$N:+Default           Default Voicing, Current key +Default 
+ $N:+Guitar_Chord_Voicing
+ $N:+I_IV_V7_I        Major  Voicing,  Current key +I_IV_V7_I
+ $N:+I_IV_IVm_I
+ $N:+I_VIm_IIm7-V7_I
+ $N:+I_IIIm_IV_I
+ $N:+Im_IVm_V7_Im     Minor Voicing,  Current key +Im_IVm_V7_Im
+ $N:+Im_II7_V7_Im
+ $N:+Im_&VII_&VI_V7
+ $N:+Im_Vm_IVm_V7
+ $N:Original_Pattern   Original Voicing Pattern 
+
+ ---Scale & Modes---
+$A:Default_Scale
+ $A:Default_2oct.Scale
+ --minor--
+ $A:Natural_Minor_Scale
+ $A:Natural_Minor_2oct.Scale
+ $A:Harmonic_Minor_Scale
+ $A:Harmonic_Minor_2oct.Scale
+ $A:Melodic_Minor_Scale
+ $A:Melodic_Minor_2oct.Scale
+
+ ---Temperaments---
+ $M:Pure_Mersenne
+ $M:Pure_Mersenne_1-8ch
+ $M:Pure_Mersenne_9-16ch
+ $M:Pure_Q50
+ $M:Pure_Q50_1-8ch
+ $M:Pure_Q50_9-16ch
+ $M:Pythagorean
+ $M:Pythagorean_1-8ch
+ $M:Pythagorean_9-16ch
+ $M:Werckmeister
+ $M:Werckmeister_1-8ch
+ $M:Werckmeister_9-16ch
+ $M:Pure_Temperament
+ $M:Pure_Temperament_1-8ch
+ $M:Pure_Temperament_9-16ch
+ $M:Just_Intonation
+ $M:Just_Intonation_1-8ch
+ $M:Just_Intonation_9-16ch
+ $M:Aravia_temperament
+
+ ---Dynamic Voiching---
+ *+dxp 4 n = "02 1 3 0" r = "4 4 4 4" v = "5 5 5 5"
+ *E +clk*8
+ *+clk n = "0 0 0 0" r = "4 4 4 4" v = "5 5 5 5"
+
+ ---Instruments---
+ @Inst. Comment
+

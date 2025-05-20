@@ -1,0 +1,42 @@
+alst = mebw+mebm+meb1+meb2+meb3+meb4+meb5+meb6+meb7
+obj1 = mebw.obj mebm.obj meb1.obj meb2.obj meb3.obj meb4.obj
+obj2 = meb5.obj meb6.obj meb7.obj
+libs = a:\tc\lib\emu a:\tc\lib\mathh a:\tc\lib\ch
+
+meb.exe: meb.h
+ tcc -mh -c -f mebw.c
+ tcc -mh -c -f mebm.c
+ tcc -mh -c -f meb1.c
+ tcc -mh -c -f meb2.c
+ tcc -mh -c -f meb3.c
+ tcc -mh -c -f meb4.c
+ tcc -mh -c -f meb5.c
+ tcc -mh -c -f meb6.c
+ tcc -mh -c -f meb7.c
+
+mebw.obj: mebw.c
+ tcc -mh -c -f mebm.c
+
+meb1.obj: meb1.c
+ tcc -mh -c -f meb1.c
+
+meb2.obj: meb2.c
+ tcc -mh -c -f meb2.c
+
+meb3.obj: meb3.c
+ tcc -mh -c -f meb3.c
+
+meb4.obj: meb4.c
+ tcc -mh -c -f meb4.c
+
+meb5.obj: meb5.c
+ tcc -mh -c -f meb5.c
+
+meb6.obj: meb6.c
+ tcc -mh -c -f meb6.c
+
+meb7.obj: meb7.c
+ tcc -mh -c -f meb7.c
+
+meb.exe: $(obj1) $(obj2)
+tlink /v /I /m a:\tc\lib\c0h+$(alst),meb,,$(libs)

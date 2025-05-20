@@ -1,0 +1,429 @@
+command format
+Mec  (Music edit source compiler) v x.xx
+mec  fn    [,fn] [options]
+     fn1/x  fn2  [ -d    ]
+     fn/yy       [ -dp   ]
+     fn/x;y      [ -s    ]
+     fn_x,y      [ -sl   ]
+     fn/xyy      [ -l    ]
+     fn_xyy      [ -o -s ]
+     fn(sss,eee) [ -t    ] sss:start movement eee:end movement
+     options : -t(trace) -s(source) -l(list) -o(object)
+               -sl(source line number) -d(debug d1,d2,d3,d4,d5)
+               -dp(dump) -no(nobject) -h(help)
+               -m0 .. -m9 (message level 0 to 9 default:-m3)
+ex.1 mec inf -t -d -s     : Trace & Debug & Source option
+     mec inf -s -object   : Source & Object
+ex.2 mec inf inf2 -dump   : Dump middle data file
+
+ mesage level (-m0 .. -m9)
+            0   all
+            1   worning level 1
+            2   worning level 2
+            3   worning level 3
+            4   Error   level 4
+            5   Error   level 5
+            6   Error   level 6
+            7   Error   level 7
+            8   Message level 1
+            9   Message level 2
+
+input format
+init data
+ #op. 123
+ #inst. vn. or xx : inst. no.
+ #define port 1
+ #define chanel 3
+ #define member 2
+ #define master_line_generate x
+ #define time_code_type 0-3,24,25,30(drop),30(non drop)
+ #define transpose xx
+ #define smpte  00:00:00/00.00
+ #define direct_time_lock_port xx
+ #define midi_time_code_port xx
+ #define direct_time_lock_port_and_sync_start xx
+ #define midi_time_code_port_and_sync_start xx
+ #define direct_time_lock_sync_stop xx
+ #define midi_time_code_sync_stop xx
+
+Code out
+ <xxxxxxxxxx> : hex
+
+tempo
+ {m.m. _/ = 120} {o/ = 120} {_/. = 72} {_/>=130} {_/=ca73} {_/=60:67}
+ {largo}
+
+comment
+{* comment}
+
+phrase
+{!phrase}
+ ex.
+  {!%xx}
+  {!ppp}   efdyn = 1
+  {!pp}    efdyn = 2
+  {!p}     efdyn = 2
+  {!mp}    efdyn = 4
+  {!mf}    efdyn = 6
+  {!f}     efdyn = 7
+  {!ff}    efdyn = 8
+  {!fff}   efdyn = 9
+  {!tppp}  tfdyn = 1
+  {!Rppp}  Rfdyn = 1
+  {!Wf}    Wfdyn = 7
+
+
+lag/offset
+
+frasing (articulation)
+ [p<f/3;f>pp///] v      -> [p<f _/3;f>pp _/))] volume
+ [230 > 450//4] p       -> [230 < 450 _/)4] pitch vend
+ [mp < fff/h;fff>ff/h]   -> [mp < fff o/;fff>ff o/]
+ [12 < ff/h.2; ff>p/w12] -> [12 < ff o/.2; ff>p O12]
+ [ 30 < 40 /] m         -> [ 30 < 40 _/] modulation
+ v || V -> volume          cn. 7
+ m || M -> modulation      cn. 1
+ p || P -> pitchvend       cn. 150
+ c || C -> control change no. (1-32:continuas)
+ ex. [8192 < 8200 _/)); 8200 > 8192 _/))] pitch vend
+
+tempo and key
+ $3/4 moll
+ $##4/4 dur
+ $&&&&&2/2 major
+ $c minor
+
+note            value        rest     no.      name
+ %xx |O|       800,000        Rb        0
+ %xx O..       700,000        Rw..      1
+ %xx O.        600,000        Rw.       2
+ %xx O         400,000        Rw        3      whole
+ %xx o/..      350,000        Rh..      4
+ %xx o/.       300,000        Rh.       5
+ %xx o/        200,000        Rh        6       half
+ %xx _/..      175,000        R..       7
+ %xx _/.       150,000        R.        8
+ %xx _/        100,000        R         9          4
+ %xx _/)..      87,500        r..      10
+ %xx _/).       75,000        r.       11
+ %xx _/)        50,000        r        12          8
+ %xx _/))..     43,750        rr..     13
+ %xx _/)).      37,500        rr.      14
+ %xx _/))       25,000        rr       15         16
+ %xx _/)))..    21,875        rrr..    16
+ %xx _/))).     18,750        rrr.     17
+ %xx _/)))      12,500        rrr      18         32
+ %xx _/)))).     9,375        rrrr.    19
+ %xx _/))))      6,250        rrrr     20         64
+ %xx _/)))))     3,125        rrrrr    21        128
+
+ %xx _/4       100,000 / 4 * 4 = 100,000    _/)) + _/)) + _/)) + _/)) 
+ %xx _/)2       50,000 / 2 * 2 = 50,000     _/)) + _/))
+ %xx _/*4      100,000 * 4 = 400,000        _/ + _/ + _/ + _/
+ R*4 == R4     100,000 * 4 = 400,000        R + R + R + R
+
+rest
+ Rw13               whole rest 13 times
+ Rh                 half rest
+ Rh.                harf single dotted rest
+ R                  quater rest
+ r                  8th rest
+ rr..               16th double dotted rest
+ rrr                32th rest
+ rrrr               64th rest
+ rrrrr              128th rest
+
+before note (Accidental & expression)
+ +
+  :          continue
+  1-9        velocity on(sousyoku)
+  A-J        velociti off
+  a-j        poliphonic key presure
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+?  !          staccart
+?  _          regart
+?  arpeggio
+  ---->      arpeggio up
+  <----      arpeggio doun
+  ex. -m0100001-_______________
+     +                ---->  7&
+     /            5   5 5 5 #s
+
+note
+ %
+  1-9        velocity on
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  t          tril
+  T          reverse tril
+  s          turn
+  sb
+ #s
+  S          reverse turn
+ #Sb
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverse tril
+ ex.
+-m010001-_____________________________________________
+%xx _/     2   1    4    5   6    7   8    2   6   7  
+:          t   T    s    S   m    M   w    W   r   R  
+           .    .   .    .   .     .  .     .  .    . 
+            .  .     .  .     .   .    .   .    .  .  
+           .    .  .      .  .     .  .     .  .    . 
+                    .    .    .   .    .   .    .  .  
+                             .     .  .     .  .    . 
+                                       .   .    .  .  
+                                      .     .  .    . 
+                                                .  .  
+                                               .    . 
+
+rest
+ r,R
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+
+after note (after touch, velocity off, etc.)
+ :
+  1-9        velocity on
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  t          tril
+  T          reverce tril
+  s          turn
+  S          reverse turn
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverce tril
+
+pedal
+ @       sustain foot sw on
+ *       sustain foot sw off
+ #       portament foot sw on
+ $       portament foot sw off
+ +       soft foot sw on
+ -       soft foot sw off
+
+symbol table
+expression 
+
+{affettuoso}               xx     xxxxx   option
+ :
+tempo
+{grave}                    100       xxx        40         6      xxxx
+{largo}                    101       xxx        46         7      xxxx
+{lento}                    102       xxx        52         8      xxxx
+{adagio}                   103       xxx        58         9      xxxx
+ :
+
+Mec output code V_01.00
+
+Header       : FFxxyyyy
+ xx(chan)    : channel number
+ yyyy(gate)  : gate number
+               ex. #define gate 0       v = 0
+                   #define channel 1    w = 1
+
+File control : F0xxyyyy
+ xx          : file type(staff type)
+ yyyy        : file number(000 - zff)  max = z * 1000 + ff = 'z'256
+               ex. Activ conductor staff
+                      xx = C 000 yyyy =     0 (xxx_000.meg)
+                   exsist conductor stff
+                      xx = c 200 yyyy =  2000 (xxx_200.meg)
+                   exsist midlle staff
+                      xx = m 10f yyyy =  1016 ( xxx : file name )
+                   Active synthesizer staff
+                      xx = S A02 yyyy = 10002
+
+SMPTE time code : F1xxxxxx
+ xxxxxx         : time code (hour * minites * seconds * frame)
+                  max = 24h * 60m * 60s * 30f
+                      = 2592000 + 108000 + 1800 + 30
+                      = 2701830
+                  max = 108000 * hour + 1800 * minites + 30 * seconds + frame
+ 8xxxxx         : timecode flactional flame
+                  8 & tctype(0,1,2,3)
+                  .xx * 100
+
+Master velocity(dynamic) : F2xxyyyy
+ xx            : reserve
+ yyyy          : dynamic
+                 ex. 68.2% = 682
+
+Frase data 1   : E1xyzzzz
+ x(ftype)      : frase type
+                 ftype 0 : volume
+                       1 : modulation
+                       2 : pitch vend
+                       3 : control change
+ y(fchan)      : channel
+ zzzz(fsval)   : frase start value
+Frase data 2   : E2xxyyyy
+ xx(fctno)     : frase control number
+                 fctno 7 : volume
+                       1 : modulation
+                  1 - 32 : control change
+                     150 : pitch vend
+ yyyy(feval)   : frase end value
+Frase data 3   : E3xxxxxx
+ xxxxxx(fnval) : frase note value
+                 ex. [10 < 70 _/] volume
+                     ftype=0 channel=x fsval=10 feval=70 fnval=100000
+
+File control   : F3xxyyyy
+ xx            : channel
+ yyyy          : gate(port) number(000 - 999)
+                 This is used by after F0 code
+
+SMPTE time lag : F4yyyyyy
+ yyyyyy        : Smpte time lag (flame * 100)
+
+Code data     : F5xyyyyy
+  x(kind)     : kind (note or rest)
+  yyyyy(cval) : code value %60 _/ = 100000 * 60 / 100 :  %
+                ex. %60 _/.[3  wwwww(cval) = (150000 * 60 / 100) / 3
+                                           = 90000 / 3
+                                           = 30000
+                     x(kind) = 1
+                     (rest = 0, note = 1, tril = 2, turn = 3, mordent = 4)
+                     (double mordent = 5, double tril = 6)
+
+Phrase code  : F5xxyyzz
+ xx(phtyp)   : phrase type  < . | 1 2 3 4 5 6 7 8 9 +
+ yy(nleng)   : note length  O o/ _/ _/) ...
+ zz(ntype)   : note type    1 - 9 t w m T R M
+
+Midi control : F6vvwwxx
+ vv(mist)    : midi status data  vv=00(fin),vv=01(1ch,fin),vv=02(2ch)
+ ww(mifd)    : midi first data
+ xx(misd)    : midi second data
+               ex. <01,33,54,4a,2e> F6020133 f602544a f6012e00
+
+Instrment    : F7vvxxxx
+ vv(trns)    : transpose
+ xxxx(inst)  : instrment no.
+               ex. [vn]   3    13   1   -3 , chanel 13 inst = 1
+                       mv->trns = -3 (mr->trns &= 0x00ff)
+
+Key and time : F8wxyyzz
+ w(kscl)     : moll or dur  (none=0,dur=1,moll=2,major=3,minor=4)
+ x(ksin)     : key signeture
+ yy(ritm)    : rithm
+ zz(time)    : time base
+               ex. $###3/4 x_moll
+                       w(kscl) = 1
+                       x(ksin) = 3
+                       yy(ritm) = 3
+                       zz(time) = 4
+
+Expression   : F9xxyyyy
+ xx(egrp)    : expression group
+ yyyy(expr)  : expression number
+               ex. [amore]   xx = 1 yyyy = ????
+                             exp. 234  xx = 77 yyyy = 234
+
+Tempo        : FAxxyyyy    xx > (100 - 200)
+ xx(tsym)    : tempo symbol no.
+ yyyy(temp)  : tempo 
+               ex. [allegro]  xx(tsym) = 5x, yyyy(temp) = xxxx
+             : FAwwyyyy    ww < 50
+ ww(tsym)    : note type 0-21
+ yyyy(temp)  : tempo val *100
+               ex. [m.m. _/ = 90] ww(tsym) = 9, yyyy(temp) = 9000
+               use mr->nval,mr->tsym,mr->temp
+
+Bar          : FBxxyyyy
+ xx(movn)    : movement number
+ yyyy(bnum)  : bar number
+               ex. -m0100017-_____________..
+               xx(movn) = 1
+               yyyy(bnum) = 17
+
+Synchronize  : FCxxxxxx
+ xxxxxx(sync): synchronize
+               ex. $4/4 = 400000 start value
+
+Note off      : FD8xyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(voff)     : velociti off (0-120)
+
+Note on       : FD9xyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(veon)     : velociti on : dynamik(0-9)
+
+Pol.key.p.    : FDAxyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(kprs)     : key presure
+
+Cont.change   : FDBxyyzz
+ x(chan)      : channel no.
+ yy(cntn)     : control no.
+ zz(cntv)     : control value
+
+Prog.change   : FDCxyyzz
+ x(chan)      : channel no.
+ yy(prgn)     : program number
+ zz(....)     :
+
+Chan.pres.    : FDDxyyzz (after tatch)
+ x(chan)      : channel no.
+ yy(ptyp)     : pressure type(vib. etc.)
+ zz(prsv)     : pressure value
+
+Pitch, vend.  : FDExyyzz
+ x(chan)      : channel no.
+ yy(pvls)     : vvvvvvv LSB val.
+ zz(pvms)     : uuuuuuuu MSB val.
+
+Smpte full time : B1xxxxxx
+ xxxxxx         : time code (hour * minites * seconds * frame)
+                  max = 24h * 60m * 60s * 30f
+                      = 2592000 + 108000 + 1800 + 30
+                      = 2701830
+                  max = 108000 * hour + 1800 * minites + 30 * seconds + frame
+ 8xxxxx         : timecode flactional flame
+                  .xx * 100
+
+Execution code : E6vvwwxx
+ vv(e6cn)  : execution control no. vv=00(fin),vv=01(1ch,fin),vv=02(2ch)
+ ww(e6d1)  :
+ xx(e6d2)  :
+ vv : 0  Title message fin
+      1  title message one (ww : data  xx : 00)
+      2  title message two (ww : 1st data, xx : 2nd data);
+      3  #define direct_time_lock_port xx (ww = 0) /* performer sync port */
+      4  #define midi_time_code_port xx (ww = 0)   /* MTC sync port */
+      5  #define direct_time_lock_port_and_sync_start xx (ww = 0)
+      6  #define midi_time_code_port_and_sync_start xx (ww = 0)
+      7  #define direct_time_lock_sync_stop xx (ww = 0)
+      8  #define midi_time_code_sync_stop xx (ww = 0)
+
+Final         : FEvvvvvv
+ vvvvvv(tcnt) : total output code count

@@ -1,0 +1,166 @@
+  
+ OUTLINE 2025.5.18
+
+ AMuPLC : Appyo Music Programming Language Compiler
+
+ Commands
+
+ meg  : Music Edit file Genarater
+
+ meb  : Music Edit file Beautifyer
+
+ mec  : Music Edit file Compiler
+
+ mlk  : Music Edit file Linker
+
+ mcp  : Music files Copy
+
+ mmv  : Music files Move
+
+ mks  : Make Standard Midi file
+
+ mkf  : Makefile Generator
+
+ mnew : Music data New Load
+
+> meg
+
+ Music Edit file Genarater V.1.10-Release-OS
+ meg fn Barnum [next sequence Burnum] [/Score] [Options]
+     fn          file name
+     Barnum      xx : bar number
+     Score       [/def] /solo /pf /pop /orc ..
+     Options :   -tri -trial Trial mode
+                 -h(help)
+ usage: e.g.
+      meg -h
+      meg www 4 -tri
+
+
+> meb
+
+ Music Edit File Beautifuler V.5.00-Release-OS
+ meb  fn [fn/xyy]
+          fn File name
+             x:Sequence yy:Track
+      Option    -h(help)
+
+          original              edit               result
+        0123456789ABCD      0123456789ABCD      0123456789ABCD
+     (.)..............    . ..../.}.......    . ..............
+   00 . CCCCCCC.......    . CCCCCCC.......    . CCCC.Cc.......
+   01 . M.............    . *.+...........    . M.M...........
+   02 . S.....S.......    . S...S.S.......    . S.....s.......
+   03 . BB............    / BB............    . ..............
+
+       (?): Check and find files all
+       (%): Remove sleep files all
+        & : Add file from Members top file
+        * : Copy & Move source file
+        + : Copy destination file
+        @ : Move destination file
+        ? : Check and find file
+        / : Remove file
+        > : Sequence right shift
+        < : Sequence left shift
+        } : Active to Sleep file (Large char to Small char)
+        { : Sleep to Active file (Small char to Large char)
+        Not support mix bar types in same member  . SGM...
+        Bar Types (L M H T G S A B U R D)
+
+
+
+> mec
+
+ Music Edit File Compiler V.3.06-Release-OS
+ mec  fn    [fn/xyy]
+             fn : File name
+                x:Sequence yy:Track
+ usage: e.g.
+        mec www
+        mec www/015
+
+
+
+> mlk
+
+ Music Edit File Linker V.1.55-Release-OS
+ mlk fn [fn/xyy] [options]
+     fn  : File name
+            x:Sequence yy:Track
+     options :
+         -ot(output trace)
+         -smf0(Format 0) -fix(Fix tempo) -dtxxx(480) .mid
+         -smf1(Format 1) -fix(Fix tempo) -dtxxx(480) .mid
+ usage: e.g.
+      mlk www
+      mlk www -ot
+      mlk www/015 -smf0 -ot
+
+
+
+> mcp
+
+ Music Text files Copy V 1.05-FreeBSD
+ mcp Source_file Target_file [Options]
+     Options : -a(Copy all files)
+               -m(Message)
+               -h
+ usage: e.g.
+      mcp -h
+      mcp sfn tfn
+      mcp sfn tfn -a -m
+
+
+
+> mmv
+
+ Music Edit files Move V 1.03-OS
+ mmv Source_file Target_file [Options]
+     Options : -a(Move all files)
+               -m(Message)
+               -h(help)
+ usage: e.g.
+     mmv -h
+     mmv sfn tfn
+     mmv sfn tfn -a -m
+
+
+
+> mks
+
+ Make Standard Midi File  V.1.02-Release-FreeBSD
+ mks fn options[ -t -Rxx ]
+           fn : File name
+           -t : trace
+        -Rxxx : 240,480,960 quarter note Resolution
+              : Default Resolution 480
+              : Default 30 Smpte flame type
+              : Default smf format 0
+
+ usage: e.g.
+      mks www -t
+
+
+
+> mkf
+
+ Makefile Generator V.1.01-Release-FreeBSD
+ mkf fn     fn : AMuPLC file name
+
+ check > cat makefile
+ usage : make -f makefile
+
+
+
+> mnew
+
+ Music data New load V 1.01-Release-OS
+ mnew fn
+          fn : File name
+      Option : -h(help)
+               -m(message)
+ usage: e.g.
+      mnew -h
+      mnew www -m
+

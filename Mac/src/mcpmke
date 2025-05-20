@@ -1,0 +1,14 @@
+# Mcp makefile
+# CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+CC = cc
+SOURCES = mcp.c
+PROGRAM = mcp
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mcp.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mcp.o:mkf.c mcp.h

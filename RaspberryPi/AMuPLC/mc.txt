@@ -1,0 +1,62 @@
+$2:Mod_T
+$2:IV = "IV $IV $m:I_Major T -> "
+$2:&VI = "&VI $&VI $m:I_Major T -> "
+$2:&VI6 = "&VI6 $&VI6 $m:I6_Major T -> "
+$2:&IIM7 = "&IIM7 $&IIM7 $m:&IIIM7_minor $m:&VIM7_minor $m:IM7_Major T -> "
+$2:IVm = "IVm $IVm $m:Im_minor $m:IIIm_Major VIm_Major T -> "
+$2:IVm6 = "IVm6 $IVm6 $m:Im6_minor $m:&IIIm6_minor T -> "
+$2:IVm7 = "IVm7 $IVm7 $m:Im7_minor $m:IIIm7_Major $m:VIm7_Major T -> "
+$2:IIm7 = "IIm7 $IIm7 $m:Im7_minor $m:IIIm7_Major $m:VIm7_Major T -> "
+$2:V7 = "V7 $V7 $m:IV_minor $m:I_Major T -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:VIm7(&5)_minor $m:III_Maj $m:#IV_Maj T -> "
+$2:END
+
+$2:Mod_D
+$2:IV7 = "IV7 $IV7 $m:V_minor $m:&II_minor $m:V_Major $m:&II_Major D -> "
+$2:Im = "Im $Im $m:Vm_minor D -> "
+$2:Im7 = "Im7 $Im7 $m:Vm7_minor D -> "
+$2:IVm = "IVm $IVm $m:Vm_minor D -> "
+$2:IVm7 = "IVm7 $IVm7 $m:Vm7_minor D -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:VIIm7(&5)_Major D -> "
+$2:END
+
+$2:Mod_SDM
+$2:Im = "Im $Im $m:IVm_Major SDM -> "
+$2:Im6 = "Im6 $Im6 $m:IVm6_Major SDM -> "
+$2:ImM7 = "ImM7 $ImM7 $m:_IVmM7_Major SDM -> "
+$2:Im7 = "Im7 $Im7 $m:IVm7_Major SDM -> "
+$2:IVm = "IVm $IVm $m:IVm_Major SDM -> "
+$2:IVm6 = "IVm6 $IVm6 $m:IVm6_Major SDM -> "
+$2:IVm7 = "IVm7 $IVm7 $m:IVm7_Major SDM -> "
+$2:IIm7 = "IIm7 $IIm7 $m:IVm7_Major SDM -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:IIm7(&5)_Major SDM ->"
+$2:&VI = "&VI $&VI $m:&VI_Major SDM -> "
+$2:&VI6 = "&VI6 $&VI6 $m:&VI6_Major SDM -> "
+$2:&VIM7 = "&VIM7 $&VIM7 $m:&VIM7_Major SDM -> "
+$2:&IIM7 = "&IIM7 $&IIM7 $m:&IIM7_Major SDM -> "
+$2:IV7 = "IV7 $IV7 $m:&VI7_Major SDM -> "
+$2:&VI7 = "&VI7 $&VI7 $m:&VI7_Major SDM -> "
+$2:END
+
+
+ Major
+$2:Mod_T
+$2:IV = "IV $IV $m:I_Major T -> "
+$2:IV6 = "IV6 $IV6 $m:I6_Major T -> "
+$2:IVM7 = "IVM7 $IVM7 $m:IM7 $m:&IIIM7_minor $m:&VIM7_minor T -> "
+$2:IV7 = "IV7 $IV7 $m:I7_Major $m:IV7_minor T -> "
+$2:V7 = "V7 $V7 $m:I7_Major $m:IV7_minor T -> "
+$2:&II7 = "&II7 $&II7 $m:I7_Major $m:IV7_minor T -> "
+$2:&VI7 = "&VI7 $&VI7 $m:I7_Major $m:IV7_minor T -> "
+$2:VII7 = "VII7 $VII7 $m:I7_Major $m:IV7_minor T -> "
+$2:IIm7 = "IIm7 $IIm7 $m:IIIm7_Maj $m:VIm7_Maj $m:Im7_min T -> "
+$2:IVm7 = "IVm7 $IVm7 $m:IIIm7_Maj $m:VIm7_Maj $m:Im7_min T -> "
+$2:VIm7 = "VIm7 $VIm7 $m:IIIm7_Maj $m:Im7_min T -> " 
+$2:IIm = "IIm $IIm $m:IIIm_Maj $m:VIm_Maj $m:Im_min T -> "
+$2:IVm = "IVm $IVm $m:IIIm_Maj $m:VIm_Maj $m:Im_min T -> "
+$2:VIm = "VIm $VIm $m:IIIm_Maj $m:VIm_Maj $m:Im_min T -> "
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $m:IIIm7(&5)_Maj $m:#IV_Maj $m:VIm7(&5)_min T -> "
+$2:VIIm7(&5) = "VIIm7(&5) $VIIm7(&5) $m:IIIm7(&5)_Maj $m:#IV_j $m:VI_min T -> "
+$2:END
+
+

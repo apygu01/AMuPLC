@@ -1,0 +1,17 @@
+
+cp meg /usr/local/bin
+#cp msf /usr/local/bin
+cp meb /usr/local/bin
+cp mec /usr/local/bin
+cp mlk /usr/local/bin
+cp mkf /usr/local/bin
+cp mcp /usr/local/bin
+cp mmv /usr/local/bin
+#cp mse /usr/local/bin
+cp mks /usr/local/bin
+#cp milk /usr/local/bin
+mkdir /usr/local/etc/tact
+cp m*.scr /usr/local/etc/tact
+cp m*.dat /usr/local/etc/tact
+cp mebnb.txt /usr/local/etc/tact
+

@@ -1,0 +1,22 @@
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{/60}
+{$4/4}
+
+-c0000001   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000002   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000003   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000004   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+==00$$$$$   ===================================================  xx:xx:xx/xx.xx
+final.....................................................................final
+$$$$Conductor staff$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

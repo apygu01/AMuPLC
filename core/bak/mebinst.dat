@@ -1,0 +1,26 @@
+ tempo
+ {grave}{largo}{lento}{adagio}{larghetto}{andante}{andantino}
+ {moderato}{allegretto}{allegro}{moderato}{allegro ma non troppo}
+ {allegro}{allegro assai}{arregro vivace}{vivace}{presto}{prestissimo}
+ {commodo}{piu allegro}{meno allegro}{piu mosso}{rit.}{accel.}{in tempo}
+ expression
+ {affettuoso}{amorosamente}{con amore}{amoroso}{allegramente}
+ {con allegrezza}{con anima}{animato}{con brio}{con moto}{spiritoso}
+ {con spirito}{rapidamente}{veloce}{vivo}{appassionato}{passionato}
+ instruments
+ {Piccolo}{Flute}{Alto flute}{Oboe}{Oboe d'amore}
+ {English Horn} {Fagott} {heckelphone} {Heckelphon}
+ {CL. in A&} {CL. in E&} {Cl. in D} {CL. in C}
+ {CL. in B&} {CL. in A} {CL. in E& Alt} {CL. in B& Bass}
+ {CL. in B& CBass} {CL. in A Bass} {Clarinette basse}
+ {Cor de bassette} {bassett horn}
+ {Saxophone} {Horn} {Hr. in B&} {Hr. in A} {Hr. in A&}
+ {Hr. in G} {Hr. in F} {Hr. in E} {Hr. in E&} {Hr. in D}
+ {Hr. in C} {Hr. in B bass} {Hr. in B& bass} {Hr. in A bass}
+ {Trumpet} {Cornet} {Trombone}
+ {Tuba} {Tuba in B&} {Tuba in F} {Tuba in E&} {Bass Tuba inE&}
+ {Tuba in C} {Contrabass Tuba in C}
+ {Timpani} {Glockenspiel} {Xylophone} {Vibraphone} {Marimba} 
+ {Chimes} {Celesta} {Piano} 
+ {Violin} {Viola} {Cello} {Double bass}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

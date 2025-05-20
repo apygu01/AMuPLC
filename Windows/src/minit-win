@@ -1,0 +1,15 @@
+# minit-win  
+cp meg.exe ../AMuPLC/bin
+cp meb.exe ../AMuPLC/bin
+cp mec.exe ../AMuPLC/bin
+cp mlk.exe ../AMuPLC/bin
+cp mcp.exe ../AMuPLC/bin 
+cp mmv.exe ../AMuPLC/bin 
+cp mks.exe ../AMuPLC/bin 
+cp mkf.exe ../AMuPLC/bin 
+cp mnew.exe ../AMuPLC/bin 
+cp m*.scr ../AMuPLC/dat
+cp m*.dat ../AMuPLC/dat
+cp mebnb.txt ../AMuPLC/dat
+
+

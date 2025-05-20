@@ -1,0 +1,15 @@
+# minit-bsd  
+cp meg ../AMuPLC 
+cp meb ../AMuPLC 
+cp mec ../AMuPLC 
+cp mlk ../AMuPLC 
+cp mcp ../AMuPLC 
+cp mmv ../AMuPLC 
+cp mks ../AMuPLC 
+cp mkf ../AMuPLC 
+cp mnew ../AMuPLC 
+cp m*.scr ../AMuPLC
+cp m*.dat ../AMuPLC 
+cp mebnb.txt ../AMuPLC 
+
+

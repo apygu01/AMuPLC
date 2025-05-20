@@ -1,0 +1,11 @@
+dos2unix meb.h meb.h
+dos2unix meb1.c meb1.c
+dos2unix meb2.c meb2.c
+dos2unix meb3.c meb3.c
+dos2unix meb4.c meb4.c
+dos2unix meb5.c meb5.c
+dos2unix meb6.c meb6.c
+dos2unix meb7.c meb7.c
+dos2unix mebl.c mebl.c
+dos2unix mebm.c mebm.c
+dos2unix mebw.c mebw.c

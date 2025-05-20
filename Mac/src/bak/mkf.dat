@@ -1,0 +1,12 @@
+ mkf fn [,fn] [Options]
+     Options : -s(Source)
+               -h(help)
+     Link Options : 
+               -ot(Out code Trace)
+               -phr(Phrase Code out)
+               -smf0(SMF format0)
+               -smf1(SMF format0)
+               -smf2(SMF format0)
+ ex. 
+   mkf fn
+   mkf fn -smf0

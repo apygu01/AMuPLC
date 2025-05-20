@@ -1,0 +1,106 @@
+
+ Make SMF data to .meg file
+
+msf fn [fn/spc] [Bar_Number] [Options] Ver. 0.58
+    [Options]
+    [-h -t -p -pn -dt -mm -vb -qz -skip -pr -d -d2 -skey -fkey -btypx
+    -g -gm -gr -grm -gb -grb -grbm]
+    -h       : help
+    -t -s    : Trace .mid file , Source .meg file
+    -pn      : Number_fo_Port nn
+    -dtnnn   : Delta_Time nnn
+    -mmff.f  : Metronome_Tempo ff.f
+    -vbff.f  : Velocity Base ff.f
+    -qznnn   : Quontize nnn(dt)
+    -skipnnn : Skip_Bar_Number nnn
+    -pr,-l   : .msf , .meg(-g) print(List)
+    -d       : Debug
+    -d2      : Debug Print .msf file
+    -skey    : Select note Sharp # key
+    -fkey    : Select note Flat & key
+    -btyp    : Select bar type (t g s b u r d m l h)
+    -g       : Make .meg from .msf
+    -gb      : Make .meg from .msf Beautify
+    -gm      : Make .meg from .msf Remove Comments Line
+    -gr      : Make .meg from .msf Replace .msf
+    -grm     : Make .meg from .msf Replace .msf & Remove Comments Line
+
+ex.
+
+ genarate fn_abc.msf
+msf fn -l
+msf fn -btypr -l
+
+edit fn_abc.msf
+
+smf fn -g 
+ fn_abc.msf -> fn_abc.meg
+msf recycle -pr -d -g
+
+VBASE = 13.800000
+Channel = 0
+ 123456789012345678901234567890123456789012345678901234567890123456789012345678
+-r0000000  tp 3____.____4____.____5____.____6____.____7____.____8____velo P_Exp
+%dt   997  30       9                                                13.8 ._...
+%dt   930  30        9                                               13.8 ._...
+%dt   928  30         9                                              13.8 ._...
+%dt   651  30          9                                             13.8 ._...
+%dt   311  30           9                                            13.8 ._...
+%dt   964  30            9                                           13.8 ._...
+%dt   973  30             9                                          13.8 ._...
+%dt   913  30              9                                         13.8 ._...
+%dt   967  30               9                                        13.8 ._...
+%dt   967  30                9                                       13.8 ._...
+%dt   967  30                 8                                      13.8 ._...
+*+ <- edit 
+==0000000 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ debug print
+ fn_abc.msf -> fn_abc.meg
+
+VBASE = 13.800000
+Channel = 0
+ 123456789012345678901234567890123456789012345678901234567890123456789012345678
+-r0000000  tp 3____.____4____.____5____.____6____.____7____.____8____velo P_Exp
+%dt   997  30       9                                                13.8 ._...
+%dt   930  30        9                                               13.8 ._...
+%dt   928  30         9                                              13.8 ._...
+%dt   651  30          9                                             13.8 ._...
+%dt   311  30           9                                            13.8 ._...
+%dt   964  30            9                                           13.8 ._...
+%dt   973  30             9                                          13.8 ._...
+%dt   913  30              9                                         13.8 ._...
+%dt   967  30               9                                        13.8 ._...
+%dt   967  30                9                                       13.8 ._...
+%dt   967  30                 8                                      13.8 ._...
+*+dex r = "997 930 928 651 311 964 973 913 967 967 967"
+*+dex n = "0 1 2 3 4 5 6 7 8 9 a"
+*+dex v = "9 9 9 9 9 9 9 9 9 9 8"
+* dex      30       99999999998                                      13.8 .+dex
+==0000001 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ How to make Rhytm (Dynamic expand)
+ Windows
+   CD2wav32 : Play CD
+   WaveStudio : Make .wav 44.1K 16Bit Monoral
+   Recycle : Send .wav to Sampler & make .mid file
+ UNIX
+   msf fn.mid -btypr
+              -btypr : Rhythm line
+   edit fn_abc.msf   : incert *+ or *- line
+   msf fn -g
+   edit fn_abc.meg 
+     cut & Peist *line to .meg source file
+   meb fn
+   mec fn
+   mlk fn
+ DOS
+   mex fn 
+
+~
+
+

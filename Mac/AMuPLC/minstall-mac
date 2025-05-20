@@ -1,0 +1,30 @@
+#
+#-- Mac --
+#
+cp ../src/meg .
+cp ../src/meb .
+cp ../src/mec .
+cp ../src/mlk .
+cp ../src/mcp .
+cp ../src/mmv .
+cp ../src/mks .
+cp ../src/mkf .
+cp ../src/mnew .
+cp meg /usr/bin
+cp meb /usr/bin
+cp mec /usr/bin
+cp mlk /usr/bin
+cp mkf /usr/bin
+cp mcp /usr/bin
+cp mmv /usr/bin
+cp mks /usr/bin
+cp mnew /usr/bin
+#
+cp ../src/m*.scr .
+cp ../src/m*.dat .
+cp ../src/mebnb.txt .
+mkdir /var/AMuPLC
+cp m*.scr /var/AMuPLC
+cp m*.dat /var/AMuPLC
+cp mebnb.txt /var/AMuPLC
+

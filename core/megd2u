@@ -1,0 +1,8 @@
+dos2unix meg.h meg.h
+dos2unix meg1.c meg1.c
+dos2unix meg2.c meg2.c
+dos2unix meg3.c meg3.c
+dos2unix meg4.c meg4.c
+dos2unix megl.c megl.c
+dos2unix megm.c megm.c
+dos2unix megw.c megw.c

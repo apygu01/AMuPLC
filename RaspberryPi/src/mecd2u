@@ -1,0 +1,10 @@
+dos2unix mec.h mec.h
+dos2unix mec1.c mec1.c
+dos2unix mec2.c mec2.c
+dos2unix mec3.c mec3.c
+dos2unix mec4.c mec4.c
+dos2unix mec5.c mec5.c
+dos2unix mec6.c mec6.c
+dos2unix mecl.c mecl.c
+dos2unix mecm.c mecm.c
+dos2unix mecw.c mecw.c

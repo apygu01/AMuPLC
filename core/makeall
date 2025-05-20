@@ -1,0 +1,13 @@
+make -f megmke
+make -f mebmke
+make -f mecmke
+make -f mlkmke
+make -f mkfmke
+make -f mcpmke
+make -f mmvmke
+make -f mksmke
+#make -f milkmke
+#make -f mpimke
+#make -f mipmke
+make -f mnewmke
+

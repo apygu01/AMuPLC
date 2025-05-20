@@ -1,0 +1,15 @@
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{/60}
+{$4/4}
+

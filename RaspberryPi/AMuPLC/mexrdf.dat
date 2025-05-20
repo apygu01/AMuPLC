@@ -1,0 +1,51 @@
+      define port number
+
+ &define emu232c_port 0
+&define mpupc98_e0d0_port assign to port 0
+&define mpupc98_e4d0_port assign to port 1
+&define mpupc98_e8d0_port assign to port 2
+&define mpupc98_ecd0_port assign to port 3
+&define mpupc98_f0d0_port assign to port 4
+&define mpupc98_f4d0_port assign to port 5
+&define mpupc98_f8d0_port assign to port 6
+&define mpupc98_fcd0_port assign to port 7
+&define mpupc98_d0d0_port assign to port 8
+&define mpupc98_d4d0_port assign to port 9 
+&define mpupc98_d8d0_port assign to port 10
+&define mpupc98_dcd0_port assign to port 11
+&define mpupc98_c0d0_port assign to port 12
+&define mpupc98_c4d0_port assign to port 13
+&define mpupc98_c8d0_port assign to port 14
+&define mpupc98_ccd0_port assign to port 15
+ 
+      syncronize port set
+ &define direct_time_lock_port 0
+&define midi_time_code_port 0
+&define midi_time_code_type 3
+&define esu_start_time 00:00:00/00
+ 
+&define esu_gen_delay_time 120
+&define esu_read_delay_time 105
+      120 = 1 sec
+ 
+      monitor (0:no monitor 1:monitor 2:default)
+&define monitor 1
+      clock (0:real_time 1:flame_time)
+&define clock_type 0
+
+ /* if tempo up */
+ &define start_tempo_clock_up 6000
+ /* tempo down */
+ &define start_tempo_clock_down 3000
+
+ /* 8 M Hz */
+ &define default_clock 16640
+ /* 10 M Hz */
+ &define default_clock 20480
+ &define default_clock 15000
+
+      send_syncronize_code (0:off 1:on)
+&send midi_time_code 1
+&semd direct_time_lock 0
+&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+

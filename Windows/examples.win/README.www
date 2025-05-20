@@ -1,0 +1,333 @@
+
+ 2025.5.19 README.www 
+ --------------
+ AMuPLC example 
+ --------------
+ 
+
+ > mkdir www
+ > cd www
+
+ > meg
+
+ Music Edit file Genarater V.1.11-Release-Windows
+ meg fn Barnum [next sequence Burnum] [/Score] [Options]
+     fn          file name
+     Barnum      xx : bar number
+     Score       [/def] /solo /pf /pop /orc ..
+     Options :   -tri -trial Trial mode
+                 -h(help)
+ usage: e.g.
+      meg -h
+      meg www 4 -tri
+
+ > meg www 4 -tri
+ Generate www.meg
+ Generate www_000.meg Sequence number = 1 bar count = 4
+ Generate www_015.meg Sequence number = 1 bar count = 4
+ Generate www_018.meg Sequence number = 1 bar count = 4
+
+ > cat www_000.meg
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{/60}
+{$4/4}
+
+-c0000001   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000002   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000003   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000004   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+==00$$$$$   ===================================================  xx:xx:xx/xx.xx
+final.....................................................................final
+$$$$Conductor staff$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ > cat www_015.meg
+ /////////////////////////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////////////////////////////////////////////////////////////////Title
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+==00$$$$$ ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+> meb www
+Beautify www_000.meg 4 bars, 38 lines end
+Beautify www_015.meg 4 bars, 24 lines end
+Beautify www_018.meg 4 bars, 24 lines end
+Beautify www.meg 4 bars, 59 lines end
+
+
+ > cat www_000.meg
+ ///Conductor staff//www_000.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+-c0000001   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:00/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:01/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:02/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:03/00.00
+-c0000002   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:04/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:05/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:06/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:07/00.00
+-c0000003   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:08/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:09/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:10/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:11/00.00
+-c0000004   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+==0000005   ===================================================  00:00:12/00.00
+final.....................................................................final
+$$$$Conductor staff$$www_000.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250415$$V5.00W$$$
+
+> e www_015.meg
+  comment out {Generate _/ note lines}
+
+> cat www_015.meg
+ ///Soprano staff////www_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$www_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250415$$V5.00W$$$
+
+ > meb www/015
+Beautify www_015.meg 4 bars, 24 lines end
+
+> cat www_015.meg
+ ///Soprano staff////www_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$www_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250415$$V5.00W$$$
+
+> e www_015.meg
+
+ ///Soprano staff////www_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0              5                      12.8 ._...
+%90 _/       0   0  0:  0 ...  0               5                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                5                    12.8 ._...
+%90 _/       0   0  0:  0 ...  0                 5                   12.8 ._...
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                  5                  12.8 ._...
+%90 _/       0   0  0:  0 ...  0                   5                 12.8 ._...
+%90 _/       0   0  0:  0 ...  0                    5                12.8 ._...
+%90 _/       0   0  0:  0 ...  0                     5               12.8 ._...
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$www_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250415$$V5.00W$$$
+
+
+> mec www
+Mec www_000.meg 4 bars, 38 lines end
+Mec www_015.meg 4 bars, 42 lines end
+Mec www_018.meg 4 bars, 26 lines end
+
+
+> mlk www -ot -smf0
+
+           4d 54 68 64    MThd
+           00 00 00 06    chunk length
+           00 00          format 0
+           00 01          one track
+           01 e0          division
+
+           4d 54 72 6b    MTrk
+           00 00 00 00    chunk length (Set After)
+
+   Delta-time             Event        Comments
+       0 - 00             ff 51 03 0f 42 40     tempo _/ = 60.000000
+       0 - 00             ff 58 04 04 02 24 08  Time signature nn dd cc bb
+       0 - 00             ff 59 02 00 00        Key Signature sf mi
+-m0000001-___
+       0 - 00             c5 0a        Ch.6  Program change  No.11
+       0 - 00             ff 51 03 0f 42 40     tempo _/ = 60.000000
+-m0000002-___
+       0 - 00             95 3c 40     Ch.6  Note on  key# 60 Val.64
+     433 - 83 31          95 3c 00     Ch.6  Note off key# 60 Val.0
+      49 - 31             95 3e 40     Ch.6  Note on  key# 62 Val.64
+     433 - 83 31          95 3e 00     Ch.6  Note off key# 62 Val.0
+      49 - 31             95 40 40     Ch.6  Note on  key# 64 Val.64
+     433 - 83 31          95 40 00     Ch.6  Note off key# 64 Val.0
+      49 - 31             95 41 40     Ch.6  Note on  key# 65 Val.64
+     433 - 83 31          95 41 00     Ch.6  Note off key# 65 Val.0
+-m0000003-___
+       0 - 00             95 43 40     Ch.6  Note on  key# 67 Val.64
+     433 - 83 31          95 43 00     Ch.6  Note off key# 67 Val.0
+      49 - 31             95 45 40     Ch.6  Note on  key# 69 Val.64
+     433 - 83 31          95 45 00     Ch.6  Note off key# 69 Val.0
+      49 - 31             95 47 40     Ch.6  Note on  key# 71 Val.64
+     433 - 83 31          95 47 00     Ch.6  Note off key# 71 Val.0
+      49 - 31             95 48 40     Ch.6  Note on  key# 72 Val.64
+     433 - 83 31          95 48 00     Ch.6  Note off key# 72 Val.0
+-m0000004-___
+-m0000005-___
+       0 - 00             ff 2f 00     end of track
+Mlk end SMF Format 0 Resolution 480
+
+
+> ls
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        2025/05/10     11:49           4779 mebtmp.bak
+-a----        2025/05/09     12:23          19150 README.ttt
+-a----        2025/05/02     12:21          18182 README.www
+-a----        2025/05/10     11:49           4779 www.meb
+-a----        2025/05/10     11:49           4779 www.meg
+-a----        2025/05/10     11:51            129 www.mid
+-a----        2025/05/10     11:51            772 www.mix
+-a----        2025/05/10     11:51            676 www.mlk
+-a----        2025/05/10     11:51            129 www.tmp
+-a----        2025/05/10     11:46           2725 www_000.meb
+-a----        2025/05/10     11:50            412 www_000.mec
+-a----        2025/05/10     11:49           2725 www_000.meg
+-a----        2025/05/10     11:50            204 www_015.mec
+-a----        2025/05/10     11:50           2989 www_015.meg
+-a----        2025/05/10     11:50             40 www_018.mec
+-a----        2025/05/10     11:49           1693 www_018.meg
+-a----        2025/05/10     11:51            744 www_wka.mlk
+-a----        2025/05/10     11:51            388 www_wkb.mlk
+
+ text source           .meg
+ text source backup    .meb
+ compile data          .mec
+ link work file        .mlk
+ SMF data              .mid
+
+
+ You can Play SMF data www.mid
+
+ =============================
+

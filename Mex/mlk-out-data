@@ -1,0 +1,127 @@
+
+  ----------------------
+   AMuPLC mlk-out-data
+  ----------------------
+
+  AMuPLC : Appyo Music Programming Language Compiler
+  Copyright (c) 2025 appyo.ht All rights reserved.
+
+  This program is distributed in the hope that it will be useful and/or
+  interesting, but WITHOUT ANY WARRANTY; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+  This is released under the MIT license.
+  https://opensource.org/licenses/mit-license.php
+
+
+mlk output data
+SMPTE time code     : F1xx
+ xx(quaouter flame) : SMPTE quaouter flame message
+Mex Lag time (dt)   : F1 xx & 0x80 xxxx
+
+Smpte full time : B1xxxxxx
+ xxxxxx         : time code (hour * minites * seconds * frame)
+                  max = 24h * 60m * 60s * 30f
+                      = 2592000 + 108000 + 1800 + 30
+                      = 2701830
+                  max = 108000 * hour + 1800 * minites + 30 * seconds + frame
+ 8xxxxx         : timecode flactional flame
+                  .xx * 100
+
+SMPTE time lag : F4yyyyyy
+yyyyyy         : Smpte time lag (flame * 100)
+
+Bar            : FBxxyyyy
+ xx(f+movn)    : flag(0x80)+movement number
+ yyyy(bnum)    : bar number
+                 ex. -m0100017-_____________..
+                     xx(movn) = 1
+                     yyyy(bnum) = 17
+
+Midi data header : DDxxyyzz ->FDxxyyzz
+ mlk -merge option
+ internal code   : DDxxyyzz
+ xx(chan)        : channel
+ yy(memb)        : member
+ zz(track)       : track
+ mlk output code : FDxxyyzz        2000.10.30  // 2013.11.1 ng
+ xx(f+port)      : flag(x80)+port
+ yy(track)       : track
+ zz(memb)        : member
+
+Phrase data      : E4 aa bb cc dd
+ E4              : flase start code
+ aa              : flase port
+ bb              : Bx or Ex(control or pitch vend)
+ cc              : control number or pitch vend (MSB)
+ dd              : control value (MSB) or pitch vend (LSB)
+
+Phrase sub data  : E5 aa
+ E5              : flase port set
+ aa              : current port
+
+Tesx data        BF
+ BF 00 ssss      : Sequence Number
+
+ BF 01 llll      : Text Event
+ex.
+       0005      : Text Length
+ BF a b c
+ BF d e \0       : \0 Null
+
+ BF 02 llll      : Copyright Notice
+ BF T E X T
+ BF \0 \0 \0
+ BF 03 llll      : Sequence/Track Name (Music Title)
+ BF 04 llll      : Instrument Name
+ BF 05 llll      : Lyric (A lyric to be sung.)
+ BF 06 llll      : Marker
+ BF 07 llll      : Cue Point
+
+--- -score option ----
+Key and time  : F8wxyyzz
+ wx & 0x80 : flag
+ w(kscl)      : moll or dur  (none=0,dur=1,moll=2,major=3,minor=4)
+ x(ksin)      : key signeture
+ yy(ritm)     : rithm
+ zz(time)     : time base
+                ex. $###3/4 x_moll
+                    w(kscl) = 1
+                    x(ksin) = 3
+                    yy(ritm) = 3
+
+Tempo         : FAxxyyyy    xx ignore
+ ww & 0x80 : flag
+              : FAwwyyyy    ww < 22
+
+note            value        rest     no.      name
+ %xx |O|       800,000        Rb        0
+ %xx O..       700,000        Rw..      1
+ %xx O.        600,000        Rw.       2
+ %xx O         400,000        Rw        3      whole
+ %xx o/..      350,000        Rh..      4
+ %xx o/.       300,000        Rh.       5
+ %xx o/        200,000        Rh        6       half
+ %xx _/..      175,000        R..       7
+ %xx _/.       150,000        R.        8
+ %xx _/        100,000        R         9          4
+ %xx _/)..      87,500        r..      10
+ %xx _/).       75,000        r.       11
+ %xx _/)        50,000        r        12          8
+ %xx _/))..     43,750        rr..     13
+ %xx _/)).      37,500        rr.      14
+ %xx _/))       25,000        rr       15         16
+ %xx _/)))..    21,875        rrr..    16
+ %xx _/))).     18,750        rrr.     17
+ %xx _/)))      12,500        rrr      18         32
+ %xx _/)))).     9,375        rrrr.    19
+ %xx _/))))      6,250        rrrr     20         64
+ %xx _/)))))     3,125        rrrrr    21        128
+
+ ww(tsym)     : note type 0-15
+ yyyy(temp)   : tempo val *100
+                ex. [m.m. _/ = 90] ww(tsym) = 9
+                                   yyyy(temp) = 9000
+                    use mr->nval,mr->tsym,mr->temp
+==========================================================================
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

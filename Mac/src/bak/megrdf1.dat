@@ -1,0 +1,84 @@
+             file name                                                        !
+      C(c) : Conductor score                  S : Select channel              !
+      G(g) : Gclef staff                                                      !
+      S(s) : Soprano staff                                                    !
+      A(a) : Alto staff                                                       !
+      B(b) : Bass staff                                                       !
+      M(m) : Middle staff (piano)                                             !
+      L(l) : Low staff                                                        !
+      H(h) : High staff                                                       !
+      R(r) : Rhythm staff                                                     !
+      Upper Case(Active), Lower Case(sleep)                                   !
+                                                                              !
+      & : Add file (From members top file)                                    !
+      * : Copy & Move source file                                             !
+      + : Copy destination file                                               !
+      @ : Move destination file                                               !
+      / : Remove file                                                         !
+      ? : Check file                                                          !
+      } : Large char to Small char                                            !
+      { : Small char to Large char                                            !
+      > : Right Shift                                                         !
+      < : Left Shift                                                          !
+                                                                              !
+ {Generate O note lines all}                                                  !
+ {Generate o/ note lines all}                                                 !
+ {Generate o/. note lines all}                                                !
+ {Generate _/ note lines all}                                                 !
+ {Generate _/) note lines all}                                                !
+ {Generate _/)) note lines all}                                               !
+ {Generate _/))) note lines all}                                              !
+ {Generate rest lines all}                                                    !
+ {Delete note lines all}                                                      !
+ {Delete rest lines all}                                                      !
+ {Delete symbol lines all}                                                    !
+ {Delete plus lines all}                                                      !
+ {Delete comment lines all}                                                   !
+ {Delete large brackets lines all}                                            !
+ {Delete parenthesis lines all}                                               !
+ {Delete square lines all}                                                    !
+ {Delete dumper signs all}                                                    !
+ {Delete chord lines all}                                                     !
+ {Delete expand lines all}                                                    !
+ {Clear notes all}                                                            !
+ {Clear P_Exp symbols all}                                                    !
+ {Clear observed notes all}                                                   !
+ {Renumber bar lines all}                                                     !
+>{Renumber bar lines continuously all}                                        !
+ {Exchange parenthesis to large brackets all}                                 !
+ {Exchange large brackets to parenthesis all}                                 !
+ {Generate beautify symbols all}                                              !
+>{Exchange beautify symbols all}                                              !
+>{Reset tempo values all}                                                     !
+>{Reset smpte values all}                                                     !
+ {Reset dynamic values all}                                                   !
+ {Reset beautify values all}                                                  !
+ {Reset gate_rate values all}                                                 !
+ {Reset pitch_vend values all}                                                !
+ {Reset modulation values all}                                                !
+ {Reset control_number values all}                                            !
+ {Reset control_data values all}                                              !
+ {Reset program_change values all}                                            !
+ {Reset transpose values all}                                                 !
+ {Observe other notes all}                                                 ng !
+ {Observe chord notes all}                                                 ng !
+ {Observe available note scale all}                                        ng !
+ {Reset chord & available notes all}                                          !
+ {Generate expand files all}                                                  !
+ {Create expand symbols all}                                                  !
+ {Include expanded note lines all}                                            !
+ {Show expanded note lines all}                                               !
+ {Hide expanded note lines all}                                               !
+ {Reset Exp symbols all}                                                      !
+ {Save expanded note lines all}                                               !
+ {Reload expand files all}                                                    !
+ {Save & Store expand files all}                                              !
+ {Save & Register expand files all}                                           !
+ {Store expand files all}                                                     !
+ {Register expand files all}                                                  !
+ {Reset Dynamic expand symbols all}                                           !
+ {Exchange global chord select to progression lines all}                      !
+ {Exchange global chord progression to select lines all}                      !
+ {Change chord progression lines all}                                         !
+ {Global_Transposition xx}   Change Key                                       !
+ /////////////////////////////////////////////////////////////////////////////!

@@ -1,0 +1,46 @@
+alst = mexm+mexw+mex1+mex2+mex3+mex4+mex5+mex6+mexint
+obj1 = mexw.obj mexm.obj mex1.obj mex2.obj mex3.obj mex4.obj
+obj2 = mex5.obj mex6.obj
+libs = emu mathh ch
+
+mex.exe: mex.h
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mexm.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mexw.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex1.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex2.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex3.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex4.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex5.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex6.c
+ masm mexint,mexint,nul,nul
+
+mexm.obj: mexm.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mexm.c
+
+mexint.obj: mexint.asm
+ masm mexint,mexint,nul,nul
+
+mexw.obj: mexw.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mexw.c
+
+mex1.obj: mex1.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex1.c
+
+mex2.obj: mex2.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex2.c
+
+mex3.obj: mex3.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex3.c
+
+mex4.obj: mex4.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex4.c
+
+mex5.obj: mex5.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex5.c
+
+mex6.obj: mex6.c
+ tcc -mh -c -f -Ip:\pc98da2\tc\include mex6.c
+
+mex.exe: $(obj1) $(obj2)
+ tlink /v /I /m c0h+$(alst),mex,,$(libs)
+

@@ -1,0 +1,11 @@
+qkc -ms mex.h 
+qkc -ms mexm.c 
+qkc -ms mexw.c 
+qkc -ms mex1.c 
+qkc -ms mex2.c 
+qkc -ms mex3.c 
+qkc -ms mex4.c 
+qkc -ms mex5.c 
+qkc -ms mex6.c 
+cp mex*.h /usr/home/pc98da2/ram
+cp mex*.c /usr/home/pc98da2/ram

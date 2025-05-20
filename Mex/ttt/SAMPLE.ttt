@@ -1,0 +1,563 @@
+
+  2025.5.18  SAMPLE.ttt
+  --------------------
+  AMuPLC mex example
+  ---------------------
+
+ 0. Make directopy
+ > mkdir ttt
+ > cd ttt
+
+ 1. Music edit file genarate -trial option
+> meg ttt 4 -tri
+Generate ttt.meg
+Generate ttt_000.meg Sequence number = 1 bar count = 4
+Generate ttt_015.meg Sequence number = 1 bar count = 4
+Generate ttt_018.meg Sequence number = 1 bar count = 4
+
+ 2. Check ttt.meg file
+> cat ttt.meg
+ ///////Default Score/////////////////////////////////////////////////////////!
+ =====Move & Change File,Bar,Port,Chan(1-16)=======                           !
+ Instruments        File     Bar   Port  Chan  Memb  Comments                 !
+ =============================================                                !
+                  Sequence                       Channel       Port Member    !
+        0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF                !
+C       ....................................                                  !
+C  00 . C...................................  .........S......    0      1    !
+C  10 . ....................................  S...............    1      2    !
+C  11 . ....................................  .S..............    1      3    !
+C  12 . ....................................  ..S.............    1      4    !
+C  13 . ....................................  ...S............    1      5    !
+C  14 . ....................................  ....S...........    1      6    !
+C  15 . S...................................  .....S..........    1      7    !
+C  16 . ....................................  ......S.........    1      8    !
+C  17 . ....................................  .......S........    1      9    !
+C  18 . M...................................  ........S.......    1     10    !
+C  19 . ....................................  .........S......    1     12    !
+C  1a . ....................................  ..........S.....    1     13    !
+C  1b . ....................................  ...........S....    1     14    !
+C  1c . ....................................  ............S...    1     15    !
+C  1d . ....................................  .............S..    1     16    !
+C  1e . ....................................  ..............S.    1     17    !
+C  1f . ....................................  ...............S    1     18    !
+        0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF                !
+             file name                                                        !
+      C(c) : Conductor score                  S : Select channel              !
+      G(g) : Gclef staff                                                      !
+      S(s) : Soprano staff                                                    !
+      A(a) : Alto staff                                                       !
+      B(b) : Bass staff                                                       !
+      M(m) : Middle staff (piano)                                             !
+      L(l) : Low staff                                                        !
+      H(h) : High staff                                                       !
+      R(r) : Rhythm staff                                                     !
+      Upper Case(Active), Lower Case(sleep)                                   !
+                                                                              !
+      & : Add file (From members top file)                                    !
+      * : Copy & Move source file                                             !
+      + : Copy destination file                                               !
+      @ : Move destination file                                               !
+      / : Remove file                                                         !
+      ? : Check file                                                          !
+      } : Large char to Small char                                            !
+      { : Small char to Large char                                            !
+      > : Right Shift                                                         !
+      < : Left Shift                                                          !
+                                                                              !
+ {Renumber bar lines all}                                                     !
+>{Renumber bar lines continuously all}                                        !
+ {Exchange parenthesis to large brackets all}                                 !
+ {Exchange large brackets to parenthesis all}                                 !
+ {Generate beautify symbols all}                                              !
+>{Exchange beautify symbols all}                                              !
+>{Reset tempo values all}                                                     !
+>{Reset smpte values all}                                                     !
+ /////////////////////////////////////////////////////////////////////////////!
+
+ 3. Check ttt_000.meg conductor file
+    Confirm
+    {Generate _/ nore lines} is active
+    Tempo {/60}
+    Key {$4/4}
+
+> cat ttt_000.meg
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{/60}
+{$4/4}
+
+-c0000001   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000002   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000003   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+-c0000004   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+==00$$$$$   ===================================================  xx:xx:xx/xx.xx
+final.....................................................................final
+$$$$Conductor staff$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+ 4. ttt files beautify
+> meb ttt
+Beautify ttt_000.meg 4 bars, 38 lines end
+Beautify ttt_015.meg 4 bars, 24 lines end
+Beautify ttt_018.meg 4 bars, 24 lines end
+Beautify ttt.meg 4 bars, 59 lines end
+
+
+ 5. Check ttt_000.meg file
+    added lines
+    Tempo = {m.m. _/ = 60}
+    Key {$4/4 C_Major}
+    Note lines s90 _/  
+
+> cat ttt_000.meg
+ ///Conductor staff//ttt_000.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<                            >>
+ {Generate o/. note lines}                     <<                            >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+Sequence Title..................Sequence Name.............................Title
+
+ === Trial ===
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+-c0000001   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:00/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:01/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:02/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:03/00.00
+-c0000002   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:04/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:05/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:06/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:07/00.00
+-c0000003   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:08/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:09/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:10/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:11/00.00
+-c0000004   0____.____1____.____2 Exp  tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+s90 _/                            ...  00  12.8   60.00  100.0%  00:00:12/00.00
+==0000005   ===================================================  00:00:12/00.00
+final.....................................................................final
+$$$$Conductor staff$$ttt_000.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$
+ 
+
+ 6. Beautify ttt all
+> meb ttt
+Beautify ttt_000.meg 4 bars, 38 lines end
+Beautify ttt_015.meg 4 bars, 26 lines end
+Beautify ttt_018.meg 4 bars, 26 lines end
+Beautify ttt.meg 4 bars, 59 lines end
+
+
+ 7. Edit ttt_015.meg
+    Comment out {Genarate _/ notelines}
+
+ > vi ttt_015.meg
+ ///Soprano staff////ttt_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+{Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$ttt_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$
+
+
+ 8. Beautify ttt_015.meg
+
+ > meb ttt/015
+ Beautify ttt_015.meg 4 bars, 42 lines end
+
+ 9. Edit ttt_015.meg
+    Input scale note data,  do si ra so fa mi re do
+
+ > vi ttt_015.meg
+ ///Soprano staff////ttt_015.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+-s0000002 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                     5               12.8 ._...
+%90 _/       0   0  0:  0 ...  0                    5                12.8 ._...
+%90 _/       0   0  0:  0 ...  0                   5                 12.8 ._...
+%90 _/       0   0  0:  0 ...  0                  5                  12.8 ._...
+-s0000003 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0                 5                   12.8 ._...
+%90 _/       0   0  0:  0 ...  0                5                    12.8 ._...
+%90 _/       0   0  0:  0 ...  0               5                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0              5                      12.8 ._...
+-s0000004 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+%90 _/       0   0  0:  0 ...  0              :                      12.8 ._...
+%90 _/       0   0  0:  0 ...  0              :                      12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+%90 _/       0   0  0:  0 ...  0                                     12.8 ._...
+==0000005 ========================================================== $$$$$$$$$$
+final.....................................................................final
+$$$$Soprano staff$$$$ttt_015.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$
+
+
+ 10. Edit ttt_018.meg
+     Comment out  {Genarate o/ note lines}
+
+ >vi ttt_018.meg
+ ///Middle staff/////ttt_018.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+{Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-m0000001  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000002  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000003  -1______0______1______2______*______4______5______6______7velo P_Exp
+-m0000004  -1______0______1______2______*______4______5______6______7velo P_Exp
+==0000005============================================================$$$$$$$$$$
+final.....................................................................final
+$$$$Middle staff$$$$$ttt_018.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$
+
+
+ 11. Beautufy ttt_018.meg
+
+> meb ttt/018
+Beautify ttt_018.meg 4 bars, 34 lines end
+
+
+ 12. Edit ttt_018.meg
+     Input note data
+
+ ///Middle staff/////ttt_018.meg//////////////////////////////////////////////|
+ {Generate O note lines}                       <<  First column space is     >>
+ {Generate o/. note lines}                     <<  comment line.             >>
+ {Generate o/ note lines}                      <<                            >>
+ {Generate _/ note lines}                      <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete plus lines}                           <<                            >>
+Title/////////..................Sequence Name......................../////Title
+{m.m. _/ = 60}
+{$4/4 C_Major}
+
+ ---Instruments---
+ @Inst. Comment
+
+-m0000001  -1______0______1______2______*______4______5______6______7velo P_Exp
+%94 o/                                                               12.8 ._...
+%94 o/                                                               12.8 ._...
+-m0000002  -1______0______1______2______*______4______5______6______7velo P_Exp
+%94 o/                           5 5 5                               12.8 ._...
+%94 o/                                                               12.8 ._...
+-m0000003  -1______0______1______2______*______4______5______6______7velo P_Exp
+%94 o/                              5 5 5                            12.8 ._...
+%94 o/                                                               12.8 ._...
+-m0000004  -1______0______1______2______*______4______5______6______7velo P_Exp
+%94 o/                           5 5 5                               12.8 ._...
+%94 o/                                                               12.8 ._...
+==0000005============================================================$$$$$$$$$$
+final.....................................................................final
+$$$$Middle staff$$$$$ttt_018.meg$$$$$$$$$$$$$$$$$$$$$$$$$$$$20250424$$V5.05W$$$
+
+
+
+ 13. ttt Compile
+> mec ttt
+Mec ttt_000.meg 4 bars, 38 lines end
+Mec ttt_015.meg 4 bars, 42 lines end
+Mec ttt_018.meg 4 bars, 34 lines end
+
+
+ 14. ttt Link
+> mlk ttt -ot
+
+           4d 58 68 64    MXhd
+           00 00 00 06    chunk length
+           00 00          format 0
+           00 01          one track
+           e2 50          division
+
+           4d 58 72 6b    MXrk
+           00 00 00 00    chunk length (Set After)
+
+            Delta-time    Event        Comments
+                          fd 80 00 00  Port[0] Track 0
+                          fa 89 17 70  Note type 9  tempo 6000
+                          f8 b0 04 04  kscl 3  ksin 0  ritm 4  time 4
+-m0000001-___             fb 80 00 01
+                          fd 81 00 0f  Port[1] Track 0
+                          c5 0a        Ch.6  Program change  No.11
+                          fd 81 00 12  Port[1] Track 0
+                          c8 00        Ch.9  Program change  No.1
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 12  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+-m0000002-___             fb 80 00 02
+                          fd 81 00 12  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+    9600 - f1 80 25 80    95 48 40     Ch.6  Note on  key# 72 Val.64(100.0%)
+                          fd 81 00 12  Port[1] Track 0
+                          98 30 40     Ch.9  Note on  key# 48 Val.64(100.0%)
+                          98 34 40     Ch.9  Note on  key# 52 Val.64(100.0%)
+                          98 37 40     Ch.9  Note on  key# 55 Val.64(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+    2160 - f1 80 08 70    95 48 00     Ch.6  Note off key# 72 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 47 40     Ch.6  Note on  key# 71 Val.64(100.0%)
+                          fd 81 00 12  Port[1] Track 0
+    2112 - f1 80 08 40    98 30 00     Ch.9  Note off key# 48 Val.0(100.0%)
+                          98 34 00     Ch.9  Note off key# 52 Val.0(100.0%)
+                          98 37 00     Ch.9  Note off key# 55 Val.0(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+      48 - f1 80 00 30    95 47 00     Ch.6  Note off key# 71 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 45 40     Ch.6  Note on  key# 69 Val.64(100.0%)
+    2160 - f1 80 08 70    95 45 00     Ch.6  Note off key# 69 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 43 40     Ch.6  Note on  key# 67 Val.64(100.0%)
+    2160 - f1 80 08 70    95 43 00     Ch.6  Note off key# 67 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+-m0000003-___             fb 80 00 03
+                          fd 81 00 12  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 41 40     Ch.6  Note on  key# 65 Val.64(100.0%)
+                          fd 81 00 12  Port[1] Track 0
+                          98 35 40     Ch.9  Note on  key# 53 Val.64(100.0%)
+                          98 39 40     Ch.9  Note on  key# 57 Val.64(100.0%)
+                          98 3c 40     Ch.9  Note on  key# 60 Val.64(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+    2160 - f1 80 08 70    95 41 00     Ch.6  Note off key# 65 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 40 40     Ch.6  Note on  key# 64 Val.64(100.0%)
+                          fd 81 00 12  Port[1] Track 0
+    2112 - f1 80 08 40    98 35 00     Ch.9  Note off key# 53 Val.0(100.0%)
+                          98 39 00     Ch.9  Note off key# 57 Val.0(100.0%)
+                          98 3c 00     Ch.9  Note off key# 60 Val.0(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+      48 - f1 80 00 30    95 40 00     Ch.6  Note off key# 64 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 3e 40     Ch.6  Note on  key# 62 Val.64(100.0%)
+    2160 - f1 80 08 70    95 3e 00     Ch.6  Note off key# 62 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+     240 - f1 80 00 f0    95 3c 40     Ch.6  Note on  key# 60 Val.64(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+-m0000004-___             fb 80 00 04
+                          fd 81 00 12  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 12  Port[1] Track 0
+    2400 - f1 80 09 60    98 30 40     Ch.9  Note on  key# 48 Val.64(100.0%)
+                          98 34 40     Ch.9  Note on  key# 52 Val.64(100.0%)
+                          98 37 40     Ch.9  Note on  key# 55 Val.64(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 81 00 12  Port[1] Track 0
+    4512 - f1 80 11 a0    98 30 00     Ch.9  Note off key# 48 Val.0(100.0%)
+                          98 34 00     Ch.9  Note off key# 52 Val.0(100.0%)
+                          98 37 00     Ch.9  Note off key# 55 Val.0(100.0%)
+                          fd 81 00 0f  Port[1] Track 0
+      48 - f1 80 00 30    95 3c 00     Ch.6  Note off key# 60 Val.0(100.0%)
+                          fd 80 00 00  Port[0] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+-m0000005-___             fb 80 00 05
+                          fd 81 00 12  Port[1] Track 0
+                          fd 81 00 0f  Port[1] Track 0
+                          fd 80 00 00  Port[0] Track 0
+    5040 - f1 80 13 b0    ff 2f 00     end of track
+Mlk end ttt.mex 303 Bytes Time 0:0:16/0 Resolution 1/2400.0 Sec
+ttt.mex is unique multi port MIDI file.
+
+
+ 15. ttt.mix dump
+> od -x ttt.mix
+0000000      00dd    0000    09fa    7017    30f8    0404    01dd    0f00
+0000020      09fa    7017    01dd    0f00    30f8    0404    01dd    1200
+0000040      09fa    7017    01dd    1200    30f8    0404    00dd    0000
+0000060      06fc    801a    00fb    0100    01dd    0f00    c5fd    ff0a
+0000100      01dd    1200    c8fd    ff00    01dd    1200    06fc    801a
+0000120      00dd    0000    00f1    0000    b0f1    0000    00f2    e803
+0000140      31fa    7017    01dd    1200    04fc    e093    00dd    0000
+0000160      00f1    1e00    b0f1    0000    00f2    e803    31fa    7017
+0000200      01dd    0f00    03fc    400d    00dd    0000    00f1    3c00
+0000220      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0000240      01fc    a086    00dd    0000    00f1    5a00    b0f1    0000
+0000260      00f2    e803    31fa    7017    00dd    0000    00fb    0200
+0000300      01dd    1200    06fc    801a    00dd    0000    00f1    7800
+0000320      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0000340      95fd    4048    01dd    1200    98fd    4030    01dd    1200
+0000360      98fd    4034    01dd    1200    98fd    4037    01dd    1200
+0000400      04fc    f0ba    01dd    0f00    95fd    0048    01dd    0f00
+0000420      04fc    e093    00dd    0000    00f1    9600    b0f1    0000
+0000440      00f2    e803    31fa    7017    01dd    0f00    95fd    4047
+0000460      01dd    0f00    03fc    203c    01dd    1200    98fd    0030
+0000500      01dd    1200    98fd    0034    01dd    1200    98fd    0037
+0000520      01dd    1200    03fc    5034    01dd    0f00    95fd    0047
+0000540      01dd    0f00    03fc    400d    00dd    0000    00f1    b400
+0000560      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0000600      95fd    4045    01dd    0f00    01fc    b0ad    01dd    0f00
+0000620      95fd    0045    01dd    0f00    01fc    a086    00dd    0000
+0000640      00f1    d200    b0f1    0000    00f2    e803    31fa    7017
+0000660      01dd    0f00    95fd    4043    01dd    0f00    00fc    1027
+0000700      01dd    0f00    95fd    0043    00dd    0000    00fb    0300
+0000720      01dd    1200    06fc    801a    00dd    0000    00f1    f000
+0000740      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0000760      95fd    4041    01dd    1200    98fd    4035    01dd    1200
+0001000      98fd    4039    01dd    1200    98fd    403c    01dd    1200
+0001020      04fc    f0ba    01dd    0f00    95fd    0041    01dd    0f00
+0001040      04fc    e093    00dd    0000    00f1    0e01    b0f1    0000
+0001060      00f2    e803    31fa    7017    01dd    0f00    95fd    4040
+0001100      01dd    0f00    03fc    203c    01dd    1200    98fd    0035
+0001120      01dd    1200    98fd    0039    01dd    1200    98fd    003c
+0001140      01dd    1200    03fc    5034    01dd    0f00    95fd    0040
+0001160      01dd    0f00    03fc    400d    00dd    0000    00f1    2c01
+0001200      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0001220      95fd    403e    01dd    0f00    01fc    b0ad    01dd    0f00
+0001240      95fd    003e    01dd    0f00    01fc    a086    00dd    0000
+0001260      00f1    4a01    b0f1    0000    00f2    e803    31fa    7017
+0001300      01dd    0f00    95fd    403c    01dd    0f00    00fc    1027
+0001320      00dd    0000    00fb    0400    01dd    1200    06fc    801a
+0001340      00dd    0000    00f1    6801    b0f1    0000    00f2    e803
+0001360      31fa    7017    01dd    1200    98fd    4030    01dd    1200
+0001400      98fd    4034    01dd    1200    98fd    4037    01dd    1200
+0001420      04fc    f0ba    01dd    0f00    04fc    e093    00dd    0000
+0001440      00f1    8601    b0f1    0000    00f2    e803    31fa    7017
+0001460      01dd    0f00    03fc    203c    01dd    1200    98fd    0030
+0001500      01dd    1200    98fd    0034    01dd    1200    98fd    0037
+0001520      01dd    1200    03fc    5034    01dd    0f00    95fd    003c
+0001540      01dd    0f00    03fc    400d    00dd    0000    00f1    a401
+0001560      b0f1    0000    00f2    e803    31fa    7017    01dd    0f00
+0001600      01fc    a086    00dd    0000    00f1    c201    b0f1    0000
+0001620      00f2    e803    31fa    7017    00dd    0000    00fb    0500
+0001640      01dd    1200    00fc    0000    00dd    0000    01dd    0f00
+0001660      00fc    0000    00dd    0000    00f1    e001    b0f1    0000
+0001700      eded    eded
+0001704
+
+
+ 16. ttt.mex dump
+> od -x ttt.mex
+0000000      584d    6468    0000    0600    0000    0100    50e2    584d
+0000020      6b72    0000    1901    80fd    0000    89fa    7017    b0f8
+0000040      0404    80fb    0100    81fd    0f00    0ac5    81fd    1200
+0000060      00c8    80fb    0200    80f1    8025    81fd    0f00    4895
+0000100      fd40    0081    9812    4030    3498    9840    4037    80f1
+0000120      7008    81fd    0f00    4895    f100    0080    95f0    4047
+0000140      80f1    4008    81fd    1200    3098    9800    0034    3798
+0000160      f100    0080    fd30    0081    950f    0047    80f1    f000
+0000200      4595    f140    0880    9570    0045    80f1    f000    4395
+0000220      f140    0880    9570    0043    80fb    0300    80f1    f000
+0000240      4195    fd40    0081    9812    4035    3998    9840    403c
+0000260      80f1    7008    81fd    0f00    4195    f100    0080    95f0
+0000300      4040    80f1    4008    81fd    1200    3598    9800    0039
+0000320      3c98    f100    0080    fd30    0081    950f    0040    80f1
+0000340      f000    3e95    f140    0880    9570    003e    80f1    f000
+0000360      3c95    fb40    0080    f104    0980    fd60    0081    9812
+0000400      4030    3498    9840    4037    80f1    a011    3098    9800
+0000420      0034    3798    f100    0080    fd30    0081    950f    003c
+0000440      80fb    0500    80f1    b013    80fd    0000    2fff    0000
+0000457
+
+
+ 17. Check directory  
+> ls
+ttt.meb         ttt.mix         ttt_015.meb     ttt_018.mec
+ttt.meg         ttt_000.meb     ttt_015.mec     ttt_018.meg
+ttt.mex         ttt_000.mec     ttt_015.meg     ttt_wka.mlk
+ttt.mid         ttt_000.meg     ttt_018.meb     ttt_wkb.mlk
+
+ text source           .meg
+ text source backup    .meb
+ compile data          .mec
+ link middle data      .mix
+ link work file        .mlk
+ SMF data              .mid
+ Multi port MIDI data  .mex
+
+
+ Multi port MIDI data ttt.mex
+
+ ============================
+

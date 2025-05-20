@@ -1,0 +1,337 @@
+
+                    1998.5.24 hirose
+MIDI Patch
+
+Device    Port - Unit(A,B,C)
+                 in out   in out
+M1R(1)       1 - A3  A8 - C3  C3 (Ch 1-8)     
+M3R(1)       1 - A3  A8 - C4  C4 (Ch 9-16)
+M3R(3)       5 - B3  B8 - C6  C6 (Ch 1-8)
+M3R(2)       5 - B3  B8 - C5  C5 (Ch 9-16)
+M1R(2)       6 - Dirext x C2  C2 (Ch 1-8) x:switch By MIDI Cable at Config 
+Tx16W(1)     3 - A5  A4 (Ch 1-8)
+Tx16W(2)     3 - A5  A5 (Ch 9-16)
+Tx16W(3)     8 - A6  A6 (Ch 1-8)
+Tx16W(4)     8 - A6  A7 (Ch 9-16)
+Tx1P         7 - B5  B3
+DSM1         7 - B5  B4
+S550(1)      4 - B6  B5
+1000Hx       0 - Direct 
+SC-88Pro     0 - Direct 
+Dx7          0 - A2  A1
+MT32         0 - A2  A3
+sc88-pro     0   Direct ?
+TX16w(5)     2 - Direct(Ch 1-8)
+TX16w(11)    2 - Direct(Ch 9-16)
+TX16w(6)     7 - Direct(Ch 1-8)  
+TX16w(7)     5 - Direct(Ch 9-16)  
+S550(2)      9 - Direct(Ch 1-8)
+Tx16w(10)    9 - Direct(Ch 9-16)
+TX16w(8)    10 - Direct(Ch 1-8)       
+TX16w(9)    10 - Direct(Ch 9-16)      
+
+ Instrment    Device       Port   Channel  FileName   Comment
+%Pic.         Tx16w(3)        8        1      080    lag 6 <bit>
+!Pic.         Tx16w(9)       10        9      0a8    lag 6 <bit>
+ Pic.         Tx16w(9)       10        9      0a9    lag 6 <bit>
+
+ Fl.1         M1R(1)          1        1      010    Soft Flute
+ Fl.2         M1R(2)          6        1      060    Soft Flute
+
+ Ob.1         M1R(1)          1        2      011    Oboe 
+ Ob.1         M1R(2)          5        2      051    Oboe
+%Ob.1         Tx16W(3)        8        5      084    lag 6 <bit>
+%Ob.2         Tx16W(3)        8        6      085    lag 6 <bit>
+!Ob.1         Tx16W(3)        8        1      080    lag 6 <bit>
+!Ob.2         Tx16W(3)        8        2      081    lag 6 <bit>
+ Ob.3         Tx16W(3)        8        3      082    lag 6 <bit>
+
+ Cl.1         M1R(1)          1        3      012    Clarinet
+ Cl.2         M1R(2)          5        3      052    Clarinet
+%Cl. in Es    Tx16W(3)        8        2      081    lag 6 <bit>
+%Cl. in B.1   Tx16W(3)        8        3      082    lag 6 <bit>
+%Cl. in B.2   Tx16W(3)        8        4      083    lag 6 <bit>
+!Cl. in Es    Tx16W(8)       10        1      0a0    lag 6 <bit>
+!Cl. in B.1   Tx16W(8)       10        2      0a1    lag 6 <bit>
+!Cl. in B.2   Tx16W(8)       10        3      0a2    lag 6 <bit>
+
+!Fg.1         Tx16W(4)        8        9      088    lag 4 <bit>
+!Fg.2         Tx16W(4)        8       10      089    lag 4 <bit>
+ CFg.(Basson) Tx16W(4)        8       11      08a    lag 4 <bit>
+
+ Hn.1         M3R(3)          5        5      054    French Horn 03
+ Hn.2         M3R(3)          5        6      055    Soft Horn 45
+ Hn.3         M3R(3)          5        7      056    Soft Horn 45
+!Hn.1         Tx16W(1)        3        4      033    lag 2 <bit>
+!Hn.2         Tx16W(1)        3        5      034    lag 2 <bit>
+!Hn.3         Tx16W(1)        3        6      035    lag 2 <bit>
+!Hn.4         Tx16W(1)        3        7      036    lag 2 <bit>
+ Hn.1         SC88-pro        0        6      005    lag 2 <bit>
+ Hn.2         SC88-pro        0        7      006    lag 2 <bit>
+ Hn.3         SC88-pro        0        8      007    lag 2 <bit>
+
+%Tp.1         Tx16W(2)        3        8      037    lag 3 <bit>
+!Tp.1         Tx16W(2)        3        9      038    lag 3 <bit>
+!Tp.2         Tx16W(2)        3       10      039    lag 3 <bit>
+!Tp.3         Tx16W(2)        3       11      03a    lag 3 <bit>
+ Tp.4         Tx16W(2)        3       12      03b    lag 3 <bit>
+!Tp.1         SC88-pro        0       11      00a    lag 2 <bit>
+!Tp.2         SC88-pro        0       12      00b    lag 2 <bit>
+!Tp.3         SC88-pro        0       13      00c    lag 2 <bit>
+
+ Hn.1         M3R(2)          5        9      058    Soft Horn 87
+ Hn.2         M3R(2)          5       10      059    Soft Horn 87
+ Hn.3         M3R(2)          5       11      05a    Soft Horn 87
+%Tb.1         Tx16W(2)        3       12      03b    lag 2 <bit>
+%Tb.2         Tx16W(2)        3       13      03c    lag 2 <bit>
+%Tb.3(Tuba)   Tx16W(2)        3       14      03d    lag 2 <bit>
+!Tb.1         Tx16W(8)       10        5      0a4    lag 2 <bit>
+!Tb.2         Tx16W(8)       10        6      0a5    lag 2 <bit>
+ Tb.3         Tx16W(8)       10        7      0a6    lag 2 <bit>
+!Tb.3(Tuba)   Tx16W(8)       10        8      0a7    lag 2 <bit>
+ Tb.1         SC88-pro        0       14      00d    lag 2 <bit>
+ Tb.2         SC88-pro        0       15      00e    lag 2 <bit>
+
+ Tb.1         M3R(2)          5       12      05b    Tuba Flugel 52
+ Tb.2         M3R(2)          5       13      05c    Tuba Flugel 52
+ Tuba         1000Hx?                                lag 1 <bit>
+
+!Timpany      S550            4        5      044    lag 1 <bit>
+ Timpany      TX16w(7)        5       15      05e    lag 1 <bit>
+!Symbal       Tx16W(2)        3       15      03e    lag 0 <bit>
+!Xylophone    S550            4        4      043    lag 7 <bit>
+ Gong         S550            4        8      047    lag 0 <bit>
+!Gong         Tx16w(5)        2        7      026    lag 0 <bit>
+ Glocken      S550(1)         4        2      041    lag 8 <bit>
+!Celesta      S550(2)         9        5      094    lag 8 <bit>
+!Harp         M1R             1        4      013    lag 8 <bit>
+ Harp         M3R(3)          5        8      057    Harp 07
+ T-ro Snare drum SC88-pro     0       10      009 
+!T-ro Snare drum TX16W(7)     5       16      05f    
+
+!Piano        Tx1P            7       11      07a    lag 5 <bit>
+ Piano        DSM1            7       11      07a    
+
+ Vn.1-1 solo  Tx16W(9)       10       11      0aa    lag 7 <bit>
+!Vn.1-2 solo  Tx16W(9)       10       13      0ac    lag 7 <bit>
+!Vn.1 Str     Tx16W(5)        2        1      020    lag 7 <bit>
+!Vn.1-1       M3R2            5        1      050  Pizz.    lag 7 <bit>
+!Vn.1-1       S550(2)         9        1      090  Pizz.    lag 7 <bit>
+ Vn.1-1 Str   M1R(1)          1        4      013    Stringth 1 27
+!Vn.1-2 Str   M1R(1)          1        5      014    Stringth 1 27
+ Vn.1 Pizz    M3R(3)          5        1      050    Pizz.
+
+ Vn.2-1 solo  Tx16W(9)       10       14      0ad    lag 7 <bit>
+!Vn.2-2 solo  Tx16W(9)       10       15      0ae    lag 7 <bit>
+!Vn.2 Str     Tx16W(5)        2        2      021    lag 7 <bit>
+!Vn.2-1       M3R2            5        2      051  Pizz.    lag 7 <bit>
+!Vn.2-1       S550(2)         9        2      091  Pizz.    lag 7 <bit>
+!Vn.2 strings M1R             1        6      015    xxxxxxxxxxx
+ Vn.2-1 Str   M1R(2)          6        4      063    Stringth 1 27
+ Vn.2-2 Str   M1R(1)          6        5      064    Stringth 1 27
+ Vn.2 Pizz    M3R(3)          5        2      051    Pizz.
+
+ Viola1 solo
+ Viola1-1     M1R(1)          1        6      015    Stringth 2
+!Viola1-1     M3R2            5        3      052  Pizz.    lag 6 <bit>
+!Viola1 str.  TX16w(7)        5        9      058    lag 6 <bit>
+ Viola1 Pizz  M3R(3)          5        3      052    Pizz.
+ Viola2 solo
+ Viola2-1     M1R(1)          6        6      065    Stringth 2
+!Viola2-1     Tx16w(6)        7        2      071           lag 6 <bit>
+!Viola2-1     M3R2            5        4      053  Pizz.    lag 6 <bit>
+!Viola1 str.  TX16w(7)        5       10      059    lag 6 <bit>
+ Viola2 Pizz  M3R(3)          5        4      053    Pizz.
+
+!Cello1 solo  Tx16W(4)        8       13      08c    lag 5 <bit>
+ Cello1-1     M1R(1)          1        7      016    Stringth 3 
+!Cello1-1     M3R2            5        5      054  Pizz.    lag 5 <bit>
+!Cello1-2     M3R2            5        6      055  Pizz.    lag 5 <bit>
+!Cello1 str.  M1R             1        7      016    lag 5 <bit>
+!Cello1 str.  Tx16w(6)        7        7      076  
+ Cello1 Pizz  M3R(2)          5       15      05e    Analog Bass  
+
+!Cello2 solo  Tx16W(4)        8       14      08d    lag 5 <bit>
+ Cello2-1     M1R(2)          6        7      066    Stringth 3
+*Cello2-1     M3R3            6        5      064  Pizz.    lag 4 <bit>
+*Cello2-2     M3R3            6        6      065  Pizz.    lag 4 <bit>
+*Cello2 str.  M3R1            1       14      01d    lag 5 <bit>
+ Cello2 Pizz  M3R(2)          5       16      05f    Analog Bass
+
+!CB.1 solo    Tx16W(4)        8       15      08e    lag 3 <bit>
+ CB.1-1       M1R(1)          1        8      017    Solo String  
+!CB.1-1       M3R2            5        7      056  Pizz.    lag 3 <bit>
+!CB. str.     M1R             1        8      017    lag 3 <bit>
+!CB. str.     Tx16w(6)        7        8      077
+ CB.1 Pizz    M3R(1)          1       15      01e    DWGS Bass
+ 
+!CB.2 solo    Tx16W(4)        8       16      08f    lag 3 <bit>
+ CB.2-1       M1R(2)          6        8      067    Solo String
+ CB.2 Pizz    M3R(1)          1       16      01f    DWGS Bass
+
+-------------------------------------------------------------------------
+ mpg.c : Create program change data for sc88-pro
+ <c1 45 b2 0a 28> Program change 069 Ob.1 Pan.40     001                       
+ <c2 45 b2 0a 28> Program change 069 Ob.2 Pan.40     002                       
+ <c3 48 b3 0a 40> Program change 072 Cl.1 Pan.64     003
+ <c4 48 b3 0a 40> Program change 072 Cl.2 Pan.64     004
+ <c5 3d B5 0a 50> Program change 061 Hn.1 Pan.80     005
+ <c6 3d B5 0a 50> Program change 061 Hn.1 Pan.80     006
+ <c7 3d B5 0a 50> Program change 061 Hn.1 Pan.80     007
+ <c8 3b b8 0a 64> Program change 059 Tu. Pan.100     008                       
+  <c9 00> Program change 000 Perc.                   009                   
+ <ca 39 b6 0a 46> Program change 057 Tp.1 Pan.70     00a
+ <cb 39 b6 0a 46> Program change 057 Tp.2 Pan.70     00b
+ <cc 39 b6 0a 46> Program change 057 Tp.3 Pan.70     00c
+ <cd 3a b7 0a 5a> Program change 058 Tb.1 Pan.90     00d
+ <ce 3a b7 0a 5a> Program change 058 Tb.2 Pan.90     00e
+ <cf 3a b7 0a 5a> Program change 058 Tb.3 Pan.90     00f
+
+M1R(1) Combination 0   Default
+Instrment   Ch.  Program         Detune   Volume      Pan
+Fl.1         1   soft Flute 18        0            ...........
+Ob.1         2   Oboe       02        0            ...........
+Cl.1         3   Clarinet 1 01        0            ...........
+Vn.1-1       4   Stringth 1 27        0            ...........
+Vn.1-2       5   Stringth 1 27        0            ...........
+Viola 1      6   Strings 2  04        0            ...........
+Cello 1      7   Strings 3  7         0            ...........
+Cb.          8   Solo String 46       0            ...........
+
+M1R(2) Combination 0   Default
+Instrment   Ch.  Program         Detune   Volume      Pan
+Fl.2         1   soft Flute 18        0            ...........
+Ob.2         2   Oboe       02        0            ...........
+Cl.2         3   Clarinet 1 01        0            ...........
+Vn.2-1       4   Stringth 1 27        0            ...........
+Vn.2-2       5   Stringth 1 27        0            ...........
+Viola 2      6   Strings 2  04        0            ...........
+Cello 2      7   Strings 3  7         0            ...........
+Cb.          8   Solo String 46       0            ...........
+
+M3R(1) Combination 0 Default
+Instrment   Ch.  Program         Detune   Volume      Pan
+
+
+Tx16W(1)  Horns
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+English Hn.  1   English Hn.          0     I     MixPan      2
+English Hn.  2   English Hn.          1     I     MixPan      2
+Hn.1         3   Horn                 0    II     MixPan      2
+Hn.2         4   Horn                 1    II     MixPan      2
+Hn.3         5   Horn                -1    II     MixPan      2
+Hn.4         6   Horn                 2    II     MixPan      2
+Hn.5         7   Horn                -2    II     MixPan      2
+Hn.6         8   Horn                 0    II     MixPan      2
+
+Tx16W(2)  Trumpet/Cymbal
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Tp.1         9   Trumpet I            0     I     MixPan      2
+Tp.2        10   Trumpet I            1     I     MixPan      2
+Tp.3        11   Trumpet I           -1     I     MixPan      2
+Tp.4        12   Trumpet I            2     I     MixPan      2
+Tp.5        13   Trumpet I           -2     I     MixPan      2
+Tp.6        14   Trumpet I            0     I     MixPan      2
+Cymbal      15   One                  0    II     MixPan      2
+Cymbal      16   5 Th                 1    II     MixPan      2
+
+Tx16W(3)  Pic./Cl./Oboe/Eng.
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Ob.1         1   Oboe                 0     I                 2
+Ob.2         2   Oboe                 1     I                 2
+Ob.3         3   Oboe                -1     I                 2
+Ob.4         4   Oboe                 0     I                 2
+Voice 1      5   Fairlite Voice       0    II                 2
+Voice 2      6   Fairlite Voice       1    II                 2
+Voice 3      7   Fairlite Voice      -1    II                 2
+Voice 4      8   Fairlite Voice       0    II                 2
+
+Tx16W(4)  Fagotto/Solo Cello 
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Fg.1         9   Fagotto              0     I     MixPan      2
+Fg.2        10   Fagotto              1     I     MixPan      2
+Fg.3        11   Fagotto             -1     I     MixPan      2
+Cello1 solo 12   Solo Cello           0    II     MixPan      3
+Cello2 solo 13   Solo Cello           1    II     MixPan      3
+CB.1 solo   14   Solo Cello          -1    II     MixPan      2
+CB.2 solo   15   Solo Cello          -2    II     MixPan      2
+
+Tx16W(5)  Full Violin/Gong
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Vn.Str.1     1   Full Violine(Fast)   0     I     MixPan      2
+Vn.Str.1     2   Full Violine(Fast)   0     I     MixPan      2
+Vn.Str.1     3   Full Violine(Fast)   0     I     MixPan      2
+Vn.Str.1     4   Full Violine(Fast)   0     I     MixPan      2
+Vn.Str.1     5   Full Violine(Slow)   0    II     MixPan      2
+Vn.Str.1     6   Full Violine(Slow)   0    II     MixPan      2
+Vn.Str.1     7   Full Violine(Slow)   0    II     MixPan      2
+Vn.Str.1     8   Full Violine(Slow)   0    II     MixPan      2
+
+Tx16W(6)  Viola/Full Cello Section
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Viola        1   Viola Fast           0     I                 2
+Viola        2   Viola Fast           0     I                 2
+Viola        3   Viola Fast           0     I                 2
+Viola        4   Viola Fast           0     I                 2
+Cello solo   5   Viola Fast           0    II                 2
+Cello solo   6   Viola Fast           0    II                 2
+Cello Str.   7   Full Cello           0    II                 2
+CB.   Str.   8   Full Cello           0    II                 2
+
+TX16W(7)   Viola Section / Timpany & Gong
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Viola Str.   9   Viola Setcion        0     I    MixPan       2
+Viola Str.  10   Viola Setcion        1     I    MixPan       2
+Viola Str.  11   Viola Setcion        0     I    MixPan       2
+Viola Str.  12   Viola Setcion        1     I    MixPan       2
+
+TX16W(8)   Clarinet / Trombone 
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Clarinet     1   Fast Attack          0     I                 2
+Clarinet     2   Fast Attack          1     I                 2
+Clarinet     3   Fast Attack         -1     I                 2
+Clarinet     4   Fast Attack          0     I                 2
+Trombone     5   Trombone 1           0    II                 2
+Trombone     6   Trombone 1           1    II                 2
+Trombone     7   Trombone 1          -1    II                 2
+Trombone     8   Trombone 1           0    II                 2
+
+TX16W(9)   Oboe / Trombone 
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Piccolo      9   Piccolo              0     I                 2
+Piccolo     10   Piccolo              1     I                 2
+Vn. Solo    11   VN Sus               0    II                 4
+Vn. Solo    13   VN Sus               1    II                 2
+Vn. Solo    14   VN Sus              -1    II                 2
+Vn. Solo    15   VN Sus               0    II                 2
+Vn. Solo    16   VN Sus               0    II                 2
+
+
+TX16W(10)   Gong 
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Gong         9   One/Two ..           0     I                 4
+Gong        10   One/Two ..           1    II                 4
+
+
+S550(1)  VibraPhone/Timpany
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+VibraPhone   1   VibraPhone           0     1                 x
+GlockenSpiel 2   GlockenSpiel         0     2                 x
+BassMarimba  3   BassMarimba          0     3                 x
+XyloPhone    4   XyloPhone            0     4                 x
+Timpany      5   Timpany              0     5                 x
+TubularBell  6   TubularBell          0     6                 x
+Percussion   7   Percussion           0     7                 x
+MalletSymbal 8   MalletSymbal         0     8                 x
+
+S550(2)  Str.Pizz/Celesta
+Instrment   Ch.  Program         Detune   Out      Pan    Voice-assign
+Str.Pizz.Vn  1   Str.Pizz.Vn.         0     1                 x
+Str.Pizz.Vr  2   Str.Pizz.Vr.         0     2                 x
+Unison Pizz. 3   Unison Pizz.         0     3                 x
+Pizz.Pad     4   Pizz. Pad.           0     4                 x
+Celesta      5   Celesta 1            0     5                 x
+Celesta      6   Celesta 2            0     6                 x
+Glocken      7   Glocken 1            0     7                 x
+Glocken      8   Glocken 2            0     8                 x
+

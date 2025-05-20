@@ -1,0 +1,432 @@
+##### mlkhlp.dat                           2007.6.23
+Middle data linker
+
+command format
+
+MLK (Midi data LinKer) v 0.99
+mlk fn    [,fn] [options]
+    fn1/x  fn2  [  -ot  ]
+    fn/yy       [ -idp  ]
+    fn/x,y      [   -t  ]
+    fn/xyy      [ -idc  ]
+    fn(ss,eee)  [  -sp  ] ss:start movement eee:end bar number
+    fn(sss,eee) [  -r   ] sss:start bar eee:end bar number
+    options : -old(old .mex) -mtc10(1/10 .mid) -smf0 -smf1
+              -new -dtxxx -fresxxx
+              -div300 -div480 -div600 -div1200 -div3000
+              -r(replace) -i(include) -e(exclude) -mg(merge)
+              -t(trace) -idp(in dump) -odp(out dump)
+              -ne(no exec file) -idc(in data check) -sp(split)
+              -dc(data check) -ln(link monitor)
+              -opt0 .. -opt3(optimize level 0 to 3 default: 0)
+              -d(debug) -d0 .. -d8(new .mex)
+              -ot(output trace) -ot8(new .mex) -ot9(smf0)
+              -m0 .. -m9,(message level default:3) -nm(no msg)
+ex.
+mlk fn      -smf0 -ot         (trace)
+mlk fn/010  -r                (replace fn_010.meg)
+input and output files
+ in putfile      fn_xyy.mec  x : part(track)  yy : member
+ output file     fn_zzz.MEX  fn_zzz.mlk  fn_zzz.mix  fn_zzz.wk1  fn_zzz.wk2
+                 zzz : gate (port)
+
+-fresxxx  -divxxx  unit/flame    mp  
+       4       60     1/4      0.04
+       8      120     1/8      0.08
+      10      150     1/10      0.1
+      80     1200     1/80      0.8
+     100     1500     1/100       1
+     800    12000     1/800       8
+    1000    15000     1/1000     10
+    8000   120000     1/12000    80
+
+
+///////////////////////////////////////////////////////////////////////////////
+ex. 1  default
+mlk ex0
+                  Part(Track)                    Channel       Gate Member    !
+      0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF    xxx    xxx    !
+c  00 C...................................  S...............      0      0    !
+c  01 M...................................  .S..............      0      1    !
+c  02 S...................................  ..S.............      0      2    !
+c  03 ....................................  ...S............      0      3    !
+
+input files    ex0_000.mec  ex0_001.mec  ex0_002.mec
+output files   ex0_000.mex  ex0_000.mlk  ex0_000.mix
+               ex0_wka.mlk  ex0_wkb.mlk
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+ex. 2  part select
+mlk ex0/1
+                  Part(Track)                    Channel       Gate Member    !
+      0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF    xxx    xxx    !
+c  00 CC..................................  S...............      0      0    !
+c  01 MM..................................  .S..............      0      1    !
+c  02 SS..................................  ..S.............      1      2    !
+c  03 .|..................................  ...S............      0      3    !
+
+input files    ex0_000.mec  ex0_100.mec  ex0_101.mec  ex0_102.mec
+output files   ex0_000.mex  ex0_001.mex  ex0_000.mlk  ex0_001.mlk
+               ex0_000.mix  ex0_001.mix  ex0_wka.mlk  ex0_wkb.mlk
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+ex. 3  member select
+mlk ex0/02
+                  Part(Track)                    Channel       Gate Member    !
+      0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF    xxx    xxx    !
+c  00 CC..................................  S...............      0      0    !
+c  01 MM..................................  .S..............      0      1    !
+c  02 SS.________________________________.  ..S.............      3      2    !
+c  03 ....................................  ...S............      3      3    !
+
+input files    ex0_000.mec  ex0_100.mec  ex0_002.mec  ex0_102.mec
+output files   ex0_000.mex  ex0_003.mex  ex0_000.mlk  ex0_003.mlk
+               ex0_000.mix  ex0_003.mix  ex0_wka.mlk  ex0_wkb.mlk
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+ex. 4  area select
+mlk ex0/5;02
+                  Part(Track)                    Channel       Gate Member    !
+      0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF    xxx    xxx    !
+c  00 CC...C|.............................  S...............      0      0    !
+c  01 M....M|.............................  .S..............     41      1    !
+c  02 SS.___|.S...........................  ..S.............     42      2    !
+c  03 ....................................  ...S............     43      3    !
+
+input files    ex0_000.mec  ex0_100.mec  ex0_500.mec  ex0_001.mec
+               ex0_501.mec  ex0_003.mec  ex0_103.mec
+output files   ex0_000.mex  ex0_041.mex  ex0_042.mex  ex0_041.mlk
+               ex0_042.mlk  ex0_041.mix  ex0_042.mix
+               ex0_wka.mlk  ex0_wkb.mlk
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+ex. 5  point select
+mlk ex0/501
+                  Part(Track)                    Channel       Gate Member    !
+      0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789ABCDEF    xxx    xxx    !
+c  00 CC...C..............................  S...............      0      0    !
+c  01 M...|M|.............................  .S..............      0      1    !
+c  02 SS......S...........................  ..S.............      0      2    !
+c  03 ....................................  ...S............      0      3    !
+
+input files    ex0_000.mec  ex0_100.mec  ex0_500.mec  ex0_501.mec
+output files   ex0_000.mex  ex0_000.mlk  ex0_000.mix
+               ex0_wka.mlk  ex0_wkb.mlk
+
+mlk input data
+Header       : FFvwxxyy
+ v(gate)     : gate number
+ w(chan)     : channel number
+ xx(trak)    : track (0-35)
+ yy(memb)    : member
+ ex. #define gate 0       v = 0
+     #define channel 1    w = 1
+     #define track  2     xx = 2
+     #define member 1     yy = 1
+
+File control : F0xxyyyy
+xx           : file type(staff type)
+yyyy         : file number(000 - z99)  max = z * 100 + 99 = z99
+               ex. Activ conductor staff
+                     xx = C 000 yyyy =    0 (xxx_000.meg)
+                 exsist conductor stff
+                     xx = c 200 yyyy =  200 (xxx_200.meg)
+                 exsist midlle staff
+                     xx = m 101 yyyy =  101 ( xxx : file name )
+                 Active synthesizer staff
+                     xx = S A02 yyyy =  1002
+
+SMPTE time code : F1xxxxxx
+ xxxxxx         : time code (hour * minites * seconds * frame)
+                    max = 24h * 60m * 60s * 30f
+                        = 2592000 + 108000 + 1800 + 30
+                        = 2701830
+                    max = 108000 * hour + 1800 * minites
+                          + 30 * seconds + frame
+ yxxxxx         : timecode flactional flame
+              y : (bit)abbb  a   : 1 (flactional falame flag)
+                             bbb : timecode type
+                                       0 - 24 flame /sec
+                                       1 - 25 flame /sec
+                                       2 - 30 flame(drop)/sec
+                                       3 - 30 flame(non drop)/sec
+          xxxxx : flactional flame
+                       0.xx * 100
+
+Master velocity(dynamic) : F2xxyyyy
+xx             : reserve
+yyyy           : dynamic
+                 ex. 68.2% = 682
+
+Phrase data 1  : E1xyzzzz
+ x(ftype)      : reserve(frase type)
+                 ftype 0 : volume
+                       1 : modulation
+                       2 : pitch vend
+                       3 : control change
+ y(fchan)      : channel
+ zzzz(fsval)   : frase start value
+Phrase data 2  : E2xxyyyy
+ xx(fctno)     : frase control number
+                 fctno 7 : volume
+                       1 : modulation
+                  1 - 32 : control change
+                     150 : pitch vend
+ yyyy(feval)   : frase end value
+Phrase data 3  : E3xxxxxx
+ xxxxxx(fnval) : frase note value
+                 ex. [10 < 70 _/] volume
+                     ftype=0 channel=x fsval=10 feval=70 fnval=100000
+
+Phrase data4   : E4xxyyyy
+ xx(fxtyp)     : fxtyp 0 : No
+                       1 : Interval
+                       2 : Number_of_data
+ yyyy(fxval)   : Phrase Extention Value
+
+
+Execution code : E6vvwwxx   
+ vv(e6cn)  : execution control no. vv=00(fin),vv=01(1ch,fin),vv=02(2ch)
+ ww(e6d1)  :  
+ xx(e6d2)  :     
+ vv : 0  Title message fin
+      1  title message one (ww : data  xx : 00)
+      2  title message two (ww : 1st data, xx : 2nd data);
+      3  #define direct_time_lock_port xx (ww = 0) /* performer sync port */
+      4  #define midi_time_code_port xx (ww = 0)   /* MTC sync port */
+      5  #define direct_time_lock_port_and_sync_start xx (ww = 0)
+      6  #define midi_time_code_port_and_sync_start xx (ww = 0)
+      7  #define direct_time_lock_sync_stop xx (ww = 0)
+      8  #define midi_time_code_sync_stop xx (ww = 0)
+
+File control   : F3xxyyyy
+xx             : channel
+yyyy           : gate(port) number(000 - 999)
+ This is used by after F0 code
+
+SMPTE time lag : F4yyyyyy
+yyyyyy         : Smpte time lag (flame * 100)
+
+Midi control  : F6vvwwxx
+ vv(mist)     : midi status data  vv=00(fin),vv=01(1ch,fin),vv=02(2ch)
+ ww(mifd)     : midi first data
+ xx(misd)     : midi second data
+                ex. <01 33 54 4a 2e> F6020133 f602544a f6012e00
+
+Instrment     : F7vvxxxx
+ vv(trns)     : transpose
+ xxxx(inst)   : instrment no.
+                ex. [vn]   3    13   1   -3 , chanel 13 inst = 1
+                    mv->trns = -3 (mr->trns &= 0x00ff)
+
+Key and time  : F8wxyyzz
+ w(kscl)      : moll or dur  (none=0,dur=1,moll=2,major=3,minor=4)
+ x(ksin)      : key signeture
+ yy(ritm)     : rithm
+ zz(time)     : time base
+                ex. $###3/4 x_moll
+                    w(kscl) = 1
+                    x(ksin) = 3
+                    yy(ritm) = 3
+                    zz(time) = 4
+
+Expression    : F9xxyyyy
+ xx(egrp)     : expression group
+ yyyy(expr)   : expression number
+                ex. [amore]   xx = 1 yyyy = ????
+                              exp. 234  xx = 77 yyyy = 234
+
+Tempo         : FAxxyyyy    xx > (100 - 200)
+ xx(tsym)     : tempo symbol no.
+ yyyy(temp)   : tempo 
+                ex. [allegro]  xx(tsym) = 5x
+                               yyyy(temp) = xxxx
+              : FAwwyyyy    ww < 50
+ ww(tsym)     : note type 0-21
+ yyyy(temp)   : tempo val *100
+                ex. [m.m. _/ = 90] ww(tsym) = 9
+                                   yyyy(temp) = 9000
+                    use mr->nval,mr->tsym,mr->temp
+
+Bar           : FBxxyyyy
+ xx(movn)     : movement number
+ yyyy(bnum)   : bar number
+                ex. -m0100017-_____________..
+                    xx(movn) = 1
+                    yyyy(bnum) = 17
+
+Synchronize   : FCxxxxxx
+ xxxxxx(sync) : synchronize
+                ex. $4/4 = 400000 start value
+
+Note off      : FD8xyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(voff)     : verociti off (0-120)
+
+Note on       : FD9xyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(veon)     : verociti on : dynamik(0-9)
+
+Pol.key.p.    : FDAxyyzz
+ x(chan)      : channel no.
+ yy(keyp)     : key position
+ zz(kprs)     : key presure
+
+Cont.change   : FDBxyyzz
+ x(chan)      : channel no.
+ yy(cntn)     : control no.
+ zz(cntv)     : control value
+
+Prog.change   : FDCxyyzz
+ x(chan)      : channel no.
+ yy(prgn)     : program number
+ zz(....)     : dumy 0xff
+
+?Chan.pres.   : FDDxyyzz (after tatch)
+ x(chan)      : channel no.
+ yy(ptyp)     : pressure type(vib. etc.)
+ zz(prsv)     : pressure value
+                ex. 4<  3>  2v
+
+Pitch, vend.  : FDExyyzz
+ x(chan)      : channel no.
+ yy(pvls)     : vvvvvvv LSB val.
+ zz(pvms)     : uuuuuuuu MSB val.
+
+Execution code : E6vvwwxx
+ vv(e6cn)  : execution control no. vv=00(fin),vv=01(1ch,fin),vv=02(2ch)
+ ww(e6d1)  :
+ xx(e6d2)  :
+ vv : 0  Title message fin
+      1  title message one (ww : data  xx : 00)
+      2  title message two (ww : 1st data, xx : 2nd data);
+      3  #define direct_time_lock_port xx (ww = 0) /* performer sync port */
+      4  #define midi_time_code_port xx (ww = 0)   /* MTC sync port */
+      5  #define direct_time_lock_port_and_sync_start xx (ww = 0)
+      6  #define midi_time_code_port_and_sync_start xx (ww = 0)
+      7  #define direct_time_lock_sync_stop xx (ww = 0)
+      8  #define midi_time_code_sync_stop xx (ww = 0)
+
+Final         : FEvvvvvv
+ vvvvvv(tcnt) : total output code count
+
+mlk output data
+SMPTE time code     : F1xx
+ xx(quaouter flame) : SMPTE quaouter flame message
+Mex Lag time (dt)   : F1 xx & 0x80 xxxx
+
+Smpte full time : B1xxxxxx
+ xxxxxx         : time code (hour * minites * seconds * frame)
+                  max = 24h * 60m * 60s * 30f
+                      = 2592000 + 108000 + 1800 + 30
+                      = 2701830
+                  max = 108000 * hour + 1800 * minites + 30 * seconds + frame
+ 8xxxxx         : timecode flactional flame
+                  .xx * 100
+
+SMPTE time lag : F4yyyyyy
+yyyyyy         : Smpte time lag (flame * 100)
+
+Bar            : FBxxyyyy
+ xx(f+movn)    : flag(0x80)+movement number
+ yyyy(bnum)    : bar number
+                 ex. -m0100017-_____________..
+                     xx(movn) = 1
+                     yyyy(bnum) = 17
+
+Midi data header : DDxxyyzz ->FDxxyyzz
+ mlk -merge option
+ internal code   : DDxxyyzz
+ xx(chan)        : channel
+ yy(memb)        : member
+ zz(track)       : track
+ mlk output code : FDxxyyzz        2000.10.30  // 2013.11.1 ng
+ xx(f+port)      : flag(x80)+port
+ yy(track)       : track
+ zz(memb)        : member
+
+Phrase data      : E4 aa bb cc dd
+ E4              : flase start code
+ aa              : flase port
+ bb              : Bx or Ex(control or pitch vend)
+ cc              : control number or pitch vend (MSB)
+ dd              : control value (MSB) or pitch vend (LSB)
+
+Phrase sub data  : E5 aa
+ E5              : flase port set
+ aa              : current port
+
+Tesx data        BF
+ BF 00 ssss      : Sequence Number
+
+ BF 01 llll      : Text Event
+ex.
+       0005      : Text Length
+ BF a b c
+ BF d e \0       : \0 Null
+
+ BF 02 llll      : Copyright Notice
+ BF T E X T
+ BF \0 \0 \0
+ BF 03 llll      : Sequence/Track Name (Music Title)
+ BF 04 llll      : Instrument Name
+ BF 05 llll      : Lyric (A lyric to be sung.)
+ BF 06 llll      : Marker
+ BF 07 llll      : Cue Point
+
+--- -score option ----
+Key and time  : F8wxyyzz
+ wx & 0x80 : flag
+ w(kscl)      : moll or dur  (none=0,dur=1,moll=2,major=3,minor=4)
+ x(ksin)      : key signeture
+ yy(ritm)     : rithm
+ zz(time)     : time base
+                ex. $###3/4 x_moll
+                    w(kscl) = 1
+                    x(ksin) = 3
+                    yy(ritm) = 3
+
+Tempo         : FAxxyyyy    xx ignore
+ ww & 0x80 : flag
+              : FAwwyyyy    ww < 22
+
+note            value        rest     no.      name
+ %xx |O|       800,000        Rb        0
+ %xx O..       700,000        Rw..      1
+ %xx O.        600,000        Rw.       2
+ %xx O         400,000        Rw        3      whole
+ %xx o/..      350,000        Rh..      4
+ %xx o/.       300,000        Rh.       5
+ %xx o/        200,000        Rh        6       half
+ %xx _/..      175,000        R..       7
+ %xx _/.       150,000        R.        8
+ %xx _/        100,000        R         9          4
+ %xx _/)..      87,500        r..      10
+ %xx _/).       75,000        r.       11
+ %xx _/)        50,000        r        12          8
+ %xx _/))..     43,750        rr..     13
+ %xx _/)).      37,500        rr.      14
+ %xx _/))       25,000        rr       15         16
+ %xx _/)))..    21,875        rrr..    16
+ %xx _/))).     18,750        rrr.     17
+ %xx _/)))      12,500        rrr      18         32
+ %xx _/)))).     9,375        rrrr.    19
+ %xx _/))))      6,250        rrrr     20         64
+ %xx _/)))))     3,125        rrrrr    21        128
+
+ ww(tsym)     : note type 0-15
+ yyyy(temp)   : tempo val *100
+                ex. [m.m. _/ = 90] ww(tsym) = 9
+                                   yyyy(temp) = 9000
+                    use mr->nval,mr->tsym,mr->temp
+

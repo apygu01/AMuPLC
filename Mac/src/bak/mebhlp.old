@@ -1,0 +1,1383 @@
+                                              
+                                                      2001.11.1
+ Rule files 
+ _Major mebcpj.dat
+ _minor mebcpi.dat
+
+ Available Note Scale ///yotei//
+ _Ionian mebion.dat
+ _Dorian mebdir.dat
+ _Phrygian mebphr.dat
+ _Lydian meblyd.dat
+ _Mixo-Lydian mebmix.dat
+ _Aeolian mebaeo.dat
+ _Locrian mebloc.dat
+
+ Chord Sample data
+{$#####3/4  G#_minor}
+!P Chord Pattern T-SD-D(P1) T-SD-D(P2) T-DD-SD-D(P3) T-SD-D(P4)
+!P1 T-SD-D Im-&VI-IVm-V7 Im-&VI-IIm7(&5)_V7
+{$:P1}
+{!Im G#m Minor chord, Root+m3+P5 -> &VI,&III,VIm7(&5),IVm,&VI}
+{!IVm C#m Minor chord, Root+m3+P5 -> IIm7(&5),SD-T = V7,&II7}
+{!IIm7(&5) A#m7(&5) Half Diminished chord, Root+m3+dim5+m7 -> V7,&II7}
+{!V7 D#7 Dominant 7th chord, Root+M3+P5+m7}
+{!II/I D/C on chord,  -> }
+{!IIm/Ix Dm/Cx Upper Structure Triad, -> xx}
+{!Iyy/IIxx Cyy/Dxx Poly Chord, -> yy}
+#define Chord_base_position 3  
+#define Chord_velocity_chars "555555"   
+#define Available_note_scale_base_position 5 
+#define Available_note_scale_velocity_chars "......"  
+#define next_progression_chord 2
+#stop chord_progression   /* off next progression chord */
+#start chord_progression  /* off pre progression chord */
+#pose chord_progression   /* store next progression chord */
+#resume chord_progression /* resume before progression chord */
+$5:Drop2 
+$5:Drop3
+$5:Voice4 Drop2&4
+$5:Spread Spread_Voicing
+$:Low_Base_add_Top
+$:Separate_Note
+{?} -> Chord select Global (Conductor track)
+? -> Chord select Part
+%                   5 5 5
+?I C,II D,II Em...
+ param example at mebcpj.dat and mebcpi.dat
+ $7:Chord_Select_Param
+$7:klp = 0.0002   /* Note length */
+$7:knp = -0.5     /* Note Position */
+$7:kvp = 0.5      /* Velocity */
+$7:kcp = 0.2      /* Current Chord */
+$7:kbp = 0.1      /* Before Chord */
+$7:kap = 0.1      /* After Chord */
+
+ current = kcp * (klp*nval + kvp*velo + knp*keyp)
+ befor   = kbp * (klp*nval + kvp*velo + knp*keyp)
+ after   = kap * (klp*nval + kvp*velo + knp*keyp)
+ cs->scv[n] = 5 * (current + befor + after)
+              |
+$6:add9 = 5,5,5,5        ". . .   ."
+
+ Temperment/Multi_Channel  mec data
+$M:Pure_Mersenne Pure_M
+$M:Pure_Mersenne_1-8ch Pure_M_1-8ch
+$M:Pure_Mersenne_9-16ch Pure_M_9-16ch
+$M:Pure_Q50 Pure_Q50   
+$M:Pure_Q50_1-8ch Pure_Q50_1-8ch
+$M:Pure_Q50_9-16ch Pure_Q50_9-16ch
+$M:Pythagorean 
+$M:Werckmeister
+$M:Just_Intonation
+$M:Just_Intonation_1-8ch Just_1-8ch Just_8ch
+$M:Pure_Temperament Pure
+$M:Pure_Temperament_1-8ch Pure_1-8ch Pure_8ch
+$M:Pure_Temperament_9-16ch Pure_9-16ch
+$M:Aravia_temperament
+$M:Multi_Channel
+
+ comment
+  {*comment text}
+
+ velocity
+  {ppp}   1.0
+  {pp}    3.0
+  {p}     6.0
+  {mp}    9.0
+  no     12.0
+  {mf}   13.0
+  {f}    14.0
+  {ff}   15.0
+  {fff}  16.0
+  velocity (note off = 0) min = 1.0 * 1 = 1, max = 16.0 * 8 = 128
+
+ transposit
+  {transposit} -> trns and make {inst}
+  {inst}  -> trans and change to [inst] transpose = xx
+
+ Set instrments note renge (read from mebrdf.dat)
+ @
+ ex.
+ @Vn.
+-s0000001 p.v. mod cn:cdt pcg tp1......2...___*______4______5______6 velo P_Exp
+
+ tempo
+  {/40}   -> {m.m. _/ = 40}
+  {/=60}  -> {m.m. _/ = 60}
+  {//120} -> {m.m. _/) = 120}
+
+ gate time
+  {%xx}  -> %xx _/)    ..
+  {yy}   -> %yy _/) 
+  xx,yy :00 -> 99.99 %
+
+ note
+  /%                 /%/                 rpeart  whole bar
+  /d                 %xx |O|             doble whole note
+  |O|                %xx |O|
+  /w                 %xx O               whole note
+  O                  %xx O
+  /h                 %xx o/              half note
+  o                  %xx o/
+  o/                 %xx o/
+  /h.                %xx o/.             half single dotted note
+  o.                 %xx o/.
+  o/.                %xx o/.
+  /h..               %xx o/..            half duble dotted note
+  o..                %xx o/..
+  o/..               %xx o/..
+  /                  %xx _/              4th note
+  /.                 %xx _/.             4th singel dotted note
+  /..                %xx _/..            4th duble dotted note
+  //                 %xx _/)             8th note
+  //.                %xx _/).            8th single dotted note
+  ///..4 or /"..4    %xx _/))..4
+  ////               %xx _/)))           32th note
+  /////..16 /""..16  %xx _/))))..16      64th duble dotted note
+  /h[2               %xx o/[2            dupret whole note
+  o[2                %xx o/[2
+  o/[2               %xx o/[2
+  /h.[3              %xx o/.[3           triplet half syngle dotted notes
+  o.[3               %xx o/.[3
+  o/.[3              %xx o/.[3
+  [                  %xx [
+  [                  %xx [
+  /////.12[17        %xx _/)))).12[17
+  /"".12[17          %xx _/)))).12[17
+  .                  %xx ./>   : _/))    acciaccatura
+  ..                 %xx ./>   : _/)))
+  ...                %xx ./>>  : _/))))
+
+  ,                  %xx ./)   : _/))    tempo sousyoku
+  ,,                 %xx ./))  : _/)))
+  ,,,                %xx ./))) : _/))))
+
+change_sync_value
+ unit = f q t b d m s n
+ +,- xxxx
+ _/+xxx
+ o/-xxx
+          n note
+    xxx : nval/100 _/ = 1000
+
+ ex.
+ _/-5   = 100000 - 500
+ o/+20  = 200000 + 20000
+
+swing
+ +,- xx 
+     xx : swing val
+ _/+xxy
+ o/-xxy
+      y : f flame
+          q MTC
+          t Time code
+          b Bit flame
+          d 1/100 sec
+          m msec
+          s sec
+ at Part Track change Note Value (Change Sync Value)
+
+tempo rubart (conducter track)
+ +,- xx 
+     xx : rubart val
+ _/+xxy
+ o/-xxy
+      y : f flame
+          q MTC
+          t Time code
+          b Bit flame
+          d 1/100 sec
+          m msec
+          s sec
+ at Conducter Track change SMPTE Time (for Tempo rubart)
+
+
+repeart
+*xx
+ex.
+ /[3                 %xx _/[3            triplet 4th notes add 2 times
+ *2                  %xx [
+                     %xx [
+                     %xx _/[3
+                     %xx [
+                     %xx [
+                     %xx _/[3
+                     %xx [
+                     %xx [
+
+ /*3                 %xx _/    : _/ + _/ + _/
+ /3                  %xx _/3   : _/[3
+                                 [
+                                 [
+
+ex.
+ {30}                {30}
+ .                   %30 ./)
+ //.3[3              %30 _/).3[3
+ *2                  %30 [
+                     %30 [
+                     %30 _/).3[3
+                     %30 [
+                     %30 [
+                     %30 _/).3[3
+                     %30 [
+                     %30 [
+ ,                   %30 ./>
+
+rest
+ Rw                  Rw                  whole rest 
+ Rh                  Rh                  half rest
+ Rh.                 Rh.                 harf single dotted rest
+ R                   R                   quater rest
+ r                   r                   8th rest
+ rr..                rr..                16th double dotted rest
+ rrr                 rrr                 32th rest
+ rrrr                rrrr                64th rest
+ rrrrr               rrrrr               128th rest
+ R*3                 R*3                 quater rest ( R + R + R)
+ R3                  R3                  same above R*3
+
+ R                   R
+ +2                  R
+                     R
+
+Global Commands
+ Modify All seq. part
+{Transpose xx}       ignore 'r' 'm' 'd' .. bars
+{Global_Transposition xx}   ignore 'r' 'm' 'd' .bars
+ +xx add
+ -xx sub
+
+Global in Sequence Commands
+{Sequence_Transposition xx} Restriction "meb fn/s" is in bug "meb fn" is OK
+
+Modify/Edit Commands
+{} on part  : Gloval
+ # : meb statement
+ /* & : mec statement */
+   #set    : Permanent 
+   #define : no shift (flag on = {reset beautify values})
+   #assign : line shift
+   #modify_start/#modify_end
+     transpose  xx
+     gate_rate   xx
+     pitch_vend  xxxx
+     moduration  xx
+     controle_number or controle_no.  xx
+     controle_data  xxx
+     note_shift  xx
+     velocity_base velocity_bases  xx.x
+     velocity x
+     harmonics or harmonize  pv  /* Harf scale */
+     harmonics or harmonize  p.v
+        p : position
+        . : . # or & $ * @
+        v : value
+            b c d e f g h i j k l
+            0 1 2 3 4 5 6 7 8 9 a 
+     beat
+
+                                      #asn    #def
+                  #set,#unset #modify #assign #define #add #sub #clear #reset
+gate_rate              O         O       O       O      O    O     O     O
+moduration             O         O       O       O      O    O     O     O
+controle_number        X         O       X       X      X    X     O     O
+controle_data          X         O       X       X      X    X     O     O
+pitchvend              O         O       O       O      O    O     O     O
+transposition          X         X       O       X      X    X     X     X
+transpose              O         O       O       O      X    X     O     O
+velocity               O         O       O       O      O    O     O     X
+velocity_base          O         O       O       O      O    O     X     O
+harmonics              O         O       O       O      O    O     O     O
+beat
+note_shift             X         O       X       X      X    X     X     X
+renumber_start_value   O         X       X       O      X    X     X     X
+bars,bar               X         X       X       X      O    X     X     X
+program_change         X         X       X       X      X    X     O     O
+lag
+offset
+chord_base_position    X         X       X       O      X    X     X     X
+chord_velocity_chars   X         X       X       O      X    X     X     X
+next_progression_chord X         X       X       O      X    X     X     X
+
+Ex.
+{lag 8 <unit 8>} on 001 002  /* omment */
+{#define gate_rate _/ = %xx} on 001
+
+ #set smpte_add_value 00:00:01/00.00     /* add */
+ #set smpte_sub_value 00:00:02/00.00     /* sub if minus change to zero */
+
+ #set renumber_start_value xxx
+{#set renumber_start_value xxx}
+
+ #modify_start gate_rate _/ = %xx    Change % all, track only
+{#modify_start gate_rate _/ = %xx}   Change % all, tracks (gloval)
+ #assign gate_rate _/ = %xx    Line Shift 
+{#assign gate_rate _/ = %xx}   Line Shift,tracks (gloval)
+ #define gate_rate _/ = %xx    No Line Shift change %xx lines
+{#define gate_rate _/ = %xx}   No Line Shift change %xx lines, Gloval
+ &define gate_rate _/ = %xx
+{&define gate_rate _/ = %xx}
+
+ #modify_start pitch_vend xxxxx
+ #modify_end pitch_vend
+
+{&define moduration xxx}
+
+ #modify_start controle_number xx
+ #modify_end controle_number
+{#modify_start controle_number xx}
+{#modify_end controle_number}
+ #assign controle_number xx
+
+ #modify_start controle_data xxx
+ #modify_end controle_data
+{#modify_start controle_data xxx}
+{#modify_end controle_data}
+ 
+ #modify_start note_shift xx
+ #modify_end note_shift
+ #define note_shift xx
+{#define note_shift xx}
+ &define note_shift xx
+{&define note_shift xx}
+
+ #modify_start transpose_value xx
+ #modify_end transpose_value
+ #define transpose_value xx
+{#define transpose_value xx}
+ &define transpose_value xx
+{&define transpose_value xx}
+
+ #modify_start add_duration_rates xx
+ #modify_end add_duration_rates
+{#modify_start add_duration_rates xx}
+{#modify_end add_duration_rates}
+
+ #define velocity_bases xx
+ #modify_start add_velocity_bases xx
+ #modify_end add_velocity_bases
+{#modify_start add_velocity_bases xx}
+{#modify_end add_velocity_bases}
+
+ #include filename
+{#include filename}
+      file data
+      data ..
+      :
+      /*
+
+ #delete bar xx
+{#delete bar xx}
+ #delete bars xx
+{#delete bars xx}
+
+ #add bar xx
+{#add bar xx}
+ #add bars xx
+{#add bars xx}
+
+#define chord_velocity_chars ....................................
+{#define chord_base_position x}
+#define chord_base_position x
+   x : -1,0 - 7
+       default 3 (*)
+
+ crp # > +   =  +1
+     & < -   =  -1
+     '>' =  keyp + 1 Note on Out Velo = 5
+     '<' =  keyp - 1 Note on Out Velo = 5
+     '+' No Out
+     '-' No Out
+   chord_base_position = 3 4
+ C         60      72
+ C#        61      73
+ D         62      74
+ E         64      76
+ F         65      77
+ G         67      79
+ A         69      81
+ B         71      83
+ C         72      84
+
+
+code out
+ <fx xx yy zz> <xx xx xx rs xx> : hex
+                         rs : roland system exclusive sum (beautifyd by meb)
+ ex.
+ <f0 41 01 16 12>
+ <10 00 12 00  RS f7>    system exclusive (MT32 channel part 6 off)
+ <f0 41 01 16 12>
+ <10 00 13 00  rs f7>    system exclusive (MT32 channel part 7 off)
+ <f0 41 01 16 12>
+ <10 00 14 00  RS f7>    system exclusive (MT32 channel part 8 off)
+
+phrasing (articulation)
+ [p<f/3;f>pp///] v       -> [p<f _/3;f>pp _/))] Volume
+ [230 > 450//4] pi       -> [230 < 450 _/)4] Pitch_vend
+ [mp < fff/h;fff>ff/h]   -> [mp < fff o/;fff>ff o/]
+ [12 < ff/h.2; ff>p/w12] -> [12 < ff o/.2; ff>p O12]
+ [ 30 < 40 /] mo         -> [ 30 < 40 _/] Moduration
+ [ 30 < 140 /] t         -> [ 30 < 140 _/] tempo
+ v || V -> Volume
+ p || P -> Pitch_vend
+ m || M -> Moduration
+ e || E -> Expression
+ c || C -> Controller xx
+ i || I -> Interval xx
+ n || N -> Number_of_Controle_data xx
+
+tempo and key
+ /* global key define */
+ {$C}
+ {$##4/4 dur}
+ {$&&&&&2/2 major}
+ /* local key */
+ ($C)
+ (cl. in a)
+ $&&&&4/4  Transposed -3  <- inserted
+
+chord
+ $0:Major/minor
+ $1:Code_Name
+ $2:Chord Progression ex. T-D,T-S
+ $3:Default_Root ex. Root+3+5
+ $4:Default_Name ex. Major 6th chord
+ $5:Default_Note ex. ". . . &"
+
+note            value        rest     no.      name
+ %xx |O|       800,000        Rb        0
+ %xx O..       700,000        Rw..      1
+ %xx O.        600,000        Rw.       2
+ %xx O         400,000        Rw        3      whole
+ %xx o/..      350,000        Rh..      4
+ %xx o/.       300,000        Rh.       5
+ %xx o/        200,000        Rh        6       half
+ %xx _/..      175,000        R..       7
+ %xx _/.       150,000        R.        8
+ %xx _/        100,000        R         9          4
+ %xx _/)..      87,500        r..      10
+ %xx _/).       75,000        r.       11
+ %xx _/)        50,000        r        12          8
+ %xx _/))..     43,750        rr..     13
+ %xx _/)).      37,500        rr.      14
+ %xx _/))       25,000        rr       15         16
+ %xx _/)))..    21,875        rrr..    16
+ %xx _/))).     18,750        rrr.     17
+ %xx _/)))      12,500        rrr      18         32
+ %xx _/)))).     9,375        rrrr.    19
+ %xx _/))))      6,250        rrrr     20         64
+ %xx _/)))))     3,125        rrrrr    21        128
+
+ -           bar
+ =           double bar
+ fine        final
+-s0100001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo pedal
+=s0100002 p.v. mod cn:cdt pcg tp1======2======*======4======5======6 velo pedal
+final.....................................................................final
+
+{$%}  {segno}
+{(%}  {fermata} 
+{d.s.}       dal segno
+{d.c.}       da capo
+{|:}         repeart
+{:|}         repeart
+{$@1} {$*1}  skip to *
+{$@x} {$*x}
+{(1} {1)} {(2} {2)} skip
+
+before note (Accidental & expression)
+ +
+  :          continue
+  1-9        verocity on(sousyoku)
+  b-j        velociti off
+  B-J        poliphonic key presure
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  * + # = +  triple sharp
+  @ + & = -  triple flat
+
+note
+ %
+  1-9        velocity on
+  Transpose  velocity on
+  0123456789#&$*@: 
+  ABCDEFGHIJ]}/'!; :  >
+  abcdefghij[{%"~, :  <  
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+
+  B-J        poliphonic key presure
+  0123456789 
+  jklnpquvyz velocity off
+  JKLNPQUVYZ poliphonic key presure
+  >
+  <          
+  +
+  -
+
+  t          tril
+  T          reverse tril
+  s          turn
+  sb
+ #s
+  S          reverse turn
+ #Sb
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverse tril
+
+ ex.
+-m010001-_____________________________________________
+%xx _/     2   1    4    5   6    7   8    2   6   7  
+:          t   T    s    S   m    M   w    W   r   R  
+           .   .    .    .   .    .   .    .   .   .  
+            . .      .  .     .  .     .  .     . .   
+           .   .   .      .  .    .   .    .   .   .  
+                    .    .    .  .     .  .     . .   
+                             .    .   .    .   .   .  
+                                       .  .     . .   
+                                      .    .   .   .  
+                                                . .   
+                                               .   .  
+sync value
+ 0 : 1-9,t,s,m,w,r,T,S,M,W,R  1000000
+ 1 : r,R                       888889
+ 2 : w,W                       857143
+ 3 : m,M                       800000
+ 4 : r,R                       777778
+ 5 : s,S                       750000
+ 6 : w,W                       714286
+ 7 : t,T,r,R                   666667
+ 8 : m,M                       600000
+ 9 : w,W                       571429
+10 : r,R                       555556
+11 : s,S                       500000
+12 : r,R                       444445
+13 : w,W                       428572
+14 : m,M                       400000
+15 : t,T,r,R                   333334
+16 : w,W                       285715
+17 : s,S                       250000
+18 : r,R                       222223
+19 : m,M                       200000
+20 : w,W                       142858
+21 : r,R                       111112
+22 : off prty t,T,w,W,r,R,s,S,m,M
+
+rest
+ r,R
+  b-j        velociti off
+  B-J        poliphonic key presure
+  :          continue
+
+after note (after touch, velocity off, etc.)
+ :
+  1-9        velocity on
+  b-j        velociti off
+  B-J        poliphonic key presure
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  t          tril
+  T          reverce tril
+  s          turn
+  S          reverse turn
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverce tril
+
+pedal
+ @          Sustain pedal on
+ *          Sustain senza
+ #          Portament on
+ $          Portament off
+ +          Soft pedal on
+ -          Soft pedal off
+ none                         keep keep
+ {change dumper signs}        keep change
+ {modify dumper signs}        del  modify
+ {delete dumper signs}        del  keep
+ {clear dumper signs}         del  reset
+ 
+Expand Symbol
+Type I
+;xyz [region] note_type 
+ xyz -> fn_xyz.mph
+ region = all (*)
+Type II
+;Text [region]  note_type
+ Text -> xyz -> fn_xyz.mph (Check mebmph.dat)
+ [region]
+  *   : all
+  >   : Greater than
+  <   : Less than
+  yy  : number of note lines
+  Byy : number of meas
+
+  region priority
+    1  none
+    2  Byy
+    3  xx
+    4  *
+    5  >
+    6  <
+
+  note_type
+    o/
+    _/.
+ex.
+ Symbol or Text  Type      Efect
+;aaa                I    aaa -> Next line
+;xyz o/             I    xyz -> o/ lines in meas 
+;xyz > _/.          I    xyz -> greater than _/. lines
+;Text * o/         II    Text -> xyz -> all o/ lines
+;Text xx           II    Text -> xyz -> Number of xx lines
+;Text Byy          II    Text -> xyz -> yy meas note lines
+;Tp.Solo-1 Byy o/  II    Tp.Solo-1 -> tp1 -> yy meas o/ lines
+;bbb *              I    bbb -> all lines
+;Text < o/.        II    Text -> xyz less than o/. lines
+
+SMF commands
+*Line is SMF Meta Events for mec -smf, mlk -smfx option   
+*S <Sequence Name>
+*C <Copyright Notice>
+*X <Text Event>
+*L <Liric>
+
+Vertical Modify Commands
+*Uppercase %,s,c line
+*G : Gloval_Velocity (Conducter dymc)
+*T : Tempo (Conducter)
+*E : Expand (Tempo Rubart : Conducter)
+     Dynamic Expand (Part)
+*V : Velocity_Rate (Conducter & Part)
+*P : Pitch_Vend (Part)
+*M : Moduration (Part)
+*Lowercase %,s,c,+,: line
+*g : Gloval_Velocity (Conducter dymc)
+*t : Tempo (Conducter)
+*e : Expand (Tempo Rubart : Conducter egnore + line)
+     Dynamic Expand (Part)
+*v : Velocity_Rate (Conducter & Part)
+*p : Pitch_Vend (Part)
+*m : Moduration (Part)
+
+
+*E : Dynamic Expand
+     +xxx : Symbol
+     -xxx : Symbol
+     ~    : Nochange
+     !    : Reset
+ ex.
+ *E ((+abc  -def*2 +xyz *3 )3 +des _xxx ,!!~~~ )2
+ *E +abc -def -def +xyz +xyz +xyz
+    +abc -def -def +xyz +xyz +xyz
+    +abc -def -def +xyz +xyz +xyz
+    +des _xxx _ _ ~ ~ ~
+    +abc -def -def +xyz +xyz +xyz
+    +abc -def -def +xyz +xyz +xyz
+    +abc -def -def +xyz +xyz +xyz
+    +des _xxx _ _ ~ ~ ~ 
+
+ *E ((+abc  -def !!~)_*2 ,!)*2 
+ *E +abc -def ! ! ~ ! ! ! +abc -def ! ! ~ ! ! !
+
+
+ ex.1
+ *E +abc -def +dxp*2
+ -m               P_Exp
+ %                 +abc
+ %                 -def
+ %                 +dxp
+ %                 +dxp
+ ex.2
+ *E (+abc +def)*2
+ -m               P_Exp
+ %                 +abc
+ %                 +def
+ %                 +abc
+ %                 +def
+ ex.3
+ *E (+abc ~ -def _...)*2
+ -m               P_Exp
+ %                 +abc
+ %                 +ORG
+ %                 -def
+ %                 _...
+ %                 +abc
+ %                 +ORG
+ %                 +def
+ %                 _...
+
+ *D ((+abc  -def*2 +xyz *3 )3 +des _xxx ,__~~~ )2
+ *E ((+abc  -def )3 +des _xxx ,!!~~~ )2
+ *D ((+abc  -dsf abc)_*2 ,_)*2
+ *D ((+abc*3  -def __~*2)2,(_ddd  -s33 +xaa*2)*2)*5 
+ *D +abc  -def*4 
+ *V (13.2 12.8 13.0 _ ~~12.0)*2,13.0 12.8*4
+ *M (13 12 1310 ,.~~11)*3,13 12*4
+ *P ((_ -1900 180 17 6)*3 (1600 1700 1800 1900)*3)*2
+ *G ((120.0 1900.0 180.0 170.0)*2, (160.0 170.0)*2)
+ *+chp r = "4 4 4 4" n = "02 1 1 0" v = "63 5 4 3"
+ *+chb r = "4 4 4 4" n = "02 1 1 0" v = "63 5 4 3"
+ *+chp r = "4 4 4 4 4 4 4 4"
+ *+chp v = "5 4 3 2 4 5 4 3"
+ *+chp n = "02 a 1 0 02 1 0 1"
+ *E (!!)*3
+ *+dex r = "997 930 928 651 311 964 973 913 967 967 967"
+ *+dex n = "03 1 2 3 4 3 2 1 0 1 3"
+ *+dex v = "54 5 5 5 5 5 5 5 5 5 5"
+
+*G : Gloval_Velocity (Conducter dymc)
+ *G 
+ ex.1
+ *G (110.0 92.0 100.0 90.0) * 2 
+-c0000001____. tp  velo   tempo    dymc
+ s93           00  12.8    90.0  110.0%
+ s93           00  12.8    90.0   92.0%
+-c0000002____. tp  velo   tempo    dymc
+ s93           00  12.8    90.0  100.0%
+ s93           00  12.8    90.0   90.0%
+-c0000003____. tp  velo   tempo    dymc
+ s93           00  12.8    90.0  110.0%
+ s93           00  12.8    90.0   92.0%
+-c0000004____. tp  velo   tempo    dymc
+ s93           00  12.8    90.0  100.0%
+ s93           00  12.8    90.0   90.0%
+
+*V : Velocity_Rate
+*P : Pitch_Vend
+*M : Moduration
+
+ Dynamic Expand
+*+ Dynamic Expand
+*- Dynamic Expand
+*+A00 .. *+A99 : Arpeggio reserve char
+*-A00 .. *-A99 : Arpeggio reserve char
+*+S00 .. *+S99 : Split reserve char
+*-S00 .. *-S99 : Split reserve char
+
+ *+abc n r = "4_1*4+ 4 2*2-" n = "0 31 4 3" v = "5 4 4 2"
+ *-axy n
+ *+b01   r = "4 2 2 2*2 1*4" 
+ *+b01   n = "0- n 1 23 14"  
+ *+b01   v = "5  4 4 34 5"                                     
+
+  n : meb repeat
+  r : Rhythm pattern
+  n : Note pattern
+
+ ex. -m0100001-________________ ._Exp
+     *+s03 2
+     %xx _/                      +s03
+     %xx _/                      +s03
+
+
+ *axy   -----> Arpeggio
+  ---->      arpeggio up
+  <----      arpeggio doun
+ ex. -m0100001-________________ ._Exp
+     *7               ---->  7&
+     %xx _/       5   5 5 5 #s   +a07
+
+*+axy arpeggio  call dexpap_mec()
+*-a02 arpeggio  call dexpap_mec()
+
+ *split+xx yy
+*+srn rep r = " rhythm " n = " notes "
+         +sxx -sxx
+ ex. -m0100001-________________ ._Exp
+     *Split+3 2
+     %xx _/                      +s03
+     %xx _/                      +s03
+ s21 : Split 2 Pattern 1
+ s22 : Split 2 Pattern 2
+ s32 : Split 3 Pattern 2
+ + : Nomal     - : Reverse
+
+*+sxx split  call dexpsp_mec()
+
+
+
+ /* User Interface */
+*yxx  call dexpyxx_meb()
+
+bar example
+conductor staff midi format
+-c0100001   0____.____1____.____2____. tp  velo   tempo    dymc  hh:mm:ss/ff.ff
+%68 _/                                 xx  xx.x   xxx.x  xxx.x%  00:00:05/00.00
+-c : conductor 
+  01 : sequence no.
+    00001 : measure
+            0____.____1____.____2____. : ryhthm data
+                                       tp : transpose
+                                           velo : master velocity
+                                                  tempo : master tempo
+                                                           dymc : master velo.
+                                                                 hh:mm:ss/ff.ff
+conductor staff cueing format
+-c0100001   pno  msg  hh:mm:ss/ff.ff  evno  ainf  tempo    dymc  hh:mm:ss/ff.ff
+            xxx  ...  xx:xx:xx/xx.xx  xxxx  ....   60.0  160.0%  xx:xx:xx/xx.xx
+-c : conductor 
+  01 : sequence no.
+    00001 : measure
+            midi set-up message
+            pno : port number
+                 msg : message id.
+                   tmo : time code offset
+                   eel : enable event list
+                   del : disable event list
+                   cel : clear event list
+                   ssp : system stop
+                   elq : event list request
+                   pip : punch in point
+                   pop : punch out point
+                   dip : delete punch in point
+                   dop : delete punch out point
+                   est : event start point
+                   esp : event stop point
+                   esa : event start point with additional information
+                   epa : event stop point with additional information
+                   dep : delete event start point
+                   dpp : delete event stop point
+                   cup : cue point
+                   cua : cue point with additional information
+                   dcp : delete cue point
+                   ena : event name in additional information
+                      hh:mm:ss/ff.ff : setup time data
+                                      evno : Event number (max. 16384)
+                                            ainf : additional information
+                                                  tempo : master tempo
+                                                           dymc : master velo.
+                                                                 hh:mm:ss/ff.ff
+
+soprano staff
+-s0100001  c p.v. mod cn:cdt tp 1______2______*______4______5______6 velo pedal
+-s : syncesizer
+  01 : sequence no.
+    00001 : measure
+           c : pitch vend courve ( / \ < > s w r ..)
+             p.v. : pitch vend
+                  mod : moduration
+                      cn : controle number
+                         cdt : controle data
+                             tp : transpose
+                                1______2______*______4______5______6 : data    
+
+symbol table
+                       symtype     symv1     symv2     symv3     symv4
+                       integer      real      real      real      char
+    1 - 9    dynamic            velocity   m.velo.   reserve      xxxx
+              (megmeb)          mv->dymc mv->mdymc   reserve      xxxx
+{ppp}                        1       1.0      10.0     xxxxx      xxxx
+{pp}                         2       3.0      30.0     xxxxx      xxxx
+{p}                          3       6.0      60.0     xxxxx      xxxx
+{mp}                         4       9.0      90.0     xxxxx      xxxx
+{mf}                         5      13.0     130.0     xxxxx      xxxx
+{f}                          6      14.0     140.0     xxxxx      xxxx
+{ff}                         7      15.0     150.0     xxxxx      xxxx
+{fff}                        8      16.0     160.0     xxxxx      xxxx
+
+  10 - 99    Reserve
+
+ 100 - 199   Tempo
+                       symtype     symv1     symv2     symv3     symv4
+             (megmeb) mb->tsym            mb->dymc
+             (megmiv)          mr->temp1 mr->temp2 mr->temp3
+                                 reserve     tempo      band
+{grave}                    100       xxx        40         6      xxxx
+{largo}                    101       xxx        46         7      xxxx
+{lento}                    102       xxx        52         8      xxxx
+{adagio}                   103       xxx        58         9      xxxx
+{larghetto}                104       xxx        60        10      xxxx
+{andante}                  105       xxx        66        11      xxxx
+{andantino}                106       xxx        76        12      xxxx
+{moderato}                 107       xxx        84        15      xxxx
+{allegretto}               108       xxx       108        16      xxxx
+{allegro moderato}         109       xxx       116        10      xxxx
+{allegro ma non troppo}    110       xxx       120        10      xxxx
+{allegro}                  111       xxx       132        18      xxxx
+{allegro assai}            112       xxx       140        15      xxxx
+{arregro vivace}           113       xxx       150        15      xxxx
+{vivace}                   114       xxx       160        20      xxxx
+{presto}                   115       xxx       184        20      xxxx
+{prestissimo}              116       xxx       200        20      xxxx
+{commodo}                  117       xxx     xxxxx     xxxxx      xxxx
+{piu allegro}              118       xxx     xxxxx     xxxxx      xxxx
+{meno allegro}             119       xxx     xxxxx     xxxxx      xxxx
+{piu mosso}                120       xxx     xxxxx     xxxxx      xxxx
+{rit.}                     121       xxx     xxxxx     xxxxx      xxxx
+{accel.}                   122       xxx     xxxxx     xxxxx      xxxx
+{in tempo}                 123       xxx     xxxxx     xxxxx      xxxx
+{.                         124       xxx     xxxxx     xxxxx      xxxx
+
+  200 - 999    expression
+                       symtype     symv1     symv2     symv3     symv5
+                               mr->expr1 mr->expr2 mr->expr3
+{affettuoso}               200         1     xxxxx     xxxxx      xxxx
+{amorosamente}             201         2     xxxxx     xxxxx      xxxx
+{con amore}                202         3     xxxxx     xxxxx      xxxx
+{amoroso}                  203         4     xxxxx     xxxxx      xxxx
+{allegramente}             204         5     xxxxx     xxxxx      xxxx
+{con allegrezza}           205         6     xxxxx     xxxxx      xxxx
+{con anima}                206         7     xxxxx     xxxxx      xxxx
+{animato}                  207         8     xxxxx     xxxxx      xxxx
+{con brio}                 208         9     xxxxx     xxxxx      xxxx
+{con moto}                 209        10     xxxxx     xxxxx      xxxx
+{spiritoso}                210        11     xxxxx     xxxxx      xxxx
+{con spirito}              211        12     xxxxx     xxxxx      xxxx
+{rapidamente}              212        13     xxxxx     xxxxx      xxxx
+{veloce}                   213        14     xxxxx     xxxxx      xxxx
+{vivo}                     214        15     xxxxx     xxxxx      xxxx
+{appassionato}             215        16     xxxxx     xxxxx      xxxx
+{passionato}               216        17     xxxxx     xxxxx      xxxx
+
+  1000 - 9999   woodwind instruments
+
+       transpose ->  1  3     6  8 10    13
+                   0| 2| 4| 5| 7| 9|11|12
+  trnst            [0]             [1]
+    c    [0]         0               0 
+         [1]         7 (#######)    12 (&&&&&)
+    d    [2]         2 (##)          2 (##)
+         [3]        10 (&&&)        10 (&&&)
+    e    [4]         4 (####)        4 (####)
+    f    [5]         8 (&)           8 (&)
+         [6]         6 (######)     13 (&&&&&&)
+    g    [7]         1 (#)           1 (#)
+         [8]        11 (&&&&)       11 (&&&&)
+    a    [9]         3 (###)         3 (###)
+    b   [10]         9 (&&)          9 (&&)
+    h   [11]         5 (#####)      14 (&&&&&&&)
+
+             Instrument number  Low note High note Transpose  Interval National
+
+                       symtype     symv1     symv2     symv3     symv4
+{Piccolo}                 1000        74       107        12         8 EFI 
+{Pic.}                    1000        74       107        12         8 EFI 
+!Ottavino}                1000        74       107        12         8 Ita.
+!Ott.}                    1000        74       107        12         8 Ita.
+
+{Flute}                   1010        60        96         0         1 Eng.
+{Fl.}                     1010        60        96         0         1 Eng.
+!Flauto}                  1010        60        96         0         1 Ita.
+!Flauto grande}           1010        60        96         0         1 Ger.
+{Flote}                   1010        60        96         0         1 Ger.
+
+{Alto flute}              1011                            -6        -4 Eng.
+!Altflote}                1011                            -6        -4 Ger.
+!Flute en sol}            1011                            -6        -4 Fra.
+!Flauto contralto}        1011                            -6        -4 Ita.
+
+{Ob.}                     1020        59        91         0         1 Ieg 
+{Oboe}                    1020        59        91         0         1 Ieg 
+!Hautbois}                1020        59        91         0         1 Fra.
+!Htb.}                    1020        59        91         0         1 Fra.
+!Hoboe}                   1020        59        91         0         1 
+
+!Hautbois d'amour}        1021                            -4        -3 Fra.
+{Oboe d'amore}            1021                            -4        -3 IGE 
+!Liebesoboe}              1021                            -4        -3 Ger.
+
+{English Horn}            1022         9         3        -8        -5 Eng.
+{Cor Anglais}             1022         9         3        -8        -5 Fra.
+!Corno Inglese}           1022                            -8        -5 Ita.
+!Cor Inglese}             1022                            -8        -5 Ita.
+!Englisches Horn}         1022                            -8        -5 Ger.
+!Englisch Horn}           1022                            -8        -5 Ger.
+
+!Fagotto}                 1023                             0         1 Ita.
+{Fg.}                     1023                             0         1 Ita.
+{Fagott}                  1023                             0         1 Ger.
+{Fag.}                    1023                             0         1 Ger.
+{Bassoon}                 1023                             0         1 Eng.
+!Bon.}                    1023                             0         1 Eng.
+!Basson}                  1023                             0         1 Fra.
+
+{heckelphone}             1024                           -12        -8 Eng.
+{Heckelphon}              1024        11         3       -12        -8 Ger.
+
+{CL. in A&}               1030        51        91         9         6 IE  
+{Clarinet in A&}          1030        51        91         9         6 Eng.
+!Clarinette in A&}        1030        51        91         9         6 Fra.
+!Klarinette in A&}        1030        51        91         9         6 Ger.
+
+{CL. in E&}               1031        51        91         4         3 IE  
+{Clarinet in E&}          1031        51        91         4         3 Eng.
+!Clarinette in E&}        1031        51        91         4         3 Fra.
+!Klarinette in E&}        1031        51        91         4         3 Ger.
+
+{Cl. in D}                1032        51        91         3         2 IE  
+{Clarinet in D}           1032        51        91         3         2 Eng.
+!Clarinette in D}         1032        51        91         3         2 Fra.
+!Klarinette in D}         1032        51        91         3         2 Ger.
+
+{CL. in C}                1033        51        91         0         1 IE  
+{Clarinet in C}           1033        51        91         0         1 Eng.
+!Clarinette in C}         1033        51        91         0         1 Fra.
+!Klarinette in C}         1033        51        91         0         1 Ger.
+
+{CL. in B&} /* sop */     1034        51        92        -3        -2 IE  
+{Clarinet in B&}          1034        51        92        -3        -2 Eng.
+!Clarinette in B&}        1034        51        92        -3        -2 Fra.
+!Klarinette in B&}        1034        51        92        -3        -2 Ger.
+
+{CL. in A}  /* sop */     1035        51        91        -4        -3 IE  
+{Clarinet in A}           1035        51        91        -4        -3 Eng.
+!Clarinette in A}         1035        51        91        -4        -3 Fra.
+!Klarinette in A}         1035        51        91        -4        -3 Ger.
+
+{CL. in E& Alt}           1036        51        91       -10        -6 IE  
+{Clarinet in E& Alt}      1036        51        91       -10        -6 Eng.
+!Clarinette in E& Alt}    1036        51        91       -10        -6 Fra.
+!Klarinette in E& Alt}    1036        51        91       -10        -6 Ger.
+
+{CL. in B& Bass}          1037        51        91       -14        -9 IE  
+{Bass CL. in B&}          1037        51        91       -14        -9     
+{Clarinet in B& Bass}     1037        51        91       -14        -9 Eng.
+!Clarinette in B& Bass}   1037        51        91       -14        -9 Fra.
+!Klarinette in B& Bass}   1037        51        91       -14        -9 Ger.
+
+{CL. in B& CBass}         1038        51        91       -26       -13 IE  
+{Clarinet in B& CBass}    1038        51        91       -26       -13 Eng.
+!Clarinette in B& CBass}  1038        51        91       -26       -13 Fra.
+!Klarinette in B& CBass}  1038        51        91       -26       -13 Ger.
+
+{CL. in A Bass}           1039        51        91       -16       -10 IE  
+{Bass CL. in A}           1039        51        91       -16       -10     
+{Clarinet in A Bass}      1039        51        91       -16       -10 Eng.
+!Clarinette in A Bass}    1039        51        91       -16       -10 Fra.
+!Klarinette in A Bass}    1039        51        91       -16       -10 Ger.
+
+{Clarinette basse}        1040        51        91       -14      xxxx fra.
+{Clarinetto basso}        1040        51        91       -14      xxxx Ita.
+{Clarone}                 1040        51        91       -14      xxxx Ita.
+{Bassklarinette}          1040        51        91       -14      xxxx Ger.
+{Bass clarinet}           1040        51        91       -14      xxxx Eng.
+
+{Cor de bassette}         1041                                    xxxx Fra.
+{Corno di bassetto}       1041                                    xxxx Ita.
+{Bassetthorn}             1041                                    xxxx Ger.
+{bassett horn}            1041                                    xxxx Eng.
+
+{Saxophone}               1042                                    xxxx FE  
+{Saxofono}                1042                                    xxxx Ita.
+{Sassofono}               1042                                    xxxx Ita.
+{Saxophon}                1042                                    xxxx Ger.
+
+ brass instruments
+{Cor}                     2000        31        81         0         1 Fra.
+{Corno}                   2000        31        81         0         1 Ita.
+{Horn}                    2000        31        81         0         1 GE  
+{Hr. in B&}               2001        31        81        -2        -2 Ger.
+{Hr. in A}                2002        31        81        -3        -3 Ger.
+{Hr. in A&}               2003        31        81        -4        -3 Ger.
+{Hr. in G}                2004        31        81        -5        -4 Ger.
+{Hr. in F}                2005        31        81        -7        -5 Ger.
+{Hr. in E}                2006        31        81        -8        -6 Ger.
+{Hr. in E&}               2007        31        81        -9        -6 Ger.
+{Hr. in D}                2008        31        81       -10        -7 Ger.
+{Hr. in C}                2009        31        81       -12        -8 Ger.
+{Hr. in B bass}           2010        31        81       -13        -9 Ger.
+{Hr. in B& bass}          2011        31        81       -14        -9 Ger.
+{Hr. in A bass}           2012        31        81       -15       -10 Ger.
+
+{Trompette}               2020        54        88                xxxx Fra.
+{Tromba}                  2020        54        88                xxxx Ita 
+{Trompete}                2020        54        88                xxxx Ger.
+{Trumpet}                 2020        54        88                xxxx Eng.
+
+{Piston}                  2030                                    xxxx Fra.
+{Cornet a piston}         2030                                    xxxx Fra.
+{Cornetta}                2030                                    xxxx Ita.
+{Kornett}                 2030                                    xxxx Ger.
+{Cornet}                  2030                                    xxxx Eng.
+
+{Trombone}                2040                                    xxxx FIE 
+{Posaune}                 2040                                    xxxx Ger.
+
+{Tuba}                    2050                                    xxxx All 
+{Tuba in B&}              2051                                    xxxx All 
+{Tuba in F}               2052                                    xxxx All 
+{Tuba in E&}              2053                                    xxxx All 
+{Bass Tuba inE&}          2053                                    xxxx All 
+{Tuba in C}               2054                                    xxxx All 
+{Contrabass Tuba in C}    2054                                    xxxx All 
+{Contrabass Tuba in B&}   2055                                    xxxx All 
+
+ percussion instruments
+                          3000    xxxxxx    xxxxxx       xxx      xxxx 
+
+{Timpani}                 4000                             0         1
+{Timp.}                   4001                             0         1
+!Kettledrums}             4002                             0         1
+!K.d.}                    4003                             0         1
+!Pauken}                  4004                             0         1
+!Pauk.}                   4005                             0         1
+!Timbales}                4006                             0         1
+!Timb.}                   4007                             0         1
+
+{Glockenspiel}            4010                             0         1
+{Glock.}                  4011                             0         1
+!Jeu de Timbres}          4012                             0         1
+!J.de Timb.}              4013                             0         1
+!Campanelli}              4014                             0         1
+!Cmli.}                   4015                             0         1
+
+{Xylophone}               4020                             0         1 Eng.
+{Xylo.}                   4021                             0         1 Eng.
+!Xylophn}                 4022                             0         1 Ger.
+!Claquebois}              4023                             0         1 Fra.
+!Xilofono}                4024                             0         1 Ita.
+!Xf.}                     4025                             0         1 Ita.
+
+{Vibraphone}              4030                             0         1 EF  
+{Vib.}                    4031                             0         1 USA 
+!Vibrafono}               4032                             0         1 USA 
+{Vibraphon}               4033                             0         1 Ger.
+
+{Marimba}                 4040         0         0         0         1 all 
+{Mar.}                    4041         0         0         0         1 all 
+
+{Chimes}                  4050         0         0         0         1 Eng.
+{Chim.}                   4051         0         0         0         1 Eng.
+!Rohorenglocken}          4052         0         0         0         1 Ger.
+!Cloches Tubulaires}      4053         0         0         0         1 Fra.
+!Campane Tubolari}        4054         0         0         0         1 Ita.
+
+{Celesta}                 4060                             0         1 Ita.
+{Cel.}                    4061                             0         1 Ita.
+
+  keyboard instruments
+{Piano}                   5000         9       108         0         1 EF  
+{Pianoforte}              5000         9       108         0         1 Ita.
+{Klavier}                 5000         9       108         0         1 Ger.
+
+  stringed instruments
+{Vn.}                     6000        55        96         0         1 Ita.
+!Violon}                  6001        55        96         0         1 Eng.
+!Violino}                 6002        55        96         0         1 Ita.
+{Violine}                 6003        55        96         0         1 Ger.
+{Violin}                  6004        55        96         0         1 Eng.
+!Vl.}                     6005        55        96         0         1 Eng.
+
+{Viola}                   6010        48        88         0         1 IE  
+{Va.}                     6011        48        88         0         1 IE  
+!Bratsche}                6012        48        88         0         1 Ger.
+!Alto}                    6013        48        88         0         1 Ger.
+
+{Violoncello}             6020        36        76         0         1 GI  
+!Violoncelle}             6021        36        76         0         1 Fra.
+{Cello}                   6022        36        76         0         1 Eng.
+{Vc.}                     6023        36        76         0         1 Eng.
+
+{Double bass}             6030        29        58         0         1 Eng.
+{Contrabasso}             6031        29        58         0         1 Ita.
+{Cb.}                     6032        29        58         0         1 Ita.
+!Contrebasse}             6033        29        58         0         1 Fra.
+{Kontrabass}              6034        29        58         0         1 Ger.
+!Kb.}                     6035        29        58         0         1 Ger.
+
+        |-2 |   | 1 | 3 |   | 6 | 8 | 10|   | 13| 15
+        A | H | C | D | E | F | G | A | H | C | D | E 
+       -3  -1   0   2   4   5   7   9   11  12  14  
+      interval  1   2   3   4   5   6   7  oct.
+
+              C(0:1)   Es(3:3)     B(2:2)     A(9:6)     F(5:4)
+    C         C        A           D         Es          G
+    g         g        e           a          b          d
+   Es        Es        C           F        Ges          B
+    b         b        g           c    des,cis          f
+    D         D        H           E          F          A
+
+{Transpose test}          8000        30        90        -5        -4 H.H 
+{Trans. up to G}          8001         0       127         5         4 h.h
+{Trans. down to G}        8002         0       127        -7        -5 h.h
+
+ ---------------
+ 
+ GM Rhytm set
+                    012  34  56  789        abcdefghi
+              3____.____4____.____5____.____6____.____7____.____8
+                 M  K S E C P  T C R  T C  R  C  T  A M  G      
+                 e  i n l l e  o r i  a o  i  o  a  g a  u
+                 t  c e S o d  m a d  m w  d  n  m  o r  i     
+                 r  k a n s a    s e  b b  e  g  b  g a  r
+                 o    r e e l    h    o e     a  HL o c  o
+                 n      a               l     MHLio   a
+                 o   S  rL T TC T T      C  B uio  A  s  SL
+                 m   i   o o oo o o      r  o      g
+                 e   d   w m mw m m      s  n      o
+                     e        b          h  g      g
+                     S        e   H         o      o
+                     K        l   i      C  HL
+                              l          y  io
+
+
+final$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+---- Plan (Mitei) ------
+input format
+will be support
+3/                   %xx _/ 
+                     %xx _/ 
+                     %xx _/ 
+
+//]3                 %xx _/)
+                     %xx _/)
+                     %xx _/)
+
+/ 3d4 e6 g8 4g5 M40 T-12;
+/
+++ 3d4      /* note positon 3d value 4 */
+++ 3e6
+++ 3g8
+++ 4g5
+++ M40      /* moduration 40 */
+++ T-12     /* transpose -12 */
+
+/ 3d#4 e&6 g*8 4g@5;
++
+++ 3d#
+++ 3e&
+++ 3g*
+++ 4g@
+/
+++ 3d4     /* note positon 3d# value 4 */
+++ 3e6
+++ 3g8
+++ 4g5
+
+r P30 20C40 @;
+r
+++ P30      /* program change 30 */
+++ 20C40    /* control no. 20 value 40 */
+++ @        /* dumper pedal */
+
+. P10 5d3;,,; //3;/// 5c5 *;rr;
+.
+++ 5d3
+,,
+ //3
+///
+++ 5c5
+++ *
+rr
+
+/[3 d4 e5 @ [1 f6 * [ f5;
+/[3
++[3 3d4
++[3 3e5
++[3 @
++[1 3f6
++[1 *
+ +[ 3f5 error
+
+/*3 1c6 ]2;  /* repeart 2 times */
+/*3
+++ 1c6
+/*3
+++ 1c6
+
+//4 d6 g5 ]3;/// f3; ..;
+//4
+++ 3d6
+++ 3g5
+//4
+++ 3d6
+++ 3g5
+//4
+++ 3d6
+++ 3g5
+///
+++ 3f3
+ ..
+
+/[3 f5 [ g#5 [ h3 ]2;
+/[3
+++ 3f5
+++ 3g#
++[2 3g5
++[1 3h3
+/[3
+++ 3f5
+++ 3g#
++[2 3g5
++[1 3h3
+
+-;c1;1;d2;-;e3;-;f4;-;g5;-;a6;-;h7;-;
+-
+++ 3c1
+-
+++ 3d2
+-
+++ 3e3
+-
+++ 3f4
+-
+++ 3g5
+-
+++ 3a6
+-
+++ 3h7
+-
+
+#include fname
+ comment
+{/60};-s;{p};/ 3d#4;/[3;//// *;/ *3;-;
+
+ #include fname
+ comment
+{/60}
+-s
+{p}
+++ 3d#
+/
+++ 3d4
+/[3
+////
+++ *
+/
+/
+/
+-
+#include fname
+ comment
+{/60};-s;{p};/ 3d#4;/[3;//// *;/ *3;-;
+
+ #include fname
+ comment
+{/60}
+-s
+{p}
+++ 3d#
+/
+++ 3d4
+/[3
+////
+++ *
+/
+/
+/
+-
+
+/* eof

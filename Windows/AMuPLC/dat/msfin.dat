@@ -1,0 +1,39 @@
+ /////////////////////////////////////////////////////////////////////////////|
+ {Delete large brackets lines}                 <<                            >>
+ {Delete parenthesis lines}                    <<                            >>
+ {Delete square lines}                         <<                            >>
+ {Change dumper signs}                         <<   First column space is    >>
+ {Modify dumper signs}                         <<   comment line.            >>
+ {Delete note lines}                           <<                            >>
+ {Delete rest lines}                           <<                            >>
+ {Delete symbol lines}                         <<                            >>
+ {Delete plus lines}                           <<                            >>
+ {Delete comment lines}                        <<                            >>
+ {Delete dumper signs}                         <<                            >>
+ {Renumber bar lines}                          <<                            >>
+ {Generate note lines}                         <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Exchange parenthesis to large brackets}      <<                            >>
+ {Exchange large brackets to parenthesis}      <<                            >>
+ {Show expanded note lines}                    <<                            >>
+ {Hide expanded note lines}                    <<                            >>
+ {Delete expand symbols}                       <<                            >>
+ {Ignore expand symbols}                       <<                            >>
+ {Abusolut notes}                              <<                            >>
+ {Transpose notes}                             <<                            >>
+ {Reset beautify values}                       <<                            >>
+ {Reset gate_rate values}                      <<                            >>
+ {Reset pitch_vend values}                     <<                            >>
+ {Reset modulation values}                     <<                            >>
+ {Reset control_number values}                 <<                            >>
+ {Reset control_data values}                   <<                            >>
+ {Reset transpose values}                      <<                            >>
+ {Reset velocity_base values}                  <<                            >>
+ {Generate beautify symbols}                   <<                            >>
+ {Clear notes}                                 <<                            >>
+ {Observe other notes}                         <<                            >>
+ {Clear observed notes}                        <<                            >>
+Title/////////////////////////////////////////////////////////////////////Title

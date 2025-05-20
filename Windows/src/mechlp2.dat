@@ -1,0 +1,280 @@
+ 2020.07.29
+ add swing comment 
+                                                           2007.6.23 
+input format
+
+ Temperment
+$M:Pure_Temperament
+$M:Aravia_temperament
+$M:multi_Channel
+
+init data
+ #op. 123
+ #inst. vn. or xx : inst. no.
+ #define port 1
+ #define chanel 3
+ #define member 2
+ #define master_line_generate x
+ #define time_code_type 0-3,24,25,30(drop),30(non drop)
+ #define transpose xx
+ #define smpte  00:00:00/00.00
+ #define direct_time_lock_port xx
+ #define midi_time_code_port xx
+Code out
+ <xxxxxxxxxx> : hex
+
+tempo
+ {m.m. _/ = 120} {o/ = 120} {_/. = 72} {_/>=130} {_/=ca73} {_/=60:67}
+ {largo}
+
+comment
+{* comment}
+
+phrase
+{;phrase}
+ ex.
+  {;%xx}
+  {;ppp}   efdyn = 1
+  {;pp}    efdyn = 2
+  {;p}     efdyn = 2
+  {;mp}    efdyn = 4
+  {;mf}    efdyn = 6
+  {;f}     efdyn = 7
+  {;ff}    efdyn = 8
+  {;fff}   efdyn = 9
+  {;tppp}  tfdyn = 1
+  {;Rppp}  Rfdyn = 1
+  {;Wf}    Wfdyn = 7
+
+
+lag/offset
+
+phrasing (articulation)
+ [p<f/3;f>pp///] v      -> [p<f _/3;f>pp _/))] Volume
+ [ 127 > 64 //4] p       -> [127 > 64 _/)4] Pitch_vend
+ [mp < fff/h;fff>ff/h]   -> [mp < fff o/;fff>ff o/]
+ [12 < ff/h.2; ff>p/w12] -> [12 < ff o/.2; ff>p O12]
+ [ 30 < 40 /] m         -> [ 30 < 40 _/] Modulation
+ v || V -> Volume          cn. 7
+ m || M -> Modulation      cn. 1
+ p || P -> Pitchvend       cn. 150
+ x || X -> Expression      cn. 11
+ c || C -> Controller  (1-32:continuas)
+ i || I -> Interval xx 
+ n || N -> Number_of_Controle_data xx
+ ex. [64 < 127 _/)); 127 > 64 _/))] pitch vend
+
+tempo and key
+ $3/4 moll
+ $##4/4 dur
+ $&&&&&2/2 major
+ $c minor
+
+note            value        rest     no.      name
+ %xx |O|       800,000        Rb        0
+ %xx O..       700,000        Rw..      1
+ %xx O.        600,000        Rw.       2
+ %xx O         400,000        Rw        3      whole
+ %xx o/..      350,000        Rh..      4
+ %xx o/.       300,000        Rh.       5
+ %xx o/        200,000        Rh        6       half
+ %xx _/..      175,000        R..       7
+ %xx _/.       150,000        R.        8
+ %xx _/        100,000        R         9          4
+ %xx _/)..      87,500        r..      10
+ %xx _/).       75,000        r.       11
+ %xx _/)        50,000        r        12          8
+ %xx _/))..     43,750        rr..     13
+ %xx _/)).      37,500        rr.      14
+ %xx _/))       25,000        rr       15         16
+ %xx _/)))..    21,875        rrr..    16
+ %xx _/))).     18,750        rrr.     17
+ %xx _/)))      12,500        rrr      18         32
+ %xx _/)))).     9,375        rrrr.    19
+ %xx _/))))      6,250        rrrr     20         64
+ %xx _/)))))     3,125        rrrrr    21        128
+
+ %xx _/4       100,000 / 4 * 4 = 100,000    _/)) + _/)) + _/)) + _/)) 
+ %xx _/)2       50,000 / 2 * 2 = 50,000     _/)) + _/))
+ %xx _/*4      100,000 * 4 = 400,000        _/ + _/ + _/ + _/
+ R*4 == R4     100,000 * 4 = 400,000        R + R + R + R
+
+ %xx ./>        50,000        ./)      12          8
+ %xx ./>>       25,000        ./))     12          8
+
+rest
+ Rw13               whole rest 13 times
+ Rh                 half rest
+ Rh.                harf single dotted rest
+ R                  quater rest
+ r                  8th rest
+ rr..               16th double dotted rest
+ rrr                32th rest
+ rrrr               64th rest
+ rrrrr              128th rest
+
+Pf_swing (Part file)
+ +,- ss
+        ss * 100
+        note _/ = 100000
+
+ ex. _/+5 -> 100000 + 500 = 100500  ss = +5
+     _/-5 -> 100000 - 500 =  99500  ss = -5
+     _/)+3 -> 50000 + 300 =  50300  ss = +3
+     _/)-3 -> 50000 - 300 =  49700  ss = -3
+ at Part Track change Note Value (Change Sync Value)
+
+Cf_rubart (conducter file)
+ +,- xx 
+        xx * 100
+        note _/ = 100000
+ _/+xxy
+ o/-xxy
+      y(unit) : f flame
+                q MTC
+                t Time code
+                b Bit flame
+                d 1/100 sec
+                m msec
+                s sec
+ at Conducter Track change SMPTE Time (for Tempo rubart)
+
+before note (Accidental & expression)
+ +
+  :          continue
+  1-9        velocity on(sousyoku)
+  A-J        velociti off
+  a-j        poliphonic key presure
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+?  !          staccart
+?  _          regart
+?  arpeggio
+  ---->      arpeggio up
+  <----      arpeggio doun
+  ex. -m0100001-_______________
+     +                ---->  7&
+     /            5   5 5 5 #s
+
+*+axy Dynamic expand
+ Arpeggio
+ *-~xy n  
+ *+              ar->pmf = 0
+ *-  Reverse     ar->pmf = -1
+    x  : 0  up
+    x  : 1  up down
+    x  : 2  up up 
+    x  : 3  down up 
+
+ *define reverse note   ar->pmf = 1
+ *define reverse rhythm ar->pmf = 2
+ 
+ *+abc xx r = "4_1*4+ 4 2*2-" n = "0 31 4 3" v = "5 43 3 4"
+  xx : meb repeat
+  r = : Rhythm pattern
+    a*b : a(nval)*b(repeat)
+    + : slur add next rhythm
+    - : slur till next note
+    _ : slur include next note 
+ ex.
+              ar->crt = "4_1*4+4 2*2-"
+                         a  b  c  d
+              nval = 100000 
+              % : crate     
+                
+              on->dv[]      off->dv[]
+         a     12500        a + b1 * %
+         b1     3125        b1 * %
+         b2     3125        b2 * %
+         b3     3125        b3 * %
+         b4     3125        (b4 + c) * %
+         c     12500        c * %
+         d1     6250        d1 * %
+         d2     6250        d2 * 100%
+  n = : Note pattern
+    0 - 9 : Note position
+    A - Z : Note position (10 - 36)
+    r : rest
+  ex.        ar->cnt = "0 342 r 1"
+  v = : Velocity pattern
+    0 - 9 : Velocity
+    
+note data
+ %
+  1-9        velocity on
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  t          tril
+  T          reverse tril
+  s          turn
+  sb
+ #s
+  S          reverse turn
+ #Sb
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverse tril
+ ex.
+-m010001-_____________________________________________
+%xx _/     2   1    4    5   6    7   8    2   6   7  
+:          t   T    s    S   m    M   w    W   r   R  
+           .    .   .    .   .     .  .     .  .    . 
+            .  .     .  .     .   .    .   .    .  .  
+           .    .  .      .  .     .  .     .  .    . 
+                    .    .    .   .    .   .    .  .  
+                             .     .  .     .  .    . 
+                                       .   .    .  .  
+                                      .     .  .    . 
+                                                .  .  
+                                               .    . 
+
+rest
+ r,R
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+
+after note (after touch, velocity off, etc.)
+ :
+  1-9        velocity on
+  A-J        velociti off
+  a-j        poliphonic key presure
+  :          continue
+  #          sharp
+  &          flat
+  *          doble sharp
+  @          doble flat
+  $          natural
+  t          tril
+  T          reverce tril
+  s          turn
+  S          reverse turn
+  m          mordent
+  M          reverse mordent
+  w          doble moldent
+  W          reverse doble mordent
+  r          tril
+  R          reverce tril
+
+pedal
+ @       sustain foot sw on
+ *       sustain foot sw off
+ #       portament foot sw on
+ $       portament foot sw off
+ +       soft foot sw on
+ -       soft foot sw off
+
+//////////////////////////////////////////////////////////////////
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

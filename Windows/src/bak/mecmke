@@ -1,0 +1,23 @@
+# Mec makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = mecm.c mecw.c mec1.c mec2.c mec3.c mec4.c mec5.c mec6.c mec7.c mec8.c
+PROGRAM = mec
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mecm.o mecw.o mec1.o mec2.o mec3.o mec4.o mec5.o mec6.o mec7.o mec8.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mecw.o:mecw.c mec.h
+mecm.o:mecm.c mec.h
+mec1.o:mec1.c mec.h
+mec2.o:mec2.c mec.h
+mec3.o:mec3.c mec.h
+mec4.o:mec4.c mec.h
+mec5.o:mec5.c mec.h
+mec6.o:mec6.c mec.h
+mec7.o:mec7.c mec.h
+mec8.o:mec8.c mec.h

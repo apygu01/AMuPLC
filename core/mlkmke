@@ -1,0 +1,26 @@
+# mlk makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCE = mlkw.c mlkm.c mlk1.c mlk2.c mlk3.c mlk4.c mlk5.c mlk6.c mlk7.c
+SOURCES = $(SOURCE) mlk8.c mlk9.c
+PROGRAM = mlk
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECT = mlkm.o mlkw.o mlk1.o mlk2.o mlk3.o mlk4.o mlk5.o mlk6.o mlk7.o
+OBJECTS = $(OBJECT) mlk8.o mlk9.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mlkm.o:mlkm.c mlk.h
+mlk1.o:mlk1.c mlk.h
+mlk2.o:mlk2.c mlk.h
+mlk3.o:mlk3.c mlk.h
+mlk4.o:mlk4.c mlk.h
+mlk5.o:mlk5.c mlk.h
+mlk6.o:mlk6.c mlk.h
+mlk7.o:mlk7.c mlk.h
+mlk8.o:mlk8.c mlk.h
+mlk9.o:mlk9.c mlk.h
+mlkw.o:mlkw.c mlk.h

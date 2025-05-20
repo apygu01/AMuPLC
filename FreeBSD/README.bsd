@@ -1,0 +1,39 @@
+
+ README.bsd 2025.5.18
+
+ How to install AMuPLC on FreeBSD
+
+ > cd AMuPLC
+
+ user root
+ run minstall-bsd commnd
+
+ # ./minstall-bsd 
+ 
+ check
+ > meg www 4 -tri
+ Generate www.meg
+ Generate www_000.meg Sequence number = 1 bar count = 4
+ Generate www_015.meg Sequence number = 1 bar count = 4
+ Generate www_018.meg Sequence number = 1 bar count = 4
+
+ Please check the above
+
+---------------------------------
+ /FreeBSD/AMuPLC> cat minstall-bsd
+ cp meg /usr/local/bin
+ cp meb /usr/local/bin
+ cp mec /usr/local/bin
+ cp mlk /usr/local/bin
+ cp mkf /usr/local/bin
+ cp mcp /usr/local/bin
+ cp mmv /usr/local/bin
+ cp mks /usr/local/bin
+ cp mnew /usr/local/bin
+ mkdir /usr/local/etc/tact
+ cp m*.scr /usr/local/etc/tact
+ cp m*.dat /usr/local/etc/tact
+ cp mebnb.txt /usr/local/etc/tact
+
+
+

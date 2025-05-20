@@ -1,0 +1,17 @@
+# mks makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = mksm.c mks1.c mks2.c mks3.c
+PROGRAM = mks
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mksm.o mks1.o mks2.o mks3.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mksm.o:mksm.c mks.h
+mks1.o:mks1.c mks.h
+mks2.o:mks2.c mks.h
+mks3.o:mks3.c mks.h

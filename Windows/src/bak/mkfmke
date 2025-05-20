@@ -1,0 +1,12 @@
+# Mkf makefile
+SOURCES = mkf.c
+PROGRAM = mkf
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mkf.o
+
+$(PROGRAM):$(OBJECTS)
+	cc -o $@ $(OBJECTS)
+mkf.o:mkf.c mkf.h

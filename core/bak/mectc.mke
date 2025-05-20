@@ -1,0 +1,42 @@
+alst = mecw+mecm+mec1+mec2+mec3+mec4+mec5+mec6
+obj1 = mecw.obj mecm.obj mec1.obj mec2.obj mec3.obj mec4.obj
+obj2 = mec5.obj mec6.obj
+libs = i:\tc\lib\emu i:\tc\lib\mathh i:\tc\lib\ch
+
+mec.exe: mec.h
+ tcc -mh -c -f -Ii:\tc\include mecm.c
+ tcc -mh -c -f -Ii:\tc\include mecw.c
+ tcc -mh -c -f -Ii:\tc\include mec1.c
+ tcc -mh -c -f -Ii:\tc\include mec2.c
+ tcc -mh -c -f -Ii:\tc\include mec3.c
+ tcc -mh -c -f -Ii:\tc\include mec4.c
+ tcc -mh -c -f -Ii:\tc\include mec5.c
+ tcc -mh -c -f -Ii:\tc\include mec6.c
+
+mecw.obj: mecw.c
+ tcc -mh -c -f -Ii:\tc\include mecw.c
+
+mecm.obj: mecm.c
+ tcc -mh -c -f -Ii:\tc\include mecm.c
+
+mec1.obj: mec1.c
+ tcc -mh -c -f -Ii:\tc\include mec1.c
+
+mec2.obj: mec2.c
+ tcc -mh -c -f -Ii:\tc\include mec2.c
+
+mec3.obj: mec3.c
+ tcc -mh -c -f -Ii:\tc\include mec3.c
+
+mec4.obj: mec4.c
+ tcc -mh -c -f -Ii:\tc\include mec4.c
+
+mec5.obj: mec5.c
+ tcc -mh -c -f -Ii:\tc\include mec5.c
+
+mec6.obj: mec6.c
+ tcc -mh -c -f -Ii:\tc\include mec6.c
+
+mec.exe: $(obj1) $(obj2)
+tlink /v /I /m i:\tc\lib\c0h+$(alst),mec,,$(libs)
+

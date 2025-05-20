@@ -1,0 +1,65 @@
+ ///Conductor staff///////////////////////////////////////////////////////////|
+ {Delete large brackets lines}                 <<                            >>
+ {Delete parenthesis lines}                    <<                            >>
+ {Delete square lines}                         <<                            >>
+ {Delete note lines}                           <<   First column space is    >>
+ {Delete rest lines}                           <<   comment line.            >>
+ {Delete symbol lines}                         <<                            >>
+ {Delete plus lines}                           <<                            >>
+ {Delete comment lines}                        <<                            >>
+ {Renumber bar lines}                          <<                            >>
+ {Generate note lines}                         <<                            >>
+ {Generate _/) note lines}                     <<                            >>
+ {Generate _/)) note lines}                    <<                            >>
+ {Generate _/))) note lines}                   <<                            >>
+ {Generate rest lines}                         <<                            >>
+ {Exchange parenthesis to large brackets}      <<                            >>
+ {Exchange large brackets to parenthesis}      <<                            >>
+ {Reset beautify values}                       <<                            >>
+ {Reset tempo values}                          <<                            >>
+ {Reset dynamic values}                        <<                            >>
+ {Reset smpte values}                          <<                            >>
+ {Exchange midi format to cueing format}       <<                            >>
+ {Exchange cueing format to midi format}       <<                            >>
+ {Clear notes}                                 <<                            >>
+ {Observe other notes}                         <<                            >>
+ {Clear observed notes}                        <<                            >>
+Title/////////////////////////////////////////////////////////////////////Title
+ mpg.c : Create program change data for sc88-pro                              
+<c0 48 b0 0a 28> Program change 073 Pic. Pan.40     001                       
+<c1 49 b1 0a 2d> Program change 074 fl.1 Pan.45     002                       
+<c2 44 b2 0a 40> Program change 069 Ob.1 Pan.64     003                       
+<c3 47 b3 0a 4b> Program change 072 Cl.2 Pan.75     004                       
+<c4 45 B4 0a 5f> Program change 070 Fg.1 Pan.95     005                       
+<c5 3c B5 0a 46> Program change 061 Hn.1 Pan.70     006                       
+<c6 38 B6 0a 50> Program change 057 Tp.1 Pan.80     007                       
+<c7 39 b7 0a 5a> Program change 058 Tb.1 Pan.90     008                       
+<c8 3a b8 0a 64> Program change 058 Tu.1 Pan.100    008       
+<c9 31> Program change 000 Perc.                    009
+<ca 00 ba 0a 40> Program change 001 Pf.1 Pan.64     00a                       
+<cb 28 bb 0a 32> Program change 041 Vn.1 Pan.50     00b                       
+<cc 28 bc 0a 0a> Program change 041 Vn.2 Pan.10     00c                       
+<cd 29 bd 0a 50> Program change 042 Vila Pan.80     00d                       
+<ce 2a be 0a 6e> Program change 043 Celo Pan.110    00e                       
+<cf 2b bf 0a 78> Program change 044 CB.1 Pan.120    00f                       
+ 
+<b0 07 5a> Volume ctrl.  70 Picc. Harp                                        
+<b1 07 5a> Volume ctrl.  90 Fl.I II                                           
+<b2 07 5a> Volume ctrl.  90 Ob.I II                                           
+<b3 07 64> Volume ctrl.  90 Cl.I II                                           
+<b4 07 64> Volume ctrl. 100 Fg.I II                                           
+<b5 07 78> Volume ctrl. 126 Hn.I II III IV                                    
+<b6 07 78> Volume ctrl. 120 Tp.I II III IV                                    
+<b7 07 78> Volume ctrl. 120 Tb.I II III IV                                    
+<b8 07 78> Volume ctrl. 120 Tu.I II                                           
+<b9 07 78> Volume ctrl. 120 Perc.                             
+<ba 07 6e> Volume ctrl. 100 Pf. Timpany
+<bb 07 5a> Volume ctrl.  90 Vn.I
+<bc 07 50> Volume ctrl.  90 Vn II
+<bd 07 46> Volume ctrl.  90 Viola I II
+<be 07 50> Volume ctrl.  90 Cello I II
+<bf 07 50> Volume ctrl.  90 Cb I II
+
+Smpte flame type = 3
+Smpte start time = 00:00:00/00.00
+Smpte lag time = 00:00:00/00.00

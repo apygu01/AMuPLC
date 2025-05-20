@@ -1,0 +1,404 @@
+ Musical Symbols       mebrdf.dat  2014.7.11 meb V 2.45
+
+                       symtype     symv1     symv2     symv3     symv4
+                       integer      real      real      real      char
+    1 - 9    dynamic            velocity   m.velo.   reserve          
+              (megmeb)          mv->dymc mv->mdymc                    
+{ppp}                        1       1.0      10.0                    
+{pp}                         2       3.0      30.0                    
+{p}                          3       6.0      60.0                    
+{mp}                         4       9.0      90.0                    
+{mf}                         5      13.0     130.0                    
+{f}                          6      14.0     140.0                    
+{ff}                         7      15.0     150.0                     
+{fff}                        8      16.0     160.0                    
+
+  10 - 99    Reserve
+
+ 100 - 199   Tempo
+                       symtype     symv1     symv2     symv3     symv4
+             (megmeb) mb->tsym            mb->dymc
+             (megmiv)          mr->temp1 mr->temp2 mr->temp3
+                                 reserve     tempo      band
+{grave}                    100                  40         6          
+{largo}                    101                  46         7           
+{lento}                    102                  52         8          
+{adagio}                   103                  58         9          
+{larghetto}                104                  60        10          
+{andante}                  105                  66        11          
+{andantino}                106                  76        12          
+{moderato}                 107                  84        15          
+{allegretto}               108                 108        16          
+{allegro moderato}         109                 116        10          
+{allegro ma non troppo}    110                 120        10          
+{allegro}                  111                 132        18          
+{allegro assai}            112                 140        15          
+{arregro vivace}           113                 150        15          
+{vivace}                   114                 160        20          
+{presto}                   115                 184        20           
+{prestissimo}              116                 200        20          
+{commodo}                  117                 xxx        xx          
+{piu allegro}              118                 xxx        xx          
+{meno allegro}             119                 xxx        xx          
+{piu mosso}                120                 xxx        xx          
+{rit.}                     121                 xxx        xx          
+{accel.}                   122                 xxx        xx          
+{in tempo}                 123                 190        20           
+{vivacissimo}              124                 xxx        xx          
+{.                         125                 xxx        xx           
+
+  200 - 999    expression
+                       symtype     symv1     symv2     symv3     symv5
+                               mr->expr1 mr->expr2 mr->expr3
+{affettuoso}               200         1                              
+{amorosamente}             201         2                              
+{con amore}                202         3                              
+{amoroso}                  203         4                              
+{allegramente}             204         5                              
+{con allegrezza}           205         6                              
+{con anima}                206         7                              
+{animato}                  207         8                              
+{con brio}                 208         9                              
+{con moto}                 209        10                              
+{spiritoso}                210        11                              
+{con spirito}              211        12                              
+{rapidamente}              212        13                              
+{veloce}                   213        14                              
+{vivo}                     214        15                              
+{appassionato}             215        16                              
+{passionato}               216        17                              
+
+  1000 - 9999   woodwind instruments
+
+       transpose ->  1  3     6  8 10    13
+                   0| 2| 4| 5| 7| 9|11|12
+  trnst            [0]             [1]
+    c    [0]         0               0 
+         [1]         7 (#######)    12 (&&&&&)
+    d    [2]         2 (##)          2 (##)
+         [3]        10 (&&&)        10 (&&&)
+    e    [4]         4 (####)        4 (####)
+    f    [5]         8 (&)           8 (&)
+         [6]         6 (######)     13 (&&&&&&)
+    g    [7]         1 (#)           1 (#)
+         [8]        11 (&&&&)       11 (&&&&)
+    a    [9]         3 (###)         3 (###)
+    b   [10]         9 (&&)          9 (&&)
+    h   [11]         5 (#####)      14 (&&&&&&&)
+
+             Instrument number  Low note High note Transpose  Interval National
+
+                       symtype     symv1     symv2     symv3     symv4
+{Male_vocal}              7010        58        74         0        -7 Eng.
+{Female_vocal}            7011        56        68         0         0 Eng.
+{Vocal}                   7012        56        70         0         0 Eng. 
+{Vo.}                     7012         0       127         0         0 Eng. 
+
+{Pic.}                    1000        74       107         0         0 EFI 
+{Piccolo}                 1000        74       107         0         0 EFI 
+{Ottavino}                1000        74       107         0         0 Ita.
+{Ott.}                    1000        74       107         0         0 Ita.
+
+{Flute}                   1010        60        96         0         0 Eng.
+{Fl.}                     1010        60        96         0         0 Eng.
+{Flauto}                  1010        60        96         0         0 Ita.
+{Flauto_grande}           1010        60        96         0         0 Ger.
+{Flote}                   1010        60        96         0         0 Ger.
+
+{Alto_flute}              1011         0       127        -6        -3 Eng.
+{Altflote}                1011         0       127        -6        -3 Ger.
+{Flute_en_sol}            1011         0       127        -6        -3 Fra.
+{Flauto_contralto}        1011         0       127        -6        -3 Ita.
+
+{Ob.}                     1020        59        91         0         0 Ieg 
+{Oboe}                    1020        59        91         0         0 Ieg 
+{Hautbois}                1020        59        91         0         0 Fra.
+{Htb.}                    1020        59        91         0         0 Fra.
+{Hoboe}                   1020        59        91         0         0 
+
+{Hautbois_d'amour}        1021         0       127        -4        -2 Fra.
+{Oboe_d'amore}            1021         0       127        -4        -2 IGE 
+{Liebesoboe}              1021         0       127        -4        -2 Ger.
+
+{English_Horn}            1022         9         3        -8        -4 Eng.
+{Eng_Hn.}                 1022         9         3        -8        -4 Eng.
+{Cor_Anglais}             1022         9         3        -8        -4 Fra.
+{Corno_Inglese}           1022         0       127        -8        -4 Ita.
+{Cor_Inglese}             1022         0       127        -8        -4 Ita.
+{Englisches_Horn}         1022         0       127        -8        -4 Ger.
+{Englisch_Horn}           1022         0       127        -8        -4 Ger.
+
+{Fagotto}                 1023         0       127         0         0 Ita.
+{Fg.}                     1023         0       127         0         0 Ita.
+{Fagott}                  1023         0       127         0         0 Ger.
+{Fagotti}                 1023         0       127         0         0 Ger.
+{Fag.}                    1023         0       127         0         0 Ger.
+{Bassoon}                 1023         0       127         0         0 Eng.
+{Bon.}                    1023         0       127         0         0 Eng.
+{Basson}                  1023         0       127         0         0 Fra.
+
+{Cfg.}                    1023         0       127         0         0 Fra.
+{C-fg.}                   1023         0       127         0         0 Fra.
+
+{heckelphone}             1024         0       127       -12        -7 Eng.
+{Heckelphon}              1024        11         3       -12        -7 Ger.
+
+{CL.pic.}                 1028         0       127         0         0 IE  
+{CL.pic_Es}               1028         0       127         3         2 IE  
+{CL.picc.}                1028         0       127         0         0 IE  
+{Clarinet}                1029         0       127         0         0 Eng.
+{Cl.}                     1029         0       127         0         0 Eng.
+{CL.in_A&}                1030        51        91         9         5 IE  
+{CL.in_E&}                1031        51        91         3         2 IE  
+{Cl.in_D}                 1032        51        91         2         1 IE  
+{CL.in_C}                 1033        51        91         0         0 IE  
+{CL.in_B&} /* sop */      1034        51        92        -2        -1 IE  
+{CL.in_A}  /* sop */      1035        51        91        -3        -2 IE  
+{CL.in_E&_Alt}            1036        51        91       -10        -5 IE  
+{CL.in_B&_Bass}           1037        51        91       -14        -8 IE  
+{CL.in_B&_CBass}          1038        51        91       -26       -12 IE  
+{CL.in_A_Bass}            1039        51        91       -16        -9 IE  
+
+{Clarinette_basse}        1040        51        91       -14         0 fra.
+{Clarinetto_basso}        1040        51        91       -14         0 Ita.
+{Clarone}                 1040        51        91       -14         0 Ita.
+{Bassklarinette}          1040        51        91       -14         0 Ger.
+{Bass_clarinet}           1040        51        91       -14         0 Eng.
+
+{Cor_de_bassette}         1041         0       127                   0 Fra.
+{Corno_di_bassetto}       1041         0       127                   0 Ita.
+{Bassetthorn}             1041         0       127                   0 Ger.
+{bassett_horn}            1041         0       127                   0 Eng.
+
+{Sax}                     1044        60        89       -14       -11 FE  
+{Sax.}                    1044        60        89       -14       -11 FE  
+{Saxophone}               1044        60        89       -14       -11 FE  
+{Saxofono}                1044        60        89       -14       -11 Ita.
+{Sassofono}               1044        60        89       -14       -11 Ita.
+{Saxophon}                1044        60        89       -14       -11 Ger.
+
+{Soplano_Sax}                                                        ?
+{SSax}                    1042        64        89        -2        -1 wpo 
+{SSax_B&}                 1042        62        87                     apo 
+
+{Alto_Sax}                                                            
+{ASax}                    1043        60        89        -9        -6 wpo 
+{ASax_E&}                 1043        51        80                     apo 
+
+{Tener_Sax}                                                          ?
+{TSax}                    1044        60        89       -14       -11 wpo 
+{TSax_B&}                 1044        46        75                     apo 
+
+{Bariton_Sax}                                              ?         ?
+{BSax}                    1045        57        89       -21       -18 wpo 
+{BSax_E&}                 1045        35        68                     apo 
+
+ brass instruments
+{Hn.}                     2000        31        81         0         0 
+{Cor}                     2000        31        81         0         0 Fra.
+{Corno}                   2000        31        81         0         0 Ita.
+{Horn}                    2000        31        81         0         0 GE  
+{Cor.in_B&}               2001        31        81        -2        -1 Ger.
+{Cor.in_A}                2002        31        81        -3        -2 Ger.
+{Cor.in_A&}               2003        31        81        -4        -2 Ger.
+{Cor.in_G}                2004        31        81        -5        -3 Ger.
+{Cor.in_F}                2005        31        81        -7        -4 Ger.
+{Cor.in_E}                2006        31        81        -8        -5 Ger.
+{Cor.in_E&}               2007        31        81        -9        -5 Ger.
+{Cor.in_D}                2008        31        81       -10        -6 Ger.
+{Cor.in_C}                2009        31        81       -12        -7 Ger.
+{Cor.in_B_bass}           2010        31        81       -13        -8 Ger.
+{Cor.in_B&_bass}          2011        31        81       -14        -8 Ger.
+{Cor.in_A_bass}           2012        31        81       -15        -9 Ger.
+{Hr.in_B&}                2001        31        81        -2        -1 Ger.
+{Hr.in_A}                 2002        31        81        -3        -2 Ger.
+{Hr.in_A&}                2003        31        81        -4        -2 Ger.
+{Hr.in_G}                 2004        31        81        -5        -3 Ger.
+{Hr.in_F}                 2005        31        81        -7        -4 Ger.
+{Hr.in_E}                 2006        31        81        -8        -5 Ger.
+{Hr.in_E&}                2007        31        81        -9        -5 Ger.
+{Hr.in_D}                 2008        31        81       -10        -6 Ger.
+{Hr.in_C}                 2009        31        81       -12        -7 Ger.
+{Hr.in_B_bass}            2010        31        81       -13        -8 Ger.
+{Hr.in_B&_bass}           2011        31        81       -14        -8 Ger.
+{Hr.in_A_bass}            2012        31        81       -15        -9 Ger.
+{Hn.in_B&}                2001        31        81        -2        -1 Ger.
+{Hn.in_A}                 2002        31        81        -3        -2 Ger.
+{Hn.in_A&}                2003        31        81        -4        -2 Ger.
+{Hn.in_G}                 2004        31        81        -5        -3 Ger.
+{Hn.F}                    2005        31        81        -7        -4 Ger.
+{Hn.in_F}                 2005        31        81        -7        -4 Ger.
+{Hn.in_E}                 2006        31        81        -8        -5 Ger.
+{Hn.in_E&}                2007        31        81        -9        -5 Ger.
+{Hn.in_D}                 2008        31        81       -10        -6 Ger.
+{Hn.in_C}                 2009        31        81       -12        -7 Ger.
+{Hn.in_B bass}            2010        31        81       -13        -8 Ger.
+{Hn.in_B& bass}           2011        31        81       -14        -8 Ger.
+{Hn.in_A bass}            2012        31        81       -15        -9 Ger.
+
+{Trompette}               2020        49        79         0         0 Fra.
+{Tromba}                  2020        49        79         0         0 Ita 
+{Trompete}                2020        49        79         0         0 Ger.
+{Tp.}                     2020        49        79         0         0 Eng.
+{Trumpet}                 2020        49        79         0         0 Eng.
+{Tp.C}                    2020        49        79         0         0 Eng.
+{Trumpet_in_C}            2020        49        79         0         0 Eng.
+{Trombe_in_C}             2020        49        79         0         0 Eng.
+{Tp.F}                    2021        49        79         7         4 Eng.
+{Trumpet_in_F}            2021        49        79         7         4 Eng.
+{Trombe_in_F}             2021        49        79         7         4 Eng.
+{Tp.E}                    2022        49        79         4         2 Eng.
+{Trumpet_in_E}            2022        49        79         4         2 Eng.
+{Trombe_in_E}             2022        49        79         4         2 Eng.
+{Tp.E&}                   2023        49        79         3         2 Eng.
+{Trumpet_in_E&}           2023        49        79         3         2 Eng.
+{Trombe_in_E&}            2023        49        79         3         2 Eng.
+{Tp.D}                    2024        49        79         2         1 Eng.
+{Trumpet_in_D}            2024        49        79         2         1 Eng.
+{Trombe_in_D}             2024        49        79         2         1 Eng.
+{Trumpet_in_B}            2025        49        79        -1        -1 Eng.
+{Tp.B}                    2026        49        79        -1         0 Eng.
+{Trombe_in_B}             2025        49        79        -1         0 Eng.
+{Tp.B&}                   2026        49        79        -2        -1 Eng.
+{Trumpet_in_B&}           2026        49        79        -2        -1 Eng.
+{Trombe_in_B&}            2026        49        79        -2        -1 Eng.
+{Tp.A}                    2027        49        79        -3        -2 Eng.
+{Trumpet_in_A}            2027        49        79        -3        -2 Eng.
+{Trombe_in_A}             2027        49        79        -3        -2 Eng.
+
+{Piston}                  2030         0       127                   0 Fra.
+{Cornet_a_piston}         2030         0       127                   0 Fra.
+{Cornetta}                2030         0       127                   0 Ita.
+{Kornett}                 2030         0       127                   0 Ger.
+{Cornet}                  2030         0       127                   0 Eng.
+
+{Trombone}                2040         0       127                   0 FIE 
+{Tb.}                     2040         0       127                   0 FIE 
+{Posaune}                 2040         0       127                   0 Ger.
+
+{Tuba}                    2050         0       127                   0 All 
+{Tu.}                     2050         0       127                   0 All 
+{Tuba_in_B&}              2051         0       127                   0 All 
+{Tuba_in_F}               2052         0       127                   0 All 
+{Tuba_in_E&}              2053         0       127                   0 All 
+{Bass_Tuba_inE&}          2053         0       127                   0 All 
+{Tuba_in_C}               2054         0       127                   0 All 
+{Contrabass_Tuba_in_C}    2054         0       127                   0 All 
+{Contrabass_Tuba_in_B&}   2055         0       127                   0 All 
+
+ percussion instruments
+                          3000        xx       xxx       xxx        xx 
+
+{Timpani}                 4000         0       127         0         0
+{Timp.}                   4001         0       127         0         0
+{Kettledrums}             4002         0       127         0         0
+{K.d.}                    4003         0       127         0         0
+{Pauken}                  4004         0       127         0         0
+{Pauk.}                   4005         0       127         0         0
+{Timbales}                4006         0       127         0         0
+{Timb.}                   4007         0       127         0         0
+{Snear}                   4008         0       127         0         0
+{T-ro}                    4008         0       127         0         0
+{Tr-l}                    4009         0       127         0         0
+{Triangle}                4009         0       127         0         0
+
+{Glockenspiel}            4010         0       127         0         0
+{Glock.}                  4011         0       127         0         0
+{Jeu_de_Timbres}          4012         0       127         0         0
+{J.de_Timb.}              4013         0       127         0         0
+{Campanelli}              4014         0       127         0         0
+{Cmli.}                   4015         0       127         0         0
+
+{Xylophone}               4020         0       127         0         0 Eng.
+{Xylo.}                   4021         0       127         0         0 Eng.
+{Xylophn}                 4022         0       127         0         0 Ger.
+{Claquebois}              4023         0       127         0         0 Fra.
+{Xilofono}                4024         0       127         0         0 Ita.
+{Xf.}                     4025         0       127         0         0 Ita.
+{Sil.}                    4025         0       127         0         0 Ita.
+
+{Vibraphone}              4030         0       127         0         0 EF  
+{Vib.}                    4031         0       127         0         0 USA 
+{Vibrafono}               4032         0       127         0         0 USA 
+{Vibraphon}               4033         0       127         0         0 Ger.
+
+{Marimba}                 4040         0       127         0         0 all 
+{Mar.}                    4041         0       127         0         0 all 
+
+{Chimes}                  4050         0         0         0         0 Eng.
+{Chim.}                   4051         0         0         0         0 Eng.
+{Rohorenglocken}          4052         0         0         0         0 Ger.
+{Cloches_Tubulaires}      4053         0         0         0         0 Fra.
+{Campane_Tubolari}        4054         0         0         0         0 Ita.
+
+{Celesta}                 4060         0       127         0         0 Ita.
+{Cel.}                    4061         0       127         0         0 Ita.
+
+{Harp}                    4070         0       127         0         0 Ita.
+{Hp.}                     4070         0       127         0         0 Ita.
+
+{Tam}                     4080         0       127         0         0 
+{Symbal}                  4081         0       127         0         0 
+{Symb.}                   4081         0       127         0         0 
+{Sym.}                    4081         0       127         0         0 
+{Cassa}                   4082         0       127         0         0 
+{P-tti}                   4083         0       127         0         0 
+{Piatti}                  4083         0       127         0         0
+
+  keyboard instruments
+{Piano}                   5000         9       108         0         0 EF  
+{Pf.}                     5000         9       108         0         0 Eng.
+{Pianoforte}              5000         9       108         0         0 Ita.
+{Klavier}                 5000         9       108         0         0 Ger.
+
+  stringed instruments
+{Vn.}                     6000        55        96         0         0 Ita.
+{Violon}                  6001        55        96         0         0 Eng.
+{Violino}                 6002        55        96         0         0 Ita.
+{Violine}                 6003        55        96         0         0 Ger.
+{Violin}                  6004        55        96         0         0 Eng.
+{Vl.}                     6005        55        96         0         0 Eng.
+{Vn.1}                    6000        55        96         0         0 Ita.
+{Vn.2}                    6000        55        96         0         0 Ita.
+
+{Viola}                   6010        48        88         0         0 IE  
+{Va.}                     6011        48        88         0         0 IE  
+{Bratsche}                6012        48        88         0         0 Ger.
+{Alto}                    6013        48        88         0         0 Ger.
+
+{Violoncello}             6020        36        76         0         0 GI  
+{Violoncelle}             6021        36        76         0         0 Fra.
+{Cello}                   6022        36        76         0         0 Eng.
+{Cello.}                  6022        36        76         0         0 Eng.
+{Cell.}                   6022        36        76         0         0 Eng.
+{Vc.}                     6023        36        76         0         0 Eng.
+
+{Double bass}             6030        29        58         0         0 Eng.
+{Contrabasso}             6031        29        58         0         0 Ita.
+{Cb.}                     6032        29        58         0         0 Ita.
+{Contrebasse}             6033        29        58         0         0 Fra.
+{Kontrabass}              6034        29        58         0         0 Ger.
+{Kb.}                     6035        29        58         0         0 Ger.
+
+{Guitar}                  6050        43        93         0         0 Eng.
+{Gt.}                     6050        43        93         0         0 Eng.
+
+{Snare}                   7000         0         0         0         0 Eng.
+{Pad.}                    7001         0         0         0         0 Eng.
+{Rhythm}                  7002         0         0         0         0 Eng.
+{Click}                   7003         0         0         0         0 Eng.
+{Melody}                  7003         0         0         0         0 Eng.
+
+        |-2 |   | 1 | 3 |   | 6 | 8 | 10|   | 13| 15
+        A | H | C | D | E | F | G | A | H | C | D | E 
+       -3  -1   0   2   4   5   7   9   11  12  14  
+      interval  0   1   2   3   4   5   6  oct.
+
+              C(0:0)   Es(3:2)     B(-2:-1)   A(9:5)     F(5:3)
+    C         C        A           D         Es          G
+    g         g        e           a          b          d
+   Es        Es        C           F        Ges          B
+    b         b        g           c    des,cis          f
+    D         D        H           E          F          A
+
+final$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

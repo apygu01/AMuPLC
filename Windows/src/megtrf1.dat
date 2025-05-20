@@ -1,0 +1,32 @@
+             file name                                                        !
+      C(c) : Conductor score                  S : Select channel              !
+      G(g) : Gclef staff                                                      !
+      S(s) : Soprano staff                                                    !
+      A(a) : Alto staff                                                       !
+      B(b) : Bass staff                                                       !
+      M(m) : Middle staff (piano)                                             !
+      L(l) : Low staff                                                        !
+      H(h) : High staff                                                       !
+      R(r) : Rhythm staff                                                     !
+      Upper Case(Active), Lower Case(sleep)                                   !
+                                                                              !
+      & : Add file (From members top file)                                    !
+      * : Copy & Move source file                                             !
+      + : Copy destination file                                               !
+      @ : Move destination file                                               !
+      / : Remove file                                                         !
+      ? : Check file                                                          !
+      } : Large char to Small char                                            !
+      { : Small char to Large char                                            !
+      > : Right Shift                                                         !
+      < : Left Shift                                                          !
+                                                                              !
+ {Renumber bar lines all}                                                     !
+>{Renumber bar lines continuously all}                                        !
+ {Exchange parenthesis to large brackets all}                                 !
+ {Exchange large brackets to parenthesis all}                                 !
+ {Generate beautify symbols all}                                              !
+>{Exchange beautify symbols all}                                              !
+>{Reset tempo values all}                                                     !
+>{Reset smpte values all}                                                     !
+ /////////////////////////////////////////////////////////////////////////////!

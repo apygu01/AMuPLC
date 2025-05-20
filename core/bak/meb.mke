@@ -1,0 +1,10 @@
+# Meb makefile
+meb:mebm.o meb1.o meb2.o meb3.o meb4.o mebw.o
+	cc -o meb mebm.o meb1.o meb2.o meb3.o meb4.o mebw.o
+mebm.o:meb.h
+meb1.o:meb.h
+meb2.o:meb.h
+meb3.o:meb.h
+meb4.o:meb.h
+mebw.o:meb.h
+

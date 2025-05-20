@@ -1,0 +1,10 @@
+dos2unix mlk.h mlk.h
+dos2unix mlk1.c mlk1.c
+dos2unix mlk2.c mlk2.c
+dos2unix mlk3.c mlk3.c
+dos2unix mlk4.c mlk4.c
+dos2unix mlk5.c mlk5.c
+dos2unix mlk6.c mlk6.c
+dos2unix mlkl.c mlkl.c
+dos2unix mlkm.c mlkm.c
+dos2unix mlkw.c mlkw.c

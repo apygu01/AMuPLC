@@ -1,0 +1,37 @@
+MEX (Midi file EXecuter)
+System Requirements
+ MEX command requires the following minimum configuration.
+  NEC PC-9801 series or compatible running MS-DOS Version 3.1 or later.
+  Two floppy-disk drives and RAM disk.
+  450K RAM available memory.
+  RS232C interface & EMU-98, or MIDI interface MPU-98 or compatible.
+
+MEX command syntax
+mex fn    [,fn] [ options ]
+
+The following list describes the file name type format.
+ fn/x           : Play fn.mex, and select sequence number x.
+ fn/yy          : Play fn.mex, and select member yy
+ fn/x(xxx)      : Play fn.mex start after the xxx bar number,
+                  and select sequence number x.
+ fn/yy(xxx,yyy) : Play fn.mex start after the xxx bar number end yyy,
+                  and select member yy.
+ fn/xyy         : Play fn.mex, and select xyy sequence and member.
+
+The following list describes the abailable MEX options.
+Option : Effect
+ -m    : Monitor
+ -nm   : No Monitor
+ -rt   : Real time clock
+ -ft   : Flame time clock
+ -q    : Quick play (Quick execute .mec file)
+ -dtc  : Send performar's direct time lock
+ -mtc  : Send midi time code
+ -esg  : ESU-98 smpte time code generate
+ -esr  : ESU-98 smpte time code read
+ -sdp  : List .meg file
+ -cdp  : Dump .mec file
+ -edp  : Dump .mex file
+ -dc   : Ceck .mex file
+ -d    : Debug MEX command
+

@@ -1,0 +1,29 @@
+# Meb makefile
+CC = cc -Wno-implicit-function-declaration -Wno-implicit-int
+#CC = cc
+SOURCES = mebw.c mebm.c meb1.c meb2.c meb3.c meb4.c meb5.c meb6.c \
+    meb7.c meb8.c meb9.c meb10.c meb11.c meb12.c
+PROGRAM = meb
+CFLAGS = -O
+CPPFLAGS =
+LDFLAGS =
+
+OBJECTS = mebm.o mebw.o meb1.o meb2.o meb3.o meb4.o meb5.o meb6.o \
+    meb7.o meb8.o meb9.o meb10.o meb11.o meb12.o
+
+$(PROGRAM):$(OBJECTS)
+	$(CC) -o $@ $(OBJECTS)
+mebw.o:mebw.c meb.h
+mebm.o:mebm.c meb.h
+meb1.o:meb1.c meb.h
+meb2.o:meb2.c meb.h
+meb3.o:meb3.c meb.h
+meb4.o:meb4.c meb.h
+meb5.o:meb5.c meb.h
+meb6.o:meb6.c meb.h
+meb7.o:meb7.c meb.h
+meb8.o:meb8.c meb.h
+meb9.o:meb9.c meb.h
+meb10.o:meb10.c meb.h
+meb11.o:meb11.c meb.h
+meb12.o:meb12.c meb.h

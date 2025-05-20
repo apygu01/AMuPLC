@@ -1,0 +1,26 @@
+
+   2025.5.18 README.mex
+  ------------ ---------
+   AMuPLC .mex play sample 
+  ----------------------
+
+ 1. Make sample .mex data
+    SAMPLE.ttt
+    ttt directory
+
+ 2. Check mlk data
+    mlk-in-data
+    mlk-out-data
+
+ 3. Source
+    src directory
+    Device
+    3.1. NEC-PC9801 MSDOS
+    3.2. NXP-LPC1788 
+
+   NEC-PC9801 is old MSDOS PC
+   NXP-LPC1788 is NXP Cortex-M3 microcontroller
+
+ 
+
+

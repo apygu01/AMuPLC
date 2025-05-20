@@ -1,0 +1,1082 @@
+ 
+                                                                  Ver 0.03
+ Major Chord Progression Rule file
+ Space is Comment Line
+ Level
+ $0:  Top Level key = Major/Minor 
+ $1:  Level 1  $1: = $) 
+ $2:  Level 2
+ $3:  Level 3
+ 
+ ?skey abc     : Put skey abc
+ ?skey = Value : Put Value
+ $skey         : Set skey to $ Level
+ $skey = Value : Set skey & Value to $ Level
+
+?K1 [T->D->T]         Cadence
+?K2 [T->S->D->T]      Cadence
+?K3 [T->S->T]         Cadence
+?Major Chord [Orginal][Special][Substitute][Non Diatonic]
+ T [I,I6,IM7][I7][VIm7(VIm),IIIm7(IIIm)][#IVm7(&5),IIIm7(&5)]            Tonic
+ S [IV,IV6,IVM7][IV7][IIm7(IIm),VIm7(VIm)][&VIIM7,VII7]            Subdominant
+ SM [IVm,IVm6,IVM7,IVm7][-][IIm7(&5),&VII7,&VI(&VI6)][&IIM7,&VI7]    SD Minore
+ D [V7][-][VIIm7(&5)=VII%][&II7]                                      Dominant
+ SED [I7,II7(DD),III7,IV7,VI7,VII7]                         Secondary Dominant
+ DD [II7]                                                      Double Dominant
+ 2-5 IIm7 -> V7  Two Five
+
+ --------------------------------------------------------------------------
+$0:Major dur
+$0:T = "[I,I6,IM7][I7][VIm7(VIm),IIIm7(IIIm)][#IVm7(&5),IIIm7(&5)] Tonic"
+$0:S = "[IV,IV6,IVM7][IV7][IIm7(IIm),VIm7(VIm)][&VIIM7,VII7] Subdominant"
+$0:SM = "[IVm,IVm6,IVM7,IVm7][-][IIm7(&5),&VII7,&VI(&VI6)][&IIM7,&VI7]"
+$0:D = "[V7][-][VIIm7(&5)=VII%][&II7] Dominant"
+$0:SED = "[I7,II7(DD),III7,IV7,VI7,VII7] Secondary Dominant"
+$0:DD  = "[II7] Double Dominant"
+$0:2-5 = "IIm7 -> V7  Two Five"
+$0:END
+?T = "T $0:T"
+?S = "S $0:S"
+?SM = "SM $0:SM"
+?D = "D $0:D"
+?SED = "SED $0:SED"
+?DD = "DD $0:DD"
+?2-5 = "2-5 $0:2-5"
+?T-D = "T-D $0:T-D"
+
+ C_Major
+$1:C_Major C_dur
+$I = C
+$I6 = C6
+$IM7 = CM7
+$&II7 = D&7
+$&IIM7 = D&M7
+$IIm = Dm
+$IIm7 = Dm7
+$IIm7(&5) = Dm7(&5)
+$II% = D%
+$IIIm = Em
+$IIIm7 = Em7
+$IIIm7(&5) = Em7(&5)
+$IV = F
+$IVm = Fm
+$IVM7 = FM7
+$IV6 = F6
+$IVm6 = Fm6
+$IVmM7 = FmM7
+$IVm7 = Fm7
+$#IVm7(&5) = F#m7(&5)
+$#IV% = F#%
+$V = G
+$V7 = G7
+$&VI = A&
+$&VI6 = A&6
+$&VI7 = A&7
+$&VIM7 = A&M7
+$VIm = Am
+$VIm7 = Am7
+$&VII = B&
+$&VIIM7 = B&M7
+$VIIm(&5) = Bm(&5)
+$VIIm7(&5) = Bm7(&5)
+$VII% = B%
+ ----Secondary Dominant Chord----
+$I7 = C7
+$II7 = D7
+$III7 = E7
+$IV7 = F7
+$VI7 = A7
+$VII7 = B7
+$key = "C_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ # G_Major F#
+$1:G_Major G_dur
+$I = G
+$I6 = G6
+$IM7 = GM7
+$&II7 = A&7
+$&IIM7 = A&M7
+$IIm = Am
+$IIm7 = Am7
+$IIm7(&5) = Am7(&5)
+$II% = A%
+$IIIm = Bm
+$IIIm7 = Bm7
+$IIIm7(&5) = Bm7(&5)
+$III% = B%
+$IV = C
+$IVm = Cm
+$IVM7 = CM7
+$IV6 = C6
+$IVm6 = Cm6
+$IVmM7 = CmM7
+$IVm7 = Cm7
+$#IVm7(&5) = C#m7(&5)
+$#IV% = C#%
+$V = D
+$V7 = D7         
+$&VI = E&
+$&VI6 = E&6
+$&VI7 = E&7
+$&VIM7 = E&M7
+$VIm = Em
+$VIm7 = Em7    
+$&VII = F
+$&VIIM7 = FM7
+$VIIm(&5) = F#m(&5)
+$VIIm7(&5) = F#m7(&5)
+$VII% = F#%
+ ----Secondary Dominant Chord----
+$I7 = G7
+$II7 = A7
+$III7 = B7
+$IV7 = C7
+$VI7 = E7
+$VII7 = F#7
+$key = "G_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ ## D_Major F#,C#
+$1:D_Major D_dur
+$I = D
+$I6 = D6
+$IM7 = DM7
+$&II7 = E&7
+$&IIM7 = E&M7
+$IIm = Em
+$IIm7 = Em7
+$IIm7(&5) = Em7(&5)
+$II% = E%
+$IIIm = F#m
+$IIIm7 = F#m7
+$IIIm7(&5) = F#m7(&5)
+$III% = F#%
+$IV = G
+$IVm = Gm
+$IVM7 = GM7
+$IV6 = G6
+$IVm6 = Gm6
+$IVmM7 = GmM7
+$IVm7 = Gm7
+$#IVm7(&5) = G#m7(&5)
+$#IV% = G#%
+$V = A  
+$V7 = A7
+$&VI = B&
+$&VI6 = B&6
+$&VI7 = B&7
+$&VIM7 = B&M7
+$VIm = Bm
+$VIm7 = Bm7
+$&VII = C
+$&VIIM7 = CM7
+$VIIm(&5) = C#m(&5)
+$VIIm7(&5) = C#m7(&5)
+$VII% = C#%
+ ----Secondary Dominant Chord----
+$I7 = D7
+$II7 = E7
+$III7 = F#7
+$IV7 = G7
+$VI7 = B7
+$VII7 = C#7
+$key = "D_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ ### A_Major F#,C#,G#
+$1:A_Major A_dur
+$I = A
+$I6 = A6
+$IM7 = AM7
+$&II7 = B&7
+$&IIM7 = B&M7
+$IIm = Bm
+$IIm7 = Bm7
+$IIm7(&5) = Bm7(&5)
+$II% = B%
+$IIIm = C#m
+$IIIm7 = C#m7
+$IIIm7(&5) = C#m7(&5)
+$III% = C#%
+$IV = D
+$IVm = Dm
+$IVM7 = DM7
+$IV6 = D6
+$IVm6 = Dm6
+$IVmM7 = DmM7
+$IVm7 = Dm7
+$#IVm7(&5) = D#m7(&5)
+$#IV% = D#%
+$V = E
+$V7 = E7
+$&VI = F
+$&VI6 = F6
+$&VI7 = F7
+$&VIM7 = FM7
+$VIm = F#m
+$VIm7 = F#m7
+$&VII = G
+$&VIIM7 = GM7
+$VIIm(&5) = G#m(&5)
+$VIIm7(&5) = G#m7(&5)
+$VII% = G#%
+ ----Secondary Dominant Chord----
+$I7 = A7
+$II7 = B7
+$III7 = C#7
+$IV7 = D7
+$VI7 = F#7
+$VII7 = G#7
+$key = "A_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ #### E_Major F#,C#,G#,D#
+$1:E_Major E_dur
+$I = E
+$I6 = E6
+$IM7 = EM7
+$&II7 = F7
+$&IIM7 = FM7
+$IIm = F#m
+$IIm7 = F#m7
+$IIm7(&5) = F#m7(&5)
+$II% = F#%
+$IIIm = G#m
+$IIIm7 = G#m7
+$IIIm7(&5) = G#m7(&5)
+$III% = G#%
+$IV = A
+$IVm = Am
+$IVM7 = AM7
+$IV6 = A6
+$IVm6 = Am6
+$IVmM7 = AmM7
+$IVm7 = Am7
+$#IVm7(&5) = A#m7(&5)
+$#IV% = A#%
+$V = B
+$V7 = B7
+$&VI = C
+$&VI6 = C6
+$&VI7 = C7
+$&VIM7 = CM7
+$VIm = C#m
+$VIm7 = C#m7
+$&VII = D
+$&VIIM7 = DM7
+$VIIm(&5) = D#m(&5)
+$VIIm7(&5) = D#m7(&5)
+$VII% = D#%
+ ----Secondary Dominant Chord----
+$I7 = E7
+$II7 = F#7
+$III7 = G#7
+$IV7 = A7
+$VI7 = C#7
+$VII7 = D#7
+$key = "E_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ ##### B_Major F#,C#,G#,D#,A#
+$1:B_Major H_dur
+$I = B
+$I6 = B6
+$IM7 = BM7
+$&II7 = C7
+$&IIM7 = CM7
+$IIm = C#m
+$IIm7 = C#m7
+$IIm7(&5) = C#m7(&5)
+$II% = C#%
+$IIIm = D#m
+$IIIm7 = D#m7
+$IIIm7(&5) = D#m7(&5)
+$III% = D#%
+$IV = E
+$IVm = Em
+$IVM7 = EM7
+$IV6 = E6
+$IVm6 = Em6
+$IVmM7 = EmM7
+$IVm7 = Em7
+$#IVm7(&5) = E#m7(&5)
+$#IV% = E#%
+$V = F#
+$V7 = F#7
+$&VI = G
+$&VI6 = G6
+$&VI7 = G7
+$&VIM7 = GM7
+$VIm = G#m
+$VIm7 = G#m7
+$&VII = A
+$&VIIM7 = AM7
+$VIIm(&5) = A#m(&5)
+$VIIm7(&5) = A#m7(&5)
+$VII% = A#%
+ ----Secondary Dominant Chord----
+$I7 = B7
+$II7 = C#7
+$III7 = D#7
+$IV7 = E7
+$VI7 = G#7
+$VII7 = A#7
+$key = "B_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ ###### F#_Major F#,C#,G#,D#,A#,E#
+$1:F#_Major Fis_dur
+$I = F#
+$I6 = F#6
+$IM7 = F#M7
+$&II7 = G7
+$&IIM7 = GM7
+$IIm = G#m
+$IIm7 = G#m7
+$IIm7(&5) = G#m7(&5)
+$II% = G#%
+$IIIm = A#m
+$IIIm7 = A#m7
+$IIIm7(&5) = A#m7(&5)
+$III% = A#%
+$IV = B
+$IVm = Bm
+$IVM7 = BM7
+$IV6 = B6
+$IVm6 = Bm6
+$IVmM7 = BmM7
+$IVm7 = Bm7
+$#IVm7(&5) = B#m7(&5)
+$#IV% = B#%
+$V = C#
+$V7 = C#7
+$&VI = D
+$&VI6 = D6
+$&VI7 = D7
+$&VIM7 = DM7
+$VIm = D#m
+$VIm7 = D#m7
+$&VII = E
+$&VIIM7 = EM7
+$VIIm(&5) = E#m(&5)
+$VIIm7(&5) = E#m7(&5)
+$VII% = E#%
+ ----Secondary Dominant Chord----
+$I7 = F#7
+$II7 = G#7
+$III7 = A#7
+$IV7 = B7
+$VI7 = D#7
+$VII7 = E#7
+$key = "F#_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ ####### C#_Major F#,C#,G#,D#,A#,E#,B#
+$1:C#_Major Cis_dur
+$I = C#
+$I6 = C#6 
+$IM7 = C#M7
+$&II7 = D7
+$&IIM7 = DM7
+$IIm = D#m
+$IIm7 = D#m7
+$IIm7(&5) = D#m7(&5)
+$II% = D#%
+$IIIm = E#m
+$IIIm7 = E#m7
+$IIIm7(&5) = E#m7(&5)
+$III% = E#%
+$IV = F#
+$IVm = F#m
+$IVM7 = F#M7
+$IV6 = F#6
+$IVm6 = F#m6
+$IVmM7 = F#mM7
+$IVm7 = F#m7
+$#IVm7(&5) = Gm7(&5)
+$#IV% = G%
+$V = G#
+$V7 = G#7
+$&VI = A
+$&VI6 = A6
+$&VI7 = A7
+$&VIM7 = AM7
+$VIm = A#m
+$VIm7 = A#m7
+$&VII = B
+$&VIIM7 = BM7
+$VIIm(&5) = B#m(&5)
+$VIIm7(&5) = B#m7(&5)
+$VII% = B#%
+ ----Secondary Dominant Chord----
+$I7 = C#7
+$II7 = D#7
+$III7 = E#7
+$IV7 = F#7
+$VI7 = A#7
+$VII7 = B#7
+$key = "C#_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ & F_Major B&
+$1:F_Major F_dur
+$I = F
+$I6 = F6
+$IM7 = FM7
+$&II7 = G&7
+$&IIM7 = G&M7
+$IIm = Gm
+$IIm7 = Gm7
+$IIm7(&5) = Gm7(&5)
+$II% = G%
+$IIIm = Am
+$IIIm7 = Am7
+$IIIm7(&5) = Am7(&5)
+$III% = A%
+$IV = B&
+$IVm = B&m
+$IVM7 = B&M7
+$IV6 = B&6
+$IVm6 = B&m6
+$IVmM7 = B&mM7
+$IVm7 = B&m7
+$#IVm7(&5) = Bm7(&5)
+$#IV% = B%
+$V = C
+$V7 = C7
+$&VI = D&
+$&VI6 = D&6
+$&VI7 = D&7
+$&VIM7 = D&M7
+$VIm = Dm
+$VIm7 = Dm7
+$&VII = E&
+$&VIIM7 = E&M7
+$VIIm(&5) = Em(&5)
+$VIIm7(&5) = Em7(&5)
+$VII% = E%
+ ----Secondary Dominant Chord----
+$I7 = F7
+$II7 = G7
+$III7 = A7
+$IV7 = B&7
+$VI7 = D7
+$VII7 = E7
+$key = "F_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ && B&_Major B&,E&
+$1:B&_Major B_dur
+$I = B&
+$I6 = B&6
+$IM7 = B&M7
+$&II7 = C&7
+$&IIM7 = C&M7
+$IIm = Cm
+$IIm7 = Cm7
+$IIm7(&5) = Cm7(&5)
+$II% = C%
+$IIIm = Dm
+$IIIm7 = Dm7
+$IIIm7(&5) = Dm7(&5)
+$III% = D%
+$IV = E&
+$IVm = E&m
+$IVM7 = E&M7
+$IV6 = E&6
+$IVm6 = E&m6
+$IVmM7 = E&mM7
+$IVm7 = E&m7
+$#IVm7(&5) = Em7(&5)
+$#IV% = E%
+$V = F
+$V7 = F7
+$&VI = G&
+$&VI6 = G&6
+$&VI7 = G&7
+$&VIM7 = G&M7
+$VIm = Gm
+$VIm7 = Gm7
+$&VII = A&
+$&VIIM7 = A&M7
+$VIIm(&5) = Am(&5)
+$VIIm7(&5) = Am7(&5)
+$VII% = A%
+ ----Secondary Dominant Chord----
+$I7 = B&7
+$II7 = C7
+$III7 = D7
+$IV7 = E&7
+$VI7 = G7
+$VII7 = A7
+$key = "B&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ &&& E&_Major B&,E&,A&
+$1:E&_Major Es_dur
+$I = E&
+$I6 = E&6
+$IM7 = E&M7
+$&II7 = F&7
+$&IIM7 = F&M7
+$IIm = Fm
+$IIm7 = Fm7
+$IIm7(&5) = Fm7(&5)
+$II% = F%
+$IIIm = Gm
+$IIIm7 = Gm7
+$IIIm7(&5) = Gm7(&5)
+$III% = G%
+$IV = A&
+$IVm = A&m
+$IVM7 = A&M7
+$IV6 = A&6
+$IVm6 = A&m6
+$IVmM7 = A&mM7
+$IVm7 = A&m7
+$#IVm7(&5) = Am7(&5)
+$#IV% = A%
+$V = B&
+$V7 = B&7
+$&VI = C&
+$&VI6 = C&6
+$&VI7 = C&7
+$&VIM7 = C&M7
+$VIm = Cm
+$VIm7 = Cm7
+$&VII = D&
+$&VIIM7 = D&M7
+$VIIm(&5) = Dm(&5)
+$VIIm7(&5) = Dm7(&5)
+$VII% = D%
+ ----Secondary Dominant Chord----
+$I7 = E&7
+$II7 = F7
+$III7 = G7
+$IV7 = A&7
+$VI7 = C7
+$VII7 = D7
+$key = "E&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ &&&& A&_Major B&,E&,A&,D&
+$1:A&_Major As_dur
+$I = A&
+$I6 = A&6
+$IM7 = A&M7
+$&II7 = A7
+$&IIM7 = AM7
+$IIm = B&m
+$IIm7 = B&m7
+$IIm7(&5) = B&m7(&5)
+$II% = B&%
+$IIIm = Cm
+$IIIm7 = Cm7
+$IIIm7(&5) = Cm7(&5)
+$III% = C%
+$IV = D&
+$IVm = D&m
+$IVM7 = D&M7
+$IV6 = D&6
+$IVm6 = D&m6
+$IVmM7 = D&mM7
+$IVm7 = D&m7
+$#IVm7(&5) = Dm7(&5)
+$#IV% = D%
+$V = E&
+$V7 = E&7
+$&VI = F&
+$&VI6 = F&6
+$&VI7 = F&7
+$&VIM7 = F&M7
+$VIm = Fm
+$VIm7 = Fm7
+$&VII = G&
+$&VIIM7 = G&M7
+$VIIm(&5) = Gm(&5)
+$VIIm7(&5) = Gm7(&5)
+$VII% = G%
+ ----Secondary Dominant Chord----
+$I7 = A&7
+$II7 = B&7
+$III7 = C7
+$IV7 = D&7
+$VI7 = F7
+$VII7 = G7
+$key = "A&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ &&&&& D&_Major B&,E&,A&,D&,G&
+$1:D&_Major Des_dur
+$I = D&
+$I6 = D&6
+$IM7 = D&M7
+$&II7 = D7
+$&IIM7 = DM7
+$IIm = E&m
+$IIm7 = E&m7
+$IIm7(&5) = E&m7(&5)
+$II% = E&%
+$IIIm = Fm
+$IIIm7 = Fm7
+$IIIm7(&5) = Fm7(&5)
+$III% = F%
+$IV = G& 
+$IVm = G&m
+$IVM7 = G&M7
+$IV6 = G&6
+$IVm6 = G&m6
+$IVmM7 = G&mM7
+$IVm7 = G&m7
+$#IVm7(&5) = Gm7(&5)
+$#IV% = G%
+$V = A&
+$V7 = A&7
+$&VI = A
+$&VI6 = A6
+$&VI7 = A7
+$&VIM7 = AM7
+$VIm = B&m
+$VIm7 = B&m7
+$&VII = C&
+$&VIIM7 = C&M7
+$VIIm(&5) = Cm(&5)
+$VIIm7(&5) = Cm7(&5)
+$VII% = C%
+$VII% = C%
+ ----Secondary Dominant Chord----
+$I7 = D&7
+$II7 = E&7
+$III7 = F7
+$IV7 = G&7
+$VI7 = B&7
+$VII7 = C7
+$key = "D&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ &&&&&& G&_Major B&,E&,A&,D&,G&,C&
+$1:G&_Major Ges_dur
+$I = G&  
+$I6 = G&6
+$IM7 = G&M7
+$&II7 = G7
+$&IIM7 = GM7
+$IIm = A&m
+$IIm7 = A&m7
+$IIm7(&5) = A&m7(&5)
+$II% = A&%
+$IIIm = B&m
+$IIIm7 = B&m7
+$IIIm7(&5) = B&m7(&5)
+$III% = B&%
+$IV = C&
+$IVm = C&m
+$IVM7 = C&M7
+$IV6 = C&6
+$IVm6 = C&m6
+$IVmM7 = C&mM7
+$IVm7 = C&m7
+$#IVm7(&5) = Cm7(&5)
+$#IV% = C%
+$V = D&
+$V7 = D&7
+$&VI = D
+$&VI6 = D6
+$&VI7 = D7
+$&VIM7 = DM7
+$VIm = E&m
+$VIm7 = E&m7
+$&VII = F&
+$&VIIM7 = F&M7
+$VIIm(&5) = Fm(&5)
+$VIIm7(&5) = Fm7(&5)
+$VII% = F%
+ ----Secondary Dominant Chord----
+$I7 = G&7
+$II7 = A&7
+$III7 = B&7
+$IV7 = C&7
+$VI7 = E&7
+$VII7 = F7
+$key = "G&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+$1:END
+
+ &&&&&&& C&_Major B&,E&,A&,D&,G&,C&,F&
+$1:C&_Major Ces_dur
+$I = C&
+$I6 = C&6
+$IM7 = C&M7
+$&II7 = C7
+$&IIM7 = CM7
+$IIm = D&m
+$IIm7 = D&m7
+$IIm7(&5) = D&m7(&5)
+$II% = D&%
+$IIIm = Cm
+$IIIm7 = E&m7
+$IIIm7(&5) = E&m7(&5)
+$III% = E&%
+$IV = F&
+$IVm = F&m
+$IVM7 = F&M7
+$IV6 = F&6
+$IVm6 = F&m6
+$IVmM7 = F&mM7
+$IVm7 = F&m7
+$#IVm7(&5) = Fm7(&5)
+$#IV% = F%
+$V = G&
+$V7 = G&7
+$&VI = G
+$&VI6 = G6
+$&VI7 = G7
+$&VIM7 = GM7
+$VIm = A&m
+$VIm7 = A&m7
+$&VII = A
+$&VIIM7 = AM7
+$VIIm(&5) = B&m(&5)
+$VIIm7(&5) = B&m7(&5)
+$VII% = B&%
+ ----Secondary Dominant Chord----
+$I7 = C&7
+$II7 = D&7
+$III7 = E&7
+$IV7 = F&7
+$VI7 = A&7
+$VII7 = B&7
+$key = "C&_Major [$IM7,$IIm7,$IIIm7,$IVM7,$V7,$VIm7,$VII%]"
+
+$1:END
+
+ ----Major Code Progression----
+ I -> IV,(IVm),VIm,IIIm
+ I6 -> V7
+ IM7 -> V7
+ IIm -> VII%
+ IIm7 -> I,I6,IM7,IIIm7,VIm7,V7
+ IIIm
+ IIIm7 -> V7
+ IV(IVm) -> V7,I,VII%,IIm,IIIm
+ IVm -> I,IIm
+ IVM7 -> I,I6,IM7
+ IV6 -> I,I6,IM7
+ V
+ V7(IIm7$V7) -> I,I6,IM7,IIIm7,VIm7,IIm,Iv
+ VIm -> IIm
+ VIm7 -> V7,VIIm7(&5)
+ VIIm(&5)
+ VIIm7(&5) -> I,I6,IM7,IIIm7
+ VII%=VIIm7(&5) -> IIIm
+
+$2:T-D
+?T-D [I,I6,IM7,IIIm7,VIm7] Tonic -> Dominant
+$2:I = "I $I $4:M $3:M -> V7"
+$2:I6 = "I6 $I6 $4:6 $3:6 -> V7"
+$2:IM7 = "IM7 $IM7 $4:M7 $3:M7 -> V7"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> [][V7]"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> [V7][VIIm7(&5)]"
+$2:END
+
+$2:D-T
+?D-T [V7,VIIm7(&5),VII%] Dominant -> Tonic
+$2:V7 = "V7 $V7 $4:7 $3:7 -> I,I6,IM7,IIIm7,VIm7"
+$2:VIIm7(&5) = "VIIm7(&5) $VIIm7(&5) $4:m7(&5) $3:m7(&5) -> I,I6,IM7,IIIm7"
+$2:VII% = "VII% $VII% $4:% $3:% -> I,I6,IM7,IIIm7"
+$2:END
+
+$2:T-SD
+?T-SD [I,I6,IM7,IIIm7,VIm7] Tonic -> Subdominant
+$2:I = "I $I $4:M $3:M -> IV,IV6,IVM7,IIm7,VIm7"
+$2:I6 = "I6 $I6 $4:6 $3:6 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:IM7 = "IM7 $IM7 $4:M7 $3:M7 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> IV,IV6,IVM7,IIm7"
+$2:END
+
+$2:SD-T
+?SD-T [IV,IV6,IV7,IVM7,IIm7,VIm7] Subdominant -> Tonic
+$2:IV = "IV $IV $4:M $3:M -> I,I6,IM7,IIIm7,VIm7"
+$2:IV6 = "IV6 $IV6 $4:6 $3:6 -> I,I6,IM7,IIIm7,VIm7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 (Bluenote) -> I,IIIm7"
+$2:IVM7 = "IVM7 $IVM7 $4:M7 $3:M7 -> I,I6,IM7,IIIm7,VIm7"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 -> I,I6,IM7,IIIm7,VIm7"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> I,I6,IM7,IIIm7"
+$2:END
+
+$2:SD-D
+?SD-D [IV,IV6,IVM7,IV7,IIm7,VIm7] Subdominant -> Dominant
+$2:IV = "IV $IV $4:M $3:M -> V7,VIIm7(&5)"
+$2:IV6 = "IV6 $IV6 $4:6 $3:6 -> V7,VIIm7(&5)"
+$2:IVM7 = "IVM7 $IVM7 $4:M7 $3:M7 -> V7,VIIm7(&5)"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 (Bluenote) -> V7"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 -> V7(Two Five),VIIm7(&5)"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> V7,VIIm7(&5)"
+$2:END
+
+$2:D-SD
+?D-SD [V7] Dominant -> Subdominant
+$2:V7 = "V7 $V7 $4:7 $3:7 -> IV,IV6,IVM7,IV7(Bluenote)"
+$2:END
+
+$2:T-T
+?T-T [I,I6,IM7,IIIm7,VIm7] Tonic -> Tonic
+$2:I = "I $I $4:M $3:M -> IIIm7,VIm7"
+$2:I6 = "I6 $I6 $4:6 $3:6 -> IIIm7,VIm7"
+$2:IM7 = "IM7 $IM7 $4:7 $3:7 -> IIIm7,VIm7"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> VIm7,I,I6,IM7"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> IIIm7,I,I6,IM7"
+$2:END
+
+$2:SD-SD
+?SD-SD [IV,IV6,IVM7,IIm7,VIm7] Subdominant -> Subdominant
+$2:IV = "IV $IV $4:M $3:M -> IIm7,VIm7"
+$2:IV6 = "IV6 $IV6 $4:6 $3:6 -> IIm7,VIm7"
+$2:IVM7 = "IVM7 $IVM7 $4:M7 $3:M7 -> IIm7,VIm7"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 -> VIm7,IV,IV6,IVM7"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> IIm7,IV,IV6,IVM7"
+$2:END
+
+?2+ [$I--$IIm7--$IIIm7--$IV--$V7--$VIm7..$VIIm7(&5)..$I]
+?2- [$I--$VIIm7(&5)..$VIm7__$V7__$IV--$IIIm7..$Bm7(&5)--$I]
+?3+ [$I--$IIIm7..$V7..$VIIm7(&5)  $IIm7__$IV__$VIm7__$I]
+?3- [$I--$VIm7--$IV--$IIm7..$VIIm7(&5)..$V7--$IIIm7..$I]
+?4+ [$I--$IV--$VIIm7(&5)..$IIIm7--$VIm7--$IIm7--$V7--$I]
+?5- [$I--$IV--$VIIm7(&5)..$IIIm7--$VIm7--$IIm7--$V7--$I]
+?4- [$I--$V7__$IIm7__$VIm7__$IIIm7..$VIIm7(&5)..$IV--$I]
+?5+ [$I--$V7__$IIm7__$VIm7__$IIIm7..$VIIm7(&5)..$IV--$I]
+
+$2:SM-T
+?SM-T [IVm,IIm7(&5),&VI,&VIM7,&VII7] Subdominant Minor -> Tonic
+$2:IVm = "IVm $IVm $4:m $3:m -> I,I6,IM7,IIIm7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> I,I6,IM7"
+$2:II% = "II% $II% $4:% $3:% -> I,I6,IM7"
+$2:&VI = "&VI $&VI $4:M $3:M -> I,I6,IM7"
+$2:&VIM7 = "&VIM7 $&VIM7 $4:M7 $3:M7 -> I,I6,IM7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> I,I6,IM7,VIm7,[IIIm7]"
+$2:END
+
+$2:T-SM
+?T-SM [I,I6,IM7,IIIm7,VIm7] Tonic -> Subdominant Minor
+$2:I = "I $I $4:M $3:M -> IVm,6,m7,mM7,IIm7(&5),&VI,M7,&VII7"
+$2:I6 = "I6 $I6 $4:6 $3:6 -> IVm,6,7,mM7,IIm7(&5),&VI,M7,&VII7"
+$2:IM7 = "IM7 $IM7 $4:M7 $3:M7 -> IVm,6,7,mM7,IIm7(&5),&VI,M7,&VII7"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> [IVm,m6,m7,mM7,IIm7(&5),&VI,M7,&VII7]"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> IVm,6,7,M7,IIm7(&5),&VI,M7,[&VII7]"
+$2:END
+
+$2:D-SM
+?D-SM [V7] Dominant -> Subdominant Minor
+$2:V7 = "V7 $V7 $4:7 $3:7 -> [IVm,IVm6,IVm7,IVmM7]"
+$2:END
+
+$2:SM-D
+?SM-D [IVm,IVm6,IVm7,IVmM7,IIm7(&5),VI,VIM7,VII7] Subdominant Minor -> Dominant
+$2:IVm = "IVm $IVm $4:m $3:m -> V7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 -> V7"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 -> V7"
+$2:IVmM7 = "IVmM7 $IVmM7 $4:mM7 $3:mM7 -> V7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> V7"
+$2:II% = "II% $II% $4:% $3:% -> V7"
+$2:VI = "VI $VI $4:M $3:M -> V7"
+$2:VIM7 = "VIM7 $VIM7 $4:M7 $3:M7 -> V7"
+$2:VII7 = "VII7 $VII7 $4:7 $3:7 -> V7"
+$2:END
+
+$2:S-SM
+?S-SM [IV,IV6,IVM7,IV7,IIm7,VIm7] Subdominant -> Subdominant Minor
+$2:IV = "IV $IV $4:M $3:M -> IVm,IVm6,IVmM7"
+$2:IV6 = "IV6 $IV6 $4:6 $3:6 -> IVm,6,mM7,IIm7(&5),&VI,6,&VIM7,&VII7"
+$2:IVM7 = "IVM7 $IVM7 $4:M7 $3:M7 -> IVm,m6,mM7,IIm7(&5),&VI,6,&VIM7,&VII7"
+$2:IV7 = "IV7 $IV7 $4:7 $3:7 (Bluenote) -> IVm7,IIm7(&5),&VI,&VII7"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 -> IVm,m6,mM7,IIm7(&5),&VII7,[&VI,6,M7]"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> IVm,m6,mM7,IIm7(&5),&VI,6,M7,[&VII7]"
+$2:END
+
+$2:SM-S
+?SM-S [IVm,IVm6,IVm7,IVmM7,IIm7(&5),&VI,&VII7] Subdominant Minor -> Subdominant
+$2:IVm = "IVm $IVm $4:m $3:m -> IV,6,M7,IIm7,VIm7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:IVmM7 = "IVmM7 $IVmM7 $4:mM7 $3:mM7 -> IV,IV6,IVM7,IIm7,VIm7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> IV,6,M7,IIm7,VIm7"
+$2:II% = "II% $II% $4:% $3:% -> IV,6,M7,IIm7,VIm7"
+$2:&VI = "&VI $&VI $4:M $3:M -> IV,IV6,IVM7,VIm7,[IIm7]"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> IV,IV6,IVM7,IIm7,[VIm7]"
+$2:END
+
+$2:SM-SM
+?SM-SM [IVm,IVm6,IVm7,IVmM7,IIm7(&5),&VI,&VII7] Subdominant Minor -> SM
+$2:IVm = "IVm $IVm $4:m $3:m -> IIm7(&5),&VI,6,M7,&VII7"
+$2:IVm6 = "IVm6 $IVm6 $4:m6 $3:m6 -> IIm7(&5),&VI,6,M7,&VII7"
+$2:IVm7 = "IVm7 $IVm7 $4:m7 $3:m7 -> IIm7(&5),&VI,6,M7,&VII7"
+$2:IVmM7 = "IVmM7 $IVmM7 $4:mM7 $3:mM7 -> IIm7(&5),&VI,6,M7,&VII7"
+$2:IIm7(&5) = "IIm7(&5) $IIm7(&5) $4:m7(&5) $3:m7(&5) -> IVm.,&VII7[&VI.&VIM7]"
+$2:II% = "II% $II% $4:% $3:% -> IVm.,&VII7[&VI.&VIM7]"
+$2:II% = "$II% $II $4:% $3:%  ->IVm,m6,m7,mM7,&VII7,[&VI,6,&VIM7]"
+$2:&VI = "&VI $&VI $4:M $3:M -> IIm7(&5),IVm,m6,m7,mM7,&VII7"
+$2:&VII7 = "&VII7 $&VII7 $4:7 $3:7 -> [&VI,6,M7][IIm7(&5),IVm,m6,m7,mM7]"
+$2:END
+
+$2:Dominant_Motion
+?Dominant_motion [I7,II7,III7,VI7,VII7,V7] -> Dominant
+$2:I7 = "I7 $I7 $4:7 $3:7 -> IV,IVm,IV7"
+$2:II7 = "II7 $II7 $4:7 $3:7 -> V7,IV,IVm(SM),IIm7,II%  Double Dominant"
+$2:III7 = "III7 $III7 $4:7 $3:7 -> VIm7,VI7"
+$2:VI7 = "VI7 $VI7 $4:7 $3:7 -> IIm7,II7"
+$2:VII7 = "VII7 $VII7 $4:7 $3:7 -> IIIm7,III7"
+$2:V7 = "V7 $V7 $4:7 $3:7 -> I,I7"
+$2:END
+
+$2:2-5
+?2-5 Vm7-I7,VIm7-II7,VIIm7(&5)-III7,Im7-IV7,IIIm7-VI7,#IVm7(&5)-VII7 Two Five
+$2:Vm7 = "Vm7 $Vm7 $4:m7 $3:m7 -> I7"
+$2:VIm7 = "VIm7 $VIm7 $4:m7 $3:m7 -> II7"
+$2:VIIm7(&5) = "VIIm7(&5) $VIIm7(&5) $4:m7(&5) $3:m7(&5) -> III7"
+$2:VII% = "VII% $VII% $4:% $3:% -> III7"
+$2:Im7 = "Im7 $Im7 $4:m7 $3:m7 -> IV7"
+$2:IIm7 = "IIm7 $IIm7 $4:m7 $3:m7 -> V7  Two Five"
+$2:IIIm7 = "IIIm7 $IIIm7 $4:m7 $3:m7 -> VI7"
+$2:#IVm7(&5) = "#IVm7(&5) $#IVm7(&5) $4:m7(&5) $3:m7(&5) -> VII7"
+$2:#IV% = "#IV% $#IV% $4:% $3:% -> VII7"
+$2:END
+
+$3:Default_Root
+$3:M = Root+M3+P5
+$3:m = Root+m3+P5
+$3:dim = Root+m3+dim5
+$3:aug = Root+M3+aug5
+$3:M7 = Root+M3+P5+M7
+$3:7 = Root+M3+P5+m7
+$3:m7 = Root+m3+P5+m7
+$3:% = Root+m3+dim5+m7
+$3:m7(&5) = Root+m3+dim5+m7
+$3:dim7 = Root+m3+dim5+dim7
+$3:mM7 = Root+m3+P5+M7
+$3:6 = Root+M3+P5+M6
+$3:m6 = Root+m3+P5+M6
+$3:69 = Root+M3+P5+M6+M9
+$3:m69 = Root+m3+P5+M6+M9
+$3:sus4 = Root+P4+P5
+$3:7sus4 = Root+P4+P5+m7
+$3:M9 = Root+M3+P5+M7+M9
+$3:m9 = Root+m3+P5+m7+M9
+$3:9 = Root+M3+P5+m7+M9
+$3:7&9 = Root+M3+P5+m7+m9
+$3:7+5 = Root+M3+aug5+m7
+$3:7&5 = Root+M3+dim5+m7
+$3:add9 = Root+M3+P5+M9
+$3:END
+
+$4:Default_Name
+$4:M = "Major chord,"
+$4:m = "Minor chord,"
+$4:dim = "Diminished chord,"
+$4:aug = "Augmented chord,"
+$4:M7 = "Major 7th chord,"
+$4:7 = "Dominant 7th chord,"
+$4:m7 = "Minor 7th chord,"
+$4:m7(&5) = "Half Diminished chord,"
+$4:% = "Half Diminished chord,"
+$4:dim7 = "Diminished 7th chord,"
+$4:mM7 = "Minor Major 7th chord,"
+$4:6 = "Major 6th chord,"
+$4:m6 = "Minor 6th chord,"
+$4:69 = "Major 6th 9th chord,"
+$4:m69 = "Minor 6th 9th chord,"
+$4:sus4 = "Suspended fourth chord,"
+$4:7sus4 = "Dominant 7th with suspended 4th chord,"
+$4:M9 = "Major 9th chord,"
+$4:m9 = "Minor 9th chord,"
+$4:9 = "Dominant 9th chord,"
+$4:7&9 = "Dominant 7th with flatted 9th chord,"
+$4:7+5 = "Dominant 7th with augmented 5th chord,"
+$4:7&5 = "Dominant 7th with flatted 5th chord,"
+$4:add9 = "Added 9th chord"
+$4:END
+
+$5:Default_Note
+$5:M = ". . ."
+$5:m = ". & ."
+$5:dim = ". & &"
+$5:aug = ". . #"
+$5:M7 = ". . . ."
+$5:7 = ". . . &"
+$5:m7 = ". & . &"
+$5:m7(&5) = ". & & ."
+$5:% = ". & & ."
+$5:dim7 = ". & & &"
+$5:mM7 = ". & . ."
+$5:6 = ". . .."
+$5:m6 = ". & .."
+$5:69 = ". . .. ."
+$5:m69 = ". & .. ."
+$5:sus4 = ". # ."
+$5:7sus4 = ". # . &"
+$5:M9 = ". . . . ."
+$5:m9 = ". & . & ."
+$5:9 = ". . . & ."
+$5:7&9 = ". . . & &"
+$5:7+5 = ". . # &"
+$5:7&5 = ". . & &"
+$5:add9 = ". . .   ."
+$5:END 
+
+?key = $1:key
+
+?I = $2:I
+?I6 = $2:I6
+?IM7 = $2:IM7
+?I7 = $2:I7
+
+?IIm = $2:IIm
+?IIm7 = $2:IIm7
+?IIm7(&5) = $2:IIm7(&5)
+?II% = $2:II%
+?II7 = $2:II7
+?&IIM7 = $2:&IIM7
+?&II7 = $2:&II7
+
+?IIIm =$2:IIIm
+?IIIm7 = $2:IIIm7 
+?III7 = $2:III7
+?IIIm7(&5) = $3:IIIm7(&5)
+?III% = $3:III%
+
+?IV = $2:IV(IVm) 
+?IVm = $2:IVm
+?IVm6 = $2:IVm6
+?IVmM7 = $2:IVmM7
+?IVm7 = $2:IVm7
+?IVM7 =$2:IVM7
+?IV6 =$2:IV6
+?IV7 = $2:IV7
+?#IVm7(&5) = $2:$#IVm7(&5)
+?#IV% = $2:#IV%
+
+?V =$2:V
+?V7 = $2:V7
+
+?&VI = $2:&VI
+?VIm = $2:VIm
+?VIm7 = $2:VIm7
+?IV7 = $2:VI7
+?&VI = $2:&VI
+?&VI6 = $2:&VI6
+?&VI7 = $2:&VI7
+?&VIM7 = $2:&VIM7
+
+?&VII7 = $2:&VII7
+?&VIIM7 = $2:&VIIM7
+?VIIm(&5) =$2:VIIm(&5)
+?VIIm7(&5) = $2:VIIm7(&5)
+?VII% = $2:VII%
+?VII7 = $2:VII7
+$2:END
+$0:END
+
+-s0000001 p.v. mod cn:cdt pcg tp1______2______*______4______5______6 velo P_Exp
+ I C Root+M3+P5                        . . .                         .... ._...
+%C  _/       0   0  0:  0 ...  0       . . .                         12.8 ._...
+ 

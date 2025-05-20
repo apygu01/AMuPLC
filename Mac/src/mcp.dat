@@ -1,0 +1,33 @@
+mcp Source_file Target_file [Options]
+    Options : -a(Copy all files)
+              -m(Message)
+              -h(help)
+ usage: e.g. 
+
+ > mcp www ttt -m
+ mcp(1) Source = www Target = ttt
+ mcp(1) www.meg -> ttt.meg
+ mcp(2) www_000.meg -> ttt_000.meg
+ mcp(2) www_015.meg -> ttt_015.meg
+ mcp(2) www_019.meg -> ttt_019.meg
+ mcp(2) www_01e.meg -> ttt_01e.meg 
+
+
+ > mcp www ttt -a -m
+ mcp(1) Source = www Target = ttt
+ mcp(1) www.meg -> ttt.meg
+ mcp(1) www.meb -> ttt.meb
+ mcp(1) www.mex -> ttt.mex
+ mcp(2) www_000.meg -> ttt_000.meg
+ mcp(2) www_000.meb -> ttt_000.meb
+ mcp(2) www_000.mec -> ttt_000.mec
+ mcp(2) www_015.meg -> ttt_015.meg
+ mcp(2) www_015.meb -> ttt_015.meb
+ mcp(2) www_015.mec -> ttt_015.mec
+ mcp(2) www_019.meg -> ttt_019.meg
+ mcp(2) www_019.meb -> ttt_019.meb
+ mcp(2) www_019.mec -> ttt_019.mec
+ mcp(2) www_01e.meg -> ttt_01e.meg
+ mcp(2) www_01e.meb -> ttt_01e.meb
+ mcp(2) www_01e.mec -> ttt_01e.mec
+

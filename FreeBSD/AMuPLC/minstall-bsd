@@ -1,0 +1,28 @@
+# -- FreeBSD --
+#
+cp ../src/meg .
+cp ../src/meb .
+cp ../src/mec .
+cp ../src/mlk .
+cp ../src/mcp .
+cp ../src/mmv .
+cp ../src/mks .
+cp ../src/mkf .
+cp ../src/mnew .
+cp meg /usr/local/bin
+cp meb /usr/local/bin
+cp mec /usr/local/bin
+cp mlk /usr/local/bin
+cp mkf /usr/local/bin
+cp mcp /usr/local/bin
+cp mmv /usr/local/bin
+cp mks /usr/local/bin
+cp mnew /usr/local/bin
+#
+mkdir /usr/local/etc/tact
+cp ../src/m*.scr .
+cp ../src/m*.dat .
+cp ../src/mebnb.txt . 
+cp m*.scr /usr/local/etc/tact
+cp m*.dat /usr/local/etc/tact
+cp mebnb.txt /usr/local/etc/tact

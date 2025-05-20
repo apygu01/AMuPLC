@@ -1,0 +1,13 @@
+ Exp  Text                 Comment
+!VC1  Cresc.
+@volime 100 105 110 115 120 125
+
+!VC2  Dec.     
+@volime 125 120 115 110 105 100
+
+!EC1  Cresc.
+@expression 100 105 110 115 120 125
+
+!EC2  Dec.
+@expression 125 120 115 110 105 100
+

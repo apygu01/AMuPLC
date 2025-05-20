@@ -1,0 +1,46 @@
+ *****************************************************************************!
+      active port set                                                         !
+ titl num  acp c1  c2  c3  c4  c5  c6  c7  c8  c9 c10 c11 c12 c13 c14 c15 c16 !
+ titl : parameter name                                                        !
+      num : port number                                                       !
+           acp : port active on/off flag (0:off 1:on)                         !
+                 c1 - c16 : channe active on/off flag (0:off 1:on)            !
+                                                                              !
+  titl num acp  c1  c2  c3  c4  c5  c6  c7  c8  c9 c10 c11 c12 c13 c14 c15 c16!
+&p_set   0   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   2   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   3   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   4   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   5   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   6   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   7   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   8   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set   9   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set  10   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set  11   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+&p_set  12   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1!
+                                                                              !
+      define port number                                                      !
+                                                                              !
+&define emu232c_port 8                                                        !
+&define mpupc98_e0d0_port 0                                                   !
+&define mpupc98_e4d0_port 1                                                   !
+&define mpupc98_e8d0_port 2                                                   !
+&define mpupc98_ecd0_port 3                                                   !
+&define mpupc98_f0d0_port 4                                                   !
+&define mpupc98_f4d0_port 5                                                   !
+&define mpupc98_f8d0_port 6                                                   !
+&define mpupc98_fcd0_port 7                                                   !
+                                                                              !
+      syncronize port set                                                     !
+&define direct_time_lock_port 7                                               !
+&define midi_time_code_port 7                                                 !
+&define midi_time_code_type 3                                                 !
+&define esu_start_time 00:00:00/00                                            !
+                                                                              !
+&define esu_gen_delay_time 120                                                !
+&define esu_read_delay_time 105                                               !
+      120 = 1 sec                                                             !
+&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$!
+/*   <--- EOF
