@@ -1,5 +1,5 @@
 
- README.md 2025.5.20
+ README.md 2025.10.21
 
     AMuPLC 
 
@@ -7,7 +7,8 @@
  It is open-source and freely available on FreBSD(Linux etc.)
  Mac Windows, and RaspberryPi.
  AMuPLC presents supports Standerd Midi File and unique multi port MIDI file.
- It's fun to learn, and offers composers, musicians, educators,and researchers.
+ It's fun to learn, and offers composers, musicians, educators,and researchers
+ for building music.
 
  Welcome to AMuPLC!
 
